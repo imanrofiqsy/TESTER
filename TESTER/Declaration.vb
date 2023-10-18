@@ -1,4 +1,9 @@
-﻿Module GlobalVariable
+﻿Module Declaration
+    Public SCAN_MODE As String
+
+    Public LOAD_VAL As Integer = 0
+    Public LOAD_MSG As String
+
     Public PLC_READY As Integer = 1
     Public ADDR_PLC_READY As Integer = 40100
     Public RUNNING_STATE As Integer = 0
@@ -11,7 +16,17 @@
     Public LAST_PC_STATUS As Integer = 0
 
     Public ADDR_ALARM_GENERAL As Integer = 40005
-    Public ALARM_GENERAL
+    Public ALARM_GENERAL As Integer
+    Public ADDR_ALARM_STN2 As Integer = 40204
+    Public ALARM_STN2 As Integer
+    Public ADDR_ALARM_STN3 As Integer = 40304
+    Public ALARM_STN3 As Integer
+    Public ADDR_ALARM_STN4 As Integer = 40404
+    Public ALARM_STN4 As Integer
+    Public ADDR_ALARM_STN5 As Integer = 40504
+    Public ALARM_STN5 As Integer
+    Public ADDR_ALARM_STN6 As Integer = 40604
+    Public ALARM_STN6 As Integer
 
     Public USER_LEVEL As Integer
     Public REGISTER_TYPE As Integer = 3

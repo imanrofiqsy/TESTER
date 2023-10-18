@@ -1,15 +1,53 @@
 ﻿Imports System.Threading
 Public Class frmMain
     Dim Modbus = New Modbus()
+    Dim ThreadLoadFrm As Thread
+
+    Dim AssyBuff As String
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        initLoadingBar()
         btn_connect.PerformClick()
+        Hide()
+        UpdateLoadingBar(20, "Connecting to PLC")
+        Thread.Sleep(500)
         GetPCStatus(100) 'Software is open
         ShowPanelGeneral("home")
         ShowButtonSTN(0)
         ShowPanelManual("None")
+        UpdateLoadingBar(40, "Loading...")
+        Thread.Sleep(500)
+        UpdateLoadingBar(60, "Almost...")
+        Thread.Sleep(500)
+        GetPCStatus(110) 'Software is running
+        UpdateLoadingBar(100, "Load App GUI")
+        Thread.Sleep(500)
+        CloseLoadForm()
+        Show()
 
-        GetPCStatus(110)
+        Dim query = "Select * FROM ProductDatabase WHERE Reff = XE2SP2151N"
+        Dim dt = KoneksiDB.bacaData(query).Tables(0)
+        'lbl_pass.Text = dt.Rows(0).Item("LaserTemplate")
+
+        MainLoop.Enabled = True
     End Sub
+    'Loading Bar
+    Private Sub initLoadingBar()
+        ThreadLoadFrm = New Thread(New ThreadStart(AddressOf ProcessLoad))
+        ThreadLoadFrm.Start()
+    End Sub
+    Private Sub UpdateLoadingBar(value As Integer, msg As String)
+        LOAD_VAL = value
+        LOAD_MSG = msg
+    End Sub
+    Private Sub ProcessLoad()
+        Do
+            frmLoadingBar.ShowDialog()
+        Loop
+    End Sub
+    Private Sub CloseLoadForm()
+        ThreadLoadFrm.Abort()
+    End Sub
+
     Private Sub GetPCStatus(state As Integer)
         Select Case state
             Case 100
@@ -43,7 +81,7 @@ Public Class frmMain
         ShowPanelGeneral("manual")
         GetPCStatus(101)
     End Sub
-    Private Sub btn_setting_Click(sender As Object, e As EventArgs) Handles btn_setting.Click, btn_clear.Click
+    Private Sub btn_setting_Click(sender As Object, e As EventArgs) Handles btn_setting.Click
         ShowPanelGeneral("setting")
     End Sub
     Private Sub btn_monitoring_Click(sender As Object, e As EventArgs) Handles btn_monitoring.Click
@@ -103,6 +141,7 @@ Public Class frmMain
             If Modbus.ClosePort() Then
                 btn_connect.Text = "Connect"
                 connect_ind.Image = My.Resources.led_red_on
+                ind_plc_status.BackColor = Color.Red
                 ModbusRW.Enabled = False
             End If
         End If
@@ -1008,6 +1047,16 @@ Public Class frmMain
         'Alarm General
         ALARM_GENERAL = ReadFromModbus(REGISTER_TYPE, ADDR_ALARM_GENERAL)
         ReadAlarm(ALARM_GENERAL)
+        ALARM_STN2 = ReadFromModbus(REGISTER_TYPE, ADDR_ALARM_STN2)
+        ReadAlarmStn2(ALARM_STN2)
+        ALARM_STN3 = ReadFromModbus(REGISTER_TYPE, ADDR_ALARM_STN3)
+        ReadAlarmStn3(ALARM_STN3)
+        ALARM_STN4 = ReadFromModbus(REGISTER_TYPE, ADDR_ALARM_STN4)
+        ReadAlarmStn4(ALARM_STN4)
+        ALARM_STN5 = ReadFromModbus(REGISTER_TYPE, ADDR_ALARM_STN5)
+        ReadAlarmStn5(ALARM_STN5)
+        ALARM_STN6 = ReadFromModbus(REGISTER_TYPE, ADDR_ALARM_STN6)
+        ReadAlarmStn6(ALARM_STN6)
 
         'Check PLC
         If ReadFromModbus(REGISTER_TYPE, ADDR_PLC_READY) = PLC_READY Then
@@ -1020,30 +1069,25 @@ Public Class frmMain
         RUNNING_STATE = ReadFromModbus(REGISTER_TYPE, ADDR_RUNNING_STATE)
         Select Case RUNNING_STATE
             Case 0
-                lbl_running_state.Text = "..."
+                lbl_run_state.Text = "..."
             Case 1
-                lbl_running_state.Text = "Running"
+                lbl_run_state.Text = "RUNNING"
             Case 2
-                lbl_running_state.Text = "Stopping"
+                lbl_run_state.Text = "STOPPING"
             Case 3
-                lbl_running_state.Text = "Initialized"
+                lbl_run_state.Text = "INITIALIZED"
             Case 4
-                lbl_running_state.Text = "Emptying"
+                lbl_run_state.Text = "EMPTYING"
             Case 5
-                lbl_running_state.Text = "Emergency"
+                lbl_run_state.Text = "EMERGENCY"
         End Select
-        lbl_run_state.Text = lbl_running_state.Text.ToUpper
 
         'runnning Mode
         RUNNING_MODE = ReadFromModbus(REGISTER_TYPE, ADDR_RUNNING_MODE)
         Select Case RUNNING_MODE
             Case 1
-                ind_auto_mode.BackColor = Color.Lime
-                ind_manual_mode.BackColor = Color.Red
                 lbl_auto_man.Text = "AUTO"
             Case 2
-                ind_auto_mode.BackColor = Color.Red
-                ind_manual_mode.BackColor = Color.Lime
                 lbl_auto_man.Text = "MANUAL"
         End Select
 
@@ -1643,6 +1687,7 @@ Public Class frmMain
         PlcReading()
     End Sub
 
+    'panel home
     Private Sub btn_run_Click(sender As Object, e As EventArgs) Handles btn_run.Click
         GetPCStatus(110)
     End Sub
@@ -1707,5 +1752,124 @@ Public Class frmMain
         Else
             ind_emg_button.BackColor = Color.Red
         End If
+    End Sub
+    Private Sub ReadAlarmStn2(decimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_v201_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v201_descrepancy.BackColor = Color.Red
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_v202_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v202_descrepancy.BackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub ReadAlarmStn3(decimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_v301_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v301_descrepancy.BackColor = Color.Red
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_v302_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v302_descrepancy.BackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub ReadAlarmStn4(decimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_v401_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v401_descrepancy.BackColor = Color.Red
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_v402_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v402_descrepancy.BackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub ReadAlarmStn5(decimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_v501_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v501_descrepancy.BackColor = Color.Red
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_v502_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v502_descrepancy.BackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub ReadAlarmStn6(decimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_v601_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v601_descrepancy.BackColor = Color.Red
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_v602_descrepancy.BackColor = Color.Lime
+        Else
+            ind_v602_descrepancy.BackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub MainLoop_Tick(sender As Object, e As EventArgs) Handles MainLoop.Tick
+
+    End Sub
+
+    Private Sub BarcodeComm_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles BarcodeComm.DataReceived
+        If SCAN_MODE = 0 Then
+            'scanning References
+            AssyBuff = BarcodeComm.ReadExisting()
+            If InStr(1, AssyBuff, vbCrLf) <> 0 Then
+                Me.Invoke(Sub()
+                              lbl_ref.Text = AssyBuff
+                              AssyBuff = ""
+                              SCAN_MODE = 1
+                          End Sub)
+            End If
+        ElseIf SCAN_MODE = 1 Then
+            'scanning Operator ID
+            AssyBuff = BarcodeComm.ReadExisting()
+            If InStr(1, AssyBuff, vbCrLf) <> 0 Then
+                Me.Invoke(Sub()
+                              lbl_ope_id.Text = AssyBuff
+                              AssyBuff = ""
+                              SCAN_MODE = 2
+                          End Sub)
+            End If
+        ElseIf SCAN_MODE = 2 Then
+            'scanning PO number
+            AssyBuff = BarcodeComm.ReadExisting()
+            If InStr(1, AssyBuff, vbCrLf) <> 0 Then
+                Me.Invoke(Sub()
+                              lbl_po_num.Text = AssyBuff
+                              AssyBuff = ""
+                              SCAN_MODE = 3
+                          End Sub)
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click
+        SCAN_MODE = 0
+        lbl_ref.Text = "..."
+        lbl_ope_id.Text = "..."
+        lbl_po_num.Text = "..."
     End Sub
 End Class

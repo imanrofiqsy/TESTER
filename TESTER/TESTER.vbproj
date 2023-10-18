@@ -76,6 +76,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KoneksiDB.vb" />
+    <Compile Include="frmLoadingBar.Designer.vb">
+      <DependentUpon>frmLoadingBar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoadingBar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -83,7 +90,7 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GlobalVariable.vb" />
+    <Compile Include="Declaration.vb" />
     <Compile Include="Modbus.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -102,6 +109,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmLoadingBar.resx">
+      <DependentUpon>frmLoadingBar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>

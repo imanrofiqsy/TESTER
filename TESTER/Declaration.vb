@@ -1,10 +1,46 @@
 ﻿Module Declaration
-    Public SCAN_MODE As String
+    Public CNT_ST2 As Integer = 0
+    Public CNT_ST3 As Integer = 0
+    Public CNT_ST4 As Integer = 0
+    Public CNT_ST5 As Integer = 0
+
+    Public ADDR_ST_COMM2 As Integer = 40020
+    Public ST_COMM2 As Integer
+    Public ADDR_ST_COMM3 As Integer = 40021
+    Public ST_COMM3 As Integer
+    Public ADDR_ST_COMM4 As Integer = 40022
+    Public ST_COMM4 As Integer
+    Public ADDR_ST_COMM5 As Integer = 40023
+    Public ST_COMM5 As Integer
+
+    Public SCAN_MODE As Integer = 0
+    Public ACTION As Integer = 0
+    Public IS_RUN As Boolean = False
+
+    Public ADDR_ST2_MEASUREMENT As Integer = 47200
+    Public ADDR_ST3_RESISTANCE As Integer = 0
+    Public ADDR_ST4_P2_TRAVEL As Integer = 47202
+    Public ADDR_ST4_P3_TRAVEL As Integer = 47204
+    Public ADDR_DIFF_STR_RESULT As Integer = 47206
+    Public ADDR_ST4_T1 As Integer = 47208
+    Public ADDR_ST4_T2 As Integer = 47209
+    Public ADDR_COT As Integer = 47210
+    Public ADDR_UNSCREW_STATUS As Integer = 47211
+
+    Public ADDR_ACT_VAL As Integer = 47000
+    Public ADDR_ACT_VAL_TOL As Integer = 47002
+    Public ADDR_DIF_STR As Integer = 47004
+    Public ADDR_DIF_STR_TOL As Integer = 47006
+    Public ADDR_BEATING_TIMES As Integer = 47008
+    Public ADDR_CFG_FIRST_CONTACT As Integer = 47009
+    Public ADDR_CFG_SECOND_CONTACT As Integer = 47010
+    Public ADDR_UNSCREWING_PROCESS As Integer = 47011
+    Public ADDR_LASER_DATE_CODE As Integer = 47012
 
     Public LOAD_VAL As Integer = 0
     Public LOAD_MSG As String
 
-    Public PLC_READY As Integer = 1
+    Public PLC_READY As Integer = 0
     Public ADDR_PLC_READY As Integer = 40100
     Public RUNNING_STATE As Integer = 0
     Public ADDR_RUNNING_STATE As Integer = 40002
@@ -110,17 +146,20 @@
     Public ADDR_STN6_CYL3 As Integer = 45603
     Public ADDR_STN6_CYL4 As Integer = 45604
     Public ADDR_STN6_CYL5 As Integer = 45605
+    Public ADDR_STN6_CYL6 As Integer = 45606
 
     Public STN6_CYL1 As Integer = 0
     Public STN6_CYL2 As Integer = 0
     Public STN6_CYL3 As Integer = 0
     Public STN6_CYL4 As Integer = 0
     Public STN6_CYL5 As Integer = 0
+    Public STN6_CYL6 As Integer = 0
     Public LAST_STN6_CYL1 As Integer = 0
     Public LAST_STN6_CYL2 As Integer = 0
     Public LAST_STN6_CYL3 As Integer = 0
     Public LAST_STN6_CYL4 As Integer = 0
     Public LAST_STN6_CYL5 As Integer = 0
+    Public LAST_STN6_CYL6 As Integer = 0
 
     Public ADDR_STN1_SEN1 As Integer = 46101
     Public ADDR_STN1_SEN2 As Integer = 46102
@@ -152,4 +191,5 @@
     Public ADDR_STN6_SEN3 As Integer = 46603
     Public ADDR_STN6_SEN4 As Integer = 46604
     Public ADDR_STN6_SEN5 As Integer = 46605
+    Public ADDR_STN6_SEN6 As Integer = 46606
 End Module

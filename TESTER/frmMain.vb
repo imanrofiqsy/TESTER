@@ -1,4 +1,5 @@
 ﻿Imports System.Threading
+Imports System.Data.SqlClient
 Public Class frmMain
     Dim Modbus = New Modbus()
     Dim ThreadLoadFrm As Thread
@@ -8,27 +9,29 @@ Public Class frmMain
         initLoadingBar()
         btn_connect.PerformClick()
         Hide()
-        UpdateLoadingBar(20, "Connecting to PLC")
+        UpdateLoadingBar(20, "Connecting to PLC...")
         Thread.Sleep(500)
+
         GetPCStatus(100) 'Software is open
         ShowPanelGeneral("home")
         ShowButtonSTN(0)
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Loading...")
         Thread.Sleep(500)
-        UpdateLoadingBar(60, "Almost...")
+
+        'BarcodeComm.Open()
+        ST2.Enabled = True
+        ST3.Enabled = True
+        ST4.Enabled = True
+        ST5.Enabled = True
+        Status.Enabled = True
+        UpdateLoadingBar(60, "Creating Multithreading...")
         Thread.Sleep(500)
-        GetPCStatus(110) 'Software is running
+
         UpdateLoadingBar(100, "Load App GUI")
         Thread.Sleep(500)
         CloseLoadForm()
         Show()
-
-        Dim query = "Select * FROM ProductDatabase WHERE Reff = XE2SP2151N"
-        Dim dt = KoneksiDB.bacaData(query).Tables(0)
-        'lbl_pass.Text = dt.Rows(0).Item("LaserTemplate")
-
-        MainLoop.Enabled = True
     End Sub
     'Loading Bar
     Private Sub initLoadingBar()
@@ -44,6 +47,7 @@ Public Class frmMain
             frmLoadingBar.ShowDialog()
         Loop
     End Sub
+
     Private Sub CloseLoadForm()
         ThreadLoadFrm.Abort()
     End Sub
@@ -86,6 +90,9 @@ Public Class frmMain
     End Sub
     Private Sub btn_monitoring_Click(sender As Object, e As EventArgs) Handles btn_monitoring.Click
     End Sub
+    Private Sub btn_alarm_Click(sender As Object, e As EventArgs) Handles btn_alarm.Click
+        ShowPanelGeneral("alarm")
+    End Sub
 
     'Show Panel General
     Private Sub ShowPanelGeneral(mode As String)
@@ -107,6 +114,12 @@ Public Class frmMain
             pnl_setting.Visible = True
         Else
             pnl_setting.Visible = False
+        End If
+
+        If mode = "alarm" Then
+            pnl_alarm.Visible = True
+        Else
+            pnl_alarm.Visible = False
         End If
     End Sub
 
@@ -147,11 +160,19 @@ Public Class frmMain
         End If
     End Sub
     Private Sub btn_read_Click(sender As Object, e As EventArgs) Handles btn_read.Click
-        txtValue.Text = ReadFromModbus(REGISTER_TYPE, txtAddress.Text)
+        If cbo_data_type.Text = "FLOAT" Then
+            txtValue.Text = ReadFromModbusFloat(REGISTER_TYPE, txtAddress.Text)
+        ElseIf cbo_data_type.Text = "INT" Then
+            txtValue.Text = ReadFromModbus(REGISTER_TYPE, txtAddress.Text)
+        End If
     End Sub
 
     Private Sub btn_write_Click(sender As Object, e As EventArgs) Handles btn_write.Click
-        WriteToModbus(REGISTER_TYPE, txtAddress.Text, txtValue.Text)
+        If cbo_data_type.Text = "FLOAT" Then
+            WriteToModbusFloat(REGISTER_TYPE, Val(txtAddress.Text), Single.Parse(txtValue.Text))
+        ElseIf cbo_data_type.Text = "INT" Then
+            WriteToModbus(REGISTER_TYPE, Val(txtAddress.Text), txtValue.Text)
+        End If
     End Sub
 
     'Show Panel Manual
@@ -219,9 +240,17 @@ Public Class frmMain
     End Sub
 
     'Modbus Read Write
-    Private Sub WriteToModbus(RegType As Integer, Address As Integer, Value As Integer)
+    Private Sub WriteToModbus(RegType As Integer, Address As Integer, Value As String)
         Try
             Modbus.WriteData(RegType, Address, Value)
+        Catch ex As Exception
+            MsgBox("Modbus Error Write! " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub WriteToModbusFloat(RegType As Integer, Address As Integer, Value As String)
+        Try
+            Modbus.WriteDataFloat(RegType, Address, Single.Parse(Value))
         Catch ex As Exception
             MsgBox("Modbus Error Write! " & ex.Message)
         End Try
@@ -231,6 +260,16 @@ Public Class frmMain
         Dim temp As Integer
         Try
             temp = Modbus.ReadData(RegType, Address)
+            Return temp
+        Catch ex As Exception
+            MsgBox("Modbus Error Read! " & ex.Message)
+            End
+        End Try
+    End Function
+    Private Function ReadFromModbusFloat(RegType As Integer, Address As Integer) As String
+        Dim temp As String
+        Try
+            temp = Modbus.ReadDataFloat(RegType, Address)
             Return temp
         Catch ex As Exception
             MsgBox("Modbus Error Read! " & ex.Message)
@@ -1043,6 +1082,38 @@ Public Class frmMain
             btn_stn6_cyl5_bw.Text = "Backward"
         End If
     End Sub
+
+    Private Sub btn_stn6_cyl6_fw_Click(sender As Object, e As EventArgs) Handles btn_stn6_cyl6_fw.Click
+        If btn_stn6_cyl6_bw.Text = "Is Backward" Then
+            btn_stn6_cyl6_bw.PerformClick()
+        End If
+
+        If btn_stn6_cyl6_fw.Text = "Forward" Then
+            STN6_CYL6 = FORWARD
+            btn_stn6_cyl6_fw.Image = My.Resources.button_white
+            btn_stn6_cyl6_fw.Text = "Is Forward"
+        ElseIf btn_stn6_cyl6_fw.Text = "Is Forward" Then
+            STN6_CYL6 = IDLE
+            btn_stn6_cyl6_fw.Image = My.Resources.button_silver
+            btn_stn6_cyl6_fw.Text = "Forward"
+        End If
+    End Sub
+
+    Private Sub btn_stn6_cyl6_bw_Click(sender As Object, e As EventArgs) Handles btn_stn6_cyl6_bw.Click
+        If btn_stn6_cyl6_fw.Text = "Is Forward" Then
+            btn_stn6_cyl6_fw.PerformClick()
+        End If
+
+        If btn_stn6_cyl6_bw.Text = "Backward" Then
+            STN6_CYL6 = BACKWARD
+            btn_stn6_cyl6_bw.Image = My.Resources.button_white
+            btn_stn6_cyl6_bw.Text = "Is Backward"
+        ElseIf btn_stn6_cyl6_bw.Text = "Is Backward" Then
+            STN6_CYL6 = IDLE
+            btn_stn6_cyl6_bw.Image = My.Resources.button_silver
+            btn_stn6_cyl6_bw.Text = "Backward"
+        End If
+    End Sub
     Private Sub PlcReading()
         'Alarm General
         ALARM_GENERAL = ReadFromModbus(REGISTER_TYPE, ADDR_ALARM_GENERAL)
@@ -1059,7 +1130,8 @@ Public Class frmMain
         ReadAlarmStn6(ALARM_STN6)
 
         'Check PLC
-        If ReadFromModbus(REGISTER_TYPE, ADDR_PLC_READY) = PLC_READY Then
+        PLC_READY = ReadFromModbus(REGISTER_TYPE, ADDR_PLC_READY)
+        If PLC_READY Then
             ind_plc_status.BackColor = Color.Lime
         Else
             ind_plc_status.BackColor = Color.Red
@@ -1396,6 +1468,18 @@ Public Class frmMain
         Else
             stn6_cyl5_min.Image = My.Resources.led_red_off
         End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN6) = FORWARD Then
+            stn6_cyl6_max.Image = My.Resources.led_red_on
+        Else
+            stn6_cyl6_max.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN6) = BACKWARD Then
+            stn6_cyl6_min.Image = My.Resources.led_red_on
+        Else
+            stn6_cyl6_min.Image = My.Resources.led_red_off
+        End If
     End Sub
 
     Private Sub PlcWriting()
@@ -1679,6 +1763,17 @@ Public Class frmMain
             End If
             LAST_STN6_CYL5 = STN6_CYL5
         End If
+
+        If STN6_CYL6 <> LAST_STN6_CYL6 Then
+            If STN6_CYL6 = FORWARD Then
+                WriteToModbus(REGISTER_TYPE, ADDR_STN6_CYL6, FORWARD)
+            ElseIf STN6_CYL6 = BACKWARD Then
+                WriteToModbus(REGISTER_TYPE, ADDR_STN6_CYL6, BACKWARD)
+            Else
+                WriteToModbus(REGISTER_TYPE, ADDR_STN6_CYL6, IDLE)
+            End If
+            LAST_STN6_CYL6 = STN6_CYL6
+        End If
     End Sub
 
     'Loop ReadWrite
@@ -1689,11 +1784,21 @@ Public Class frmMain
 
     'panel home
     Private Sub btn_run_Click(sender As Object, e As EventArgs) Handles btn_run.Click
+        If lbl_ref.Text = "..." Or lbl_ope_id.Text = "..." Or lbl_po_num.Text = "..." Then
+            MsgBox("Please Scan Barcode!")
+            Exit Sub
+        End If
         GetPCStatus(110)
+        btn_run.Enabled = False
+        btn_stop.Enabled = True
+        IS_RUN = True
     End Sub
 
     Private Sub btn_stop_Click(sender As Object, e As EventArgs) Handles btn_stop.Click
         GetPCStatus(101)
+        btn_run.Enabled = True
+        btn_stop.Enabled = False
+        IS_RUN = False
     End Sub
 
     'Read Alarm
@@ -1767,7 +1872,6 @@ Public Class frmMain
             ind_v202_descrepancy.BackColor = Color.Red
         End If
     End Sub
-
     Private Sub ReadAlarmStn3(decimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
@@ -1828,17 +1932,59 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub MainLoop_Tick(sender As Object, e As EventArgs) Handles MainLoop.Tick
+    Private Sub Status_Tick(sender As Object, e As EventArgs) Handles Status.Tick
+        'status bar
+        If RUNNING_STATE = 1 Then 'running
+            status_bar.Image = My.Resources.GUI___statusBar1
+            lbl_auto_man.BackColor = Color.FromArgb(50, 173, 60)
+            lbl_run_state.BackColor = Color.FromArgb(50, 173, 60)
+            lbl_curr_time.BackColor = Color.FromArgb(50, 173, 60)
+            lbl_date.BackColor = Color.FromArgb(50, 173, 60)
+        ElseIf RUNNING_STATE = 2 Then 'stopping
+            status_bar.Image = My.Resources.GUI___statusBar2
+            lbl_auto_man.BackColor = Color.FromArgb(255, 202, 24)
+            lbl_run_state.BackColor = Color.FromArgb(255, 202, 24)
+            lbl_curr_time.BackColor = Color.FromArgb(255, 202, 24)
+            lbl_date.BackColor = Color.FromArgb(255, 202, 24)
+        ElseIf RUNNING_STATE = 5 Then 'emg
+            status_bar.Image = My.Resources.GUI___statusBar3
+            lbl_auto_man.BackColor = Color.FromArgb(236, 28, 36)
+            lbl_run_state.BackColor = Color.FromArgb(236, 28, 36)
+            lbl_curr_time.BackColor = Color.FromArgb(236, 28, 36)
+            lbl_date.BackColor = Color.FromArgb(236, 28, 36)
+        End If
 
+        'operator instruction msg
+        If SCAN_MODE = 0 Then
+            lbl_op_ins.Text = "Please Scan Product References.."
+        ElseIf SCAN_MODE = 1 Then
+            lbl_op_ins.Text = "Please Scan Operator ID.."
+        ElseIf SCAN_MODE = 2 Then
+            lbl_op_ins.Text = "Please Scan PO Number.."
+        Else
+            lbl_op_ins.Text = "You're All Set!"
+        End If
     End Sub
-
     Private Sub BarcodeComm_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles BarcodeComm.DataReceived
         If SCAN_MODE = 0 Then
             'scanning References
             AssyBuff = BarcodeComm.ReadExisting()
             If InStr(1, AssyBuff, vbCrLf) <> 0 Then
                 Me.Invoke(Sub()
+                              AssyBuff = Mid(AssyBuff, 1, InStr(1, AssyBuff, vbCr) - 1)
                               lbl_ref.Text = AssyBuff
+
+                              Call KoneksiDB.koneksi_db()
+
+                              Dim sc As New SqlCommand("SELECT * FROM ProductDatabase WHERE Reff='" & lbl_ref.Text & "'", KoneksiDB.koneksi)
+                              Dim rd As SqlDataReader = sc.ExecuteReader
+                              rd.Read()
+                              If Not rd.HasRows Then
+                                  MsgBox("Invalid References!, " + lbl_op_ins.Text)
+                                  AssyBuff = ""
+                                  Exit Sub
+                              End If
+
                               AssyBuff = ""
                               SCAN_MODE = 1
                           End Sub)
@@ -1848,7 +1994,9 @@ Public Class frmMain
             AssyBuff = BarcodeComm.ReadExisting()
             If InStr(1, AssyBuff, vbCrLf) <> 0 Then
                 Me.Invoke(Sub()
+                              AssyBuff = Mid(AssyBuff, 1, InStr(1, AssyBuff, vbCr) - 1)
                               lbl_ope_id.Text = AssyBuff
+
                               AssyBuff = ""
                               SCAN_MODE = 2
                           End Sub)
@@ -1858,18 +2006,168 @@ Public Class frmMain
             AssyBuff = BarcodeComm.ReadExisting()
             If InStr(1, AssyBuff, vbCrLf) <> 0 Then
                 Me.Invoke(Sub()
+                              AssyBuff = Mid(AssyBuff, 1, InStr(1, AssyBuff, vbCr) - 1)
                               lbl_po_num.Text = AssyBuff
+
+                              'Insert data to database
+                              Call KoneksiDB.koneksi_db()
+                              Dim sc As New SqlCommand("SELECT * FROM ProductDatabase WHERE Reff='" & lbl_ref.Text & "'", KoneksiDB.koneksi)
+                              Dim rd As SqlDataReader = sc.ExecuteReader
+                              rd.Read()
+
+                              lbl_act_val.Text = rd.Item("ActVal")
+                              lbl_act_val_tol.Text = rd.Item("ActValTol")
+                              lbl_dif_str.Text = rd.Item("DifStr")
+                              lbl_dif_str_tol.Text = rd.Item("DifStrTol")
+                              lbl_beating_times.Text = rd.Item("BeatingTimes")
+                              lbl_cfg_1st.Text = rd.Item("FirstContact")
+                              lbl_cfg_2nd.Text = rd.Item("SecondContact")
+                              lbl_unscrew_process.Text = rd.Item("UnscrewingProcess")
+                              lbl_laser_datecode.Text = rd.Item("LaserDateCode")
+                              lbl_laser_template.Text = rd.Item("LaserTemplate")
+
+                              'write to plc
+                              WriteToModbusFloat(REGISTER_TYPE, ADDR_ACT_VAL, Single.Parse(lbl_act_val.Text))
+                              WriteToModbusFloat(REGISTER_TYPE, ADDR_ACT_VAL_TOL, Single.Parse(lbl_act_val_tol.Text))
+                              WriteToModbusFloat(REGISTER_TYPE, ADDR_DIF_STR, Single.Parse(lbl_dif_str.Text))
+                              WriteToModbusFloat(REGISTER_TYPE, ADDR_DIF_STR_TOL, Single.Parse(lbl_dif_str_tol.Text))
+                              WriteToModbus(REGISTER_TYPE, ADDR_BEATING_TIMES, lbl_beating_times.Text)
+                              WriteToModbus(REGISTER_TYPE, ADDR_CFG_FIRST_CONTACT, lbl_cfg_1st.Text)
+                              WriteToModbus(REGISTER_TYPE, ADDR_CFG_SECOND_CONTACT, lbl_cfg_2nd.Text)
+                              WriteToModbus(REGISTER_TYPE, ADDR_UNSCREWING_PROCESS, lbl_unscrew_process.Text)
+                              WriteToModbus(REGISTER_TYPE, ADDR_LASER_DATE_CODE, lbl_laser_datecode.Text)
+
                               AssyBuff = ""
                               SCAN_MODE = 3
                           End Sub)
             End If
         End If
     End Sub
-
+    Private Function CheckDuplicate() As Boolean
+        Dim sc As New SqlCommand("SELECT * FROM ProductionData WHERE Reff='" & lbl_ref.Text & "'", KoneksiDB.koneksi)
+        Dim rd As SqlDataReader = sc.ExecuteReader
+        rd.Read()
+        If Not rd.HasRows Then
+            Return False
+            Exit Function
+        End If
+        If rd.Item("OperatorID") <> lbl_ope_id.Text Then
+            Return True
+        End If
+        Console.WriteLine(rd.Item("OperatorID"))
+        Return False
+    End Function
     Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click
         SCAN_MODE = 0
         lbl_ref.Text = "..."
         lbl_ope_id.Text = "..."
         lbl_po_num.Text = "..."
+    End Sub
+
+    Private Sub ST2_Tick(sender As Object, e As EventArgs) Handles ST2.Tick
+        If SCAN_MODE = 3 Then
+            ST_COMM2 = ReadFromModbus(REGISTER_TYPE, ADDR_ST_COMM2)
+            Dim binaryString As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
+            If binaryString(15) = "1" And binaryString(14) = "0" Then
+                CNT_ST2 = CNT_ST2 + 1
+                lbl_st2_meas.Text = ReadFromModbusFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
+
+                Call KoneksiDB.koneksi_db()
+                Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement) VALUES('" & CNT_ST2.ToString & "', '" & lbl_ref.Text & "', '" & lbl_ope_id.Text & "', '" & lbl_po_num.Text & "', '" & lbl_st2_meas.Text & "')", KoneksiDB.koneksi)
+                Dim adapter As New SqlDataAdapter(sc)
+                adapter.SelectCommand.ExecuteNonQuery()
+
+                WriteToModbus(REGISTER_TYPE, ADDR_ST_COMM2, 3)
+                lbl_cnt_st2.Text = CNT_ST2
+            End If
+        End If
+    End Sub
+
+    Private Sub ST3_Tick(sender As Object, e As EventArgs) Handles ST3.Tick
+        If SCAN_MODE = 3 Then
+            ST_COMM3 = ReadFromModbus(REGISTER_TYPE, ADDR_ST_COMM3)
+            Dim binaryString As String = Convert.ToString(ST_COMM3, 2).PadLeft(16, "0"c)
+            If binaryString(15) = "1" And binaryString(14) = "0" Then
+                CNT_ST3 = CNT_ST3 + 1
+                '======================== program baca resistant ========================
+                Dim Value As Decimal = Rnd()
+                lbl_st3_res.Text = Value.ToString
+
+                Call KoneksiDB.koneksi_db()
+                Dim sc As New SqlCommand("UPDATE ProductionData SET Resistance = '" & lbl_st3_res.Text & "' WHERE No = '" & CNT_ST3.ToString & "'", KoneksiDB.koneksi)
+                Dim adapter As New SqlDataAdapter(sc)
+                adapter.SelectCommand.ExecuteNonQuery()
+
+                WriteToModbus(REGISTER_TYPE, ADDR_ST_COMM3, 7) ' dummy
+                lbl_cnt_st3.Text = CNT_ST3
+            End If
+        End If
+    End Sub
+
+    Private Sub ST4_Tick(sender As Object, e As EventArgs) Handles ST4.Tick
+        If SCAN_MODE = 3 Then
+            ST_COMM4 = ReadFromModbus(REGISTER_TYPE, ADDR_ST_COMM4)
+            Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
+            If binaryString(15) = "1" And binaryString(14) = "0" Then
+                CNT_ST4 = CNT_ST4 + 1
+                lbl_st4_p2.Text = ReadFromModbusFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
+                lbl_st4_p3.Text = ReadFromModbusFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
+                lbl_diff_result.Text = ReadFromModbusFloat(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
+                lbl_st4_t1.Text = ReadFromModbus(REGISTER_TYPE, ADDR_ST4_T1)
+                lbl_st4_t2.Text = ReadFromModbus(REGISTER_TYPE, ADDR_ST4_T2)
+                lbl_cot.Text = ReadFromModbus(REGISTER_TYPE, ADDR_COT)
+
+                Call KoneksiDB.koneksi_db()
+                Dim sc As New SqlCommand("UPDATE ProductionData SET TravelP2 = '" & lbl_st4_p2.Text & "', TravelP3 = '" & lbl_st4_p3.Text & "', Difference = '" & lbl_diff_result.Text & "', ST4T1 = '" & lbl_st4_t1.Text & "', ST4T2 = '" & lbl_st4_t2.Text & "', COT = '" & lbl_cot.Text & "' WHERE No = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                Dim adapter As New SqlDataAdapter(sc)
+                adapter.SelectCommand.ExecuteNonQuery()
+
+                WriteToModbus(REGISTER_TYPE, ADDR_ST_COMM4, 3)
+                lbl_cnt_st4.Text = CNT_ST4
+            End If
+        End If
+    End Sub
+
+    Private Sub ST5_Tick(sender As Object, e As EventArgs) Handles ST5.Tick
+        If SCAN_MODE = 3 Then
+            ST_COMM5 = ReadFromModbus(REGISTER_TYPE, ADDR_ST_COMM5)
+            Dim binaryString As String = Convert.ToString(ST_COMM5, 2).PadLeft(16, "0"c)
+            If binaryString(15) = "1" And binaryString(14) = "0" Then
+                CNT_ST5 = CNT_ST5 + 1
+                lbl_unscrew_status.Text = ReadFromModbus(REGISTER_TYPE, ADDR_UNSCREW_STATUS)
+
+                Call KoneksiDB.koneksi_db()
+                Dim sc As New SqlCommand("UPDATE ProductionData SET UnscrewStatus = '" & lbl_unscrew_status.Text & "' WHERE No = '" & CNT_ST5.ToString & "'", KoneksiDB.koneksi)
+                Dim adapter As New SqlDataAdapter(sc)
+                adapter.SelectCommand.ExecuteNonQuery()
+
+                WriteToModbus(REGISTER_TYPE, ADDR_ST_COMM5, 3)
+                lbl_cnt_st5.Text = CNT_ST5
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_clear_database_Click(sender As Object, e As EventArgs) Handles btn_clear_database.Click
+        Call KoneksiDB.koneksi_db()
+        Dim sc As New SqlCommand("DELETE from ProductionData;", KoneksiDB.koneksi)
+        Dim adapter As New SqlDataAdapter(sc)
+        adapter.SelectCommand.ExecuteNonQuery()
+
+        CNT_ST2 = 0
+        CNT_ST3 = 0
+        CNT_ST4 = 0
+        CNT_ST5 = 0
+        lbl_cnt_st2.Text = "..."
+        lbl_cnt_st3.Text = "..."
+        lbl_cnt_st4.Text = "..."
+        lbl_cnt_st5.Text = "..."
+        lbl_st2_meas.Text = "..."
+        lbl_st3_res.Text = "..."
+        lbl_st4_p2.Text = "..."
+        lbl_st4_p3.Text = "..."
+        lbl_diff_result.Text = "..."
+        lbl_st4_t1.Text = "..."
+        lbl_st4_t2.Text = "..."
+        lbl_cot.Text = "..."
     End Sub
 End Class

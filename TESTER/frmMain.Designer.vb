@@ -26,9 +26,11 @@ Partial Class frmMain
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.pnl_setting = New System.Windows.Forms.Panel()
         Me.grp_reg = New System.Windows.Forms.GroupBox()
+        Me.cbo_data_type = New System.Windows.Forms.ComboBox()
         Me.btn_write = New System.Windows.Forms.Button()
         Me.btn_read = New System.Windows.Forms.Button()
         Me.txtValue = New System.Windows.Forms.TextBox()
+        Me.Label72 = New System.Windows.Forms.Label()
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -47,74 +49,6 @@ Partial Class frmMain
         Me.lbl_auto_man = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dateTime = New System.Windows.Forms.Timer(Me.components)
-        Me.pnl_home = New System.Windows.Forms.Panel()
-        Me.GroupBox77 = New System.Windows.Forms.GroupBox()
-        Me.ind_software_stop = New System.Windows.Forms.PictureBox()
-        Me.Label67 = New System.Windows.Forms.Label()
-        Me.ind_software_run = New System.Windows.Forms.PictureBox()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.ind_software_open = New System.Windows.Forms.PictureBox()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.btn_stop = New System.Windows.Forms.Button()
-        Me.btn_run = New System.Windows.Forms.Button()
-        Me.GroupBox85 = New System.Windows.Forms.GroupBox()
-        Me.ind_v602_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label94 = New System.Windows.Forms.Label()
-        Me.ind_v601_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label96 = New System.Windows.Forms.Label()
-        Me.GroupBox83 = New System.Windows.Forms.GroupBox()
-        Me.ind_v402_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label89 = New System.Windows.Forms.Label()
-        Me.ind_v401_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label90 = New System.Windows.Forms.Label()
-        Me.GroupBox84 = New System.Windows.Forms.GroupBox()
-        Me.ind_v502_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label92 = New System.Windows.Forms.Label()
-        Me.ind_v501_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label93 = New System.Windows.Forms.Label()
-        Me.GroupBox82 = New System.Windows.Forms.GroupBox()
-        Me.ind_v302_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label87 = New System.Windows.Forms.Label()
-        Me.ind_v301_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label88 = New System.Windows.Forms.Label()
-        Me.GroupBox81 = New System.Windows.Forms.GroupBox()
-        Me.ind_v202_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label91 = New System.Windows.Forms.Label()
-        Me.ind_v201_descrepancy = New System.Windows.Forms.PictureBox()
-        Me.Label95 = New System.Windows.Forms.Label()
-        Me.GroupBox79 = New System.Windows.Forms.GroupBox()
-        Me.ind_emg_button = New System.Windows.Forms.PictureBox()
-        Me.ind_door_lock_6 = New System.Windows.Forms.PictureBox()
-        Me.ind_altivar_fault = New System.Windows.Forms.PictureBox()
-        Me.ind_door_lock_4 = New System.Windows.Forms.PictureBox()
-        Me.Label79 = New System.Windows.Forms.Label()
-        Me.ind_door_lock_2 = New System.Windows.Forms.PictureBox()
-        Me.Label78 = New System.Windows.Forms.Label()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.ind_air_presence = New System.Windows.Forms.PictureBox()
-        Me.Label70 = New System.Windows.Forms.Label()
-        Me.Label77 = New System.Windows.Forms.Label()
-        Me.ind_door_lock_5 = New System.Windows.Forms.PictureBox()
-        Me.Label75 = New System.Windows.Forms.Label()
-        Me.ind_door_lock_3 = New System.Windows.Forms.PictureBox()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.ind_door_lock_1 = New System.Windows.Forms.PictureBox()
-        Me.Label69 = New System.Windows.Forms.Label()
-        Me.GroupBox80 = New System.Windows.Forms.GroupBox()
-        Me.Label85 = New System.Windows.Forms.Label()
-        Me.lbl_po_num = New System.Windows.Forms.Label()
-        Me.Label83 = New System.Windows.Forms.Label()
-        Me.lbl_ope_id = New System.Windows.Forms.Label()
-        Me.btn_clear = New System.Windows.Forms.Button()
-        Me.Label80 = New System.Windows.Forms.Label()
-        Me.lbl_ref = New System.Windows.Forms.Label()
-        Me.GroupBox76 = New System.Windows.Forms.GroupBox()
-        Me.ind_plc_status = New System.Windows.Forms.PictureBox()
-        Me.Label64 = New System.Windows.Forms.Label()
-        Me.lbl_op_ins = New System.Windows.Forms.Label()
-        Me.Label86 = New System.Windows.Forms.Label()
-        Me.Label63 = New System.Windows.Forms.Label()
         Me.btn_stn6 = New System.Windows.Forms.Button()
         Me.btn_stn5 = New System.Windows.Forms.Button()
         Me.btn_stn4 = New System.Windows.Forms.Button()
@@ -274,6 +208,15 @@ Partial Class frmMain
         Me.btn_stn5_cyl1_bw = New System.Windows.Forms.Button()
         Me.Label51 = New System.Windows.Forms.Label()
         Me.pnl_man_stn6 = New System.Windows.Forms.Panel()
+        Me.GroupBox88 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox89 = New System.Windows.Forms.GroupBox()
+        Me.Label97 = New System.Windows.Forms.Label()
+        Me.Label100 = New System.Windows.Forms.Label()
+        Me.stn6_cyl6_min = New System.Windows.Forms.PictureBox()
+        Me.stn6_cyl6_max = New System.Windows.Forms.PictureBox()
+        Me.GroupBox90 = New System.Windows.Forms.GroupBox()
+        Me.btn_stn6_cyl6_fw = New System.Windows.Forms.Button()
+        Me.btn_stn6_cyl6_bw = New System.Windows.Forms.Button()
         Me.GroupBox73 = New System.Windows.Forms.GroupBox()
         Me.GroupBox74 = New System.Windows.Forms.GroupBox()
         Me.Label61 = New System.Windows.Forms.Label()
@@ -367,52 +310,141 @@ Partial Class frmMain
         Me.status_bar = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MainLoop = New System.Windows.Forms.Timer(Me.components)
+        Me.Status = New System.Windows.Forms.Timer(Me.components)
         Me.BarcodeComm = New System.IO.Ports.SerialPort(Me.components)
+        Me.pnl_alarm = New System.Windows.Forms.Panel()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.GroupBox85 = New System.Windows.Forms.GroupBox()
+        Me.ind_v602_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label94 = New System.Windows.Forms.Label()
+        Me.ind_v601_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label96 = New System.Windows.Forms.Label()
+        Me.GroupBox83 = New System.Windows.Forms.GroupBox()
+        Me.ind_v402_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label89 = New System.Windows.Forms.Label()
+        Me.ind_v401_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label90 = New System.Windows.Forms.Label()
+        Me.GroupBox84 = New System.Windows.Forms.GroupBox()
+        Me.ind_v502_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label92 = New System.Windows.Forms.Label()
+        Me.ind_v501_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label93 = New System.Windows.Forms.Label()
+        Me.GroupBox82 = New System.Windows.Forms.GroupBox()
+        Me.ind_v302_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label87 = New System.Windows.Forms.Label()
+        Me.ind_v301_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label88 = New System.Windows.Forms.Label()
+        Me.GroupBox81 = New System.Windows.Forms.GroupBox()
+        Me.ind_v202_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label91 = New System.Windows.Forms.Label()
+        Me.ind_v201_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label95 = New System.Windows.Forms.Label()
+        Me.GroupBox79 = New System.Windows.Forms.GroupBox()
+        Me.ind_emg_button = New System.Windows.Forms.PictureBox()
+        Me.ind_door_lock_6 = New System.Windows.Forms.PictureBox()
+        Me.ind_altivar_fault = New System.Windows.Forms.PictureBox()
+        Me.ind_door_lock_4 = New System.Windows.Forms.PictureBox()
+        Me.Label79 = New System.Windows.Forms.Label()
+        Me.ind_door_lock_2 = New System.Windows.Forms.PictureBox()
+        Me.Label78 = New System.Windows.Forms.Label()
+        Me.Label76 = New System.Windows.Forms.Label()
+        Me.Label74 = New System.Windows.Forms.Label()
+        Me.ind_air_presence = New System.Windows.Forms.PictureBox()
+        Me.Label70 = New System.Windows.Forms.Label()
+        Me.Label77 = New System.Windows.Forms.Label()
+        Me.ind_door_lock_5 = New System.Windows.Forms.PictureBox()
+        Me.Label75 = New System.Windows.Forms.Label()
+        Me.ind_door_lock_3 = New System.Windows.Forms.PictureBox()
+        Me.Label73 = New System.Windows.Forms.Label()
+        Me.ind_door_lock_1 = New System.Windows.Forms.PictureBox()
+        Me.Label69 = New System.Windows.Forms.Label()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.Label86 = New System.Windows.Forms.Label()
+        Me.lbl_op_ins = New System.Windows.Forms.Label()
+        Me.GroupBox76 = New System.Windows.Forms.GroupBox()
+        Me.ind_plc_status = New System.Windows.Forms.PictureBox()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.GroupBox80 = New System.Windows.Forms.GroupBox()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.lbl_po_num = New System.Windows.Forms.Label()
+        Me.Label83 = New System.Windows.Forms.Label()
+        Me.lbl_ope_id = New System.Windows.Forms.Label()
+        Me.btn_clear = New System.Windows.Forms.Button()
+        Me.Label80 = New System.Windows.Forms.Label()
+        Me.lbl_ref = New System.Windows.Forms.Label()
+        Me.GroupBox77 = New System.Windows.Forms.GroupBox()
+        Me.ind_software_stop = New System.Windows.Forms.PictureBox()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.ind_software_run = New System.Windows.Forms.PictureBox()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.ind_software_open = New System.Windows.Forms.PictureBox()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.btn_stop = New System.Windows.Forms.Button()
+        Me.btn_run = New System.Windows.Forms.Button()
+        Me.pnl_home = New System.Windows.Forms.Panel()
+        Me.ind_pass_fail = New System.Windows.Forms.PictureBox()
+        Me.GroupBox87 = New System.Windows.Forms.GroupBox()
+        Me.btn_clear_database = New System.Windows.Forms.Button()
+        Me.Label105 = New System.Windows.Forms.Label()
+        Me.Label103 = New System.Windows.Forms.Label()
+        Me.Label98 = New System.Windows.Forms.Label()
+        Me.Label115 = New System.Windows.Forms.Label()
+        Me.lbl_cnt_st5 = New System.Windows.Forms.Label()
+        Me.lbl_cnt_st4 = New System.Windows.Forms.Label()
+        Me.lbl_cnt_st3 = New System.Windows.Forms.Label()
+        Me.lbl_cnt_st2 = New System.Windows.Forms.Label()
         Me.GroupBox78 = New System.Windows.Forms.GroupBox()
-        Me.Label84 = New System.Windows.Forms.Label()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.lbl_fpy = New System.Windows.Forms.Label()
-        Me.lbl_fail = New System.Windows.Forms.Label()
         Me.Label68 = New System.Windows.Forms.Label()
-        Me.lbl_pass = New System.Windows.Forms.Label()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.laabel2 = New System.Windows.Forms.Label()
+        Me.Label116 = New System.Windows.Forms.Label()
+        Me.Label117 = New System.Windows.Forms.Label()
+        Me.laabel3 = New System.Windows.Forms.Label()
+        Me.Label119 = New System.Windows.Forms.Label()
+        Me.laabel1 = New System.Windows.Forms.Label()
+        Me.Label121 = New System.Windows.Forms.Label()
+        Me.lbl_unscrew_status = New System.Windows.Forms.Label()
+        Me.lbl_st4_t2 = New System.Windows.Forms.Label()
+        Me.lbl_st4_p2 = New System.Windows.Forms.Label()
+        Me.lbl_diff_result = New System.Windows.Forms.Label()
+        Me.lbl_st2_meas = New System.Windows.Forms.Label()
+        Me.lbl_cot = New System.Windows.Forms.Label()
+        Me.lbl_st4_t1 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res = New System.Windows.Forms.Label()
+        Me.lbl_st4_p3 = New System.Windows.Forms.Label()
+        Me.lbl_status = New System.Windows.Forms.Label()
+        Me.GroupBox86 = New System.Windows.Forms.GroupBox()
+        Me.Label114 = New System.Windows.Forms.Label()
+        Me.Label110 = New System.Windows.Forms.Label()
+        Me.Label102 = New System.Windows.Forms.Label()
+        Me.Label109 = New System.Windows.Forms.Label()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.Label113 = New System.Windows.Forms.Label()
+        Me.Label108 = New System.Windows.Forms.Label()
+        Me.Label101 = New System.Windows.Forms.Label()
+        Me.Label107 = New System.Windows.Forms.Label()
+        Me.Label99 = New System.Windows.Forms.Label()
+        Me.lbl_laser_template = New System.Windows.Forms.Label()
+        Me.lbl_unscrew_process = New System.Windows.Forms.Label()
+        Me.lbl_dif_str_tol = New System.Windows.Forms.Label()
+        Me.lbl_cfg_1st = New System.Windows.Forms.Label()
+        Me.lbl_act_val_tol = New System.Windows.Forms.Label()
+        Me.lbl_laser_datecode = New System.Windows.Forms.Label()
+        Me.lbl_cfg_2nd = New System.Windows.Forms.Label()
+        Me.lbl_dif_str = New System.Windows.Forms.Label()
+        Me.lbl_beating_times = New System.Windows.Forms.Label()
+        Me.lbl_act_val = New System.Windows.Forms.Label()
+        Me.lbl_cnt = New System.Windows.Forms.Label()
+        Me.btn_alarm = New System.Windows.Forms.Button()
+        Me.ST2 = New System.Windows.Forms.Timer(Me.components)
+        Me.ST3 = New System.Windows.Forms.Timer(Me.components)
+        Me.ST4 = New System.Windows.Forms.Timer(Me.components)
+        Me.ST5 = New System.Windows.Forms.Timer(Me.components)
         Me.pnl_setting.SuspendLayout()
         Me.grp_reg.SuspendLayout()
         Me.grp_plc.SuspendLayout()
         CType(Me.connect_ind, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnl_home.SuspendLayout()
-        Me.GroupBox77.SuspendLayout()
-        CType(Me.ind_software_stop, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_software_run, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_software_open, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox85.SuspendLayout()
-        CType(Me.ind_v602_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_v601_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox83.SuspendLayout()
-        CType(Me.ind_v402_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_v401_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox84.SuspendLayout()
-        CType(Me.ind_v502_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_v501_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox82.SuspendLayout()
-        CType(Me.ind_v302_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_v301_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox81.SuspendLayout()
-        CType(Me.ind_v202_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_v201_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox79.SuspendLayout()
-        CType(Me.ind_emg_button, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_door_lock_6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_altivar_fault, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_door_lock_4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_door_lock_2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_air_presence, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_door_lock_5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_door_lock_3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ind_door_lock_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox80.SuspendLayout()
-        Me.GroupBox76.SuspendLayout()
-        CType(Me.ind_plc_status, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl_man_stn1.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
@@ -498,6 +530,11 @@ Partial Class frmMain
         CType(Me.stn5_cyl1_max, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox60.SuspendLayout()
         Me.pnl_man_stn6.SuspendLayout()
+        Me.GroupBox88.SuspendLayout()
+        Me.GroupBox89.SuspendLayout()
+        CType(Me.stn6_cyl6_min, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.stn6_cyl6_max, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox90.SuspendLayout()
         Me.GroupBox73.SuspendLayout()
         Me.GroupBox74.SuspendLayout()
         CType(Me.stn6_cyl5_min, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -547,7 +584,44 @@ Partial Class frmMain
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnl_alarm.SuspendLayout()
+        Me.GroupBox85.SuspendLayout()
+        CType(Me.ind_v602_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_v601_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox83.SuspendLayout()
+        CType(Me.ind_v402_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_v401_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox84.SuspendLayout()
+        CType(Me.ind_v502_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_v501_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox82.SuspendLayout()
+        CType(Me.ind_v302_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_v301_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox81.SuspendLayout()
+        CType(Me.ind_v202_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_v201_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox79.SuspendLayout()
+        CType(Me.ind_emg_button, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_door_lock_6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_altivar_fault, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_door_lock_4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_door_lock_2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_air_presence, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_door_lock_5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_door_lock_3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_door_lock_1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox76.SuspendLayout()
+        CType(Me.ind_plc_status, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox80.SuspendLayout()
+        Me.GroupBox77.SuspendLayout()
+        CType(Me.ind_software_stop, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_software_run, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ind_software_open, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnl_home.SuspendLayout()
+        CType(Me.ind_pass_fail, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox87.SuspendLayout()
         Me.GroupBox78.SuspendLayout()
+        Me.GroupBox86.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnl_setting
@@ -561,25 +635,36 @@ Partial Class frmMain
         '
         'grp_reg
         '
+        Me.grp_reg.Controls.Add(Me.cbo_data_type)
         Me.grp_reg.Controls.Add(Me.btn_write)
         Me.grp_reg.Controls.Add(Me.btn_read)
         Me.grp_reg.Controls.Add(Me.txtValue)
+        Me.grp_reg.Controls.Add(Me.Label72)
         Me.grp_reg.Controls.Add(Me.txtAddress)
         Me.grp_reg.Controls.Add(Me.Label8)
         Me.grp_reg.Controls.Add(Me.Label9)
         Me.grp_reg.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grp_reg.Location = New System.Drawing.Point(464, 209)
+        Me.grp_reg.Location = New System.Drawing.Point(450, 185)
         Me.grp_reg.Name = "grp_reg"
-        Me.grp_reg.Size = New System.Drawing.Size(214, 145)
+        Me.grp_reg.Size = New System.Drawing.Size(214, 184)
         Me.grp_reg.TabIndex = 55
         Me.grp_reg.TabStop = False
         Me.grp_reg.Text = "Holding Register"
+        '
+        'cbo_data_type
+        '
+        Me.cbo_data_type.FormattingEnabled = True
+        Me.cbo_data_type.Items.AddRange(New Object() {"INT", "FLOAT"})
+        Me.cbo_data_type.Location = New System.Drawing.Point(90, 89)
+        Me.cbo_data_type.Name = "cbo_data_type"
+        Me.cbo_data_type.Size = New System.Drawing.Size(112, 31)
+        Me.cbo_data_type.TabIndex = 57
         '
         'btn_write
         '
         Me.btn_write.AutoSize = True
         Me.btn_write.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_write.Location = New System.Drawing.Point(118, 96)
+        Me.btn_write.Location = New System.Drawing.Point(118, 136)
         Me.btn_write.Name = "btn_write"
         Me.btn_write.Size = New System.Drawing.Size(84, 35)
         Me.btn_write.TabIndex = 4
@@ -590,7 +675,7 @@ Partial Class frmMain
         '
         Me.btn_read.AutoSize = True
         Me.btn_read.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_read.Location = New System.Drawing.Point(16, 96)
+        Me.btn_read.Location = New System.Drawing.Point(16, 136)
         Me.btn_read.Name = "btn_read"
         Me.btn_read.Size = New System.Drawing.Size(84, 35)
         Me.btn_read.TabIndex = 4
@@ -604,6 +689,16 @@ Partial Class frmMain
         Me.txtValue.Name = "txtValue"
         Me.txtValue.Size = New System.Drawing.Size(112, 27)
         Me.txtValue.TabIndex = 3
+        '
+        'Label72
+        '
+        Me.Label72.AutoSize = True
+        Me.Label72.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label72.Location = New System.Drawing.Point(-5, 93)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(89, 19)
+        Me.Label72.TabIndex = 1
+        Me.Label72.Text = "Data Type :"
         '
         'txtAddress
         '
@@ -642,9 +737,9 @@ Partial Class frmMain
         Me.grp_plc.Controls.Add(Me.Label7)
         Me.grp_plc.Controls.Add(Me.Label6)
         Me.grp_plc.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grp_plc.Location = New System.Drawing.Point(240, 209)
+        Me.grp_plc.Location = New System.Drawing.Point(226, 185)
         Me.grp_plc.Name = "grp_plc"
-        Me.grp_plc.Size = New System.Drawing.Size(214, 145)
+        Me.grp_plc.Size = New System.Drawing.Size(214, 184)
         Me.grp_plc.TabIndex = 56
         Me.grp_plc.TabStop = False
         Me.grp_plc.Text = "PLC"
@@ -653,7 +748,7 @@ Partial Class frmMain
         '
         Me.connect_ind.BackColor = System.Drawing.Color.Transparent
         Me.connect_ind.Image = Global.TESTER.My.Resources.Resources.led_red_on
-        Me.connect_ind.Location = New System.Drawing.Point(121, 103)
+        Me.connect_ind.Location = New System.Drawing.Point(123, 141)
         Me.connect_ind.Name = "connect_ind"
         Me.connect_ind.Size = New System.Drawing.Size(20, 20)
         Me.connect_ind.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -664,7 +759,7 @@ Partial Class frmMain
         '
         Me.btn_connect.AutoSize = True
         Me.btn_connect.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_connect.Location = New System.Drawing.Point(10, 96)
+        Me.btn_connect.Location = New System.Drawing.Point(12, 134)
         Me.btn_connect.Name = "btn_connect"
         Me.btn_connect.Size = New System.Drawing.Size(102, 35)
         Me.btn_connect.TabIndex = 4
@@ -687,7 +782,7 @@ Partial Class frmMain
         Me.txtIP.Name = "txtIP"
         Me.txtIP.Size = New System.Drawing.Size(112, 27)
         Me.txtIP.TabIndex = 2
-        Me.txtIP.Text = "127.0.0.1"
+        Me.txtIP.Text = "192.168.1.212"
         '
         'Label7
         '
@@ -802,736 +897,6 @@ Partial Class frmMain
         '
         Me.dateTime.Enabled = True
         '
-        'pnl_home
-        '
-        Me.pnl_home.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnl_home.Controls.Add(Me.GroupBox78)
-        Me.pnl_home.Controls.Add(Me.GroupBox77)
-        Me.pnl_home.Controls.Add(Me.GroupBox85)
-        Me.pnl_home.Controls.Add(Me.GroupBox83)
-        Me.pnl_home.Controls.Add(Me.GroupBox84)
-        Me.pnl_home.Controls.Add(Me.GroupBox82)
-        Me.pnl_home.Controls.Add(Me.GroupBox81)
-        Me.pnl_home.Controls.Add(Me.GroupBox79)
-        Me.pnl_home.Controls.Add(Me.GroupBox80)
-        Me.pnl_home.Controls.Add(Me.GroupBox76)
-        Me.pnl_home.Controls.Add(Me.lbl_op_ins)
-        Me.pnl_home.Controls.Add(Me.Label86)
-        Me.pnl_home.Controls.Add(Me.Label63)
-        Me.pnl_home.Location = New System.Drawing.Point(78, 158)
-        Me.pnl_home.Name = "pnl_home"
-        Me.pnl_home.Size = New System.Drawing.Size(852, 563)
-        Me.pnl_home.TabIndex = 72
-        '
-        'GroupBox77
-        '
-        Me.GroupBox77.Controls.Add(Me.ind_software_stop)
-        Me.GroupBox77.Controls.Add(Me.Label67)
-        Me.GroupBox77.Controls.Add(Me.ind_software_run)
-        Me.GroupBox77.Controls.Add(Me.Label66)
-        Me.GroupBox77.Controls.Add(Me.ind_software_open)
-        Me.GroupBox77.Controls.Add(Me.Label65)
-        Me.GroupBox77.Controls.Add(Me.btn_stop)
-        Me.GroupBox77.Controls.Add(Me.btn_run)
-        Me.GroupBox77.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox77.Location = New System.Drawing.Point(78, 334)
-        Me.GroupBox77.Name = "GroupBox77"
-        Me.GroupBox77.Size = New System.Drawing.Size(200, 140)
-        Me.GroupBox77.TabIndex = 38
-        Me.GroupBox77.TabStop = False
-        Me.GroupBox77.Text = "PC Status"
-        '
-        'ind_software_stop
-        '
-        Me.ind_software_stop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_software_stop.Location = New System.Drawing.Point(16, 72)
-        Me.ind_software_stop.Name = "ind_software_stop"
-        Me.ind_software_stop.Size = New System.Drawing.Size(15, 15)
-        Me.ind_software_stop.TabIndex = 33
-        Me.ind_software_stop.TabStop = False
-        '
-        'Label67
-        '
-        Me.Label67.AutoSize = True
-        Me.Label67.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label67.Location = New System.Drawing.Point(37, 69)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(107, 19)
-        Me.Label67.TabIndex = 31
-        Me.Label67.Text = "Software Stop"
-        '
-        'ind_software_run
-        '
-        Me.ind_software_run.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_software_run.Location = New System.Drawing.Point(16, 51)
-        Me.ind_software_run.Name = "ind_software_run"
-        Me.ind_software_run.Size = New System.Drawing.Size(15, 15)
-        Me.ind_software_run.TabIndex = 33
-        Me.ind_software_run.TabStop = False
-        '
-        'Label66
-        '
-        Me.Label66.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label66.Location = New System.Drawing.Point(37, 48)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(114, 19)
-        Me.Label66.TabIndex = 31
-        Me.Label66.Text = "Software Run"
-        '
-        'ind_software_open
-        '
-        Me.ind_software_open.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_software_open.Location = New System.Drawing.Point(16, 30)
-        Me.ind_software_open.Name = "ind_software_open"
-        Me.ind_software_open.Size = New System.Drawing.Size(15, 15)
-        Me.ind_software_open.TabIndex = 33
-        Me.ind_software_open.TabStop = False
-        '
-        'Label65
-        '
-        Me.Label65.AutoSize = True
-        Me.Label65.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label65.Location = New System.Drawing.Point(37, 27)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(114, 19)
-        Me.Label65.TabIndex = 31
-        Me.Label65.Text = "Software Open"
-        '
-        'btn_stop
-        '
-        Me.btn_stop.FlatAppearance.BorderSize = 0
-        Me.btn_stop.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stop.Location = New System.Drawing.Point(104, 95)
-        Me.btn_stop.Name = "btn_stop"
-        Me.btn_stop.Size = New System.Drawing.Size(84, 33)
-        Me.btn_stop.TabIndex = 66
-        Me.btn_stop.Text = "Stop"
-        Me.btn_stop.UseVisualStyleBackColor = True
-        '
-        'btn_run
-        '
-        Me.btn_run.FlatAppearance.BorderSize = 0
-        Me.btn_run.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_run.Location = New System.Drawing.Point(16, 95)
-        Me.btn_run.Name = "btn_run"
-        Me.btn_run.Size = New System.Drawing.Size(82, 33)
-        Me.btn_run.TabIndex = 66
-        Me.btn_run.Text = "Run "
-        Me.btn_run.UseVisualStyleBackColor = True
-        '
-        'GroupBox85
-        '
-        Me.GroupBox85.Controls.Add(Me.ind_v602_descrepancy)
-        Me.GroupBox85.Controls.Add(Me.Label94)
-        Me.GroupBox85.Controls.Add(Me.ind_v601_descrepancy)
-        Me.GroupBox85.Controls.Add(Me.Label96)
-        Me.GroupBox85.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox85.Location = New System.Drawing.Point(557, 421)
-        Me.GroupBox85.Name = "GroupBox85"
-        Me.GroupBox85.Size = New System.Drawing.Size(216, 81)
-        Me.GroupBox85.TabIndex = 39
-        Me.GroupBox85.TabStop = False
-        Me.GroupBox85.Text = "Alarm Station 6"
-        '
-        'ind_v602_descrepancy
-        '
-        Me.ind_v602_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v602_descrepancy.Location = New System.Drawing.Point(16, 51)
-        Me.ind_v602_descrepancy.Name = "ind_v602_descrepancy"
-        Me.ind_v602_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v602_descrepancy.TabIndex = 33
-        Me.ind_v602_descrepancy.TabStop = False
-        '
-        'Label94
-        '
-        Me.Label94.AutoSize = True
-        Me.Label94.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label94.Location = New System.Drawing.Point(37, 48)
-        Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(138, 19)
-        Me.Label94.TabIndex = 31
-        Me.Label94.Text = "V602 Descrepancy"
-        '
-        'ind_v601_descrepancy
-        '
-        Me.ind_v601_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v601_descrepancy.Location = New System.Drawing.Point(16, 30)
-        Me.ind_v601_descrepancy.Name = "ind_v601_descrepancy"
-        Me.ind_v601_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v601_descrepancy.TabIndex = 33
-        Me.ind_v601_descrepancy.TabStop = False
-        '
-        'Label96
-        '
-        Me.Label96.AutoSize = True
-        Me.Label96.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label96.Location = New System.Drawing.Point(37, 27)
-        Me.Label96.Name = "Label96"
-        Me.Label96.Size = New System.Drawing.Size(135, 19)
-        Me.Label96.TabIndex = 31
-        Me.Label96.Text = "V601 Descrepancy"
-        '
-        'GroupBox83
-        '
-        Me.GroupBox83.Controls.Add(Me.ind_v402_descrepancy)
-        Me.GroupBox83.Controls.Add(Me.Label89)
-        Me.GroupBox83.Controls.Add(Me.ind_v401_descrepancy)
-        Me.GroupBox83.Controls.Add(Me.Label90)
-        Me.GroupBox83.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox83.Location = New System.Drawing.Point(557, 248)
-        Me.GroupBox83.Name = "GroupBox83"
-        Me.GroupBox83.Size = New System.Drawing.Size(216, 81)
-        Me.GroupBox83.TabIndex = 40
-        Me.GroupBox83.TabStop = False
-        Me.GroupBox83.Text = "Alarm Station 4"
-        '
-        'ind_v402_descrepancy
-        '
-        Me.ind_v402_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v402_descrepancy.Location = New System.Drawing.Point(16, 51)
-        Me.ind_v402_descrepancy.Name = "ind_v402_descrepancy"
-        Me.ind_v402_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v402_descrepancy.TabIndex = 33
-        Me.ind_v402_descrepancy.TabStop = False
-        '
-        'Label89
-        '
-        Me.Label89.AutoSize = True
-        Me.Label89.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label89.Location = New System.Drawing.Point(37, 48)
-        Me.Label89.Name = "Label89"
-        Me.Label89.Size = New System.Drawing.Size(138, 19)
-        Me.Label89.TabIndex = 31
-        Me.Label89.Text = "V402 Descrepancy"
-        '
-        'ind_v401_descrepancy
-        '
-        Me.ind_v401_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v401_descrepancy.Location = New System.Drawing.Point(16, 30)
-        Me.ind_v401_descrepancy.Name = "ind_v401_descrepancy"
-        Me.ind_v401_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v401_descrepancy.TabIndex = 33
-        Me.ind_v401_descrepancy.TabStop = False
-        '
-        'Label90
-        '
-        Me.Label90.AutoSize = True
-        Me.Label90.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label90.Location = New System.Drawing.Point(37, 27)
-        Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(135, 19)
-        Me.Label90.TabIndex = 31
-        Me.Label90.Text = "V401 Descrepancy"
-        '
-        'GroupBox84
-        '
-        Me.GroupBox84.Controls.Add(Me.ind_v502_descrepancy)
-        Me.GroupBox84.Controls.Add(Me.Label92)
-        Me.GroupBox84.Controls.Add(Me.ind_v501_descrepancy)
-        Me.GroupBox84.Controls.Add(Me.Label93)
-        Me.GroupBox84.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox84.Location = New System.Drawing.Point(557, 334)
-        Me.GroupBox84.Name = "GroupBox84"
-        Me.GroupBox84.Size = New System.Drawing.Size(216, 81)
-        Me.GroupBox84.TabIndex = 41
-        Me.GroupBox84.TabStop = False
-        Me.GroupBox84.Text = "Alarm Station 5"
-        '
-        'ind_v502_descrepancy
-        '
-        Me.ind_v502_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v502_descrepancy.Location = New System.Drawing.Point(16, 51)
-        Me.ind_v502_descrepancy.Name = "ind_v502_descrepancy"
-        Me.ind_v502_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v502_descrepancy.TabIndex = 33
-        Me.ind_v502_descrepancy.TabStop = False
-        '
-        'Label92
-        '
-        Me.Label92.AutoSize = True
-        Me.Label92.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label92.Location = New System.Drawing.Point(37, 48)
-        Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(137, 19)
-        Me.Label92.TabIndex = 31
-        Me.Label92.Text = "V502 Descrepancy"
-        '
-        'ind_v501_descrepancy
-        '
-        Me.ind_v501_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v501_descrepancy.Location = New System.Drawing.Point(16, 30)
-        Me.ind_v501_descrepancy.Name = "ind_v501_descrepancy"
-        Me.ind_v501_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v501_descrepancy.TabIndex = 33
-        Me.ind_v501_descrepancy.TabStop = False
-        '
-        'Label93
-        '
-        Me.Label93.AutoSize = True
-        Me.Label93.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label93.Location = New System.Drawing.Point(37, 27)
-        Me.Label93.Name = "Label93"
-        Me.Label93.Size = New System.Drawing.Size(134, 19)
-        Me.Label93.TabIndex = 31
-        Me.Label93.Text = "V501 Descrepancy"
-        '
-        'GroupBox82
-        '
-        Me.GroupBox82.Controls.Add(Me.ind_v302_descrepancy)
-        Me.GroupBox82.Controls.Add(Me.Label87)
-        Me.GroupBox82.Controls.Add(Me.ind_v301_descrepancy)
-        Me.GroupBox82.Controls.Add(Me.Label88)
-        Me.GroupBox82.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox82.Location = New System.Drawing.Point(557, 161)
-        Me.GroupBox82.Name = "GroupBox82"
-        Me.GroupBox82.Size = New System.Drawing.Size(216, 81)
-        Me.GroupBox82.TabIndex = 42
-        Me.GroupBox82.TabStop = False
-        Me.GroupBox82.Text = "Alarm Station 3"
-        '
-        'ind_v302_descrepancy
-        '
-        Me.ind_v302_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v302_descrepancy.Location = New System.Drawing.Point(16, 51)
-        Me.ind_v302_descrepancy.Name = "ind_v302_descrepancy"
-        Me.ind_v302_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v302_descrepancy.TabIndex = 33
-        Me.ind_v302_descrepancy.TabStop = False
-        '
-        'Label87
-        '
-        Me.Label87.AutoSize = True
-        Me.Label87.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label87.Location = New System.Drawing.Point(37, 48)
-        Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(136, 19)
-        Me.Label87.TabIndex = 31
-        Me.Label87.Text = "V302 Descrepancy"
-        '
-        'ind_v301_descrepancy
-        '
-        Me.ind_v301_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v301_descrepancy.Location = New System.Drawing.Point(16, 30)
-        Me.ind_v301_descrepancy.Name = "ind_v301_descrepancy"
-        Me.ind_v301_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v301_descrepancy.TabIndex = 33
-        Me.ind_v301_descrepancy.TabStop = False
-        '
-        'Label88
-        '
-        Me.Label88.AutoSize = True
-        Me.Label88.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label88.Location = New System.Drawing.Point(37, 27)
-        Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(133, 19)
-        Me.Label88.TabIndex = 31
-        Me.Label88.Text = "V301 Descrepancy"
-        '
-        'GroupBox81
-        '
-        Me.GroupBox81.Controls.Add(Me.ind_v202_descrepancy)
-        Me.GroupBox81.Controls.Add(Me.Label91)
-        Me.GroupBox81.Controls.Add(Me.ind_v201_descrepancy)
-        Me.GroupBox81.Controls.Add(Me.Label95)
-        Me.GroupBox81.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox81.Location = New System.Drawing.Point(557, 74)
-        Me.GroupBox81.Name = "GroupBox81"
-        Me.GroupBox81.Size = New System.Drawing.Size(216, 81)
-        Me.GroupBox81.TabIndex = 43
-        Me.GroupBox81.TabStop = False
-        Me.GroupBox81.Text = "Alarm Station 2"
-        '
-        'ind_v202_descrepancy
-        '
-        Me.ind_v202_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v202_descrepancy.Location = New System.Drawing.Point(16, 51)
-        Me.ind_v202_descrepancy.Name = "ind_v202_descrepancy"
-        Me.ind_v202_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v202_descrepancy.TabIndex = 33
-        Me.ind_v202_descrepancy.TabStop = False
-        '
-        'Label91
-        '
-        Me.Label91.AutoSize = True
-        Me.Label91.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label91.Location = New System.Drawing.Point(37, 48)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(137, 19)
-        Me.Label91.TabIndex = 31
-        Me.Label91.Text = "V202 Descrepancy"
-        '
-        'ind_v201_descrepancy
-        '
-        Me.ind_v201_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v201_descrepancy.Location = New System.Drawing.Point(16, 30)
-        Me.ind_v201_descrepancy.Name = "ind_v201_descrepancy"
-        Me.ind_v201_descrepancy.Size = New System.Drawing.Size(15, 15)
-        Me.ind_v201_descrepancy.TabIndex = 33
-        Me.ind_v201_descrepancy.TabStop = False
-        '
-        'Label95
-        '
-        Me.Label95.AutoSize = True
-        Me.Label95.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label95.Location = New System.Drawing.Point(37, 27)
-        Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(134, 19)
-        Me.Label95.TabIndex = 31
-        Me.Label95.Text = "V201 Descrepancy"
-        '
-        'GroupBox79
-        '
-        Me.GroupBox79.Controls.Add(Me.ind_emg_button)
-        Me.GroupBox79.Controls.Add(Me.ind_door_lock_6)
-        Me.GroupBox79.Controls.Add(Me.ind_altivar_fault)
-        Me.GroupBox79.Controls.Add(Me.ind_door_lock_4)
-        Me.GroupBox79.Controls.Add(Me.Label79)
-        Me.GroupBox79.Controls.Add(Me.ind_door_lock_2)
-        Me.GroupBox79.Controls.Add(Me.Label78)
-        Me.GroupBox79.Controls.Add(Me.Label76)
-        Me.GroupBox79.Controls.Add(Me.Label74)
-        Me.GroupBox79.Controls.Add(Me.ind_air_presence)
-        Me.GroupBox79.Controls.Add(Me.Label70)
-        Me.GroupBox79.Controls.Add(Me.Label77)
-        Me.GroupBox79.Controls.Add(Me.ind_door_lock_5)
-        Me.GroupBox79.Controls.Add(Me.Label75)
-        Me.GroupBox79.Controls.Add(Me.ind_door_lock_3)
-        Me.GroupBox79.Controls.Add(Me.Label73)
-        Me.GroupBox79.Controls.Add(Me.ind_door_lock_1)
-        Me.GroupBox79.Controls.Add(Me.Label69)
-        Me.GroupBox79.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox79.Location = New System.Drawing.Point(311, 312)
-        Me.GroupBox79.Name = "GroupBox79"
-        Me.GroupBox79.Size = New System.Drawing.Size(216, 227)
-        Me.GroupBox79.TabIndex = 44
-        Me.GroupBox79.TabStop = False
-        Me.GroupBox79.Text = "Alarm General"
-        '
-        'ind_emg_button
-        '
-        Me.ind_emg_button.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_emg_button.Location = New System.Drawing.Point(16, 198)
-        Me.ind_emg_button.Name = "ind_emg_button"
-        Me.ind_emg_button.Size = New System.Drawing.Size(15, 15)
-        Me.ind_emg_button.TabIndex = 33
-        Me.ind_emg_button.TabStop = False
-        '
-        'ind_door_lock_6
-        '
-        Me.ind_door_lock_6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_door_lock_6.Location = New System.Drawing.Point(16, 135)
-        Me.ind_door_lock_6.Name = "ind_door_lock_6"
-        Me.ind_door_lock_6.Size = New System.Drawing.Size(15, 15)
-        Me.ind_door_lock_6.TabIndex = 33
-        Me.ind_door_lock_6.TabStop = False
-        '
-        'ind_altivar_fault
-        '
-        Me.ind_altivar_fault.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_altivar_fault.Location = New System.Drawing.Point(16, 156)
-        Me.ind_altivar_fault.Name = "ind_altivar_fault"
-        Me.ind_altivar_fault.Size = New System.Drawing.Size(15, 15)
-        Me.ind_altivar_fault.TabIndex = 33
-        Me.ind_altivar_fault.TabStop = False
-        '
-        'ind_door_lock_4
-        '
-        Me.ind_door_lock_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_door_lock_4.Location = New System.Drawing.Point(16, 93)
-        Me.ind_door_lock_4.Name = "ind_door_lock_4"
-        Me.ind_door_lock_4.Size = New System.Drawing.Size(15, 15)
-        Me.ind_door_lock_4.TabIndex = 33
-        Me.ind_door_lock_4.TabStop = False
-        '
-        'Label79
-        '
-        Me.Label79.AutoSize = True
-        Me.Label79.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label79.Location = New System.Drawing.Point(37, 195)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(168, 19)
-        Me.Label79.TabIndex = 31
-        Me.Label79.Text = "Emergency Button ON"
-        '
-        'ind_door_lock_2
-        '
-        Me.ind_door_lock_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_door_lock_2.Location = New System.Drawing.Point(16, 51)
-        Me.ind_door_lock_2.Name = "ind_door_lock_2"
-        Me.ind_door_lock_2.Size = New System.Drawing.Size(15, 15)
-        Me.ind_door_lock_2.TabIndex = 33
-        Me.ind_door_lock_2.TabStop = False
-        '
-        'Label78
-        '
-        Me.Label78.AutoSize = True
-        Me.Label78.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label78.Location = New System.Drawing.Point(37, 153)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(97, 19)
-        Me.Label78.TabIndex = 31
-        Me.Label78.Text = "Altivar Fault"
-        '
-        'Label76
-        '
-        Me.Label76.AutoSize = True
-        Me.Label76.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label76.Location = New System.Drawing.Point(37, 132)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(138, 19)
-        Me.Label76.TabIndex = 31
-        Me.Label76.Text = "Door Lock 6 Open"
-        '
-        'Label74
-        '
-        Me.Label74.AutoSize = True
-        Me.Label74.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label74.Location = New System.Drawing.Point(37, 90)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(138, 19)
-        Me.Label74.TabIndex = 31
-        Me.Label74.Text = "Door Lock 4 Open"
-        '
-        'ind_air_presence
-        '
-        Me.ind_air_presence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_air_presence.Location = New System.Drawing.Point(16, 177)
-        Me.ind_air_presence.Name = "ind_air_presence"
-        Me.ind_air_presence.Size = New System.Drawing.Size(15, 15)
-        Me.ind_air_presence.TabIndex = 33
-        Me.ind_air_presence.TabStop = False
-        '
-        'Label70
-        '
-        Me.Label70.AutoSize = True
-        Me.Label70.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label70.Location = New System.Drawing.Point(37, 48)
-        Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(137, 19)
-        Me.Label70.TabIndex = 31
-        Me.Label70.Text = "Door Lock 2 Open"
-        '
-        'Label77
-        '
-        Me.Label77.AutoSize = True
-        Me.Label77.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label77.Location = New System.Drawing.Point(37, 174)
-        Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(95, 19)
-        Me.Label77.TabIndex = 31
-        Me.Label77.Text = "Air Presence"
-        '
-        'ind_door_lock_5
-        '
-        Me.ind_door_lock_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_door_lock_5.Location = New System.Drawing.Point(16, 114)
-        Me.ind_door_lock_5.Name = "ind_door_lock_5"
-        Me.ind_door_lock_5.Size = New System.Drawing.Size(15, 15)
-        Me.ind_door_lock_5.TabIndex = 33
-        Me.ind_door_lock_5.TabStop = False
-        '
-        'Label75
-        '
-        Me.Label75.AutoSize = True
-        Me.Label75.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label75.Location = New System.Drawing.Point(37, 111)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(137, 19)
-        Me.Label75.TabIndex = 31
-        Me.Label75.Text = "Door Lock 5 Open"
-        '
-        'ind_door_lock_3
-        '
-        Me.ind_door_lock_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_door_lock_3.Location = New System.Drawing.Point(16, 72)
-        Me.ind_door_lock_3.Name = "ind_door_lock_3"
-        Me.ind_door_lock_3.Size = New System.Drawing.Size(15, 15)
-        Me.ind_door_lock_3.TabIndex = 33
-        Me.ind_door_lock_3.TabStop = False
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label73.Location = New System.Drawing.Point(37, 69)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(136, 19)
-        Me.Label73.TabIndex = 31
-        Me.Label73.Text = "Door Lock 3 Open"
-        '
-        'ind_door_lock_1
-        '
-        Me.ind_door_lock_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_door_lock_1.Location = New System.Drawing.Point(16, 30)
-        Me.ind_door_lock_1.Name = "ind_door_lock_1"
-        Me.ind_door_lock_1.Size = New System.Drawing.Size(15, 15)
-        Me.ind_door_lock_1.TabIndex = 33
-        Me.ind_door_lock_1.TabStop = False
-        '
-        'Label69
-        '
-        Me.Label69.AutoSize = True
-        Me.Label69.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label69.Location = New System.Drawing.Point(37, 27)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(134, 19)
-        Me.Label69.TabIndex = 31
-        Me.Label69.Text = "Door Lock 1 Open"
-        '
-        'GroupBox80
-        '
-        Me.GroupBox80.Controls.Add(Me.Label85)
-        Me.GroupBox80.Controls.Add(Me.lbl_po_num)
-        Me.GroupBox80.Controls.Add(Me.Label83)
-        Me.GroupBox80.Controls.Add(Me.lbl_ope_id)
-        Me.GroupBox80.Controls.Add(Me.btn_clear)
-        Me.GroupBox80.Controls.Add(Me.Label80)
-        Me.GroupBox80.Controls.Add(Me.lbl_ref)
-        Me.GroupBox80.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox80.Location = New System.Drawing.Point(78, 71)
-        Me.GroupBox80.Name = "GroupBox80"
-        Me.GroupBox80.Size = New System.Drawing.Size(200, 257)
-        Me.GroupBox80.TabIndex = 45
-        Me.GroupBox80.TabStop = False
-        Me.GroupBox80.Text = "Product Information"
-        '
-        'Label85
-        '
-        Me.Label85.AutoSize = True
-        Me.Label85.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label85.Location = New System.Drawing.Point(6, 130)
-        Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(100, 19)
-        Me.Label85.TabIndex = 31
-        Me.Label85.Text = "PO Number :"
-        '
-        'lbl_po_num
-        '
-        Me.lbl_po_num.BackColor = System.Drawing.Color.White
-        Me.lbl_po_num.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_po_num.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_po_num.Location = New System.Drawing.Point(10, 151)
-        Me.lbl_po_num.Name = "lbl_po_num"
-        Me.lbl_po_num.Size = New System.Drawing.Size(170, 25)
-        Me.lbl_po_num.TabIndex = 31
-        Me.lbl_po_num.Text = "..."
-        '
-        'Label83
-        '
-        Me.Label83.AutoSize = True
-        Me.Label83.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label83.Location = New System.Drawing.Point(6, 78)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(102, 19)
-        Me.Label83.TabIndex = 31
-        Me.Label83.Text = "Operator ID :"
-        '
-        'lbl_ope_id
-        '
-        Me.lbl_ope_id.BackColor = System.Drawing.Color.White
-        Me.lbl_ope_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_ope_id.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_ope_id.Location = New System.Drawing.Point(10, 99)
-        Me.lbl_ope_id.Name = "lbl_ope_id"
-        Me.lbl_ope_id.Size = New System.Drawing.Size(170, 25)
-        Me.lbl_ope_id.TabIndex = 31
-        Me.lbl_ope_id.Text = "..."
-        '
-        'btn_clear
-        '
-        Me.btn_clear.FlatAppearance.BorderSize = 0
-        Me.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_clear.Image = Global.TESTER.My.Resources.Resources.Clear
-        Me.btn_clear.Location = New System.Drawing.Point(120, 179)
-        Me.btn_clear.Name = "btn_clear"
-        Me.btn_clear.Size = New System.Drawing.Size(60, 60)
-        Me.btn_clear.TabIndex = 69
-        Me.btn_clear.UseVisualStyleBackColor = True
-        '
-        'Label80
-        '
-        Me.Label80.AutoSize = True
-        Me.Label80.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label80.Location = New System.Drawing.Point(6, 27)
-        Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(92, 19)
-        Me.Label80.TabIndex = 31
-        Me.Label80.Text = "References :"
-        '
-        'lbl_ref
-        '
-        Me.lbl_ref.BackColor = System.Drawing.Color.White
-        Me.lbl_ref.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_ref.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_ref.Location = New System.Drawing.Point(10, 48)
-        Me.lbl_ref.Name = "lbl_ref"
-        Me.lbl_ref.Size = New System.Drawing.Size(170, 25)
-        Me.lbl_ref.TabIndex = 31
-        Me.lbl_ref.Text = "..."
-        '
-        'GroupBox76
-        '
-        Me.GroupBox76.Controls.Add(Me.ind_plc_status)
-        Me.GroupBox76.Controls.Add(Me.Label64)
-        Me.GroupBox76.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox76.Location = New System.Drawing.Point(78, 478)
-        Me.GroupBox76.Name = "GroupBox76"
-        Me.GroupBox76.Size = New System.Drawing.Size(200, 61)
-        Me.GroupBox76.TabIndex = 46
-        Me.GroupBox76.TabStop = False
-        Me.GroupBox76.Text = "PLC Status"
-        '
-        'ind_plc_status
-        '
-        Me.ind_plc_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_plc_status.Location = New System.Drawing.Point(16, 30)
-        Me.ind_plc_status.Name = "ind_plc_status"
-        Me.ind_plc_status.Size = New System.Drawing.Size(15, 15)
-        Me.ind_plc_status.TabIndex = 33
-        Me.ind_plc_status.TabStop = False
-        '
-        'Label64
-        '
-        Me.Label64.AutoSize = True
-        Me.Label64.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label64.Location = New System.Drawing.Point(37, 27)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(84, 19)
-        Me.Label64.TabIndex = 31
-        Me.Label64.Text = "PLC Ready"
-        '
-        'lbl_op_ins
-        '
-        Me.lbl_op_ins.BackColor = System.Drawing.Color.Silver
-        Me.lbl_op_ins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_op_ins.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_op_ins.ForeColor = System.Drawing.Color.Red
-        Me.lbl_op_ins.Location = New System.Drawing.Point(310, 100)
-        Me.lbl_op_ins.Name = "lbl_op_ins"
-        Me.lbl_op_ins.Size = New System.Drawing.Size(216, 85)
-        Me.lbl_op_ins.TabIndex = 33
-        Me.lbl_op_ins.Text = "Please Scan Product References.."
-        '
-        'Label86
-        '
-        Me.Label86.AutoSize = True
-        Me.Label86.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label86.Location = New System.Drawing.Point(307, 71)
-        Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(199, 23)
-        Me.Label86.TabIndex = 35
-        Me.Label86.Text = "Operator Instructions :"
-        '
-        'Label63
-        '
-        Me.Label63.AutoSize = True
-        Me.Label63.Font = New System.Drawing.Font("Constantia", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label63.Location = New System.Drawing.Point(383, 14)
-        Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(87, 29)
-        Me.Label63.TabIndex = 31
-        Me.Label63.Text = "HOME"
-        '
         'btn_stn6
         '
         Me.btn_stn6.FlatAppearance.BorderSize = 0
@@ -1600,6 +965,7 @@ Partial Class frmMain
         '
         'pnl_man_stn1
         '
+        Me.pnl_man_stn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnl_man_stn1.Controls.Add(Me.GroupBox10)
         Me.pnl_man_stn1.Controls.Add(Me.GroupBox4)
         Me.pnl_man_stn1.Controls.Add(Me.GroupBox7)
@@ -2074,6 +1440,7 @@ Partial Class frmMain
         '
         'pnl_man_stn2
         '
+        Me.pnl_man_stn2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnl_man_stn2.Controls.Add(Me.GroupBox13)
         Me.pnl_man_stn2.Controls.Add(Me.GroupBox16)
         Me.pnl_man_stn2.Controls.Add(Me.GroupBox19)
@@ -2548,6 +1915,7 @@ Partial Class frmMain
         '
         'pnl_man_stn4
         '
+        Me.pnl_man_stn4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnl_man_stn4.Controls.Add(Me.GroupBox37)
         Me.pnl_man_stn4.Controls.Add(Me.GroupBox43)
         Me.pnl_man_stn4.Controls.Add(Me.GroupBox46)
@@ -3022,6 +2390,7 @@ Partial Class frmMain
         '
         'pnl_man_stn5
         '
+        Me.pnl_man_stn5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnl_man_stn5.Controls.Add(Me.GroupBox49)
         Me.pnl_man_stn5.Controls.Add(Me.GroupBox52)
         Me.pnl_man_stn5.Controls.Add(Me.GroupBox55)
@@ -3496,6 +2865,8 @@ Partial Class frmMain
         '
         'pnl_man_stn6
         '
+        Me.pnl_man_stn6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnl_man_stn6.Controls.Add(Me.GroupBox88)
         Me.pnl_man_stn6.Controls.Add(Me.GroupBox73)
         Me.pnl_man_stn6.Controls.Add(Me.GroupBox67)
         Me.pnl_man_stn6.Controls.Add(Me.GroupBox64)
@@ -3507,13 +2878,126 @@ Partial Class frmMain
         Me.pnl_man_stn6.Size = New System.Drawing.Size(852, 563)
         Me.pnl_man_stn6.TabIndex = 77
         '
+        'GroupBox88
+        '
+        Me.GroupBox88.AutoSize = True
+        Me.GroupBox88.Controls.Add(Me.GroupBox89)
+        Me.GroupBox88.Controls.Add(Me.GroupBox90)
+        Me.GroupBox88.Font = New System.Drawing.Font("Constantia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox88.Location = New System.Drawing.Point(570, 316)
+        Me.GroupBox88.Name = "GroupBox88"
+        Me.GroupBox88.Size = New System.Drawing.Size(215, 234)
+        Me.GroupBox88.TabIndex = 34
+        Me.GroupBox88.TabStop = False
+        Me.GroupBox88.Text = "Cylinder 6"
+        '
+        'GroupBox89
+        '
+        Me.GroupBox89.Controls.Add(Me.Label97)
+        Me.GroupBox89.Controls.Add(Me.Label100)
+        Me.GroupBox89.Controls.Add(Me.stn6_cyl6_min)
+        Me.GroupBox89.Controls.Add(Me.stn6_cyl6_max)
+        Me.GroupBox89.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox89.Location = New System.Drawing.Point(107, 37)
+        Me.GroupBox89.Name = "GroupBox89"
+        Me.GroupBox89.Size = New System.Drawing.Size(90, 165)
+        Me.GroupBox89.TabIndex = 3
+        Me.GroupBox89.TabStop = False
+        Me.GroupBox89.Text = "Sensor"
+        '
+        'Label97
+        '
+        Me.Label97.AutoSize = True
+        Me.Label97.Font = New System.Drawing.Font("Constantia", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label97.Location = New System.Drawing.Point(6, 142)
+        Me.Label97.Name = "Label97"
+        Me.Label97.Size = New System.Drawing.Size(74, 18)
+        Me.Label97.TabIndex = 1
+        Me.Label97.Text = "Minimum"
+        '
+        'Label100
+        '
+        Me.Label100.AutoSize = True
+        Me.Label100.Font = New System.Drawing.Font("Constantia", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label100.Location = New System.Drawing.Point(6, 66)
+        Me.Label100.Name = "Label100"
+        Me.Label100.Size = New System.Drawing.Size(75, 18)
+        Me.Label100.TabIndex = 1
+        Me.Label100.Text = "Maximum"
+        '
+        'stn6_cyl6_min
+        '
+        Me.stn6_cyl6_min.Image = Global.TESTER.My.Resources.Resources.led_red_off
+        Me.stn6_cyl6_min.Location = New System.Drawing.Point(6, 106)
+        Me.stn6_cyl6_min.Name = "stn6_cyl6_min"
+        Me.stn6_cyl6_min.Size = New System.Drawing.Size(80, 33)
+        Me.stn6_cyl6_min.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.stn6_cyl6_min.TabIndex = 0
+        Me.stn6_cyl6_min.TabStop = False
+        '
+        'stn6_cyl6_max
+        '
+        Me.stn6_cyl6_max.Image = Global.TESTER.My.Resources.Resources.led_red_off
+        Me.stn6_cyl6_max.Location = New System.Drawing.Point(6, 30)
+        Me.stn6_cyl6_max.Name = "stn6_cyl6_max"
+        Me.stn6_cyl6_max.Size = New System.Drawing.Size(80, 33)
+        Me.stn6_cyl6_max.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.stn6_cyl6_max.TabIndex = 0
+        Me.stn6_cyl6_max.TabStop = False
+        '
+        'GroupBox90
+        '
+        Me.GroupBox90.Controls.Add(Me.btn_stn6_cyl6_fw)
+        Me.GroupBox90.Controls.Add(Me.btn_stn6_cyl6_bw)
+        Me.GroupBox90.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox90.Location = New System.Drawing.Point(13, 37)
+        Me.GroupBox90.Name = "GroupBox90"
+        Me.GroupBox90.Size = New System.Drawing.Size(88, 165)
+        Me.GroupBox90.TabIndex = 3
+        Me.GroupBox90.TabStop = False
+        Me.GroupBox90.Text = "Button"
+        '
+        'btn_stn6_cyl6_fw
+        '
+        Me.btn_stn6_cyl6_fw.BackColor = System.Drawing.Color.Transparent
+        Me.btn_stn6_cyl6_fw.FlatAppearance.BorderSize = 0
+        Me.btn_stn6_cyl6_fw.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_stn6_cyl6_fw.Font = New System.Drawing.Font("Constantia", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_stn6_cyl6_fw.Image = Global.TESTER.My.Resources.Resources.button_silver
+        Me.btn_stn6_cyl6_fw.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_stn6_cyl6_fw.Location = New System.Drawing.Point(-8, 19)
+        Me.btn_stn6_cyl6_fw.Name = "btn_stn6_cyl6_fw"
+        Me.btn_stn6_cyl6_fw.Size = New System.Drawing.Size(102, 70)
+        Me.btn_stn6_cyl6_fw.TabIndex = 2
+        Me.btn_stn6_cyl6_fw.Text = "Forward"
+        Me.btn_stn6_cyl6_fw.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_stn6_cyl6_fw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_stn6_cyl6_fw.UseVisualStyleBackColor = False
+        '
+        'btn_stn6_cyl6_bw
+        '
+        Me.btn_stn6_cyl6_bw.BackColor = System.Drawing.Color.Transparent
+        Me.btn_stn6_cyl6_bw.FlatAppearance.BorderSize = 0
+        Me.btn_stn6_cyl6_bw.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_stn6_cyl6_bw.Font = New System.Drawing.Font("Constantia", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_stn6_cyl6_bw.Image = Global.TESTER.My.Resources.Resources.button_silver
+        Me.btn_stn6_cyl6_bw.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_stn6_cyl6_bw.Location = New System.Drawing.Point(-8, 95)
+        Me.btn_stn6_cyl6_bw.Name = "btn_stn6_cyl6_bw"
+        Me.btn_stn6_cyl6_bw.Size = New System.Drawing.Size(102, 70)
+        Me.btn_stn6_cyl6_bw.TabIndex = 2
+        Me.btn_stn6_cyl6_bw.Text = "Backward"
+        Me.btn_stn6_cyl6_bw.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_stn6_cyl6_bw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_stn6_cyl6_bw.UseVisualStyleBackColor = False
+        '
         'GroupBox73
         '
         Me.GroupBox73.AutoSize = True
         Me.GroupBox73.Controls.Add(Me.GroupBox74)
         Me.GroupBox73.Controls.Add(Me.GroupBox75)
         Me.GroupBox73.Font = New System.Drawing.Font("Constantia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox73.Location = New System.Drawing.Point(439, 315)
+        Me.GroupBox73.Location = New System.Drawing.Point(319, 316)
         Me.GroupBox73.Name = "GroupBox73"
         Me.GroupBox73.Size = New System.Drawing.Size(215, 234)
         Me.GroupBox73.TabIndex = 34
@@ -3626,7 +3110,7 @@ Partial Class frmMain
         Me.GroupBox67.Controls.Add(Me.GroupBox68)
         Me.GroupBox67.Controls.Add(Me.GroupBox69)
         Me.GroupBox67.Font = New System.Drawing.Font("Constantia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox67.Location = New System.Drawing.Point(184, 315)
+        Me.GroupBox67.Location = New System.Drawing.Point(68, 316)
         Me.GroupBox67.Name = "GroupBox67"
         Me.GroupBox67.Size = New System.Drawing.Size(215, 234)
         Me.GroupBox67.TabIndex = 35
@@ -4084,6 +3568,7 @@ Partial Class frmMain
         '
         'pnl_man_stn3
         '
+        Me.pnl_man_stn3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnl_man_stn3.Controls.Add(Me.GroupBox25)
         Me.pnl_man_stn3.Controls.Add(Me.GroupBox28)
         Me.pnl_man_stn3.Controls.Add(Me.GroupBox31)
@@ -4618,6 +4103,7 @@ Partial Class frmMain
         '
         'status_bar
         '
+        Me.status_bar.BackColor = System.Drawing.SystemColors.Control
         Me.status_bar.Image = Global.TESTER.My.Resources.Resources.GUI___SignUpButtonOn40
         Me.status_bar.Location = New System.Drawing.Point(267, 50)
         Me.status_bar.Name = "status_bar"
@@ -4646,90 +4132,1404 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
         '
-        'MainLoop
+        'Status
         '
         '
         'BarcodeComm
         '
+        Me.BarcodeComm.PortName = "COM7"
+        '
+        'pnl_alarm
+        '
+        Me.pnl_alarm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnl_alarm.Controls.Add(Me.Label71)
+        Me.pnl_alarm.Controls.Add(Me.GroupBox85)
+        Me.pnl_alarm.Controls.Add(Me.GroupBox83)
+        Me.pnl_alarm.Controls.Add(Me.GroupBox84)
+        Me.pnl_alarm.Controls.Add(Me.GroupBox82)
+        Me.pnl_alarm.Controls.Add(Me.GroupBox81)
+        Me.pnl_alarm.Controls.Add(Me.GroupBox79)
+        Me.pnl_alarm.Location = New System.Drawing.Point(78, 158)
+        Me.pnl_alarm.Name = "pnl_alarm"
+        Me.pnl_alarm.Size = New System.Drawing.Size(852, 563)
+        Me.pnl_alarm.TabIndex = 79
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Font = New System.Drawing.Font("Constantia", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label71.Location = New System.Drawing.Point(383, 11)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(96, 29)
+        Me.Label71.TabIndex = 57
+        Me.Label71.Text = "ALARM"
+        '
+        'GroupBox85
+        '
+        Me.GroupBox85.Controls.Add(Me.ind_v602_descrepancy)
+        Me.GroupBox85.Controls.Add(Me.Label94)
+        Me.GroupBox85.Controls.Add(Me.ind_v601_descrepancy)
+        Me.GroupBox85.Controls.Add(Me.Label96)
+        Me.GroupBox85.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox85.Location = New System.Drawing.Point(441, 257)
+        Me.GroupBox85.Name = "GroupBox85"
+        Me.GroupBox85.Size = New System.Drawing.Size(216, 81)
+        Me.GroupBox85.TabIndex = 51
+        Me.GroupBox85.TabStop = False
+        Me.GroupBox85.Text = "Alarm Station 6"
+        '
+        'ind_v602_descrepancy
+        '
+        Me.ind_v602_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v602_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v602_descrepancy.Name = "ind_v602_descrepancy"
+        Me.ind_v602_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v602_descrepancy.TabIndex = 33
+        Me.ind_v602_descrepancy.TabStop = False
+        '
+        'Label94
+        '
+        Me.Label94.AutoSize = True
+        Me.Label94.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label94.Location = New System.Drawing.Point(37, 48)
+        Me.Label94.Name = "Label94"
+        Me.Label94.Size = New System.Drawing.Size(138, 19)
+        Me.Label94.TabIndex = 31
+        Me.Label94.Text = "V602 Descrepancy"
+        '
+        'ind_v601_descrepancy
+        '
+        Me.ind_v601_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v601_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v601_descrepancy.Name = "ind_v601_descrepancy"
+        Me.ind_v601_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v601_descrepancy.TabIndex = 33
+        Me.ind_v601_descrepancy.TabStop = False
+        '
+        'Label96
+        '
+        Me.Label96.AutoSize = True
+        Me.Label96.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label96.Location = New System.Drawing.Point(37, 27)
+        Me.Label96.Name = "Label96"
+        Me.Label96.Size = New System.Drawing.Size(135, 19)
+        Me.Label96.TabIndex = 31
+        Me.Label96.Text = "V601 Descrepancy"
+        '
+        'GroupBox83
+        '
+        Me.GroupBox83.Controls.Add(Me.ind_v402_descrepancy)
+        Me.GroupBox83.Controls.Add(Me.Label89)
+        Me.GroupBox83.Controls.Add(Me.ind_v401_descrepancy)
+        Me.GroupBox83.Controls.Add(Me.Label90)
+        Me.GroupBox83.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox83.Location = New System.Drawing.Point(441, 83)
+        Me.GroupBox83.Name = "GroupBox83"
+        Me.GroupBox83.Size = New System.Drawing.Size(216, 81)
+        Me.GroupBox83.TabIndex = 52
+        Me.GroupBox83.TabStop = False
+        Me.GroupBox83.Text = "Alarm Station 4"
+        '
+        'ind_v402_descrepancy
+        '
+        Me.ind_v402_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v402_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v402_descrepancy.Name = "ind_v402_descrepancy"
+        Me.ind_v402_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v402_descrepancy.TabIndex = 33
+        Me.ind_v402_descrepancy.TabStop = False
+        '
+        'Label89
+        '
+        Me.Label89.AutoSize = True
+        Me.Label89.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label89.Location = New System.Drawing.Point(37, 48)
+        Me.Label89.Name = "Label89"
+        Me.Label89.Size = New System.Drawing.Size(138, 19)
+        Me.Label89.TabIndex = 31
+        Me.Label89.Text = "V402 Descrepancy"
+        '
+        'ind_v401_descrepancy
+        '
+        Me.ind_v401_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v401_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v401_descrepancy.Name = "ind_v401_descrepancy"
+        Me.ind_v401_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v401_descrepancy.TabIndex = 33
+        Me.ind_v401_descrepancy.TabStop = False
+        '
+        'Label90
+        '
+        Me.Label90.AutoSize = True
+        Me.Label90.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label90.Location = New System.Drawing.Point(37, 27)
+        Me.Label90.Name = "Label90"
+        Me.Label90.Size = New System.Drawing.Size(135, 19)
+        Me.Label90.TabIndex = 31
+        Me.Label90.Text = "V401 Descrepancy"
+        '
+        'GroupBox84
+        '
+        Me.GroupBox84.Controls.Add(Me.ind_v502_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.Label92)
+        Me.GroupBox84.Controls.Add(Me.ind_v501_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.Label93)
+        Me.GroupBox84.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox84.Location = New System.Drawing.Point(441, 170)
+        Me.GroupBox84.Name = "GroupBox84"
+        Me.GroupBox84.Size = New System.Drawing.Size(216, 81)
+        Me.GroupBox84.TabIndex = 53
+        Me.GroupBox84.TabStop = False
+        Me.GroupBox84.Text = "Alarm Station 5"
+        '
+        'ind_v502_descrepancy
+        '
+        Me.ind_v502_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v502_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v502_descrepancy.Name = "ind_v502_descrepancy"
+        Me.ind_v502_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v502_descrepancy.TabIndex = 33
+        Me.ind_v502_descrepancy.TabStop = False
+        '
+        'Label92
+        '
+        Me.Label92.AutoSize = True
+        Me.Label92.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label92.Location = New System.Drawing.Point(37, 48)
+        Me.Label92.Name = "Label92"
+        Me.Label92.Size = New System.Drawing.Size(137, 19)
+        Me.Label92.TabIndex = 31
+        Me.Label92.Text = "V502 Descrepancy"
+        '
+        'ind_v501_descrepancy
+        '
+        Me.ind_v501_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v501_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v501_descrepancy.Name = "ind_v501_descrepancy"
+        Me.ind_v501_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v501_descrepancy.TabIndex = 33
+        Me.ind_v501_descrepancy.TabStop = False
+        '
+        'Label93
+        '
+        Me.Label93.AutoSize = True
+        Me.Label93.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label93.Location = New System.Drawing.Point(37, 27)
+        Me.Label93.Name = "Label93"
+        Me.Label93.Size = New System.Drawing.Size(134, 19)
+        Me.Label93.TabIndex = 31
+        Me.Label93.Text = "V501 Descrepancy"
+        '
+        'GroupBox82
+        '
+        Me.GroupBox82.Controls.Add(Me.ind_v302_descrepancy)
+        Me.GroupBox82.Controls.Add(Me.Label87)
+        Me.GroupBox82.Controls.Add(Me.ind_v301_descrepancy)
+        Me.GroupBox82.Controls.Add(Me.Label88)
+        Me.GroupBox82.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox82.Location = New System.Drawing.Point(196, 401)
+        Me.GroupBox82.Name = "GroupBox82"
+        Me.GroupBox82.Size = New System.Drawing.Size(216, 81)
+        Me.GroupBox82.TabIndex = 54
+        Me.GroupBox82.TabStop = False
+        Me.GroupBox82.Text = "Alarm Station 3"
+        '
+        'ind_v302_descrepancy
+        '
+        Me.ind_v302_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v302_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v302_descrepancy.Name = "ind_v302_descrepancy"
+        Me.ind_v302_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v302_descrepancy.TabIndex = 33
+        Me.ind_v302_descrepancy.TabStop = False
+        '
+        'Label87
+        '
+        Me.Label87.AutoSize = True
+        Me.Label87.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label87.Location = New System.Drawing.Point(37, 48)
+        Me.Label87.Name = "Label87"
+        Me.Label87.Size = New System.Drawing.Size(136, 19)
+        Me.Label87.TabIndex = 31
+        Me.Label87.Text = "V302 Descrepancy"
+        '
+        'ind_v301_descrepancy
+        '
+        Me.ind_v301_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v301_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v301_descrepancy.Name = "ind_v301_descrepancy"
+        Me.ind_v301_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v301_descrepancy.TabIndex = 33
+        Me.ind_v301_descrepancy.TabStop = False
+        '
+        'Label88
+        '
+        Me.Label88.AutoSize = True
+        Me.Label88.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label88.Location = New System.Drawing.Point(37, 27)
+        Me.Label88.Name = "Label88"
+        Me.Label88.Size = New System.Drawing.Size(133, 19)
+        Me.Label88.TabIndex = 31
+        Me.Label88.Text = "V301 Descrepancy"
+        '
+        'GroupBox81
+        '
+        Me.GroupBox81.Controls.Add(Me.ind_v202_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.Label91)
+        Me.GroupBox81.Controls.Add(Me.ind_v201_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.Label95)
+        Me.GroupBox81.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox81.Location = New System.Drawing.Point(196, 314)
+        Me.GroupBox81.Name = "GroupBox81"
+        Me.GroupBox81.Size = New System.Drawing.Size(216, 81)
+        Me.GroupBox81.TabIndex = 55
+        Me.GroupBox81.TabStop = False
+        Me.GroupBox81.Text = "Alarm Station 2"
+        '
+        'ind_v202_descrepancy
+        '
+        Me.ind_v202_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v202_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v202_descrepancy.Name = "ind_v202_descrepancy"
+        Me.ind_v202_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v202_descrepancy.TabIndex = 33
+        Me.ind_v202_descrepancy.TabStop = False
+        '
+        'Label91
+        '
+        Me.Label91.AutoSize = True
+        Me.Label91.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label91.Location = New System.Drawing.Point(37, 48)
+        Me.Label91.Name = "Label91"
+        Me.Label91.Size = New System.Drawing.Size(137, 19)
+        Me.Label91.TabIndex = 31
+        Me.Label91.Text = "V202 Descrepancy"
+        '
+        'ind_v201_descrepancy
+        '
+        Me.ind_v201_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v201_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v201_descrepancy.Name = "ind_v201_descrepancy"
+        Me.ind_v201_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v201_descrepancy.TabIndex = 33
+        Me.ind_v201_descrepancy.TabStop = False
+        '
+        'Label95
+        '
+        Me.Label95.AutoSize = True
+        Me.Label95.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label95.Location = New System.Drawing.Point(37, 27)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(134, 19)
+        Me.Label95.TabIndex = 31
+        Me.Label95.Text = "V201 Descrepancy"
+        '
+        'GroupBox79
+        '
+        Me.GroupBox79.Controls.Add(Me.ind_emg_button)
+        Me.GroupBox79.Controls.Add(Me.ind_door_lock_6)
+        Me.GroupBox79.Controls.Add(Me.ind_altivar_fault)
+        Me.GroupBox79.Controls.Add(Me.ind_door_lock_4)
+        Me.GroupBox79.Controls.Add(Me.Label79)
+        Me.GroupBox79.Controls.Add(Me.ind_door_lock_2)
+        Me.GroupBox79.Controls.Add(Me.Label78)
+        Me.GroupBox79.Controls.Add(Me.Label76)
+        Me.GroupBox79.Controls.Add(Me.Label74)
+        Me.GroupBox79.Controls.Add(Me.ind_air_presence)
+        Me.GroupBox79.Controls.Add(Me.Label70)
+        Me.GroupBox79.Controls.Add(Me.Label77)
+        Me.GroupBox79.Controls.Add(Me.ind_door_lock_5)
+        Me.GroupBox79.Controls.Add(Me.Label75)
+        Me.GroupBox79.Controls.Add(Me.ind_door_lock_3)
+        Me.GroupBox79.Controls.Add(Me.Label73)
+        Me.GroupBox79.Controls.Add(Me.ind_door_lock_1)
+        Me.GroupBox79.Controls.Add(Me.Label69)
+        Me.GroupBox79.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox79.Location = New System.Drawing.Point(196, 83)
+        Me.GroupBox79.Name = "GroupBox79"
+        Me.GroupBox79.Size = New System.Drawing.Size(216, 227)
+        Me.GroupBox79.TabIndex = 56
+        Me.GroupBox79.TabStop = False
+        Me.GroupBox79.Text = "Alarm General"
+        '
+        'ind_emg_button
+        '
+        Me.ind_emg_button.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_emg_button.Location = New System.Drawing.Point(16, 198)
+        Me.ind_emg_button.Name = "ind_emg_button"
+        Me.ind_emg_button.Size = New System.Drawing.Size(15, 15)
+        Me.ind_emg_button.TabIndex = 33
+        Me.ind_emg_button.TabStop = False
+        '
+        'ind_door_lock_6
+        '
+        Me.ind_door_lock_6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_door_lock_6.Location = New System.Drawing.Point(16, 135)
+        Me.ind_door_lock_6.Name = "ind_door_lock_6"
+        Me.ind_door_lock_6.Size = New System.Drawing.Size(15, 15)
+        Me.ind_door_lock_6.TabIndex = 33
+        Me.ind_door_lock_6.TabStop = False
+        '
+        'ind_altivar_fault
+        '
+        Me.ind_altivar_fault.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_altivar_fault.Location = New System.Drawing.Point(16, 156)
+        Me.ind_altivar_fault.Name = "ind_altivar_fault"
+        Me.ind_altivar_fault.Size = New System.Drawing.Size(15, 15)
+        Me.ind_altivar_fault.TabIndex = 33
+        Me.ind_altivar_fault.TabStop = False
+        '
+        'ind_door_lock_4
+        '
+        Me.ind_door_lock_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_door_lock_4.Location = New System.Drawing.Point(16, 93)
+        Me.ind_door_lock_4.Name = "ind_door_lock_4"
+        Me.ind_door_lock_4.Size = New System.Drawing.Size(15, 15)
+        Me.ind_door_lock_4.TabIndex = 33
+        Me.ind_door_lock_4.TabStop = False
+        '
+        'Label79
+        '
+        Me.Label79.AutoSize = True
+        Me.Label79.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label79.Location = New System.Drawing.Point(37, 195)
+        Me.Label79.Name = "Label79"
+        Me.Label79.Size = New System.Drawing.Size(168, 19)
+        Me.Label79.TabIndex = 31
+        Me.Label79.Text = "Emergency Button ON"
+        '
+        'ind_door_lock_2
+        '
+        Me.ind_door_lock_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_door_lock_2.Location = New System.Drawing.Point(16, 51)
+        Me.ind_door_lock_2.Name = "ind_door_lock_2"
+        Me.ind_door_lock_2.Size = New System.Drawing.Size(15, 15)
+        Me.ind_door_lock_2.TabIndex = 33
+        Me.ind_door_lock_2.TabStop = False
+        '
+        'Label78
+        '
+        Me.Label78.AutoSize = True
+        Me.Label78.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label78.Location = New System.Drawing.Point(37, 153)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(97, 19)
+        Me.Label78.TabIndex = 31
+        Me.Label78.Text = "Altivar Fault"
+        '
+        'Label76
+        '
+        Me.Label76.AutoSize = True
+        Me.Label76.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label76.Location = New System.Drawing.Point(37, 132)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(138, 19)
+        Me.Label76.TabIndex = 31
+        Me.Label76.Text = "Door Lock 6 Open"
+        '
+        'Label74
+        '
+        Me.Label74.AutoSize = True
+        Me.Label74.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label74.Location = New System.Drawing.Point(37, 90)
+        Me.Label74.Name = "Label74"
+        Me.Label74.Size = New System.Drawing.Size(138, 19)
+        Me.Label74.TabIndex = 31
+        Me.Label74.Text = "Door Lock 4 Open"
+        '
+        'ind_air_presence
+        '
+        Me.ind_air_presence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_air_presence.Location = New System.Drawing.Point(16, 177)
+        Me.ind_air_presence.Name = "ind_air_presence"
+        Me.ind_air_presence.Size = New System.Drawing.Size(15, 15)
+        Me.ind_air_presence.TabIndex = 33
+        Me.ind_air_presence.TabStop = False
+        '
+        'Label70
+        '
+        Me.Label70.AutoSize = True
+        Me.Label70.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label70.Location = New System.Drawing.Point(37, 48)
+        Me.Label70.Name = "Label70"
+        Me.Label70.Size = New System.Drawing.Size(137, 19)
+        Me.Label70.TabIndex = 31
+        Me.Label70.Text = "Door Lock 2 Open"
+        '
+        'Label77
+        '
+        Me.Label77.AutoSize = True
+        Me.Label77.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label77.Location = New System.Drawing.Point(37, 174)
+        Me.Label77.Name = "Label77"
+        Me.Label77.Size = New System.Drawing.Size(95, 19)
+        Me.Label77.TabIndex = 31
+        Me.Label77.Text = "Air Presence"
+        '
+        'ind_door_lock_5
+        '
+        Me.ind_door_lock_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_door_lock_5.Location = New System.Drawing.Point(16, 114)
+        Me.ind_door_lock_5.Name = "ind_door_lock_5"
+        Me.ind_door_lock_5.Size = New System.Drawing.Size(15, 15)
+        Me.ind_door_lock_5.TabIndex = 33
+        Me.ind_door_lock_5.TabStop = False
+        '
+        'Label75
+        '
+        Me.Label75.AutoSize = True
+        Me.Label75.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label75.Location = New System.Drawing.Point(37, 111)
+        Me.Label75.Name = "Label75"
+        Me.Label75.Size = New System.Drawing.Size(137, 19)
+        Me.Label75.TabIndex = 31
+        Me.Label75.Text = "Door Lock 5 Open"
+        '
+        'ind_door_lock_3
+        '
+        Me.ind_door_lock_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_door_lock_3.Location = New System.Drawing.Point(16, 72)
+        Me.ind_door_lock_3.Name = "ind_door_lock_3"
+        Me.ind_door_lock_3.Size = New System.Drawing.Size(15, 15)
+        Me.ind_door_lock_3.TabIndex = 33
+        Me.ind_door_lock_3.TabStop = False
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label73.Location = New System.Drawing.Point(37, 69)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(136, 19)
+        Me.Label73.TabIndex = 31
+        Me.Label73.Text = "Door Lock 3 Open"
+        '
+        'ind_door_lock_1
+        '
+        Me.ind_door_lock_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_door_lock_1.Location = New System.Drawing.Point(16, 30)
+        Me.ind_door_lock_1.Name = "ind_door_lock_1"
+        Me.ind_door_lock_1.Size = New System.Drawing.Size(15, 15)
+        Me.ind_door_lock_1.TabIndex = 33
+        Me.ind_door_lock_1.TabStop = False
+        '
+        'Label69
+        '
+        Me.Label69.AutoSize = True
+        Me.Label69.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label69.Location = New System.Drawing.Point(37, 27)
+        Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(134, 19)
+        Me.Label69.TabIndex = 31
+        Me.Label69.Text = "Door Lock 1 Open"
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = True
+        Me.Label63.Font = New System.Drawing.Font("Constantia", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label63.Location = New System.Drawing.Point(383, 14)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(87, 29)
+        Me.Label63.TabIndex = 31
+        Me.Label63.Text = "HOME"
+        '
+        'Label86
+        '
+        Me.Label86.AutoSize = True
+        Me.Label86.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label86.Location = New System.Drawing.Point(307, 71)
+        Me.Label86.Name = "Label86"
+        Me.Label86.Size = New System.Drawing.Size(199, 23)
+        Me.Label86.TabIndex = 35
+        Me.Label86.Text = "Operator Instructions :"
+        '
+        'lbl_op_ins
+        '
+        Me.lbl_op_ins.BackColor = System.Drawing.Color.Silver
+        Me.lbl_op_ins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_op_ins.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_op_ins.ForeColor = System.Drawing.Color.Black
+        Me.lbl_op_ins.Location = New System.Drawing.Point(310, 100)
+        Me.lbl_op_ins.Name = "lbl_op_ins"
+        Me.lbl_op_ins.Size = New System.Drawing.Size(216, 85)
+        Me.lbl_op_ins.TabIndex = 33
+        Me.lbl_op_ins.Text = "Please Scan Product References.."
+        '
+        'GroupBox76
+        '
+        Me.GroupBox76.Controls.Add(Me.ind_plc_status)
+        Me.GroupBox76.Controls.Add(Me.Label64)
+        Me.GroupBox76.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox76.Location = New System.Drawing.Point(78, 478)
+        Me.GroupBox76.Name = "GroupBox76"
+        Me.GroupBox76.Size = New System.Drawing.Size(200, 61)
+        Me.GroupBox76.TabIndex = 46
+        Me.GroupBox76.TabStop = False
+        Me.GroupBox76.Text = "PLC Status"
+        '
+        'ind_plc_status
+        '
+        Me.ind_plc_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_plc_status.Location = New System.Drawing.Point(16, 30)
+        Me.ind_plc_status.Name = "ind_plc_status"
+        Me.ind_plc_status.Size = New System.Drawing.Size(15, 15)
+        Me.ind_plc_status.TabIndex = 33
+        Me.ind_plc_status.TabStop = False
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label64.Location = New System.Drawing.Point(37, 27)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(84, 19)
+        Me.Label64.TabIndex = 31
+        Me.Label64.Text = "PLC Ready"
+        '
+        'GroupBox80
+        '
+        Me.GroupBox80.Controls.Add(Me.Label85)
+        Me.GroupBox80.Controls.Add(Me.lbl_po_num)
+        Me.GroupBox80.Controls.Add(Me.Label83)
+        Me.GroupBox80.Controls.Add(Me.lbl_ope_id)
+        Me.GroupBox80.Controls.Add(Me.btn_clear)
+        Me.GroupBox80.Controls.Add(Me.Label80)
+        Me.GroupBox80.Controls.Add(Me.lbl_ref)
+        Me.GroupBox80.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox80.Location = New System.Drawing.Point(78, 71)
+        Me.GroupBox80.Name = "GroupBox80"
+        Me.GroupBox80.Size = New System.Drawing.Size(200, 257)
+        Me.GroupBox80.TabIndex = 45
+        Me.GroupBox80.TabStop = False
+        Me.GroupBox80.Text = "Product Information"
+        '
+        'Label85
+        '
+        Me.Label85.AutoSize = True
+        Me.Label85.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label85.Location = New System.Drawing.Point(6, 130)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(100, 19)
+        Me.Label85.TabIndex = 31
+        Me.Label85.Text = "PO Number :"
+        '
+        'lbl_po_num
+        '
+        Me.lbl_po_num.BackColor = System.Drawing.Color.White
+        Me.lbl_po_num.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_po_num.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_po_num.Location = New System.Drawing.Point(10, 151)
+        Me.lbl_po_num.Name = "lbl_po_num"
+        Me.lbl_po_num.Size = New System.Drawing.Size(170, 25)
+        Me.lbl_po_num.TabIndex = 31
+        Me.lbl_po_num.Text = "..."
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label83.Location = New System.Drawing.Point(6, 78)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(102, 19)
+        Me.Label83.TabIndex = 31
+        Me.Label83.Text = "Operator ID :"
+        '
+        'lbl_ope_id
+        '
+        Me.lbl_ope_id.BackColor = System.Drawing.Color.White
+        Me.lbl_ope_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_ope_id.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_ope_id.Location = New System.Drawing.Point(10, 99)
+        Me.lbl_ope_id.Name = "lbl_ope_id"
+        Me.lbl_ope_id.Size = New System.Drawing.Size(170, 25)
+        Me.lbl_ope_id.TabIndex = 31
+        Me.lbl_ope_id.Text = "..."
+        '
+        'btn_clear
+        '
+        Me.btn_clear.FlatAppearance.BorderSize = 0
+        Me.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_clear.Image = Global.TESTER.My.Resources.Resources.Clear
+        Me.btn_clear.Location = New System.Drawing.Point(120, 179)
+        Me.btn_clear.Name = "btn_clear"
+        Me.btn_clear.Size = New System.Drawing.Size(60, 60)
+        Me.btn_clear.TabIndex = 69
+        Me.btn_clear.UseVisualStyleBackColor = True
+        '
+        'Label80
+        '
+        Me.Label80.AutoSize = True
+        Me.Label80.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label80.Location = New System.Drawing.Point(6, 27)
+        Me.Label80.Name = "Label80"
+        Me.Label80.Size = New System.Drawing.Size(92, 19)
+        Me.Label80.TabIndex = 31
+        Me.Label80.Text = "References :"
+        '
+        'lbl_ref
+        '
+        Me.lbl_ref.BackColor = System.Drawing.Color.White
+        Me.lbl_ref.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_ref.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_ref.Location = New System.Drawing.Point(10, 48)
+        Me.lbl_ref.Name = "lbl_ref"
+        Me.lbl_ref.Size = New System.Drawing.Size(170, 25)
+        Me.lbl_ref.TabIndex = 31
+        Me.lbl_ref.Text = "..."
+        '
+        'GroupBox77
+        '
+        Me.GroupBox77.Controls.Add(Me.ind_software_stop)
+        Me.GroupBox77.Controls.Add(Me.Label67)
+        Me.GroupBox77.Controls.Add(Me.ind_software_run)
+        Me.GroupBox77.Controls.Add(Me.Label66)
+        Me.GroupBox77.Controls.Add(Me.ind_software_open)
+        Me.GroupBox77.Controls.Add(Me.Label65)
+        Me.GroupBox77.Controls.Add(Me.btn_stop)
+        Me.GroupBox77.Controls.Add(Me.btn_run)
+        Me.GroupBox77.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox77.Location = New System.Drawing.Point(78, 334)
+        Me.GroupBox77.Name = "GroupBox77"
+        Me.GroupBox77.Size = New System.Drawing.Size(200, 140)
+        Me.GroupBox77.TabIndex = 38
+        Me.GroupBox77.TabStop = False
+        Me.GroupBox77.Text = "PC Status"
+        '
+        'ind_software_stop
+        '
+        Me.ind_software_stop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_software_stop.Location = New System.Drawing.Point(16, 72)
+        Me.ind_software_stop.Name = "ind_software_stop"
+        Me.ind_software_stop.Size = New System.Drawing.Size(15, 15)
+        Me.ind_software_stop.TabIndex = 33
+        Me.ind_software_stop.TabStop = False
+        '
+        'Label67
+        '
+        Me.Label67.AutoSize = True
+        Me.Label67.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label67.Location = New System.Drawing.Point(37, 69)
+        Me.Label67.Name = "Label67"
+        Me.Label67.Size = New System.Drawing.Size(107, 19)
+        Me.Label67.TabIndex = 31
+        Me.Label67.Text = "Software Stop"
+        '
+        'ind_software_run
+        '
+        Me.ind_software_run.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_software_run.Location = New System.Drawing.Point(16, 51)
+        Me.ind_software_run.Name = "ind_software_run"
+        Me.ind_software_run.Size = New System.Drawing.Size(15, 15)
+        Me.ind_software_run.TabIndex = 33
+        Me.ind_software_run.TabStop = False
+        '
+        'Label66
+        '
+        Me.Label66.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label66.Location = New System.Drawing.Point(37, 48)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(114, 19)
+        Me.Label66.TabIndex = 31
+        Me.Label66.Text = "Software Run"
+        '
+        'ind_software_open
+        '
+        Me.ind_software_open.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_software_open.Location = New System.Drawing.Point(16, 30)
+        Me.ind_software_open.Name = "ind_software_open"
+        Me.ind_software_open.Size = New System.Drawing.Size(15, 15)
+        Me.ind_software_open.TabIndex = 33
+        Me.ind_software_open.TabStop = False
+        '
+        'Label65
+        '
+        Me.Label65.AutoSize = True
+        Me.Label65.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label65.Location = New System.Drawing.Point(37, 27)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(114, 19)
+        Me.Label65.TabIndex = 31
+        Me.Label65.Text = "Software Open"
+        '
+        'btn_stop
+        '
+        Me.btn_stop.FlatAppearance.BorderSize = 0
+        Me.btn_stop.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_stop.Location = New System.Drawing.Point(104, 95)
+        Me.btn_stop.Name = "btn_stop"
+        Me.btn_stop.Size = New System.Drawing.Size(84, 33)
+        Me.btn_stop.TabIndex = 66
+        Me.btn_stop.Text = "Stop"
+        Me.btn_stop.UseVisualStyleBackColor = True
+        '
+        'btn_run
+        '
+        Me.btn_run.FlatAppearance.BorderSize = 0
+        Me.btn_run.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_run.Location = New System.Drawing.Point(16, 95)
+        Me.btn_run.Name = "btn_run"
+        Me.btn_run.Size = New System.Drawing.Size(82, 33)
+        Me.btn_run.TabIndex = 66
+        Me.btn_run.Text = "Run "
+        Me.btn_run.UseVisualStyleBackColor = True
+        '
+        'pnl_home
+        '
+        Me.pnl_home.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnl_home.Controls.Add(Me.ind_pass_fail)
+        Me.pnl_home.Controls.Add(Me.GroupBox87)
+        Me.pnl_home.Controls.Add(Me.GroupBox78)
+        Me.pnl_home.Controls.Add(Me.GroupBox86)
+        Me.pnl_home.Controls.Add(Me.GroupBox77)
+        Me.pnl_home.Controls.Add(Me.GroupBox80)
+        Me.pnl_home.Controls.Add(Me.GroupBox76)
+        Me.pnl_home.Controls.Add(Me.lbl_cnt)
+        Me.pnl_home.Controls.Add(Me.lbl_op_ins)
+        Me.pnl_home.Controls.Add(Me.Label86)
+        Me.pnl_home.Controls.Add(Me.Label63)
+        Me.pnl_home.Location = New System.Drawing.Point(78, 158)
+        Me.pnl_home.Name = "pnl_home"
+        Me.pnl_home.Size = New System.Drawing.Size(852, 563)
+        Me.pnl_home.TabIndex = 72
+        '
+        'ind_pass_fail
+        '
+        Me.ind_pass_fail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_pass_fail.Location = New System.Drawing.Point(682, 100)
+        Me.ind_pass_fail.Name = "ind_pass_fail"
+        Me.ind_pass_fail.Size = New System.Drawing.Size(85, 85)
+        Me.ind_pass_fail.TabIndex = 47
+        Me.ind_pass_fail.TabStop = False
+        '
+        'GroupBox87
+        '
+        Me.GroupBox87.Controls.Add(Me.btn_clear_database)
+        Me.GroupBox87.Controls.Add(Me.Label105)
+        Me.GroupBox87.Controls.Add(Me.Label103)
+        Me.GroupBox87.Controls.Add(Me.Label98)
+        Me.GroupBox87.Controls.Add(Me.Label115)
+        Me.GroupBox87.Controls.Add(Me.lbl_cnt_st5)
+        Me.GroupBox87.Controls.Add(Me.lbl_cnt_st4)
+        Me.GroupBox87.Controls.Add(Me.lbl_cnt_st3)
+        Me.GroupBox87.Controls.Add(Me.lbl_cnt_st2)
+        Me.GroupBox87.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox87.Location = New System.Drawing.Point(310, 478)
+        Me.GroupBox87.Name = "GroupBox87"
+        Me.GroupBox87.Size = New System.Drawing.Size(460, 61)
+        Me.GroupBox87.TabIndex = 38
+        Me.GroupBox87.TabStop = False
+        Me.GroupBox87.Text = "Station Counter :"
+        '
+        'btn_clear_database
+        '
+        Me.btn_clear_database.FlatAppearance.BorderSize = 0
+        Me.btn_clear_database.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_clear_database.Location = New System.Drawing.Point(342, 23)
+        Me.btn_clear_database.Name = "btn_clear_database"
+        Me.btn_clear_database.Size = New System.Drawing.Size(102, 27)
+        Me.btn_clear_database.TabIndex = 66
+        Me.btn_clear_database.Text = "Clear DB"
+        Me.btn_clear_database.UseVisualStyleBackColor = True
+        '
+        'Label105
+        '
+        Me.Label105.AutoSize = True
+        Me.Label105.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label105.Location = New System.Drawing.Point(254, 30)
+        Me.Label105.Name = "Label105"
+        Me.Label105.Size = New System.Drawing.Size(35, 19)
+        Me.Label105.TabIndex = 36
+        Me.Label105.Text = "ST5"
+        '
+        'Label103
+        '
+        Me.Label103.AutoSize = True
+        Me.Label103.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label103.Location = New System.Drawing.Point(173, 30)
+        Me.Label103.Name = "Label103"
+        Me.Label103.Size = New System.Drawing.Size(36, 19)
+        Me.Label103.TabIndex = 36
+        Me.Label103.Text = "ST4"
+        '
+        'Label98
+        '
+        Me.Label98.AutoSize = True
+        Me.Label98.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label98.Location = New System.Drawing.Point(88, 30)
+        Me.Label98.Name = "Label98"
+        Me.Label98.Size = New System.Drawing.Size(34, 19)
+        Me.Label98.TabIndex = 36
+        Me.Label98.Text = "ST3"
+        '
+        'Label115
+        '
+        Me.Label115.AutoSize = True
+        Me.Label115.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label115.Location = New System.Drawing.Point(10, 30)
+        Me.Label115.Name = "Label115"
+        Me.Label115.Size = New System.Drawing.Size(35, 19)
+        Me.Label115.TabIndex = 36
+        Me.Label115.Text = "ST2"
+        '
+        'lbl_cnt_st5
+        '
+        Me.lbl_cnt_st5.BackColor = System.Drawing.Color.White
+        Me.lbl_cnt_st5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_cnt_st5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cnt_st5.Location = New System.Drawing.Point(295, 31)
+        Me.lbl_cnt_st5.Name = "lbl_cnt_st5"
+        Me.lbl_cnt_st5.Size = New System.Drawing.Size(22, 20)
+        Me.lbl_cnt_st5.TabIndex = 37
+        Me.lbl_cnt_st5.Text = "..."
+        '
+        'lbl_cnt_st4
+        '
+        Me.lbl_cnt_st4.BackColor = System.Drawing.Color.White
+        Me.lbl_cnt_st4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_cnt_st4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cnt_st4.Location = New System.Drawing.Point(214, 31)
+        Me.lbl_cnt_st4.Name = "lbl_cnt_st4"
+        Me.lbl_cnt_st4.Size = New System.Drawing.Size(22, 20)
+        Me.lbl_cnt_st4.TabIndex = 37
+        Me.lbl_cnt_st4.Text = "..."
+        '
+        'lbl_cnt_st3
+        '
+        Me.lbl_cnt_st3.BackColor = System.Drawing.Color.White
+        Me.lbl_cnt_st3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_cnt_st3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cnt_st3.Location = New System.Drawing.Point(129, 31)
+        Me.lbl_cnt_st3.Name = "lbl_cnt_st3"
+        Me.lbl_cnt_st3.Size = New System.Drawing.Size(22, 20)
+        Me.lbl_cnt_st3.TabIndex = 37
+        Me.lbl_cnt_st3.Text = "..."
+        '
+        'lbl_cnt_st2
+        '
+        Me.lbl_cnt_st2.BackColor = System.Drawing.Color.White
+        Me.lbl_cnt_st2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_cnt_st2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cnt_st2.Location = New System.Drawing.Point(51, 31)
+        Me.lbl_cnt_st2.Name = "lbl_cnt_st2"
+        Me.lbl_cnt_st2.Size = New System.Drawing.Size(22, 20)
+        Me.lbl_cnt_st2.TabIndex = 37
+        Me.lbl_cnt_st2.Text = "..."
         '
         'GroupBox78
         '
-        Me.GroupBox78.Controls.Add(Me.Label84)
-        Me.GroupBox78.Controls.Add(Me.Label81)
-        Me.GroupBox78.Controls.Add(Me.lbl_fpy)
-        Me.GroupBox78.Controls.Add(Me.lbl_fail)
         Me.GroupBox78.Controls.Add(Me.Label68)
-        Me.GroupBox78.Controls.Add(Me.lbl_pass)
+        Me.GroupBox78.Controls.Add(Me.Label81)
+        Me.GroupBox78.Controls.Add(Me.Label84)
+        Me.GroupBox78.Controls.Add(Me.laabel2)
+        Me.GroupBox78.Controls.Add(Me.Label116)
+        Me.GroupBox78.Controls.Add(Me.Label117)
+        Me.GroupBox78.Controls.Add(Me.laabel3)
+        Me.GroupBox78.Controls.Add(Me.Label119)
+        Me.GroupBox78.Controls.Add(Me.laabel1)
+        Me.GroupBox78.Controls.Add(Me.Label121)
+        Me.GroupBox78.Controls.Add(Me.lbl_unscrew_status)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_t2)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_p2)
+        Me.GroupBox78.Controls.Add(Me.lbl_diff_result)
+        Me.GroupBox78.Controls.Add(Me.lbl_st2_meas)
+        Me.GroupBox78.Controls.Add(Me.lbl_cot)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_t1)
+        Me.GroupBox78.Controls.Add(Me.lbl_st3_res)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_p3)
+        Me.GroupBox78.Controls.Add(Me.lbl_status)
         Me.GroupBox78.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox78.Location = New System.Drawing.Point(310, 195)
+        Me.GroupBox78.Location = New System.Drawing.Point(555, 194)
         Me.GroupBox78.Name = "GroupBox78"
-        Me.GroupBox78.Size = New System.Drawing.Size(215, 116)
+        Me.GroupBox78.Size = New System.Drawing.Size(215, 278)
         Me.GroupBox78.TabIndex = 38
         Me.GroupBox78.TabStop = False
-        Me.GroupBox78.Text = "Product Output :"
-        '
-        'Label84
-        '
-        Me.Label84.AutoSize = True
-        Me.Label84.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label84.Location = New System.Drawing.Point(6, 80)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(37, 19)
-        Me.Label84.TabIndex = 32
-        Me.Label84.Text = "FPY"
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label81.Location = New System.Drawing.Point(6, 58)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(35, 19)
-        Me.Label81.TabIndex = 33
-        Me.Label81.Text = "Fail"
-        '
-        'lbl_fpy
-        '
-        Me.lbl_fpy.BackColor = System.Drawing.Color.White
-        Me.lbl_fpy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_fpy.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_fpy.Location = New System.Drawing.Point(70, 80)
-        Me.lbl_fpy.Name = "lbl_fpy"
-        Me.lbl_fpy.Size = New System.Drawing.Size(109, 21)
-        Me.lbl_fpy.TabIndex = 34
-        Me.lbl_fpy.Text = "..."
-        '
-        'lbl_fail
-        '
-        Me.lbl_fail.BackColor = System.Drawing.Color.White
-        Me.lbl_fail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_fail.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_fail.Location = New System.Drawing.Point(70, 57)
-        Me.lbl_fail.Name = "lbl_fail"
-        Me.lbl_fail.Size = New System.Drawing.Size(109, 21)
-        Me.lbl_fail.TabIndex = 35
-        Me.lbl_fail.Text = "..."
+        Me.GroupBox78.Text = "Production Data :"
         '
         'Label68
         '
         Me.Label68.AutoSize = True
         Me.Label68.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label68.Location = New System.Drawing.Point(6, 38)
+        Me.Label68.Location = New System.Drawing.Point(6, 249)
         Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(38, 19)
+        Me.Label68.Size = New System.Drawing.Size(146, 19)
         Me.Label68.TabIndex = 36
-        Me.Label68.Text = "Pass"
+        Me.Label68.Text = "ST5 Unscrew Status"
         '
-        'lbl_pass
+        'Label81
         '
-        Me.lbl_pass.BackColor = System.Drawing.Color.White
-        Me.lbl_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_pass.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_pass.Location = New System.Drawing.Point(70, 35)
-        Me.lbl_pass.Name = "lbl_pass"
-        Me.lbl_pass.Size = New System.Drawing.Size(109, 20)
-        Me.lbl_pass.TabIndex = 37
-        Me.lbl_pass.Text = "..."
+        Me.Label81.AutoSize = True
+        Me.Label81.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label81.Location = New System.Drawing.Point(6, 201)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(58, 19)
+        Me.Label81.TabIndex = 36
+        Me.Label81.Text = "ST4 T2"
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.Location = New System.Drawing.Point(6, 108)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(109, 19)
+        Me.Label84.TabIndex = 36
+        Me.Label84.Text = "ST4 P2 Travel "
+        '
+        'laabel2
+        '
+        Me.laabel2.AutoSize = True
+        Me.laabel2.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.laabel2.Location = New System.Drawing.Point(6, 154)
+        Me.laabel2.Name = "laabel2"
+        Me.laabel2.Size = New System.Drawing.Size(107, 19)
+        Me.laabel2.TabIndex = 36
+        Me.laabel2.Text = "Diff Str Result"
+        '
+        'Label116
+        '
+        Me.Label116.AutoSize = True
+        Me.Label116.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label116.Location = New System.Drawing.Point(6, 61)
+        Me.Label116.Name = "Label116"
+        Me.Label116.Size = New System.Drawing.Size(135, 19)
+        Me.Label116.TabIndex = 36
+        Me.Label116.Text = "ST2 Measurement"
+        '
+        'Label117
+        '
+        Me.Label117.AutoSize = True
+        Me.Label117.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label117.Location = New System.Drawing.Point(6, 225)
+        Me.Label117.Name = "Label117"
+        Me.Label117.Size = New System.Drawing.Size(95, 19)
+        Me.Label117.TabIndex = 36
+        Me.Label117.Text = "COT (T2-T1)"
+        '
+        'laabel3
+        '
+        Me.laabel3.AutoSize = True
+        Me.laabel3.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.laabel3.Location = New System.Drawing.Point(6, 177)
+        Me.laabel3.Name = "laabel3"
+        Me.laabel3.Size = New System.Drawing.Size(55, 19)
+        Me.laabel3.TabIndex = 36
+        Me.laabel3.Text = "ST4 T1"
+        '
+        'Label119
+        '
+        Me.Label119.AutoSize = True
+        Me.Label119.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label119.Location = New System.Drawing.Point(6, 84)
+        Me.Label119.Name = "Label119"
+        Me.Label119.Size = New System.Drawing.Size(111, 19)
+        Me.Label119.TabIndex = 36
+        Me.Label119.Text = "ST3 Resistance"
+        '
+        'laabel1
+        '
+        Me.laabel1.AutoSize = True
+        Me.laabel1.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.laabel1.Location = New System.Drawing.Point(6, 130)
+        Me.laabel1.Name = "laabel1"
+        Me.laabel1.Size = New System.Drawing.Size(104, 19)
+        Me.laabel1.TabIndex = 36
+        Me.laabel1.Text = "ST4 P3 Travel"
+        '
+        'Label121
+        '
+        Me.Label121.AutoSize = True
+        Me.Label121.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label121.Location = New System.Drawing.Point(6, 37)
+        Me.Label121.Name = "Label121"
+        Me.Label121.Size = New System.Drawing.Size(117, 19)
+        Me.Label121.TabIndex = 36
+        Me.Label121.Text = "Status Pass/Fail"
+        '
+        'lbl_unscrew_status
+        '
+        Me.lbl_unscrew_status.BackColor = System.Drawing.Color.White
+        Me.lbl_unscrew_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_unscrew_status.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_unscrew_status.Location = New System.Drawing.Point(153, 247)
+        Me.lbl_unscrew_status.Name = "lbl_unscrew_status"
+        Me.lbl_unscrew_status.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_unscrew_status.TabIndex = 37
+        Me.lbl_unscrew_status.Text = "..."
+        '
+        'lbl_st4_t2
+        '
+        Me.lbl_st4_t2.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_t2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_t2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_t2.Location = New System.Drawing.Point(153, 199)
+        Me.lbl_st4_t2.Name = "lbl_st4_t2"
+        Me.lbl_st4_t2.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_st4_t2.TabIndex = 37
+        Me.lbl_st4_t2.Text = "..."
+        '
+        'lbl_st4_p2
+        '
+        Me.lbl_st4_p2.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_p2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_p2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_p2.Location = New System.Drawing.Point(153, 106)
+        Me.lbl_st4_p2.Name = "lbl_st4_p2"
+        Me.lbl_st4_p2.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_st4_p2.TabIndex = 37
+        Me.lbl_st4_p2.Text = "..."
+        '
+        'lbl_diff_result
+        '
+        Me.lbl_diff_result.BackColor = System.Drawing.Color.White
+        Me.lbl_diff_result.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_diff_result.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_diff_result.Location = New System.Drawing.Point(153, 152)
+        Me.lbl_diff_result.Name = "lbl_diff_result"
+        Me.lbl_diff_result.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_diff_result.TabIndex = 37
+        Me.lbl_diff_result.Text = "..."
+        '
+        'lbl_st2_meas
+        '
+        Me.lbl_st2_meas.BackColor = System.Drawing.Color.White
+        Me.lbl_st2_meas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st2_meas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st2_meas.Location = New System.Drawing.Point(153, 59)
+        Me.lbl_st2_meas.Name = "lbl_st2_meas"
+        Me.lbl_st2_meas.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_st2_meas.TabIndex = 37
+        Me.lbl_st2_meas.Text = "..."
+        '
+        'lbl_cot
+        '
+        Me.lbl_cot.BackColor = System.Drawing.Color.White
+        Me.lbl_cot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_cot.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cot.Location = New System.Drawing.Point(153, 223)
+        Me.lbl_cot.Name = "lbl_cot"
+        Me.lbl_cot.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_cot.TabIndex = 37
+        Me.lbl_cot.Text = "..."
+        '
+        'lbl_st4_t1
+        '
+        Me.lbl_st4_t1.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_t1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_t1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_t1.Location = New System.Drawing.Point(153, 175)
+        Me.lbl_st4_t1.Name = "lbl_st4_t1"
+        Me.lbl_st4_t1.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_st4_t1.TabIndex = 37
+        Me.lbl_st4_t1.Text = "..."
+        '
+        'lbl_st3_res
+        '
+        Me.lbl_st3_res.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res.Location = New System.Drawing.Point(153, 82)
+        Me.lbl_st3_res.Name = "lbl_st3_res"
+        Me.lbl_st3_res.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_st3_res.TabIndex = 37
+        Me.lbl_st3_res.Text = "..."
+        '
+        'lbl_st4_p3
+        '
+        Me.lbl_st4_p3.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_p3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_p3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_p3.Location = New System.Drawing.Point(153, 128)
+        Me.lbl_st4_p3.Name = "lbl_st4_p3"
+        Me.lbl_st4_p3.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_st4_p3.TabIndex = 37
+        Me.lbl_st4_p3.Text = "..."
+        '
+        'lbl_status
+        '
+        Me.lbl_status.BackColor = System.Drawing.Color.White
+        Me.lbl_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_status.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_status.Location = New System.Drawing.Point(153, 35)
+        Me.lbl_status.Name = "lbl_status"
+        Me.lbl_status.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_status.TabIndex = 37
+        Me.lbl_status.Text = "..."
+        '
+        'GroupBox86
+        '
+        Me.GroupBox86.Controls.Add(Me.Label114)
+        Me.GroupBox86.Controls.Add(Me.Label110)
+        Me.GroupBox86.Controls.Add(Me.Label102)
+        Me.GroupBox86.Controls.Add(Me.Label109)
+        Me.GroupBox86.Controls.Add(Me.Label82)
+        Me.GroupBox86.Controls.Add(Me.Label113)
+        Me.GroupBox86.Controls.Add(Me.Label108)
+        Me.GroupBox86.Controls.Add(Me.Label101)
+        Me.GroupBox86.Controls.Add(Me.Label107)
+        Me.GroupBox86.Controls.Add(Me.Label99)
+        Me.GroupBox86.Controls.Add(Me.lbl_laser_template)
+        Me.GroupBox86.Controls.Add(Me.lbl_unscrew_process)
+        Me.GroupBox86.Controls.Add(Me.lbl_dif_str_tol)
+        Me.GroupBox86.Controls.Add(Me.lbl_cfg_1st)
+        Me.GroupBox86.Controls.Add(Me.lbl_act_val_tol)
+        Me.GroupBox86.Controls.Add(Me.lbl_laser_datecode)
+        Me.GroupBox86.Controls.Add(Me.lbl_cfg_2nd)
+        Me.GroupBox86.Controls.Add(Me.lbl_dif_str)
+        Me.GroupBox86.Controls.Add(Me.lbl_beating_times)
+        Me.GroupBox86.Controls.Add(Me.lbl_act_val)
+        Me.GroupBox86.Font = New System.Drawing.Font("Constantia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox86.Location = New System.Drawing.Point(310, 196)
+        Me.GroupBox86.Name = "GroupBox86"
+        Me.GroupBox86.Size = New System.Drawing.Size(215, 278)
+        Me.GroupBox86.TabIndex = 38
+        Me.GroupBox86.TabStop = False
+        Me.GroupBox86.Text = "Product Database :"
+        '
+        'Label114
+        '
+        Me.Label114.AutoSize = True
+        Me.Label114.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label114.Location = New System.Drawing.Point(6, 249)
+        Me.Label114.Name = "Label114"
+        Me.Label114.Size = New System.Drawing.Size(116, 19)
+        Me.Label114.TabIndex = 36
+        Me.Label114.Text = "Laser Template"
+        '
+        'Label110
+        '
+        Me.Label110.AutoSize = True
+        Me.Label110.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label110.Location = New System.Drawing.Point(6, 201)
+        Me.Label110.Name = "Label110"
+        Me.Label110.Size = New System.Drawing.Size(146, 19)
+        Me.Label110.TabIndex = 36
+        Me.Label110.Text = "Unscrewing Process"
+        '
+        'Label102
+        '
+        Me.Label102.AutoSize = True
+        Me.Label102.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label102.Location = New System.Drawing.Point(6, 108)
+        Me.Label102.Name = "Label102"
+        Me.Label102.Size = New System.Drawing.Size(127, 19)
+        Me.Label102.TabIndex = 36
+        Me.Label102.Text = "Dif Str Tolerance"
+        '
+        'Label109
+        '
+        Me.Label109.AutoSize = True
+        Me.Label109.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label109.Location = New System.Drawing.Point(6, 154)
+        Me.Label109.Name = "Label109"
+        Me.Label109.Size = New System.Drawing.Size(134, 19)
+        Me.Label109.TabIndex = 36
+        Me.Label109.Text = "Config 1st Contact"
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label82.Location = New System.Drawing.Point(6, 61)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(133, 19)
+        Me.Label82.TabIndex = 36
+        Me.Label82.Text = "Act Val Tolerance"
+        '
+        'Label113
+        '
+        Me.Label113.AutoSize = True
+        Me.Label113.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label113.Location = New System.Drawing.Point(6, 225)
+        Me.Label113.Name = "Label113"
+        Me.Label113.Size = New System.Drawing.Size(116, 19)
+        Me.Label113.TabIndex = 36
+        Me.Label113.Text = "Laser Datecode"
+        '
+        'Label108
+        '
+        Me.Label108.AutoSize = True
+        Me.Label108.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label108.Location = New System.Drawing.Point(6, 177)
+        Me.Label108.Name = "Label108"
+        Me.Label108.Size = New System.Drawing.Size(143, 19)
+        Me.Label108.TabIndex = 36
+        Me.Label108.Text = "Config 2nd Contact"
+        '
+        'Label101
+        '
+        Me.Label101.AutoSize = True
+        Me.Label101.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label101.Location = New System.Drawing.Point(6, 84)
+        Me.Label101.Name = "Label101"
+        Me.Label101.Size = New System.Drawing.Size(55, 19)
+        Me.Label101.TabIndex = 36
+        Me.Label101.Text = "Dif Str"
+        '
+        'Label107
+        '
+        Me.Label107.AutoSize = True
+        Me.Label107.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label107.Location = New System.Drawing.Point(6, 130)
+        Me.Label107.Name = "Label107"
+        Me.Label107.Size = New System.Drawing.Size(110, 19)
+        Me.Label107.TabIndex = 36
+        Me.Label107.Text = "Beating Times"
+        '
+        'Label99
+        '
+        Me.Label99.AutoSize = True
+        Me.Label99.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label99.Location = New System.Drawing.Point(6, 37)
+        Me.Label99.Name = "Label99"
+        Me.Label99.Size = New System.Drawing.Size(64, 19)
+        Me.Label99.TabIndex = 36
+        Me.Label99.Text = "Act Val "
+        '
+        'lbl_laser_template
+        '
+        Me.lbl_laser_template.BackColor = System.Drawing.Color.White
+        Me.lbl_laser_template.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_laser_template.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_laser_template.Location = New System.Drawing.Point(153, 247)
+        Me.lbl_laser_template.Name = "lbl_laser_template"
+        Me.lbl_laser_template.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_laser_template.TabIndex = 37
+        Me.lbl_laser_template.Text = "..."
+        '
+        'lbl_unscrew_process
+        '
+        Me.lbl_unscrew_process.BackColor = System.Drawing.Color.White
+        Me.lbl_unscrew_process.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_unscrew_process.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_unscrew_process.Location = New System.Drawing.Point(153, 199)
+        Me.lbl_unscrew_process.Name = "lbl_unscrew_process"
+        Me.lbl_unscrew_process.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_unscrew_process.TabIndex = 37
+        Me.lbl_unscrew_process.Text = "..."
+        '
+        'lbl_dif_str_tol
+        '
+        Me.lbl_dif_str_tol.BackColor = System.Drawing.Color.White
+        Me.lbl_dif_str_tol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_dif_str_tol.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_dif_str_tol.Location = New System.Drawing.Point(153, 106)
+        Me.lbl_dif_str_tol.Name = "lbl_dif_str_tol"
+        Me.lbl_dif_str_tol.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_dif_str_tol.TabIndex = 37
+        Me.lbl_dif_str_tol.Text = "..."
+        '
+        'lbl_cfg_1st
+        '
+        Me.lbl_cfg_1st.BackColor = System.Drawing.Color.White
+        Me.lbl_cfg_1st.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_cfg_1st.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cfg_1st.Location = New System.Drawing.Point(153, 152)
+        Me.lbl_cfg_1st.Name = "lbl_cfg_1st"
+        Me.lbl_cfg_1st.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_cfg_1st.TabIndex = 37
+        Me.lbl_cfg_1st.Text = "..."
+        '
+        'lbl_act_val_tol
+        '
+        Me.lbl_act_val_tol.BackColor = System.Drawing.Color.White
+        Me.lbl_act_val_tol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_act_val_tol.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_act_val_tol.Location = New System.Drawing.Point(153, 59)
+        Me.lbl_act_val_tol.Name = "lbl_act_val_tol"
+        Me.lbl_act_val_tol.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_act_val_tol.TabIndex = 37
+        Me.lbl_act_val_tol.Text = "..."
+        '
+        'lbl_laser_datecode
+        '
+        Me.lbl_laser_datecode.BackColor = System.Drawing.Color.White
+        Me.lbl_laser_datecode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_laser_datecode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_laser_datecode.Location = New System.Drawing.Point(153, 223)
+        Me.lbl_laser_datecode.Name = "lbl_laser_datecode"
+        Me.lbl_laser_datecode.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_laser_datecode.TabIndex = 37
+        Me.lbl_laser_datecode.Text = "..."
+        '
+        'lbl_cfg_2nd
+        '
+        Me.lbl_cfg_2nd.BackColor = System.Drawing.Color.White
+        Me.lbl_cfg_2nd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_cfg_2nd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cfg_2nd.Location = New System.Drawing.Point(153, 175)
+        Me.lbl_cfg_2nd.Name = "lbl_cfg_2nd"
+        Me.lbl_cfg_2nd.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_cfg_2nd.TabIndex = 37
+        Me.lbl_cfg_2nd.Text = "..."
+        '
+        'lbl_dif_str
+        '
+        Me.lbl_dif_str.BackColor = System.Drawing.Color.White
+        Me.lbl_dif_str.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_dif_str.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_dif_str.Location = New System.Drawing.Point(153, 82)
+        Me.lbl_dif_str.Name = "lbl_dif_str"
+        Me.lbl_dif_str.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_dif_str.TabIndex = 37
+        Me.lbl_dif_str.Text = "..."
+        '
+        'lbl_beating_times
+        '
+        Me.lbl_beating_times.BackColor = System.Drawing.Color.White
+        Me.lbl_beating_times.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_beating_times.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_beating_times.Location = New System.Drawing.Point(153, 128)
+        Me.lbl_beating_times.Name = "lbl_beating_times"
+        Me.lbl_beating_times.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_beating_times.TabIndex = 37
+        Me.lbl_beating_times.Text = "..."
+        '
+        'lbl_act_val
+        '
+        Me.lbl_act_val.BackColor = System.Drawing.Color.White
+        Me.lbl_act_val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_act_val.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_act_val.Location = New System.Drawing.Point(153, 35)
+        Me.lbl_act_val.Name = "lbl_act_val"
+        Me.lbl_act_val.Size = New System.Drawing.Size(53, 20)
+        Me.lbl_act_val.TabIndex = 37
+        Me.lbl_act_val.Text = "..."
+        '
+        'lbl_cnt
+        '
+        Me.lbl_cnt.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_cnt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_cnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 56.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cnt.ForeColor = System.Drawing.Color.Black
+        Me.lbl_cnt.Location = New System.Drawing.Point(555, 101)
+        Me.lbl_cnt.Name = "lbl_cnt"
+        Me.lbl_cnt.Size = New System.Drawing.Size(85, 85)
+        Me.lbl_cnt.TabIndex = 33
+        Me.lbl_cnt.Text = "0"
+        Me.lbl_cnt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btn_alarm
+        '
+        Me.btn_alarm.FlatAppearance.BorderSize = 0
+        Me.btn_alarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_alarm.Image = Global.TESTER.My.Resources.Resources.imgonline_com_ua_ReplaceColor_PlA00UlE53dEW3J
+        Me.btn_alarm.Location = New System.Drawing.Point(12, 422)
+        Me.btn_alarm.Name = "btn_alarm"
+        Me.btn_alarm.Size = New System.Drawing.Size(60, 60)
+        Me.btn_alarm.TabIndex = 69
+        Me.btn_alarm.UseVisualStyleBackColor = True
+        '
+        'ST2
+        '
+        '
+        'ST3
+        '
+        '
+        'ST4
+        '
+        '
+        'ST5
+        '
         '
         'frmMain
         '
@@ -4740,6 +5540,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_stn5)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btn_stn4)
+        Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.btn_setting)
         Me.Controls.Add(Me.btn_stn3)
         Me.Controls.Add(Me.btn_monitoring)
@@ -4765,6 +5566,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_man_stn2)
         Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.pnl_alarm)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
@@ -4774,49 +5576,6 @@ Partial Class frmMain
         Me.grp_plc.ResumeLayout(False)
         Me.grp_plc.PerformLayout()
         CType(Me.connect_ind, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnl_home.ResumeLayout(False)
-        Me.pnl_home.PerformLayout()
-        Me.GroupBox77.ResumeLayout(False)
-        Me.GroupBox77.PerformLayout()
-        CType(Me.ind_software_stop, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_software_run, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_software_open, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox85.ResumeLayout(False)
-        Me.GroupBox85.PerformLayout()
-        CType(Me.ind_v602_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_v601_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox83.ResumeLayout(False)
-        Me.GroupBox83.PerformLayout()
-        CType(Me.ind_v402_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_v401_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox84.ResumeLayout(False)
-        Me.GroupBox84.PerformLayout()
-        CType(Me.ind_v502_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_v501_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox82.ResumeLayout(False)
-        Me.GroupBox82.PerformLayout()
-        CType(Me.ind_v302_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_v301_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox81.ResumeLayout(False)
-        Me.GroupBox81.PerformLayout()
-        CType(Me.ind_v202_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_v201_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox79.ResumeLayout(False)
-        Me.GroupBox79.PerformLayout()
-        CType(Me.ind_emg_button, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_door_lock_6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_altivar_fault, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_door_lock_4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_door_lock_2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_air_presence, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_door_lock_5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_door_lock_3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ind_door_lock_1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox80.ResumeLayout(False)
-        Me.GroupBox80.PerformLayout()
-        Me.GroupBox76.ResumeLayout(False)
-        Me.GroupBox76.PerformLayout()
-        CType(Me.ind_plc_status, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl_man_stn1.ResumeLayout(False)
         Me.pnl_man_stn1.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
@@ -4923,6 +5682,12 @@ Partial Class frmMain
         Me.GroupBox60.ResumeLayout(False)
         Me.pnl_man_stn6.ResumeLayout(False)
         Me.pnl_man_stn6.PerformLayout()
+        Me.GroupBox88.ResumeLayout(False)
+        Me.GroupBox89.ResumeLayout(False)
+        Me.GroupBox89.PerformLayout()
+        CType(Me.stn6_cyl6_min, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.stn6_cyl6_max, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox90.ResumeLayout(False)
         Me.GroupBox73.ResumeLayout(False)
         Me.GroupBox74.ResumeLayout(False)
         Me.GroupBox74.PerformLayout()
@@ -4982,8 +5747,58 @@ Partial Class frmMain
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnl_alarm.ResumeLayout(False)
+        Me.pnl_alarm.PerformLayout()
+        Me.GroupBox85.ResumeLayout(False)
+        Me.GroupBox85.PerformLayout()
+        CType(Me.ind_v602_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_v601_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox83.ResumeLayout(False)
+        Me.GroupBox83.PerformLayout()
+        CType(Me.ind_v402_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_v401_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox84.ResumeLayout(False)
+        Me.GroupBox84.PerformLayout()
+        CType(Me.ind_v502_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_v501_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox82.ResumeLayout(False)
+        Me.GroupBox82.PerformLayout()
+        CType(Me.ind_v302_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_v301_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox81.ResumeLayout(False)
+        Me.GroupBox81.PerformLayout()
+        CType(Me.ind_v202_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_v201_descrepancy, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox79.ResumeLayout(False)
+        Me.GroupBox79.PerformLayout()
+        CType(Me.ind_emg_button, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_door_lock_6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_altivar_fault, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_door_lock_4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_door_lock_2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_air_presence, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_door_lock_5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_door_lock_3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_door_lock_1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox76.ResumeLayout(False)
+        Me.GroupBox76.PerformLayout()
+        CType(Me.ind_plc_status, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox80.ResumeLayout(False)
+        Me.GroupBox80.PerformLayout()
+        Me.GroupBox77.ResumeLayout(False)
+        Me.GroupBox77.PerformLayout()
+        CType(Me.ind_software_stop, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_software_run, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ind_software_open, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnl_home.ResumeLayout(False)
+        Me.pnl_home.PerformLayout()
+        CType(Me.ind_pass_fail, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox87.ResumeLayout(False)
+        Me.GroupBox87.PerformLayout()
         Me.GroupBox78.ResumeLayout(False)
         Me.GroupBox78.PerformLayout()
+        Me.GroupBox86.ResumeLayout(False)
+        Me.GroupBox86.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -5020,7 +5835,6 @@ Partial Class frmMain
     Friend WithEvents txtIP As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents pnl_home As Panel
     Friend WithEvents btn_stn6 As Button
     Friend WithEvents btn_stn5 As Button
     Friend WithEvents btn_stn4 As Button
@@ -5265,16 +6079,10 @@ Partial Class frmMain
     Friend WithEvents btn_stn3_cyl1_bw As Button
     Friend WithEvents Label33 As Label
     Friend WithEvents ModbusRW As Timer
-    Friend WithEvents Label63 As Label
-    Friend WithEvents GroupBox77 As GroupBox
-    Friend WithEvents ind_software_stop As PictureBox
-    Friend WithEvents Label67 As Label
-    Friend WithEvents ind_software_run As PictureBox
-    Friend WithEvents Label66 As Label
-    Friend WithEvents ind_software_open As PictureBox
-    Friend WithEvents Label65 As Label
-    Friend WithEvents btn_stop As Button
-    Friend WithEvents btn_run As Button
+    Friend WithEvents Status As Timer
+    Friend WithEvents BarcodeComm As IO.Ports.SerialPort
+    Friend WithEvents pnl_alarm As Panel
+    Friend WithEvents Label71 As Label
     Friend WithEvents GroupBox85 As GroupBox
     Friend WithEvents ind_v602_descrepancy As PictureBox
     Friend WithEvents Label94 As Label
@@ -5319,6 +6127,12 @@ Partial Class frmMain
     Friend WithEvents Label73 As Label
     Friend WithEvents ind_door_lock_1 As PictureBox
     Friend WithEvents Label69 As Label
+    Friend WithEvents Label63 As Label
+    Friend WithEvents Label86 As Label
+    Friend WithEvents lbl_op_ins As Label
+    Friend WithEvents GroupBox76 As GroupBox
+    Friend WithEvents ind_plc_status As PictureBox
+    Friend WithEvents Label64 As Label
     Friend WithEvents GroupBox80 As GroupBox
     Friend WithEvents Label85 As Label
     Friend WithEvents lbl_po_num As Label
@@ -5327,18 +6141,84 @@ Partial Class frmMain
     Friend WithEvents btn_clear As Button
     Friend WithEvents Label80 As Label
     Friend WithEvents lbl_ref As Label
-    Friend WithEvents GroupBox76 As GroupBox
-    Friend WithEvents ind_plc_status As PictureBox
-    Friend WithEvents Label64 As Label
-    Friend WithEvents lbl_op_ins As Label
-    Friend WithEvents Label86 As Label
-    Friend WithEvents MainLoop As Timer
-    Friend WithEvents BarcodeComm As IO.Ports.SerialPort
+    Friend WithEvents GroupBox77 As GroupBox
+    Friend WithEvents ind_software_stop As PictureBox
+    Friend WithEvents Label67 As Label
+    Friend WithEvents ind_software_run As PictureBox
+    Friend WithEvents Label66 As Label
+    Friend WithEvents ind_software_open As PictureBox
+    Friend WithEvents Label65 As Label
+    Friend WithEvents btn_stop As Button
+    Friend WithEvents btn_run As Button
+    Friend WithEvents pnl_home As Panel
+    Friend WithEvents btn_alarm As Button
     Friend WithEvents GroupBox78 As GroupBox
-    Friend WithEvents Label84 As Label
-    Friend WithEvents Label81 As Label
-    Friend WithEvents lbl_fpy As Label
-    Friend WithEvents lbl_fail As Label
     Friend WithEvents Label68 As Label
-    Friend WithEvents lbl_pass As Label
+    Friend WithEvents Label81 As Label
+    Friend WithEvents Label84 As Label
+    Friend WithEvents laabel2 As Label
+    Friend WithEvents Label116 As Label
+    Friend WithEvents Label117 As Label
+    Friend WithEvents laabel3 As Label
+    Friend WithEvents Label119 As Label
+    Friend WithEvents laabel1 As Label
+    Friend WithEvents Label121 As Label
+    Friend WithEvents lbl_unscrew_status As Label
+    Friend WithEvents lbl_st4_t2 As Label
+    Friend WithEvents lbl_st4_p2 As Label
+    Friend WithEvents lbl_diff_result As Label
+    Friend WithEvents lbl_st2_meas As Label
+    Friend WithEvents lbl_cot As Label
+    Friend WithEvents lbl_st4_t1 As Label
+    Friend WithEvents lbl_st3_res As Label
+    Friend WithEvents lbl_st4_p3 As Label
+    Friend WithEvents lbl_status As Label
+    Friend WithEvents GroupBox86 As GroupBox
+    Friend WithEvents Label114 As Label
+    Friend WithEvents Label110 As Label
+    Friend WithEvents Label102 As Label
+    Friend WithEvents Label109 As Label
+    Friend WithEvents Label82 As Label
+    Friend WithEvents Label113 As Label
+    Friend WithEvents Label108 As Label
+    Friend WithEvents Label101 As Label
+    Friend WithEvents Label107 As Label
+    Friend WithEvents Label99 As Label
+    Friend WithEvents lbl_laser_template As Label
+    Friend WithEvents lbl_unscrew_process As Label
+    Friend WithEvents lbl_dif_str_tol As Label
+    Friend WithEvents lbl_cfg_1st As Label
+    Friend WithEvents lbl_act_val_tol As Label
+    Friend WithEvents lbl_laser_datecode As Label
+    Friend WithEvents lbl_cfg_2nd As Label
+    Friend WithEvents lbl_dif_str As Label
+    Friend WithEvents lbl_beating_times As Label
+    Friend WithEvents lbl_act_val As Label
+    Friend WithEvents cbo_data_type As ComboBox
+    Friend WithEvents Label72 As Label
+    Friend WithEvents ST2 As Timer
+    Friend WithEvents ST3 As Timer
+    Friend WithEvents ST4 As Timer
+    Friend WithEvents ST5 As Timer
+    Friend WithEvents ind_pass_fail As PictureBox
+    Friend WithEvents GroupBox87 As GroupBox
+    Friend WithEvents Label105 As Label
+    Friend WithEvents Label103 As Label
+    Friend WithEvents Label98 As Label
+    Friend WithEvents Label115 As Label
+    Friend WithEvents lbl_cnt_st5 As Label
+    Friend WithEvents lbl_cnt_st4 As Label
+    Friend WithEvents lbl_cnt_st3 As Label
+    Friend WithEvents lbl_cnt_st2 As Label
+    Friend WithEvents lbl_cnt As Label
+    Friend WithEvents btn_clear_database As Button
+    Friend WithEvents GroupBox88 As GroupBox
+    Friend WithEvents GroupBox89 As GroupBox
+    Friend WithEvents Label97 As Label
+    Friend WithEvents Label100 As Label
+    Friend WithEvents stn6_cyl6_min As PictureBox
+    Friend WithEvents stn6_cyl6_max As PictureBox
+    Friend WithEvents GroupBox90 As GroupBox
+    Friend WithEvents btn_stn6_cyl6_fw As Button
+    Friend WithEvents btn_stn6_cyl6_bw As Button
 End Class

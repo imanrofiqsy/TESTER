@@ -204,5 +204,8 @@
   <ItemGroup>
     <None Include="Resources\Clear.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgonline-com-ua-ReplaceColor-PlA00UlE53dEW3J.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

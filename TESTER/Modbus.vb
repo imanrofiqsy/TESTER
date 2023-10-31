@@ -9,7 +9,7 @@ Public Class Modbus
             Return True
         Catch ex As Exception
             MsgBox("Modbus Error Connect! " & ex.Message)
-            End
+            'End
         End Try
     End Function
     Public Function ClosePort() As Boolean
@@ -36,7 +36,7 @@ Public Class Modbus
                 Dim ReadValues() As Integer = modbusClient.ReadInputRegisters(StartAddress, 1)
                 ReadValue = ReadValues(0)
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
                 Dim ReadValues() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 1)
                 ReadValue = ReadValues(0)
         End Select

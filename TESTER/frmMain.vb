@@ -48,11 +48,9 @@ Public Class frmMain
             frmLoadingBar.ShowDialog()
         Loop
     End Sub
-
     Private Sub CloseLoadForm()
         ThreadLoadFrm.Abort()
     End Sub
-
     Private Sub GetPCStatus(state As Integer)
         Select Case state
             Case 100
@@ -1427,221 +1425,509 @@ Public Class frmMain
         ' STN 3
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_SEN1) = FORWARD Then
             stn3_cyl1_max.Image = My.Resources.led_red_on
+            mon_stn3_cyl1_max.Image = My.Resources.led_red_on
         Else
             stn3_cyl1_max.Image = My.Resources.led_red_off
+            mon_stn3_cyl1_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_SEN1) = BACKWARD Then
             stn3_cyl1_min.Image = My.Resources.led_red_on
+            mon_stn3_cyl1_min.Image = My.Resources.led_red_on
         Else
             stn3_cyl1_min.Image = My.Resources.led_red_off
+            mon_stn3_cyl1_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_SEN2) = FORWARD Then
             stn3_cyl2_max.Image = My.Resources.led_red_on
+            mon_stn3_cyl2_max.Image = My.Resources.led_red_on
         Else
             stn3_cyl2_max.Image = My.Resources.led_red_off
+            mon_stn3_cyl2_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_SEN2) = BACKWARD Then
             stn3_cyl2_min.Image = My.Resources.led_red_on
+            mon_stn3_cyl2_min.Image = My.Resources.led_red_on
         Else
             stn3_cyl2_min.Image = My.Resources.led_red_off
+            mon_stn3_cyl2_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_SEN3) = FORWARD Then
             stn3_cyl3_max.Image = My.Resources.led_red_on
+            mon_stn3_cyl3_max.Image = My.Resources.led_red_on
         Else
             stn3_cyl3_max.Image = My.Resources.led_red_off
+            mon_stn3_cyl3_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_SEN3) = BACKWARD Then
             stn3_cyl3_min.Image = My.Resources.led_red_on
+            mon_stn3_cyl3_min.Image = My.Resources.led_red_on
         Else
             stn3_cyl3_min.Image = My.Resources.led_red_off
+            mon_stn3_cyl3_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_SEN4) = FORWARD Then
             stn3_cyl4_max.Image = My.Resources.led_red_on
+            mon_stn3_cyl4_max.Image = My.Resources.led_red_on
         Else
             stn3_cyl4_max.Image = My.Resources.led_red_off
+            mon_stn3_cyl4_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_SEN4) = BACKWARD Then
             stn3_cyl4_min.Image = My.Resources.led_red_on
+            mon_stn3_cyl4_min.Image = My.Resources.led_red_on
         Else
             stn3_cyl4_min.Image = My.Resources.led_red_off
+            mon_stn3_cyl4_min.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_CYL1) = FORWARD Then
+            mon_stn3_cyl1_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn3_cyl1_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_CYL1) = BACKWARD Then
+            mon_stn3_cyl1_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn3_cyl1_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_CYL2) = FORWARD Then
+            mon_stn3_cyl2_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn3_cyl2_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_CYL2) = BACKWARD Then
+            mon_stn3_cyl2_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn3_cyl2_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_CYL3) = FORWARD Then
+            mon_stn3_cyl3_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn3_cyl3_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_CYL3) = BACKWARD Then
+            mon_stn3_cyl3_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn3_cyl3_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_CYL4) = FORWARD Then
+            mon_stn3_cyl4_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn3_cyl4_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN3_CYL4) = BACKWARD Then
+            mon_stn3_cyl4_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn3_cyl4_bw.Image = My.Resources.led_red_off
         End If
 
         ' STN 4
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_SEN1) = FORWARD Then
             stn4_cyl1_max.Image = My.Resources.led_red_on
+            mon_stn4_cyl1_max.Image = My.Resources.led_red_on
         Else
             stn4_cyl1_max.Image = My.Resources.led_red_off
+            mon_stn4_cyl1_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_SEN1) = BACKWARD Then
             stn4_cyl1_min.Image = My.Resources.led_red_on
+            mon_stn4_cyl1_min.Image = My.Resources.led_red_on
         Else
             stn4_cyl1_min.Image = My.Resources.led_red_off
+            mon_stn4_cyl1_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_SEN2) = FORWARD Then
             stn4_cyl2_max.Image = My.Resources.led_red_on
+            mon_stn4_cyl2_max.Image = My.Resources.led_red_on
         Else
             stn4_cyl2_max.Image = My.Resources.led_red_off
+            mon_stn4_cyl2_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_SEN2) = BACKWARD Then
             stn4_cyl2_min.Image = My.Resources.led_red_on
+            mon_stn4_cyl2_min.Image = My.Resources.led_red_on
         Else
             stn4_cyl2_min.Image = My.Resources.led_red_off
+            mon_stn4_cyl2_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_SEN3) = FORWARD Then
             stn4_cyl3_max.Image = My.Resources.led_red_on
+            mon_stn4_cyl3_max.Image = My.Resources.led_red_on
         Else
             stn4_cyl3_max.Image = My.Resources.led_red_off
+            mon_stn4_cyl3_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_SEN3) = BACKWARD Then
             stn4_cyl3_min.Image = My.Resources.led_red_on
+            mon_stn4_cyl3_min.Image = My.Resources.led_red_on
         Else
             stn4_cyl3_min.Image = My.Resources.led_red_off
+            mon_stn4_cyl3_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_SEN4) = FORWARD Then
             stn4_cyl4_max.Image = My.Resources.led_red_on
+            mon_stn4_cyl4_max.Image = My.Resources.led_red_on
         Else
             stn4_cyl4_max.Image = My.Resources.led_red_off
+            mon_stn4_cyl4_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_SEN4) = BACKWARD Then
             stn4_cyl4_min.Image = My.Resources.led_red_on
+            mon_stn4_cyl4_min.Image = My.Resources.led_red_on
         Else
             stn4_cyl4_min.Image = My.Resources.led_red_off
+            mon_stn4_cyl4_min.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_CYL1) = FORWARD Then
+            mon_stn4_cyl1_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn4_cyl1_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_CYL1) = BACKWARD Then
+            mon_stn4_cyl1_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn4_cyl1_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_CYL2) = FORWARD Then
+            mon_stn4_cyl2_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn4_cyl2_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_CYL2) = BACKWARD Then
+            mon_stn4_cyl2_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn4_cyl2_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_CYL3) = FORWARD Then
+            mon_stn4_cyl3_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn4_cyl3_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_CYL3) = BACKWARD Then
+            mon_stn4_cyl3_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn4_cyl3_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_CYL4) = FORWARD Then
+            mon_stn4_cyl4_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn4_cyl4_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN4_CYL4) = BACKWARD Then
+            mon_stn4_cyl4_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn4_cyl4_bw.Image = My.Resources.led_red_off
         End If
 
         ' STN 5
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_SEN1) = FORWARD Then
             stn5_cyl1_max.Image = My.Resources.led_red_on
+            mon_stn5_cyl1_max.Image = My.Resources.led_red_on
         Else
             stn5_cyl1_max.Image = My.Resources.led_red_off
+            mon_stn5_cyl1_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_SEN1) = BACKWARD Then
             stn5_cyl1_min.Image = My.Resources.led_red_on
+            mon_stn5_cyl1_min.Image = My.Resources.led_red_on
         Else
             stn5_cyl1_min.Image = My.Resources.led_red_off
+            mon_stn5_cyl1_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_SEN2) = FORWARD Then
             stn5_cyl2_max.Image = My.Resources.led_red_on
+            mon_stn5_cyl2_max.Image = My.Resources.led_red_on
         Else
             stn5_cyl2_max.Image = My.Resources.led_red_off
+            mon_stn5_cyl2_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_SEN2) = BACKWARD Then
             stn5_cyl2_min.Image = My.Resources.led_red_on
+            mon_stn5_cyl2_min.Image = My.Resources.led_red_on
         Else
             stn5_cyl2_min.Image = My.Resources.led_red_off
+            mon_stn5_cyl2_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_SEN3) = FORWARD Then
             stn5_cyl3_max.Image = My.Resources.led_red_on
+            mon_stn5_cyl3_max.Image = My.Resources.led_red_on
         Else
             stn5_cyl3_max.Image = My.Resources.led_red_off
+            mon_stn5_cyl3_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_SEN3) = BACKWARD Then
             stn5_cyl3_min.Image = My.Resources.led_red_on
+            mon_stn5_cyl3_min.Image = My.Resources.led_red_on
         Else
             stn5_cyl3_min.Image = My.Resources.led_red_off
+            mon_stn5_cyl3_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_SEN4) = FORWARD Then
             stn5_cyl4_max.Image = My.Resources.led_red_on
+            mon_stn5_cyl4_max.Image = My.Resources.led_red_on
         Else
             stn5_cyl4_max.Image = My.Resources.led_red_off
+            mon_stn5_cyl4_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_SEN4) = BACKWARD Then
             stn5_cyl4_min.Image = My.Resources.led_red_on
+            mon_stn5_cyl4_min.Image = My.Resources.led_red_on
         Else
             stn5_cyl4_min.Image = My.Resources.led_red_off
+            mon_stn5_cyl4_min.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_CYL1) = FORWARD Then
+            mon_stn5_cyl1_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn5_cyl1_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_CYL1) = BACKWARD Then
+            mon_stn5_cyl1_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn5_cyl1_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_CYL2) = FORWARD Then
+            mon_stn5_cyl2_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn5_cyl2_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_CYL2) = BACKWARD Then
+            mon_stn5_cyl2_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn5_cyl2_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_CYL3) = FORWARD Then
+            mon_stn5_cyl3_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn5_cyl3_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_CYL3) = BACKWARD Then
+            mon_stn5_cyl3_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn5_cyl3_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_CYL4) = FORWARD Then
+            mon_stn5_cyl4_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn5_cyl4_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN5_CYL4) = BACKWARD Then
+            mon_stn5_cyl4_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn5_cyl4_bw.Image = My.Resources.led_red_off
         End If
 
         ' STN 6
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN1) = FORWARD Then
             stn6_cyl1_max.Image = My.Resources.led_red_on
+            mon_stn6_cyl1_max.Image = My.Resources.led_red_on
         Else
             stn6_cyl1_max.Image = My.Resources.led_red_off
+            mon_stn6_cyl1_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN1) = BACKWARD Then
             stn6_cyl1_min.Image = My.Resources.led_red_on
+            mon_stn6_cyl1_min.Image = My.Resources.led_red_on
         Else
             stn6_cyl1_min.Image = My.Resources.led_red_off
+            mon_stn6_cyl1_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN2) = FORWARD Then
             stn6_cyl2_max.Image = My.Resources.led_red_on
+            mon_stn6_cyl2_max.Image = My.Resources.led_red_on
         Else
             stn6_cyl2_max.Image = My.Resources.led_red_off
+            mon_stn6_cyl2_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN2) = BACKWARD Then
             stn6_cyl2_min.Image = My.Resources.led_red_on
+            mon_stn6_cyl2_min.Image = My.Resources.led_red_on
         Else
             stn6_cyl2_min.Image = My.Resources.led_red_off
+            mon_stn6_cyl2_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN3) = FORWARD Then
             stn6_cyl3_max.Image = My.Resources.led_red_on
+            mon_stn6_cyl3_max.Image = My.Resources.led_red_on
         Else
             stn6_cyl3_max.Image = My.Resources.led_red_off
+            mon_stn6_cyl3_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN3) = BACKWARD Then
             stn6_cyl3_min.Image = My.Resources.led_red_on
+            mon_stn6_cyl3_min.Image = My.Resources.led_red_on
         Else
             stn6_cyl3_min.Image = My.Resources.led_red_off
+            mon_stn6_cyl3_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN4) = FORWARD Then
             stn6_cyl4_max.Image = My.Resources.led_red_on
+            mon_stn6_cyl4_max.Image = My.Resources.led_red_on
         Else
             stn6_cyl4_max.Image = My.Resources.led_red_off
+            mon_stn6_cyl4_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN4) = BACKWARD Then
             stn6_cyl4_min.Image = My.Resources.led_red_on
+            mon_stn6_cyl4_min.Image = My.Resources.led_red_on
         Else
             stn6_cyl4_min.Image = My.Resources.led_red_off
+            mon_stn6_cyl4_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN5) = FORWARD Then
             stn6_cyl5_max.Image = My.Resources.led_red_on
+            mon_stn6_cyl5_max.Image = My.Resources.led_red_on
         Else
             stn6_cyl5_max.Image = My.Resources.led_red_off
+            mon_stn6_cyl5_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN5) = BACKWARD Then
             stn6_cyl5_min.Image = My.Resources.led_red_on
+            mon_stn6_cyl5_min.Image = My.Resources.led_red_on
         Else
             stn6_cyl5_min.Image = My.Resources.led_red_off
+            mon_stn6_cyl5_min.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN6) = FORWARD Then
             stn6_cyl6_max.Image = My.Resources.led_red_on
+            mon_stn6_cyl6_max.Image = My.Resources.led_red_on
         Else
             stn6_cyl6_max.Image = My.Resources.led_red_off
+            mon_stn6_cyl6_max.Image = My.Resources.led_red_off
         End If
 
         If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_SEN6) = BACKWARD Then
             stn6_cyl6_min.Image = My.Resources.led_red_on
+            mon_stn6_cyl6_min.Image = My.Resources.led_red_on
         Else
             stn6_cyl6_min.Image = My.Resources.led_red_off
+            mon_stn6_cyl6_min.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL1) = FORWARD Then
+            mon_stn6_cyl1_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl1_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL1) = BACKWARD Then
+            mon_stn6_cyl1_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl1_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL2) = FORWARD Then
+            mon_stn6_cyl2_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl2_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL2) = BACKWARD Then
+            mon_stn6_cyl2_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl2_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL3) = FORWARD Then
+            mon_stn6_cyl3_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl3_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL3) = BACKWARD Then
+            mon_stn6_cyl3_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl3_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL4) = FORWARD Then
+            mon_stn6_cyl4_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl4_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL4) = BACKWARD Then
+            mon_stn6_cyl4_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl4_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL5) = FORWARD Then
+            mon_stn6_cyl5_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl5_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL5) = BACKWARD Then
+            mon_stn6_cyl5_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl5_bw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL6) = FORWARD Then
+            mon_stn6_cyl6_fw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl6_fw.Image = My.Resources.led_red_off
+        End If
+
+        If ReadFromModbus(REGISTER_TYPE, ADDR_STN6_CYL6) = BACKWARD Then
+            mon_stn6_cyl6_bw.Image = My.Resources.led_red_on
+        Else
+            mon_stn6_cyl6_bw.Image = My.Resources.led_red_off
         End If
     End Sub
 
@@ -2332,5 +2618,23 @@ Public Class frmMain
         lbl_st4_t1.Text = "..."
         lbl_st4_t2.Text = "..."
         lbl_cot.Text = "..."
+    End Sub
+
+    Private Sub btn_user_Click(sender As Object, e As EventArgs) Handles btn_user.Click
+        'Hide()
+        frmLogin.ShowDialog()
+        If USER_LEVEL = 1 Then
+            lbl_user.Text = "ADM"
+            btn_setting.Enabled = True
+            btn_manual.Enabled = True
+        ElseIf USER_LEVEL = 2 Then
+            lbl_user.Text = "ENG"
+            btn_setting.Enabled = True
+            btn_manual.Enabled = True
+        ElseIf USER_LEVEL = 3 Then
+            lbl_user.Text = "OPE"
+            btn_setting.Enabled = False
+            btn_manual.Enabled = False
+        End If
     End Sub
 End Class

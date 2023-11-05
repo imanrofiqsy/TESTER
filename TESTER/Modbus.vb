@@ -10,6 +10,7 @@ Public Class Modbus
         Catch ex As Exception
             MsgBox("Modbus Error Connect! " & ex.Message)
             'End
+            Return False
         End Try
     End Function
     Public Function ClosePort() As Boolean

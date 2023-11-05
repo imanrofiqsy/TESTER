@@ -76,10 +76,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmLaserMarker.Designer.vb">
+      <DependentUpon>frmLaserMarker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLaserMarker.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMultimeter.Designer.vb">
+      <DependentUpon>frmMultimeter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMultimeter.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KoneksiDB.vb" />
@@ -115,6 +127,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmLaserMarker.resx">
+      <DependentUpon>frmLaserMarker.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoadingBar.resx">
       <DependentUpon>frmLoadingBar.vb</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMultimeter.resx">
+      <DependentUpon>frmMultimeter.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -230,6 +248,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bg_login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multimeter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multimeter_new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

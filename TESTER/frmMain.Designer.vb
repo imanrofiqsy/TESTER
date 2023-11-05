@@ -326,6 +326,7 @@ Partial Class frmMain
         Me.GroupBox102 = New System.Windows.Forms.GroupBox()
         Me.Label126 = New System.Windows.Forms.Label()
         Me.Label125 = New System.Windows.Forms.Label()
+        Me.Label124 = New System.Windows.Forms.Label()
         Me.pnl_mon_stn2 = New System.Windows.Forms.Panel()
         Me.GroupBox103 = New System.Windows.Forms.GroupBox()
         Me.GroupBox104 = New System.Windows.Forms.GroupBox()
@@ -490,12 +491,12 @@ Partial Class frmMain
         Me.Label221 = New System.Windows.Forms.Label()
         Me.Label220 = New System.Windows.Forms.Label()
         Me.Label217 = New System.Windows.Forms.Label()
-        Me.Label124 = New System.Windows.Forms.Label()
         Me.lbl_date = New System.Windows.Forms.Label()
         Me.lbl_run_state = New System.Windows.Forms.Label()
         Me.lbl_curr_time = New System.Windows.Forms.Label()
         Me.lbl_auto_man = New System.Windows.Forms.Label()
         Me.status_bar = New System.Windows.Forms.PictureBox()
+        Me.btn_multimeter = New System.Windows.Forms.Button()
         Me.btn_alarm = New System.Windows.Forms.Button()
         Me.btn_setting = New System.Windows.Forms.Button()
         Me.btn_monitoring = New System.Windows.Forms.Button()
@@ -504,12 +505,6 @@ Partial Class frmMain
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ind_pass_fail = New System.Windows.Forms.PictureBox()
-        Me.ind_software_stop = New System.Windows.Forms.PictureBox()
-        Me.ind_software_run = New System.Windows.Forms.PictureBox()
-        Me.ind_software_open = New System.Windows.Forms.PictureBox()
-        Me.btn_clear = New System.Windows.Forms.Button()
-        Me.ind_plc_status = New System.Windows.Forms.PictureBox()
         Me.stn6_cyl6_min = New System.Windows.Forms.PictureBox()
         Me.stn6_cyl6_max = New System.Windows.Forms.PictureBox()
         Me.btn_stn6_cyl6_fw = New System.Windows.Forms.Button()
@@ -738,6 +733,12 @@ Partial Class frmMain
         Me.mon_stn1_cyl1_max = New System.Windows.Forms.PictureBox()
         Me.mon_stn1_cyl1_fw = New System.Windows.Forms.PictureBox()
         Me.mon_stn1_cyl1_bw = New System.Windows.Forms.PictureBox()
+        Me.ind_pass_fail = New System.Windows.Forms.PictureBox()
+        Me.ind_software_stop = New System.Windows.Forms.PictureBox()
+        Me.ind_software_run = New System.Windows.Forms.PictureBox()
+        Me.ind_software_open = New System.Windows.Forms.PictureBox()
+        Me.btn_clear = New System.Windows.Forms.Button()
+        Me.ind_plc_status = New System.Windows.Forms.PictureBox()
         Me.pnl_setting.SuspendLayout
         Me.grp_reg.SuspendLayout
         Me.grp_plc.SuspendLayout
@@ -926,11 +927,6 @@ Partial Class frmMain
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_pass_fail, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_software_stop, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_software_run, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_software_open, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_plc_status, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.stn6_cyl6_min, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.stn6_cyl6_max, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.stn6_cyl5_min, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1107,6 +1103,11 @@ Partial Class frmMain
         CType(Me.mon_stn1_cyl1_max, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.mon_stn1_cyl1_fw, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.mon_stn1_cyl1_bw, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_pass_fail, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_software_stop, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_software_run, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_software_open, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_plc_status, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'pnl_setting
@@ -1310,7 +1311,7 @@ Partial Class frmMain
         '
         Me.btn_stn6.FlatAppearance.BorderSize = 0
         Me.btn_stn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn6.Location = New System.Drawing.Point(936, 447)
+        Me.btn_stn6.Location = New System.Drawing.Point(937, 530)
         Me.btn_stn6.Name = "btn_stn6"
         Me.btn_stn6.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn6.TabIndex = 66
@@ -1321,7 +1322,7 @@ Partial Class frmMain
         '
         Me.btn_stn5.FlatAppearance.BorderSize = 0
         Me.btn_stn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn5.Location = New System.Drawing.Point(936, 376)
+        Me.btn_stn5.Location = New System.Drawing.Point(937, 459)
         Me.btn_stn5.Name = "btn_stn5"
         Me.btn_stn5.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn5.TabIndex = 66
@@ -1332,7 +1333,7 @@ Partial Class frmMain
         '
         Me.btn_stn4.FlatAppearance.BorderSize = 0
         Me.btn_stn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn4.Location = New System.Drawing.Point(936, 305)
+        Me.btn_stn4.Location = New System.Drawing.Point(937, 388)
         Me.btn_stn4.Name = "btn_stn4"
         Me.btn_stn4.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn4.TabIndex = 66
@@ -1343,7 +1344,7 @@ Partial Class frmMain
         '
         Me.btn_stn3.FlatAppearance.BorderSize = 0
         Me.btn_stn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn3.Location = New System.Drawing.Point(936, 234)
+        Me.btn_stn3.Location = New System.Drawing.Point(937, 317)
         Me.btn_stn3.Name = "btn_stn3"
         Me.btn_stn3.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn3.TabIndex = 66
@@ -1354,7 +1355,7 @@ Partial Class frmMain
         '
         Me.btn_stn2.FlatAppearance.BorderSize = 0
         Me.btn_stn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn2.Location = New System.Drawing.Point(936, 163)
+        Me.btn_stn2.Location = New System.Drawing.Point(937, 246)
         Me.btn_stn2.Name = "btn_stn2"
         Me.btn_stn2.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn2.TabIndex = 66
@@ -1365,7 +1366,7 @@ Partial Class frmMain
         '
         Me.btn_stn1.FlatAppearance.BorderSize = 0
         Me.btn_stn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn1.Location = New System.Drawing.Point(936, 92)
+        Me.btn_stn1.Location = New System.Drawing.Point(937, 175)
         Me.btn_stn1.Name = "btn_stn1"
         Me.btn_stn1.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn1.TabIndex = 66
@@ -4561,6 +4562,16 @@ Partial Class frmMain
         Me.Label125.TabIndex = 1
         Me.Label125.Text = "Extend"
         '
+        'Label124
+        '
+        Me.Label124.AutoSize = True
+        Me.Label124.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label124.Location = New System.Drawing.Point(362, 19)
+        Me.Label124.Name = "Label124"
+        Me.Label124.Size = New System.Drawing.Size(138, 29)
+        Me.Label124.TabIndex = 43
+        Me.Label124.Text = "STATION 1"
+        '
         'pnl_mon_stn2
         '
         Me.pnl_mon_stn2.Controls.Add(Me.GroupBox103)
@@ -6461,16 +6472,6 @@ Partial Class frmMain
         Me.Label217.TabIndex = 58
         Me.Label217.Text = "STATION 6"
         '
-        'Label124
-        '
-        Me.Label124.AutoSize = True
-        Me.Label124.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label124.Location = New System.Drawing.Point(362, 19)
-        Me.Label124.Name = "Label124"
-        Me.Label124.Size = New System.Drawing.Size(138, 29)
-        Me.Label124.TabIndex = 43
-        Me.Label124.Text = "STATION 1"
-        '
         'lbl_date
         '
         Me.lbl_date.AutoSize = True
@@ -6534,12 +6535,23 @@ Partial Class frmMain
         Me.status_bar.TabIndex = 86
         Me.status_bar.TabStop = False
         '
+        'btn_multimeter
+        '
+        Me.btn_multimeter.FlatAppearance.BorderSize = 0
+        Me.btn_multimeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_multimeter.Image = Global.TESTER.My.Resources.Resources.multimeter_new
+        Me.btn_multimeter.Location = New System.Drawing.Point(12, 505)
+        Me.btn_multimeter.Name = "btn_multimeter"
+        Me.btn_multimeter.Size = New System.Drawing.Size(60, 60)
+        Me.btn_multimeter.TabIndex = 69
+        Me.btn_multimeter.UseVisualStyleBackColor = True
+        '
         'btn_alarm
         '
         Me.btn_alarm.FlatAppearance.BorderSize = 0
         Me.btn_alarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_alarm.Image = Global.TESTER.My.Resources.Resources.alarm_56
-        Me.btn_alarm.Location = New System.Drawing.Point(12, 356)
+        Me.btn_alarm.Location = New System.Drawing.Point(13, 439)
         Me.btn_alarm.Name = "btn_alarm"
         Me.btn_alarm.Size = New System.Drawing.Size(60, 60)
         Me.btn_alarm.TabIndex = 69
@@ -6550,7 +6562,7 @@ Partial Class frmMain
         Me.btn_setting.FlatAppearance.BorderSize = 0
         Me.btn_setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_setting.Image = Global.TESTER.My.Resources.Resources.setting
-        Me.btn_setting.Location = New System.Drawing.Point(12, 290)
+        Me.btn_setting.Location = New System.Drawing.Point(13, 373)
         Me.btn_setting.Name = "btn_setting"
         Me.btn_setting.Size = New System.Drawing.Size(60, 60)
         Me.btn_setting.TabIndex = 69
@@ -6561,7 +6573,7 @@ Partial Class frmMain
         Me.btn_monitoring.FlatAppearance.BorderSize = 0
         Me.btn_monitoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_monitoring.Image = Global.TESTER.My.Resources.Resources.monitoring
-        Me.btn_monitoring.Location = New System.Drawing.Point(12, 224)
+        Me.btn_monitoring.Location = New System.Drawing.Point(13, 307)
         Me.btn_monitoring.Name = "btn_monitoring"
         Me.btn_monitoring.Size = New System.Drawing.Size(60, 60)
         Me.btn_monitoring.TabIndex = 68
@@ -6572,7 +6584,7 @@ Partial Class frmMain
         Me.btn_manual.FlatAppearance.BorderSize = 0
         Me.btn_manual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_manual.Image = Global.TESTER.My.Resources.Resources.manual
-        Me.btn_manual.Location = New System.Drawing.Point(12, 158)
+        Me.btn_manual.Location = New System.Drawing.Point(13, 241)
         Me.btn_manual.Name = "btn_manual"
         Me.btn_manual.Size = New System.Drawing.Size(60, 60)
         Me.btn_manual.TabIndex = 67
@@ -6583,7 +6595,7 @@ Partial Class frmMain
         Me.btn_home.FlatAppearance.BorderSize = 0
         Me.btn_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_home.Image = Global.TESTER.My.Resources.Resources.home
-        Me.btn_home.Location = New System.Drawing.Point(12, 92)
+        Me.btn_home.Location = New System.Drawing.Point(13, 175)
         Me.btn_home.Name = "btn_home"
         Me.btn_home.Size = New System.Drawing.Size(60, 60)
         Me.btn_home.TabIndex = 66
@@ -6621,62 +6633,6 @@ Partial Class frmMain
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
-        '
-        'ind_pass_fail
-        '
-        Me.ind_pass_fail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_pass_fail.Location = New System.Drawing.Point(682, 100)
-        Me.ind_pass_fail.Name = "ind_pass_fail"
-        Me.ind_pass_fail.Size = New System.Drawing.Size(85, 85)
-        Me.ind_pass_fail.TabIndex = 47
-        Me.ind_pass_fail.TabStop = False
-        '
-        'ind_software_stop
-        '
-        Me.ind_software_stop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_software_stop.Location = New System.Drawing.Point(16, 72)
-        Me.ind_software_stop.Name = "ind_software_stop"
-        Me.ind_software_stop.Size = New System.Drawing.Size(15, 15)
-        Me.ind_software_stop.TabIndex = 33
-        Me.ind_software_stop.TabStop = False
-        '
-        'ind_software_run
-        '
-        Me.ind_software_run.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_software_run.Location = New System.Drawing.Point(16, 51)
-        Me.ind_software_run.Name = "ind_software_run"
-        Me.ind_software_run.Size = New System.Drawing.Size(15, 15)
-        Me.ind_software_run.TabIndex = 33
-        Me.ind_software_run.TabStop = False
-        '
-        'ind_software_open
-        '
-        Me.ind_software_open.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_software_open.Location = New System.Drawing.Point(16, 30)
-        Me.ind_software_open.Name = "ind_software_open"
-        Me.ind_software_open.Size = New System.Drawing.Size(15, 15)
-        Me.ind_software_open.TabIndex = 33
-        Me.ind_software_open.TabStop = False
-        '
-        'btn_clear
-        '
-        Me.btn_clear.FlatAppearance.BorderSize = 0
-        Me.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_clear.Image = Global.TESTER.My.Resources.Resources.Clear
-        Me.btn_clear.Location = New System.Drawing.Point(120, 179)
-        Me.btn_clear.Name = "btn_clear"
-        Me.btn_clear.Size = New System.Drawing.Size(60, 60)
-        Me.btn_clear.TabIndex = 69
-        Me.btn_clear.UseVisualStyleBackColor = True
-        '
-        'ind_plc_status
-        '
-        Me.ind_plc_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_plc_status.Location = New System.Drawing.Point(16, 30)
-        Me.ind_plc_status.Name = "ind_plc_status"
-        Me.ind_plc_status.Size = New System.Drawing.Size(15, 15)
-        Me.ind_plc_status.TabIndex = 33
-        Me.ind_plc_status.TabStop = False
         '
         'stn6_cyl6_min
         '
@@ -9312,6 +9268,62 @@ Partial Class frmMain
         Me.mon_stn1_cyl1_bw.TabIndex = 0
         Me.mon_stn1_cyl1_bw.TabStop = False
         '
+        'ind_pass_fail
+        '
+        Me.ind_pass_fail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_pass_fail.Location = New System.Drawing.Point(682, 100)
+        Me.ind_pass_fail.Name = "ind_pass_fail"
+        Me.ind_pass_fail.Size = New System.Drawing.Size(85, 85)
+        Me.ind_pass_fail.TabIndex = 47
+        Me.ind_pass_fail.TabStop = False
+        '
+        'ind_software_stop
+        '
+        Me.ind_software_stop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_software_stop.Location = New System.Drawing.Point(16, 72)
+        Me.ind_software_stop.Name = "ind_software_stop"
+        Me.ind_software_stop.Size = New System.Drawing.Size(15, 15)
+        Me.ind_software_stop.TabIndex = 33
+        Me.ind_software_stop.TabStop = False
+        '
+        'ind_software_run
+        '
+        Me.ind_software_run.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_software_run.Location = New System.Drawing.Point(16, 51)
+        Me.ind_software_run.Name = "ind_software_run"
+        Me.ind_software_run.Size = New System.Drawing.Size(15, 15)
+        Me.ind_software_run.TabIndex = 33
+        Me.ind_software_run.TabStop = False
+        '
+        'ind_software_open
+        '
+        Me.ind_software_open.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_software_open.Location = New System.Drawing.Point(16, 30)
+        Me.ind_software_open.Name = "ind_software_open"
+        Me.ind_software_open.Size = New System.Drawing.Size(15, 15)
+        Me.ind_software_open.TabIndex = 33
+        Me.ind_software_open.TabStop = False
+        '
+        'btn_clear
+        '
+        Me.btn_clear.FlatAppearance.BorderSize = 0
+        Me.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_clear.Image = Global.TESTER.My.Resources.Resources.Clear
+        Me.btn_clear.Location = New System.Drawing.Point(120, 179)
+        Me.btn_clear.Name = "btn_clear"
+        Me.btn_clear.Size = New System.Drawing.Size(60, 60)
+        Me.btn_clear.TabIndex = 69
+        Me.btn_clear.UseVisualStyleBackColor = True
+        '
+        'ind_plc_status
+        '
+        Me.ind_plc_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_plc_status.Location = New System.Drawing.Point(16, 30)
+        Me.ind_plc_status.Name = "ind_plc_status"
+        Me.ind_plc_status.Size = New System.Drawing.Size(15, 15)
+        Me.ind_plc_status.TabIndex = 33
+        Me.ind_plc_status.TabStop = False
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -9326,6 +9338,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_stn6)
         Me.Controls.Add(Me.btn_stn5)
         Me.Controls.Add(Me.btn_stn4)
+        Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.btn_setting)
         Me.Controls.Add(Me.btn_stn3)
@@ -9651,11 +9664,6 @@ Partial Class frmMain
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_pass_fail, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_software_stop, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_software_run, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_software_open, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_plc_status, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.stn6_cyl6_min, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.stn6_cyl6_max, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.stn6_cyl5_min, System.ComponentModel.ISupportInitialize).EndInit
@@ -9832,6 +9840,11 @@ Partial Class frmMain
         CType(Me.mon_stn1_cyl1_max, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.mon_stn1_cyl1_fw, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.mon_stn1_cyl1_bw, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_pass_fail, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_software_stop, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_software_run, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_software_open, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_plc_status, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -10551,4 +10564,5 @@ Partial Class frmMain
     Friend WithEvents lbl_curr_time As Label
     Friend WithEvents lbl_auto_man As Label
     Friend WithEvents status_bar As PictureBox
+    Friend WithEvents btn_multimeter As Button
 End Class

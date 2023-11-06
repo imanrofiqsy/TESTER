@@ -2,13 +2,14 @@
 Imports System.Data.SqlClient
 Public Class frmMain
     Dim Modbus = New Modbus()
+    Dim Multimeter = New Multimeter()
     Dim ThreadLoadFrm As Thread
 
     Dim AssyBuff As String
     Dim ManualState As Boolean
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initLoadingBar()
-        btn_connect.PerformClick()
+        btn_connect_plc.PerformClick()
         Hide()
         UpdateLoadingBar(20, "Connecting to PLC...")
         Thread.Sleep(500)
@@ -54,17 +55,17 @@ Public Class frmMain
     Private Sub GetPCStatus(state As Integer)
         Select Case state
             Case 100
-                modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 1)
+                Modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 1)
                 ind_software_open.BackColor = Color.Lime
                 ind_software_run.BackColor = Color.Red
                 ind_software_stop.BackColor = Color.Red
             Case 110
-                modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 3)
+                Modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 3)
                 ind_software_open.BackColor = Color.Lime
                 ind_software_run.BackColor = Color.Lime
                 ind_software_stop.BackColor = Color.Red
             Case 101
-                modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 5)
+                Modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 5)
                 ind_software_open.BackColor = Color.Lime
                 ind_software_run.BackColor = Color.Red
                 ind_software_stop.BackColor = Color.Lime
@@ -94,6 +95,9 @@ Public Class frmMain
     End Sub
     Private Sub btn_alarm_Click(sender As Object, e As EventArgs) Handles btn_alarm.Click
         ShowPanelGeneral("alarm")
+    End Sub
+    Private Sub btn_multimeter_Click(sender As Object, e As EventArgs) Handles btn_multimeter.Click
+        ShowPanelGeneral("multi")
     End Sub
 
     'Show Panel General
@@ -128,6 +132,11 @@ Public Class frmMain
         Else
             pnl_alarm.Visible = False
         End If
+        If mode = "multi" Then
+            pnl_multi.Visible = True
+        Else
+            pnl_multi.Visible = False
+        End If
     End Sub
 
     'Show Button STN
@@ -150,19 +159,33 @@ Public Class frmMain
     End Sub
 
     'Panel Setting
-    Private Sub btn_connect_Click(sender As Object, e As EventArgs) Handles btn_connect.Click
-        If btn_connect.Text = "Connect" Then
-            If Modbus.OpenPort(txtIP.Text, txtPort.Text) Then
-                btn_connect.Text = "Disconnect"
-                connect_ind.Image = My.Resources.led_green_on
+    Private Sub btn_connect_Click(sender As Object, e As EventArgs) Handles btn_connect_plc.Click
+        If btn_connect_plc.Text = "Connect" Then
+            If Modbus.OpenPort(txtIP_PLC.Text, txtPort_PLC.Text) Then
+                btn_connect_plc.Text = "Disconnect"
+                connect_plc_ind.Image = My.Resources.led_green_on
                 ModbusRW.Enabled = True
             End If
-        ElseIf btn_connect.Text = "Disconnect" Then
+        ElseIf btn_connect_plc.Text = "Disconnect" Then
             If Modbus.ClosePort() Then
-                btn_connect.Text = "Connect"
-                connect_ind.Image = My.Resources.led_red_on
+                btn_connect_plc.Text = "Connect"
+                connect_plc_ind.Image = My.Resources.led_red_on
                 ind_plc_status.BackColor = Color.Red
                 ModbusRW.Enabled = False
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_connect_multi_Click(sender As Object, e As EventArgs) Handles btn_connect_multi.Click, btn_check_multi.Click
+        If btn_connect_multi.Text = "Connect" Then
+            If Multimeter.Connect(txtIP_multi.Text, txtPort_multi.Text) Then
+                btn_connect_multi.Text = "Disconnect"
+                connect_multi_ind.Image = My.Resources.led_green_on
+            End If
+        ElseIf btn_connect_multi.Text = "Disconnect" Then
+            If Multimeter.Close() Then
+                btn_connect_multi.Text = "Connect"
+                connect_multi_ind.Image = My.Resources.led_red_on
             End If
         End If
     End Sub
@@ -2233,6 +2256,8 @@ Public Class frmMain
         Else
             lbl_op_ins.Text = "You're All Set!"
         End If
+
+
     End Sub
     Private Sub BarcodeComm_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles BarcodeComm.DataReceived
         If SCAN_MODE = 0 Then
@@ -2457,8 +2482,22 @@ Public Class frmMain
             btn_manual.Enabled = False
         End If
     End Sub
+    'panel multi
+    Private Sub btn_read_ch_1_Click(sender As Object, e As EventArgs) Handles btn_read_ch_1.Click
+        Multimeter.OpenChannel(102)
+        Multimeter.CloseChannel(101)
+        Thread.Sleep(10)
+        Dim productRes As Double = Multimeter.MeasureResistance()
+        txt_ch_1.Text = productRes.ToString
+        txt_ch_2.Text = ""
+    End Sub
 
-    Private Sub btn_multimeter_Click(sender As Object, e As EventArgs) Handles btn_multimeter.Click
-        frmMultimeter.ShowDialog()
+    Private Sub btn_read_ch_2_Click(sender As Object, e As EventArgs) Handles btn_read_ch_2.Click
+        Multimeter.OpenChannel(101)
+        Multimeter.CloseChannel(102)
+        Thread.Sleep(10)
+        Dim productRes As Double = Multimeter.MeasureResistance()
+        txt_ch_2.Text = productRes.ToString
+        txt_ch_1.Text = ""
     End Sub
 End Class

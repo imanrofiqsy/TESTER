@@ -110,6 +110,7 @@
     </Compile>
     <Compile Include="Declaration.vb" />
     <Compile Include="Modbus.vb" />
+    <Compile Include="Multimeter.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

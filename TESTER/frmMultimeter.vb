@@ -4,17 +4,6 @@ Imports System.Text
 Public Class frmMultimeter
     Dim tcpClient As New TcpClient
     Dim ipAddress As IPAddress
-    Private Sub btn_conn_Click(sender As Object, e As EventArgs) Handles btn_conn.Click
-        Try
-            ipAddress = IPAddress.Parse(txt_ip.Text)
-            tcpClient.Connect(IPAddress, txt_port.Text)
-        Catch ex As Exception
-            MsgBox("Multimeter error : " + ex.ToString())
-        End Try
-    End Sub
-    Private Sub btn_disc_Click(sender As Object, e As EventArgs) Handles btn_disc.Click
-        tcpClient.Close()
-    End Sub
     Private Sub SendCommand(command As String)
         If (tcpClient.Connected) Then
             Dim writer As NetworkStream = tcpClient.GetStream()
@@ -55,12 +44,12 @@ Public Class frmMultimeter
         End Try
         Return value
     End Function
-    Private Function GetDeviceInfo() As String
+    Public Function GetDeviceInfo() As String
         Dim command As String = "*IDN?" + System.Environment.NewLine
         SendCommand(command)
         Return GetReply()
     End Function
-    Private Sub SetResitanceMode()
+    Public Sub SetResitanceMode()
         Dim command As String = "SENS:FUNC 'RES', (@101, 102, 103)" + System.Environment.NewLine
         SendCommand(command)
     End Sub

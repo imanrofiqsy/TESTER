@@ -806,6 +806,22 @@ Partial Class frmMain
         Me.Label241 = New System.Windows.Forms.Label()
         Me.Label242 = New System.Windows.Forms.Label()
         Me.Label236 = New System.Windows.Forms.Label()
+        Me.btn_log = New System.Windows.Forms.Button()
+        Me.pnl_log = New System.Windows.Forms.Panel()
+        Me.GroupBox174 = New System.Windows.Forms.GroupBox()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.btn_search = New System.Windows.Forms.Button()
+        Me.Label249 = New System.Windows.Forms.Label()
+        Me.DateTimePickerEndDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label250 = New System.Windows.Forms.Label()
+        Me.DateTimePickerStartDate = New System.Windows.Forms.DateTimePicker()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.cb_search_opt = New System.Windows.Forms.ComboBox()
+        Me.btn_search_other = New System.Windows.Forms.Button()
+        Me.txt_find_other = New System.Windows.Forms.TextBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label248 = New System.Windows.Forms.Label()
         Me.pnl_setting.SuspendLayout
         Me.GroupBox169.SuspendLayout
         CType(Me.connect_multi_ind, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1185,6 +1201,12 @@ Partial Class frmMain
         Me.pnl_ref.SuspendLayout
         CType(Me.dgv_ref, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox_Control.SuspendLayout
+        Me.pnl_log.SuspendLayout
+        Me.GroupBox174.SuspendLayout
+        Me.TabControl1.SuspendLayout
+        Me.TabPage1.SuspendLayout
+        Me.TabPage2.SuspendLayout
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'pnl_setting
@@ -1488,7 +1510,7 @@ Partial Class frmMain
         '
         Me.btn_stn6.FlatAppearance.BorderSize = 0
         Me.btn_stn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn6.Location = New System.Drawing.Point(937, 488)
+        Me.btn_stn6.Location = New System.Drawing.Point(937, 449)
         Me.btn_stn6.Name = "btn_stn6"
         Me.btn_stn6.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn6.TabIndex = 66
@@ -1499,7 +1521,7 @@ Partial Class frmMain
         '
         Me.btn_stn5.FlatAppearance.BorderSize = 0
         Me.btn_stn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn5.Location = New System.Drawing.Point(937, 417)
+        Me.btn_stn5.Location = New System.Drawing.Point(937, 378)
         Me.btn_stn5.Name = "btn_stn5"
         Me.btn_stn5.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn5.TabIndex = 66
@@ -1510,7 +1532,7 @@ Partial Class frmMain
         '
         Me.btn_stn4.FlatAppearance.BorderSize = 0
         Me.btn_stn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn4.Location = New System.Drawing.Point(937, 346)
+        Me.btn_stn4.Location = New System.Drawing.Point(937, 307)
         Me.btn_stn4.Name = "btn_stn4"
         Me.btn_stn4.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn4.TabIndex = 66
@@ -1521,7 +1543,7 @@ Partial Class frmMain
         '
         Me.btn_stn3.FlatAppearance.BorderSize = 0
         Me.btn_stn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn3.Location = New System.Drawing.Point(937, 275)
+        Me.btn_stn3.Location = New System.Drawing.Point(937, 236)
         Me.btn_stn3.Name = "btn_stn3"
         Me.btn_stn3.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn3.TabIndex = 66
@@ -1532,7 +1554,7 @@ Partial Class frmMain
         '
         Me.btn_stn2.FlatAppearance.BorderSize = 0
         Me.btn_stn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn2.Location = New System.Drawing.Point(937, 204)
+        Me.btn_stn2.Location = New System.Drawing.Point(937, 165)
         Me.btn_stn2.Name = "btn_stn2"
         Me.btn_stn2.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn2.TabIndex = 66
@@ -1543,7 +1565,7 @@ Partial Class frmMain
         '
         Me.btn_stn1.FlatAppearance.BorderSize = 0
         Me.btn_stn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn1.Location = New System.Drawing.Point(937, 133)
+        Me.btn_stn1.Location = New System.Drawing.Point(937, 94)
         Me.btn_stn1.Name = "btn_stn1"
         Me.btn_stn1.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn1.TabIndex = 66
@@ -9684,7 +9706,7 @@ Partial Class frmMain
         Me.btn_ref.FlatAppearance.BorderSize = 0
         Me.btn_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_ref.Image = Global.TESTER.My.Resources.Resources.imgonline_com_ua_ReplaceColor_xBihTEFLjatznSmQ
-        Me.btn_ref.Location = New System.Drawing.Point(13, 595)
+        Me.btn_ref.Location = New System.Drawing.Point(13, 553)
         Me.btn_ref.Name = "btn_ref"
         Me.btn_ref.Size = New System.Drawing.Size(60, 60)
         Me.btn_ref.TabIndex = 69
@@ -9695,7 +9717,7 @@ Partial Class frmMain
         Me.btn_laser.FlatAppearance.BorderSize = 0
         Me.btn_laser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_laser.Image = Global.TESTER.My.Resources.Resources.image__4__removebg_preview_modified1
-        Me.btn_laser.Location = New System.Drawing.Point(12, 529)
+        Me.btn_laser.Location = New System.Drawing.Point(12, 487)
         Me.btn_laser.Name = "btn_laser"
         Me.btn_laser.Size = New System.Drawing.Size(60, 60)
         Me.btn_laser.TabIndex = 69
@@ -9706,7 +9728,7 @@ Partial Class frmMain
         Me.btn_multimeter.FlatAppearance.BorderSize = 0
         Me.btn_multimeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_multimeter.Image = Global.TESTER.My.Resources.Resources.multimeter_new
-        Me.btn_multimeter.Location = New System.Drawing.Point(12, 463)
+        Me.btn_multimeter.Location = New System.Drawing.Point(12, 421)
         Me.btn_multimeter.Name = "btn_multimeter"
         Me.btn_multimeter.Size = New System.Drawing.Size(60, 60)
         Me.btn_multimeter.TabIndex = 69
@@ -9717,7 +9739,7 @@ Partial Class frmMain
         Me.btn_alarm.FlatAppearance.BorderSize = 0
         Me.btn_alarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_alarm.Image = Global.TESTER.My.Resources.Resources.alarm_56
-        Me.btn_alarm.Location = New System.Drawing.Point(13, 397)
+        Me.btn_alarm.Location = New System.Drawing.Point(13, 355)
         Me.btn_alarm.Name = "btn_alarm"
         Me.btn_alarm.Size = New System.Drawing.Size(60, 60)
         Me.btn_alarm.TabIndex = 69
@@ -9728,7 +9750,7 @@ Partial Class frmMain
         Me.btn_setting.FlatAppearance.BorderSize = 0
         Me.btn_setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_setting.Image = Global.TESTER.My.Resources.Resources.setting
-        Me.btn_setting.Location = New System.Drawing.Point(13, 331)
+        Me.btn_setting.Location = New System.Drawing.Point(13, 289)
         Me.btn_setting.Name = "btn_setting"
         Me.btn_setting.Size = New System.Drawing.Size(60, 60)
         Me.btn_setting.TabIndex = 69
@@ -9739,7 +9761,7 @@ Partial Class frmMain
         Me.btn_monitoring.FlatAppearance.BorderSize = 0
         Me.btn_monitoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_monitoring.Image = Global.TESTER.My.Resources.Resources.monitoring
-        Me.btn_monitoring.Location = New System.Drawing.Point(13, 265)
+        Me.btn_monitoring.Location = New System.Drawing.Point(13, 223)
         Me.btn_monitoring.Name = "btn_monitoring"
         Me.btn_monitoring.Size = New System.Drawing.Size(60, 60)
         Me.btn_monitoring.TabIndex = 68
@@ -9750,7 +9772,7 @@ Partial Class frmMain
         Me.btn_manual.FlatAppearance.BorderSize = 0
         Me.btn_manual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_manual.Image = Global.TESTER.My.Resources.Resources.manual
-        Me.btn_manual.Location = New System.Drawing.Point(13, 199)
+        Me.btn_manual.Location = New System.Drawing.Point(13, 157)
         Me.btn_manual.Name = "btn_manual"
         Me.btn_manual.Size = New System.Drawing.Size(60, 60)
         Me.btn_manual.TabIndex = 67
@@ -9761,7 +9783,7 @@ Partial Class frmMain
         Me.btn_home.FlatAppearance.BorderSize = 0
         Me.btn_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_home.Image = Global.TESTER.My.Resources.Resources.home
-        Me.btn_home.Location = New System.Drawing.Point(13, 133)
+        Me.btn_home.Location = New System.Drawing.Point(13, 91)
         Me.btn_home.Name = "btn_home"
         Me.btn_home.Size = New System.Drawing.Size(60, 60)
         Me.btn_home.TabIndex = 66
@@ -10102,6 +10124,164 @@ Partial Class frmMain
         Me.Label236.TabIndex = 61
         Me.Label236.Text = "REFERENCES"
         '
+        'btn_log
+        '
+        Me.btn_log.FlatAppearance.BorderSize = 0
+        Me.btn_log.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_log.Image = Global.TESTER.My.Resources.Resources.imgonline_com_ua_ReplaceColor_PlA00UlE53dEW3J
+        Me.btn_log.Location = New System.Drawing.Point(12, 619)
+        Me.btn_log.Name = "btn_log"
+        Me.btn_log.Size = New System.Drawing.Size(60, 60)
+        Me.btn_log.TabIndex = 69
+        Me.btn_log.UseVisualStyleBackColor = True
+        '
+        'pnl_log
+        '
+        Me.pnl_log.Controls.Add(Me.GroupBox174)
+        Me.pnl_log.Controls.Add(Me.DataGridView1)
+        Me.pnl_log.Controls.Add(Me.Label248)
+        Me.pnl_log.Location = New System.Drawing.Point(78, 92)
+        Me.pnl_log.Name = "pnl_log"
+        Me.pnl_log.Size = New System.Drawing.Size(853, 563)
+        Me.pnl_log.TabIndex = 94
+        '
+        'GroupBox174
+        '
+        Me.GroupBox174.Controls.Add(Me.TabControl1)
+        Me.GroupBox174.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox174.Location = New System.Drawing.Point(6, 378)
+        Me.GroupBox174.Name = "GroupBox174"
+        Me.GroupBox174.Size = New System.Drawing.Size(843, 179)
+        Me.GroupBox174.TabIndex = 65
+        Me.GroupBox174.TabStop = False
+        Me.GroupBox174.Text = "Find"
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 35)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(825, 138)
+        Me.TabControl1.TabIndex = 64
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.btn_search)
+        Me.TabPage1.Controls.Add(Me.Label249)
+        Me.TabPage1.Controls.Add(Me.DateTimePickerEndDate)
+        Me.TabPage1.Controls.Add(Me.Label250)
+        Me.TabPage1.Controls.Add(Me.DateTimePickerStartDate)
+        Me.TabPage1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabPage1.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(817, 101)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Date"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'btn_search
+        '
+        Me.btn_search.Location = New System.Drawing.Point(494, 21)
+        Me.btn_search.Name = "btn_search"
+        Me.btn_search.Size = New System.Drawing.Size(150, 58)
+        Me.btn_search.TabIndex = 24
+        Me.btn_search.Text = "Search"
+        Me.btn_search.UseVisualStyleBackColor = True
+        '
+        'Label249
+        '
+        Me.Label249.AutoSize = True
+        Me.Label249.Location = New System.Drawing.Point(173, 59)
+        Me.Label249.Name = "Label249"
+        Me.Label249.Size = New System.Drawing.Size(77, 20)
+        Me.Label249.TabIndex = 23
+        Me.Label249.Text = "End Date"
+        '
+        'DateTimePickerEndDate
+        '
+        Me.DateTimePickerEndDate.Location = New System.Drawing.Point(274, 54)
+        Me.DateTimePickerEndDate.Name = "DateTimePickerEndDate"
+        Me.DateTimePickerEndDate.Size = New System.Drawing.Size(200, 26)
+        Me.DateTimePickerEndDate.TabIndex = 22
+        '
+        'Label250
+        '
+        Me.Label250.AutoSize = True
+        Me.Label250.Location = New System.Drawing.Point(173, 27)
+        Me.Label250.Name = "Label250"
+        Me.Label250.Size = New System.Drawing.Size(83, 20)
+        Me.Label250.TabIndex = 21
+        Me.Label250.Text = "Start Date"
+        '
+        'DateTimePickerStartDate
+        '
+        Me.DateTimePickerStartDate.Location = New System.Drawing.Point(274, 22)
+        Me.DateTimePickerStartDate.Name = "DateTimePickerStartDate"
+        Me.DateTimePickerStartDate.Size = New System.Drawing.Size(200, 26)
+        Me.DateTimePickerStartDate.TabIndex = 20
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.cb_search_opt)
+        Me.TabPage2.Controls.Add(Me.btn_search_other)
+        Me.TabPage2.Controls.Add(Me.txt_find_other)
+        Me.TabPage2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabPage2.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(817, 101)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Other"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'cb_search_opt
+        '
+        Me.cb_search_opt.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_search_opt.FormattingEnabled = True
+        Me.cb_search_opt.Items.AddRange(New Object() {"References", "PO Number", "Operator ID"})
+        Me.cb_search_opt.Location = New System.Drawing.Point(190, 33)
+        Me.cb_search_opt.Name = "cb_search_opt"
+        Me.cb_search_opt.Size = New System.Drawing.Size(121, 32)
+        Me.cb_search_opt.TabIndex = 6
+        '
+        'btn_search_other
+        '
+        Me.btn_search_other.Location = New System.Drawing.Point(508, 35)
+        Me.btn_search_other.Name = "btn_search_other"
+        Me.btn_search_other.Size = New System.Drawing.Size(107, 30)
+        Me.btn_search_other.TabIndex = 5
+        Me.btn_search_other.Text = "Search"
+        Me.btn_search_other.UseVisualStyleBackColor = True
+        '
+        'txt_find_other
+        '
+        Me.txt_find_other.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_find_other.Location = New System.Drawing.Point(326, 36)
+        Me.txt_find_other.Name = "txt_find_other"
+        Me.txt_find_other.Size = New System.Drawing.Size(171, 29)
+        Me.txt_find_other.TabIndex = 4
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(4, 62)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(845, 306)
+        Me.DataGridView1.TabIndex = 63
+        '
+        'Label248
+        '
+        Me.Label248.AutoSize = True
+        Me.Label248.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label248.Location = New System.Drawing.Point(342, 19)
+        Me.Label248.Name = "Label248"
+        Me.Label248.Size = New System.Drawing.Size(183, 29)
+        Me.Label248.TabIndex = 62
+        Me.Label248.Text = "DATA LOGGER"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -10116,6 +10296,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_stn6)
         Me.Controls.Add(Me.btn_stn5)
         Me.Controls.Add(Me.btn_stn4)
+        Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_laser)
         Me.Controls.Add(Me.btn_multimeter)
@@ -10132,6 +10313,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
         Me.Controls.Add(Me.pnl_laser)
         Me.Controls.Add(Me.pnl_multi)
@@ -10647,6 +10829,15 @@ Partial Class frmMain
         CType(Me.dgv_ref, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox_Control.ResumeLayout(False)
         Me.GroupBox_Control.PerformLayout
+        Me.pnl_log.ResumeLayout(False)
+        Me.pnl_log.PerformLayout
+        Me.GroupBox174.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -11434,4 +11625,20 @@ Partial Class frmMain
     Friend WithEvents Label241 As Label
     Friend WithEvents Label242 As Label
     Friend WithEvents Label236 As Label
+    Friend WithEvents btn_log As Button
+    Friend WithEvents pnl_log As Panel
+    Friend WithEvents Label248 As Label
+    Friend WithEvents GroupBox174 As GroupBox
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents btn_search As Button
+    Friend WithEvents Label249 As Label
+    Friend WithEvents DateTimePickerEndDate As DateTimePicker
+    Friend WithEvents Label250 As Label
+    Friend WithEvents DateTimePickerStartDate As DateTimePicker
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents cb_search_opt As ComboBox
+    Friend WithEvents btn_search_other As Button
+    Friend WithEvents txt_find_other As TextBox
 End Class

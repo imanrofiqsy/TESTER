@@ -106,6 +106,9 @@ Public Class frmMain
         ShowPanelGeneral("ref")
         LoadTbRef()
     End Sub
+    Private Sub btn_log_Click(sender As Object, e As EventArgs) Handles btn_log.Click
+        ShowPanelGeneral("log")
+    End Sub
 
     'Show Panel General
     Private Sub ShowPanelGeneral(mode As String)
@@ -156,6 +159,12 @@ Public Class frmMain
             pnl_ref.Visible = True
         Else
             pnl_ref.Visible = False
+        End If
+
+        If mode = "log" Then
+            pnl_log.Visible = True
+        Else
+            pnl_log.Visible = False
         End If
     End Sub
 
@@ -2387,7 +2396,7 @@ Public Class frmMain
                 lbl_st2_meas.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
 
                 Call KoneksiDB.koneksi_db()
-                Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement) VALUES('" & CNT_ST2.ToString & "', '" & lbl_ref.Text & "', '" & lbl_ope_id.Text & "', '" & lbl_po_num.Text & "', '" & lbl_st2_meas.Text & "')", KoneksiDB.koneksi)
+                Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement, Date) VALUES('" & CNT_ST2.ToString & "', '" & lbl_ref.Text & "', '" & lbl_ope_id.Text & "', '" & lbl_po_num.Text & "', '" & lbl_st2_meas.Text & "', '" & Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") & "')", KoneksiDB.koneksi)
                 Dim adapter As New SqlDataAdapter(sc)
                 adapter.SelectCommand.ExecuteNonQuery()
 
@@ -2554,7 +2563,7 @@ Public Class frmMain
             Exit Sub
         Else
             Call KoneksiDB.koneksi_db()
-            Dim sc As New SqlCommand("DELETE from ProductDatabase where Reff = '" & txt_ref_pnl.Text & "')", KoneksiDB.koneksi)
+            Dim sc As New SqlCommand("DELETE from ProductDatabase where Reff = '" & txt_ref_pnl.Text & "'", KoneksiDB.koneksi)
             Dim adapter As New SqlDataAdapter(sc)
             adapter.SelectCommand.ExecuteNonQuery()
             LoadTbRef()
@@ -2567,10 +2576,53 @@ Public Class frmMain
             Exit Sub
         Else
             Call KoneksiDB.koneksi_db()
-            Dim sc As New SqlCommand("UPDATE ProductDatabase SET ActVal = '" & txt_act_val_pnl.Text & "', ActValTol = '" & txt_act_val_tol_pnl.Text & "', DifStr = '" & txt_dif_str_pnl.Text & "', DifStrTol = '" & txt_dif_str_tol_pnl.Text & "', BeatingTimes = '" & txt_beating_times_pnl.Text & "', FirstContact = '" & txt_cfg_1st_pnl.Text & "', SecondContact = '" & txt_cfg_2nd_pnl.Text & "', ActVal = '" & txt_act_val_pnl.Text & "', UnscrewingProcess = '" & txt_unscrew_pnl.Text & "', LaserDatecode = '" & txt_laser_datecode_pnl.Text & "', LaserTemplate = '" & txt_laser_template_pnl.Text & "')", KoneksiDB.koneksi)
+            Dim sc As New SqlCommand("UPDATE ProductDatabase SET ActVal = '" & txt_act_val_pnl.Text & "', ActValTol = '" & txt_act_val_tol_pnl.Text & "', DifStr = '" & txt_dif_str_pnl.Text & "', DifStrTol = '" & txt_dif_str_tol_pnl.Text & "', BeatingTimes = '" & txt_beating_times_pnl.Text & "', FirstContact = '" & txt_cfg_1st_pnl.Text & "', SecondContact = '" & txt_cfg_2nd_pnl.Text & "', ActVal = '" & txt_act_val_pnl.Text & "', UnscrewingProcess = '" & txt_unscrew_pnl.Text & "', LaserDatecode = '" & txt_laser_datecode_pnl.Text & "', LaserTemplate = '" & txt_laser_template_pnl.Text & "'", KoneksiDB.koneksi)
             Dim adapter As New SqlDataAdapter(sc)
             adapter.SelectCommand.ExecuteNonQuery()
             LoadTbRef()
         End If
     End Sub
+    ' panel log
+    Private Sub btn_search_other_Click(sender As Object, e As EventArgs) Handles btn_search_other.Click
+        Select Case cb_search_opt.Text
+            Case "References"
+                Call KoneksiDB.koneksi_db()
+                Try
+                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where Reff = '" & txt_find_other.Text & "'", KoneksiDB.koneksi)
+                    Dim adapter As New SqlDataAdapter(sc)
+                    Dim ds As New DataSet
+
+                    adapter.Fill(ds)
+                    dgv_ref.DataSource = ds.Tables(0)
+                Catch ex As Exception
+                    MsgBox(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") + "Error: Database not found!")
+                End Try
+            Case "PO Number"
+                Call KoneksiDB.koneksi_db()
+                Try
+                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where ProductOrderNo = '" & txt_find_other.Text & "'", KoneksiDB.koneksi)
+                    Dim adapter As New SqlDataAdapter(sc)
+                    Dim ds As New DataSet
+
+                    adapter.Fill(ds)
+                    dgv_ref.DataSource = ds.Tables(0)
+                Catch ex As Exception
+                    MsgBox(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") + "Error: Database not found!")
+                End Try
+            Case "Operator ID"
+                Call KoneksiDB.koneksi_db()
+                Try
+                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where OperatorID = '" & txt_find_other.Text & "'", KoneksiDB.koneksi)
+                    Dim adapter As New SqlDataAdapter(sc)
+                    Dim ds As New DataSet
+
+                    adapter.Fill(ds)
+                    dgv_ref.DataSource = ds.Tables(0)
+                Catch ex As Exception
+                    MsgBox(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") + "Error: Database not found!")
+                End Try
+        End Select
+    End Sub
+
+
 End Class

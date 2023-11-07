@@ -2524,7 +2524,7 @@ Public Class frmMain
     Private Sub LoadTbRef()
         Call KoneksiDB.koneksi_db()
         Try
-            Dim sc As New SqlCommand("SELECT * FROM ProductDatabase order by Ref asc", KoneksiDB.koneksi)
+            Dim sc As New SqlCommand("SELECT * FROM ProductDatabase order by Reff asc", KoneksiDB.koneksi)
             Dim adapter As New SqlDataAdapter(sc)
             Dim ds As New DataSet
 

@@ -2588,7 +2588,7 @@ Public Class frmMain
             Case "References"
                 Call KoneksiDB.koneksi_db()
                 Try
-                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where Reff = '" & txt_find_other.Text & "'", KoneksiDB.koneksi)
+                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where Reff = '" & txt_find_other.Text & "' ORDER BY [Reff] ASC", KoneksiDB.koneksi)
                     Dim adapter As New SqlDataAdapter(sc)
                     Dim ds As New DataSet
 
@@ -2600,7 +2600,7 @@ Public Class frmMain
             Case "PO Number"
                 Call KoneksiDB.koneksi_db()
                 Try
-                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where ProductOrderNo = '" & txt_find_other.Text & "'", KoneksiDB.koneksi)
+                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where ProductOrderNo = '" & txt_find_other.Text & "' ORDER BY [Reff] ASC", KoneksiDB.koneksi)
                     Dim adapter As New SqlDataAdapter(sc)
                     Dim ds As New DataSet
 
@@ -2612,7 +2612,7 @@ Public Class frmMain
             Case "Operator ID"
                 Call KoneksiDB.koneksi_db()
                 Try
-                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where OperatorID = '" & txt_find_other.Text & "'", KoneksiDB.koneksi)
+                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where OperatorID = '" & txt_find_other.Text & "' ORDER BY [Reff] ASC", KoneksiDB.koneksi)
                     Dim adapter As New SqlDataAdapter(sc)
                     Dim ds As New DataSet
 

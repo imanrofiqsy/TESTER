@@ -737,7 +737,37 @@ Partial Class frmMain
         Me.lbl_run_state = New System.Windows.Forms.Label()
         Me.lbl_curr_time = New System.Windows.Forms.Label()
         Me.lbl_auto_man = New System.Windows.Forms.Label()
+        Me.pnl_multi = New System.Windows.Forms.Panel()
+        Me.GroupBox170 = New System.Windows.Forms.GroupBox()
+        Me.Label229 = New System.Windows.Forms.Label()
+        Me.Label230 = New System.Windows.Forms.Label()
+        Me.txt_ch_1 = New System.Windows.Forms.TextBox()
+        Me.btn_read_ch_2 = New System.Windows.Forms.Button()
+        Me.btn_read_ch_1 = New System.Windows.Forms.Button()
+        Me.txt_ch_2 = New System.Windows.Forms.TextBox()
+        Me.Label228 = New System.Windows.Forms.Label()
+        Me.pnl_laser = New System.Windows.Forms.Panel()
+        Me.GroupBox171 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox172 = New System.Windows.Forms.GroupBox()
+        Me.txt_comm_log = New System.Windows.Forms.TextBox()
+        Me.GroupBox173 = New System.Windows.Forms.GroupBox()
+        Me.btn_mark_flag = New System.Windows.Forms.Button()
+        Me.btn_change_prg = New System.Windows.Forms.Button()
+        Me.btn_start_marking = New System.Windows.Forms.Button()
+        Me.btn_string_char = New System.Windows.Forms.Button()
+        Me.txt_block2 = New System.Windows.Forms.TextBox()
+        Me.txt_block1 = New System.Windows.Forms.TextBox()
+        Me.txt_block0 = New System.Windows.Forms.TextBox()
+        Me.Label232 = New System.Windows.Forms.Label()
+        Me.chb_mark_cavity_1 = New System.Windows.Forms.CheckBox()
+        Me.Label233 = New System.Windows.Forms.Label()
+        Me.cb_prg_num = New System.Windows.Forms.ComboBox()
+        Me.Label234 = New System.Windows.Forms.Label()
+        Me.Label235 = New System.Windows.Forms.Label()
+        Me.Label231 = New System.Windows.Forms.Label()
         Me.status_bar = New System.Windows.Forms.PictureBox()
+        Me.btn_ref = New System.Windows.Forms.Button()
+        Me.btn_laser = New System.Windows.Forms.Button()
         Me.btn_multimeter = New System.Windows.Forms.Button()
         Me.btn_alarm = New System.Windows.Forms.Button()
         Me.btn_setting = New System.Windows.Forms.Button()
@@ -747,15 +777,35 @@ Partial Class frmMain
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.pnl_multi = New System.Windows.Forms.Panel()
-        Me.Label228 = New System.Windows.Forms.Label()
-        Me.GroupBox170 = New System.Windows.Forms.GroupBox()
-        Me.Label229 = New System.Windows.Forms.Label()
-        Me.Label230 = New System.Windows.Forms.Label()
-        Me.txt_ch_1 = New System.Windows.Forms.TextBox()
-        Me.btn_read_ch_1 = New System.Windows.Forms.Button()
-        Me.txt_ch_2 = New System.Windows.Forms.TextBox()
-        Me.btn_read_ch_2 = New System.Windows.Forms.Button()
+        Me.pnl_ref = New System.Windows.Forms.Panel()
+        Me.dgv_ref = New System.Windows.Forms.DataGridView()
+        Me.GroupBox_Control = New System.Windows.Forms.GroupBox()
+        Me.txt_laser_template_pnl = New System.Windows.Forms.TextBox()
+        Me.txt_beating_times_pnl = New System.Windows.Forms.TextBox()
+        Me.Label247 = New System.Windows.Forms.Label()
+        Me.Label237 = New System.Windows.Forms.Label()
+        Me.txt_laser_datecode_pnl = New System.Windows.Forms.TextBox()
+        Me.txt_dif_str_tol_pnl = New System.Windows.Forms.TextBox()
+        Me.Label246 = New System.Windows.Forms.Label()
+        Me.Label238 = New System.Windows.Forms.Label()
+        Me.btn_update = New System.Windows.Forms.Button()
+        Me.txt_unscrew_pnl = New System.Windows.Forms.TextBox()
+        Me.txt_dif_str_pnl = New System.Windows.Forms.TextBox()
+        Me.txt_cfg_2nd_pnl = New System.Windows.Forms.TextBox()
+        Me.txt_act_val_tol_pnl = New System.Windows.Forms.TextBox()
+        Me.Label245 = New System.Windows.Forms.Label()
+        Me.Label239 = New System.Windows.Forms.Label()
+        Me.Label244 = New System.Windows.Forms.Label()
+        Me.Label240 = New System.Windows.Forms.Label()
+        Me.btn_delete = New System.Windows.Forms.Button()
+        Me.btn_add = New System.Windows.Forms.Button()
+        Me.txt_cfg_1st_pnl = New System.Windows.Forms.TextBox()
+        Me.txt_act_val_pnl = New System.Windows.Forms.TextBox()
+        Me.Label243 = New System.Windows.Forms.Label()
+        Me.txt_ref_pnl = New System.Windows.Forms.TextBox()
+        Me.Label241 = New System.Windows.Forms.Label()
+        Me.Label242 = New System.Windows.Forms.Label()
+        Me.Label236 = New System.Windows.Forms.Label()
         Me.pnl_setting.SuspendLayout
         Me.GroupBox169.SuspendLayout
         CType(Me.connect_multi_ind, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1123,11 +1173,18 @@ Partial Class frmMain
         Me.GroupBox168.SuspendLayout
         CType(Me.mon_stn6_cyl1_fw, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.mon_stn6_cyl1_bw, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.pnl_multi.SuspendLayout
+        Me.GroupBox170.SuspendLayout
+        Me.pnl_laser.SuspendLayout
+        Me.GroupBox171.SuspendLayout
+        Me.GroupBox172.SuspendLayout
+        Me.GroupBox173.SuspendLayout
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
-        Me.pnl_multi.SuspendLayout
-        Me.GroupBox170.SuspendLayout
+        Me.pnl_ref.SuspendLayout
+        CType(Me.dgv_ref, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.GroupBox_Control.SuspendLayout
         Me.SuspendLayout
         '
         'pnl_setting
@@ -1431,7 +1488,7 @@ Partial Class frmMain
         '
         Me.btn_stn6.FlatAppearance.BorderSize = 0
         Me.btn_stn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn6.Location = New System.Drawing.Point(937, 530)
+        Me.btn_stn6.Location = New System.Drawing.Point(937, 488)
         Me.btn_stn6.Name = "btn_stn6"
         Me.btn_stn6.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn6.TabIndex = 66
@@ -1442,7 +1499,7 @@ Partial Class frmMain
         '
         Me.btn_stn5.FlatAppearance.BorderSize = 0
         Me.btn_stn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn5.Location = New System.Drawing.Point(937, 459)
+        Me.btn_stn5.Location = New System.Drawing.Point(937, 417)
         Me.btn_stn5.Name = "btn_stn5"
         Me.btn_stn5.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn5.TabIndex = 66
@@ -1453,7 +1510,7 @@ Partial Class frmMain
         '
         Me.btn_stn4.FlatAppearance.BorderSize = 0
         Me.btn_stn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn4.Location = New System.Drawing.Point(937, 388)
+        Me.btn_stn4.Location = New System.Drawing.Point(937, 346)
         Me.btn_stn4.Name = "btn_stn4"
         Me.btn_stn4.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn4.TabIndex = 66
@@ -1464,7 +1521,7 @@ Partial Class frmMain
         '
         Me.btn_stn3.FlatAppearance.BorderSize = 0
         Me.btn_stn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn3.Location = New System.Drawing.Point(937, 317)
+        Me.btn_stn3.Location = New System.Drawing.Point(937, 275)
         Me.btn_stn3.Name = "btn_stn3"
         Me.btn_stn3.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn3.TabIndex = 66
@@ -1475,7 +1532,7 @@ Partial Class frmMain
         '
         Me.btn_stn2.FlatAppearance.BorderSize = 0
         Me.btn_stn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn2.Location = New System.Drawing.Point(937, 246)
+        Me.btn_stn2.Location = New System.Drawing.Point(937, 204)
         Me.btn_stn2.Name = "btn_stn2"
         Me.btn_stn2.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn2.TabIndex = 66
@@ -1486,7 +1543,7 @@ Partial Class frmMain
         '
         Me.btn_stn1.FlatAppearance.BorderSize = 0
         Me.btn_stn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn1.Location = New System.Drawing.Point(937, 175)
+        Me.btn_stn1.Location = New System.Drawing.Point(937, 133)
         Me.btn_stn1.Name = "btn_stn1"
         Me.btn_stn1.Size = New System.Drawing.Size(60, 60)
         Me.btn_stn1.TabIndex = 66
@@ -9323,116 +9380,6 @@ Partial Class frmMain
         Me.lbl_auto_man.TabIndex = 90
         Me.lbl_auto_man.Text = "MANUAL"
         '
-        'status_bar
-        '
-        Me.status_bar.BackColor = System.Drawing.SystemColors.Control
-        Me.status_bar.Image = Global.TESTER.My.Resources.Resources.GUI___SignUpButtonOn40
-        Me.status_bar.Location = New System.Drawing.Point(234, 2)
-        Me.status_bar.Name = "status_bar"
-        Me.status_bar.Size = New System.Drawing.Size(541, 79)
-        Me.status_bar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.status_bar.TabIndex = 86
-        Me.status_bar.TabStop = False
-        '
-        'btn_multimeter
-        '
-        Me.btn_multimeter.FlatAppearance.BorderSize = 0
-        Me.btn_multimeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_multimeter.Image = Global.TESTER.My.Resources.Resources.multimeter_new
-        Me.btn_multimeter.Location = New System.Drawing.Point(12, 505)
-        Me.btn_multimeter.Name = "btn_multimeter"
-        Me.btn_multimeter.Size = New System.Drawing.Size(60, 60)
-        Me.btn_multimeter.TabIndex = 69
-        Me.btn_multimeter.UseVisualStyleBackColor = True
-        '
-        'btn_alarm
-        '
-        Me.btn_alarm.FlatAppearance.BorderSize = 0
-        Me.btn_alarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_alarm.Image = Global.TESTER.My.Resources.Resources.alarm_56
-        Me.btn_alarm.Location = New System.Drawing.Point(13, 439)
-        Me.btn_alarm.Name = "btn_alarm"
-        Me.btn_alarm.Size = New System.Drawing.Size(60, 60)
-        Me.btn_alarm.TabIndex = 69
-        Me.btn_alarm.UseVisualStyleBackColor = True
-        '
-        'btn_setting
-        '
-        Me.btn_setting.FlatAppearance.BorderSize = 0
-        Me.btn_setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_setting.Image = Global.TESTER.My.Resources.Resources.setting
-        Me.btn_setting.Location = New System.Drawing.Point(13, 373)
-        Me.btn_setting.Name = "btn_setting"
-        Me.btn_setting.Size = New System.Drawing.Size(60, 60)
-        Me.btn_setting.TabIndex = 69
-        Me.btn_setting.UseVisualStyleBackColor = True
-        '
-        'btn_monitoring
-        '
-        Me.btn_monitoring.FlatAppearance.BorderSize = 0
-        Me.btn_monitoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_monitoring.Image = Global.TESTER.My.Resources.Resources.monitoring
-        Me.btn_monitoring.Location = New System.Drawing.Point(13, 307)
-        Me.btn_monitoring.Name = "btn_monitoring"
-        Me.btn_monitoring.Size = New System.Drawing.Size(60, 60)
-        Me.btn_monitoring.TabIndex = 68
-        Me.btn_monitoring.UseVisualStyleBackColor = True
-        '
-        'btn_manual
-        '
-        Me.btn_manual.FlatAppearance.BorderSize = 0
-        Me.btn_manual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_manual.Image = Global.TESTER.My.Resources.Resources.manual
-        Me.btn_manual.Location = New System.Drawing.Point(13, 241)
-        Me.btn_manual.Name = "btn_manual"
-        Me.btn_manual.Size = New System.Drawing.Size(60, 60)
-        Me.btn_manual.TabIndex = 67
-        Me.btn_manual.UseVisualStyleBackColor = True
-        '
-        'btn_home
-        '
-        Me.btn_home.FlatAppearance.BorderSize = 0
-        Me.btn_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_home.Image = Global.TESTER.My.Resources.Resources.home
-        Me.btn_home.Location = New System.Drawing.Point(13, 175)
-        Me.btn_home.Name = "btn_home"
-        Me.btn_home.Size = New System.Drawing.Size(60, 60)
-        Me.btn_home.TabIndex = 66
-        Me.btn_home.UseVisualStyleBackColor = True
-        '
-        'btn_user
-        '
-        Me.btn_user.FlatAppearance.BorderSize = 0
-        Me.btn_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_user.Image = Global.TESTER.My.Resources.Resources.a_secured_2_30x30
-        Me.btn_user.Location = New System.Drawing.Point(953, 9)
-        Me.btn_user.Name = "btn_user"
-        Me.btn_user.Size = New System.Drawing.Size(41, 38)
-        Me.btn_user.TabIndex = 65
-        Me.btn_user.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_user.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_user.UseVisualStyleBackColor = True
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(822, 20)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(125, 49)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 56
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.TESTER.My.Resources.Resources.telemecanique_sensors_logo_transparent
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 9)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(216, 64)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 57
-        Me.PictureBox1.TabStop = False
-        '
         'pnl_multi
         '
         Me.pnl_multi.Controls.Add(Me.GroupBox170)
@@ -9441,16 +9388,6 @@ Partial Class frmMain
         Me.pnl_multi.Name = "pnl_multi"
         Me.pnl_multi.Size = New System.Drawing.Size(852, 563)
         Me.pnl_multi.TabIndex = 91
-        '
-        'Label228
-        '
-        Me.Label228.AutoSize = True
-        Me.Label228.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label228.Location = New System.Drawing.Point(345, 19)
-        Me.Label228.Name = "Label228"
-        Me.Label228.Size = New System.Drawing.Size(170, 29)
-        Me.Label228.TabIndex = 59
-        Me.Label228.Text = "MULTIMETER"
         '
         'GroupBox170
         '
@@ -9496,6 +9433,17 @@ Partial Class frmMain
         Me.txt_ch_1.Size = New System.Drawing.Size(123, 26)
         Me.txt_ch_1.TabIndex = 2
         '
+        'btn_read_ch_2
+        '
+        Me.btn_read_ch_2.AutoSize = True
+        Me.btn_read_ch_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_read_ch_2.Location = New System.Drawing.Point(123, 98)
+        Me.btn_read_ch_2.Name = "btn_read_ch_2"
+        Me.btn_read_ch_2.Size = New System.Drawing.Size(102, 35)
+        Me.btn_read_ch_2.TabIndex = 4
+        Me.btn_read_ch_2.Text = "Read CH 2"
+        Me.btn_read_ch_2.UseVisualStyleBackColor = True
+        '
         'btn_read_ch_1
         '
         Me.btn_read_ch_1.AutoSize = True
@@ -9515,16 +9463,644 @@ Partial Class frmMain
         Me.txt_ch_2.Size = New System.Drawing.Size(123, 26)
         Me.txt_ch_2.TabIndex = 3
         '
-        'btn_read_ch_2
+        'Label228
         '
-        Me.btn_read_ch_2.AutoSize = True
-        Me.btn_read_ch_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_read_ch_2.Location = New System.Drawing.Point(123, 98)
-        Me.btn_read_ch_2.Name = "btn_read_ch_2"
-        Me.btn_read_ch_2.Size = New System.Drawing.Size(102, 35)
-        Me.btn_read_ch_2.TabIndex = 4
-        Me.btn_read_ch_2.Text = "Read CH 2"
-        Me.btn_read_ch_2.UseVisualStyleBackColor = True
+        Me.Label228.AutoSize = True
+        Me.Label228.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label228.Location = New System.Drawing.Point(345, 19)
+        Me.Label228.Name = "Label228"
+        Me.Label228.Size = New System.Drawing.Size(170, 29)
+        Me.Label228.TabIndex = 59
+        Me.Label228.Text = "MULTIMETER"
+        '
+        'pnl_laser
+        '
+        Me.pnl_laser.Controls.Add(Me.GroupBox171)
+        Me.pnl_laser.Controls.Add(Me.Label231)
+        Me.pnl_laser.Location = New System.Drawing.Point(78, 92)
+        Me.pnl_laser.Name = "pnl_laser"
+        Me.pnl_laser.Size = New System.Drawing.Size(853, 563)
+        Me.pnl_laser.TabIndex = 92
+        '
+        'GroupBox171
+        '
+        Me.GroupBox171.Controls.Add(Me.GroupBox172)
+        Me.GroupBox171.Controls.Add(Me.GroupBox173)
+        Me.GroupBox171.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox171.Location = New System.Drawing.Point(173, 63)
+        Me.GroupBox171.Name = "GroupBox171"
+        Me.GroupBox171.Size = New System.Drawing.Size(502, 466)
+        Me.GroupBox171.TabIndex = 61
+        Me.GroupBox171.TabStop = False
+        Me.GroupBox171.Text = "Laser Parameter"
+        '
+        'GroupBox172
+        '
+        Me.GroupBox172.Controls.Add(Me.txt_comm_log)
+        Me.GroupBox172.Location = New System.Drawing.Point(6, 306)
+        Me.GroupBox172.Name = "GroupBox172"
+        Me.GroupBox172.Size = New System.Drawing.Size(485, 146)
+        Me.GroupBox172.TabIndex = 7
+        Me.GroupBox172.TabStop = False
+        Me.GroupBox172.Text = "Communication Log"
+        '
+        'txt_comm_log
+        '
+        Me.txt_comm_log.Location = New System.Drawing.Point(6, 30)
+        Me.txt_comm_log.Multiline = True
+        Me.txt_comm_log.Name = "txt_comm_log"
+        Me.txt_comm_log.Size = New System.Drawing.Size(473, 110)
+        Me.txt_comm_log.TabIndex = 6
+        '
+        'GroupBox173
+        '
+        Me.GroupBox173.Controls.Add(Me.btn_mark_flag)
+        Me.GroupBox173.Controls.Add(Me.btn_change_prg)
+        Me.GroupBox173.Controls.Add(Me.btn_start_marking)
+        Me.GroupBox173.Controls.Add(Me.btn_string_char)
+        Me.GroupBox173.Controls.Add(Me.txt_block2)
+        Me.GroupBox173.Controls.Add(Me.txt_block1)
+        Me.GroupBox173.Controls.Add(Me.txt_block0)
+        Me.GroupBox173.Controls.Add(Me.Label232)
+        Me.GroupBox173.Controls.Add(Me.chb_mark_cavity_1)
+        Me.GroupBox173.Controls.Add(Me.Label233)
+        Me.GroupBox173.Controls.Add(Me.cb_prg_num)
+        Me.GroupBox173.Controls.Add(Me.Label234)
+        Me.GroupBox173.Controls.Add(Me.Label235)
+        Me.GroupBox173.Location = New System.Drawing.Point(6, 32)
+        Me.GroupBox173.Name = "GroupBox173"
+        Me.GroupBox173.Size = New System.Drawing.Size(489, 256)
+        Me.GroupBox173.TabIndex = 5
+        Me.GroupBox173.TabStop = False
+        Me.GroupBox173.Text = "Cavity 1"
+        '
+        'btn_mark_flag
+        '
+        Me.btn_mark_flag.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_mark_flag.Location = New System.Drawing.Point(242, 169)
+        Me.btn_mark_flag.Name = "btn_mark_flag"
+        Me.btn_mark_flag.Size = New System.Drawing.Size(105, 28)
+        Me.btn_mark_flag.TabIndex = 4
+        Me.btn_mark_flag.Text = "Mark Flag"
+        Me.btn_mark_flag.UseVisualStyleBackColor = True
+        '
+        'btn_change_prg
+        '
+        Me.btn_change_prg.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_change_prg.Location = New System.Drawing.Point(85, 202)
+        Me.btn_change_prg.Name = "btn_change_prg"
+        Me.btn_change_prg.Size = New System.Drawing.Size(148, 29)
+        Me.btn_change_prg.TabIndex = 4
+        Me.btn_change_prg.Text = "Change Program"
+        Me.btn_change_prg.UseVisualStyleBackColor = True
+        '
+        'btn_start_marking
+        '
+        Me.btn_start_marking.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_start_marking.Location = New System.Drawing.Point(242, 203)
+        Me.btn_start_marking.Name = "btn_start_marking"
+        Me.btn_start_marking.Size = New System.Drawing.Size(105, 28)
+        Me.btn_start_marking.TabIndex = 4
+        Me.btn_start_marking.Text = "Start Marking"
+        Me.btn_start_marking.UseVisualStyleBackColor = True
+        '
+        'btn_string_char
+        '
+        Me.btn_string_char.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_string_char.Location = New System.Drawing.Point(85, 169)
+        Me.btn_string_char.Name = "btn_string_char"
+        Me.btn_string_char.Size = New System.Drawing.Size(148, 28)
+        Me.btn_string_char.TabIndex = 4
+        Me.btn_string_char.Text = "String Character"
+        Me.btn_string_char.UseVisualStyleBackColor = True
+        '
+        'txt_block2
+        '
+        Me.txt_block2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_block2.Location = New System.Drawing.Point(85, 135)
+        Me.txt_block2.Name = "txt_block2"
+        Me.txt_block2.Size = New System.Drawing.Size(310, 26)
+        Me.txt_block2.TabIndex = 3
+        '
+        'txt_block1
+        '
+        Me.txt_block1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_block1.Location = New System.Drawing.Point(85, 104)
+        Me.txt_block1.Name = "txt_block1"
+        Me.txt_block1.Size = New System.Drawing.Size(310, 26)
+        Me.txt_block1.TabIndex = 3
+        '
+        'txt_block0
+        '
+        Me.txt_block0.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_block0.Location = New System.Drawing.Point(85, 73)
+        Me.txt_block0.Name = "txt_block0"
+        Me.txt_block0.Size = New System.Drawing.Size(310, 26)
+        Me.txt_block0.TabIndex = 3
+        '
+        'Label232
+        '
+        Me.Label232.AutoSize = True
+        Me.Label232.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label232.Location = New System.Drawing.Point(13, 138)
+        Me.Label232.Name = "Label232"
+        Me.Label232.Size = New System.Drawing.Size(69, 20)
+        Me.Label232.TabIndex = 0
+        Me.Label232.Text = "Block 2 :"
+        '
+        'chb_mark_cavity_1
+        '
+        Me.chb_mark_cavity_1.AutoSize = True
+        Me.chb_mark_cavity_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chb_mark_cavity_1.Location = New System.Drawing.Point(295, 25)
+        Me.chb_mark_cavity_1.Name = "chb_mark_cavity_1"
+        Me.chb_mark_cavity_1.Size = New System.Drawing.Size(122, 24)
+        Me.chb_mark_cavity_1.TabIndex = 2
+        Me.chb_mark_cavity_1.Text = "Mark Cavity 1"
+        Me.chb_mark_cavity_1.UseVisualStyleBackColor = True
+        '
+        'Label233
+        '
+        Me.Label233.AutoSize = True
+        Me.Label233.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label233.Location = New System.Drawing.Point(13, 107)
+        Me.Label233.Name = "Label233"
+        Me.Label233.Size = New System.Drawing.Size(69, 20)
+        Me.Label233.TabIndex = 0
+        Me.Label233.Text = "Block 1 :"
+        '
+        'cb_prg_num
+        '
+        Me.cb_prg_num.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_prg_num.FormattingEnabled = True
+        Me.cb_prg_num.Location = New System.Drawing.Point(151, 23)
+        Me.cb_prg_num.Name = "cb_prg_num"
+        Me.cb_prg_num.Size = New System.Drawing.Size(121, 28)
+        Me.cb_prg_num.TabIndex = 1
+        '
+        'Label234
+        '
+        Me.Label234.AutoSize = True
+        Me.Label234.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label234.Location = New System.Drawing.Point(13, 76)
+        Me.Label234.Name = "Label234"
+        Me.Label234.Size = New System.Drawing.Size(69, 20)
+        Me.Label234.TabIndex = 0
+        Me.Label234.Text = "Block 0 :"
+        '
+        'Label235
+        '
+        Me.Label235.AutoSize = True
+        Me.Label235.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label235.Location = New System.Drawing.Point(13, 26)
+        Me.Label235.Name = "Label235"
+        Me.Label235.Size = New System.Drawing.Size(137, 20)
+        Me.Label235.TabIndex = 0
+        Me.Label235.Text = "Program Number :"
+        '
+        'Label231
+        '
+        Me.Label231.AutoSize = True
+        Me.Label231.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label231.Location = New System.Drawing.Point(346, 19)
+        Me.Label231.Name = "Label231"
+        Me.Label231.Size = New System.Drawing.Size(164, 29)
+        Me.Label231.TabIndex = 60
+        Me.Label231.Text = "LASER MARK"
+        '
+        'status_bar
+        '
+        Me.status_bar.BackColor = System.Drawing.SystemColors.Control
+        Me.status_bar.Image = Global.TESTER.My.Resources.Resources.GUI___SignUpButtonOn40
+        Me.status_bar.Location = New System.Drawing.Point(234, 2)
+        Me.status_bar.Name = "status_bar"
+        Me.status_bar.Size = New System.Drawing.Size(541, 79)
+        Me.status_bar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.status_bar.TabIndex = 86
+        Me.status_bar.TabStop = False
+        '
+        'btn_ref
+        '
+        Me.btn_ref.FlatAppearance.BorderSize = 0
+        Me.btn_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_ref.Image = Global.TESTER.My.Resources.Resources.imgonline_com_ua_ReplaceColor_xBihTEFLjatznSmQ
+        Me.btn_ref.Location = New System.Drawing.Point(13, 595)
+        Me.btn_ref.Name = "btn_ref"
+        Me.btn_ref.Size = New System.Drawing.Size(60, 60)
+        Me.btn_ref.TabIndex = 69
+        Me.btn_ref.UseVisualStyleBackColor = True
+        '
+        'btn_laser
+        '
+        Me.btn_laser.FlatAppearance.BorderSize = 0
+        Me.btn_laser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_laser.Image = Global.TESTER.My.Resources.Resources.image__4__removebg_preview_modified1
+        Me.btn_laser.Location = New System.Drawing.Point(12, 529)
+        Me.btn_laser.Name = "btn_laser"
+        Me.btn_laser.Size = New System.Drawing.Size(60, 60)
+        Me.btn_laser.TabIndex = 69
+        Me.btn_laser.UseVisualStyleBackColor = True
+        '
+        'btn_multimeter
+        '
+        Me.btn_multimeter.FlatAppearance.BorderSize = 0
+        Me.btn_multimeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_multimeter.Image = Global.TESTER.My.Resources.Resources.multimeter_new
+        Me.btn_multimeter.Location = New System.Drawing.Point(12, 463)
+        Me.btn_multimeter.Name = "btn_multimeter"
+        Me.btn_multimeter.Size = New System.Drawing.Size(60, 60)
+        Me.btn_multimeter.TabIndex = 69
+        Me.btn_multimeter.UseVisualStyleBackColor = True
+        '
+        'btn_alarm
+        '
+        Me.btn_alarm.FlatAppearance.BorderSize = 0
+        Me.btn_alarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_alarm.Image = Global.TESTER.My.Resources.Resources.alarm_56
+        Me.btn_alarm.Location = New System.Drawing.Point(13, 397)
+        Me.btn_alarm.Name = "btn_alarm"
+        Me.btn_alarm.Size = New System.Drawing.Size(60, 60)
+        Me.btn_alarm.TabIndex = 69
+        Me.btn_alarm.UseVisualStyleBackColor = True
+        '
+        'btn_setting
+        '
+        Me.btn_setting.FlatAppearance.BorderSize = 0
+        Me.btn_setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_setting.Image = Global.TESTER.My.Resources.Resources.setting
+        Me.btn_setting.Location = New System.Drawing.Point(13, 331)
+        Me.btn_setting.Name = "btn_setting"
+        Me.btn_setting.Size = New System.Drawing.Size(60, 60)
+        Me.btn_setting.TabIndex = 69
+        Me.btn_setting.UseVisualStyleBackColor = True
+        '
+        'btn_monitoring
+        '
+        Me.btn_monitoring.FlatAppearance.BorderSize = 0
+        Me.btn_monitoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_monitoring.Image = Global.TESTER.My.Resources.Resources.monitoring
+        Me.btn_monitoring.Location = New System.Drawing.Point(13, 265)
+        Me.btn_monitoring.Name = "btn_monitoring"
+        Me.btn_monitoring.Size = New System.Drawing.Size(60, 60)
+        Me.btn_monitoring.TabIndex = 68
+        Me.btn_monitoring.UseVisualStyleBackColor = True
+        '
+        'btn_manual
+        '
+        Me.btn_manual.FlatAppearance.BorderSize = 0
+        Me.btn_manual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_manual.Image = Global.TESTER.My.Resources.Resources.manual
+        Me.btn_manual.Location = New System.Drawing.Point(13, 199)
+        Me.btn_manual.Name = "btn_manual"
+        Me.btn_manual.Size = New System.Drawing.Size(60, 60)
+        Me.btn_manual.TabIndex = 67
+        Me.btn_manual.UseVisualStyleBackColor = True
+        '
+        'btn_home
+        '
+        Me.btn_home.FlatAppearance.BorderSize = 0
+        Me.btn_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_home.Image = Global.TESTER.My.Resources.Resources.home
+        Me.btn_home.Location = New System.Drawing.Point(13, 133)
+        Me.btn_home.Name = "btn_home"
+        Me.btn_home.Size = New System.Drawing.Size(60, 60)
+        Me.btn_home.TabIndex = 66
+        Me.btn_home.UseVisualStyleBackColor = True
+        '
+        'btn_user
+        '
+        Me.btn_user.FlatAppearance.BorderSize = 0
+        Me.btn_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_user.Image = Global.TESTER.My.Resources.Resources.a_secured_2_30x30
+        Me.btn_user.Location = New System.Drawing.Point(953, 9)
+        Me.btn_user.Name = "btn_user"
+        Me.btn_user.Size = New System.Drawing.Size(41, 38)
+        Me.btn_user.TabIndex = 65
+        Me.btn_user.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_user.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_user.UseVisualStyleBackColor = True
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(822, 20)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(125, 49)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 56
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.TESTER.My.Resources.Resources.telemecanique_sensors_logo_transparent
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 9)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(216, 64)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 57
+        Me.PictureBox1.TabStop = False
+        '
+        'pnl_ref
+        '
+        Me.pnl_ref.Controls.Add(Me.dgv_ref)
+        Me.pnl_ref.Controls.Add(Me.GroupBox_Control)
+        Me.pnl_ref.Controls.Add(Me.Label236)
+        Me.pnl_ref.Location = New System.Drawing.Point(79, 92)
+        Me.pnl_ref.Name = "pnl_ref"
+        Me.pnl_ref.Size = New System.Drawing.Size(852, 563)
+        Me.pnl_ref.TabIndex = 93
+        '
+        'dgv_ref
+        '
+        Me.dgv_ref.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_ref.Location = New System.Drawing.Point(309, 71)
+        Me.dgv_ref.Name = "dgv_ref"
+        Me.dgv_ref.Size = New System.Drawing.Size(539, 476)
+        Me.dgv_ref.TabIndex = 63
+        '
+        'GroupBox_Control
+        '
+        Me.GroupBox_Control.BackColor = System.Drawing.Color.White
+        Me.GroupBox_Control.Controls.Add(Me.txt_laser_template_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.txt_beating_times_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.Label247)
+        Me.GroupBox_Control.Controls.Add(Me.Label237)
+        Me.GroupBox_Control.Controls.Add(Me.txt_laser_datecode_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.txt_dif_str_tol_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.Label246)
+        Me.GroupBox_Control.Controls.Add(Me.Label238)
+        Me.GroupBox_Control.Controls.Add(Me.btn_update)
+        Me.GroupBox_Control.Controls.Add(Me.txt_unscrew_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.txt_dif_str_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.txt_cfg_2nd_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.txt_act_val_tol_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.Label245)
+        Me.GroupBox_Control.Controls.Add(Me.Label239)
+        Me.GroupBox_Control.Controls.Add(Me.Label244)
+        Me.GroupBox_Control.Controls.Add(Me.Label240)
+        Me.GroupBox_Control.Controls.Add(Me.btn_delete)
+        Me.GroupBox_Control.Controls.Add(Me.btn_add)
+        Me.GroupBox_Control.Controls.Add(Me.txt_cfg_1st_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.txt_act_val_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.Label243)
+        Me.GroupBox_Control.Controls.Add(Me.txt_ref_pnl)
+        Me.GroupBox_Control.Controls.Add(Me.Label241)
+        Me.GroupBox_Control.Controls.Add(Me.Label242)
+        Me.GroupBox_Control.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox_Control.ForeColor = System.Drawing.Color.Black
+        Me.GroupBox_Control.Location = New System.Drawing.Point(5, 60)
+        Me.GroupBox_Control.Name = "GroupBox_Control"
+        Me.GroupBox_Control.Size = New System.Drawing.Size(295, 491)
+        Me.GroupBox_Control.TabIndex = 62
+        Me.GroupBox_Control.TabStop = False
+        Me.GroupBox_Control.Text = "Control"
+        '
+        'txt_laser_template_pnl
+        '
+        Me.txt_laser_template_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_laser_template_pnl.Location = New System.Drawing.Point(170, 369)
+        Me.txt_laser_template_pnl.MaxLength = 3
+        Me.txt_laser_template_pnl.Name = "txt_laser_template_pnl"
+        Me.txt_laser_template_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_laser_template_pnl.TabIndex = 6
+        '
+        'txt_beating_times_pnl
+        '
+        Me.txt_beating_times_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_beating_times_pnl.Location = New System.Drawing.Point(169, 209)
+        Me.txt_beating_times_pnl.MaxLength = 3
+        Me.txt_beating_times_pnl.Name = "txt_beating_times_pnl"
+        Me.txt_beating_times_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_beating_times_pnl.TabIndex = 6
+        '
+        'Label247
+        '
+        Me.Label247.AutoSize = True
+        Me.Label247.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label247.Location = New System.Drawing.Point(18, 372)
+        Me.Label247.Name = "Label247"
+        Me.Label247.Size = New System.Drawing.Size(119, 20)
+        Me.Label247.TabIndex = 18
+        Me.Label247.Text = "Laser Template"
+        '
+        'Label237
+        '
+        Me.Label237.AutoSize = True
+        Me.Label237.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label237.Location = New System.Drawing.Point(17, 212)
+        Me.Label237.Name = "Label237"
+        Me.Label237.Size = New System.Drawing.Size(110, 20)
+        Me.Label237.TabIndex = 18
+        Me.Label237.Text = "Beating Times"
+        '
+        'txt_laser_datecode_pnl
+        '
+        Me.txt_laser_datecode_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_laser_datecode_pnl.Location = New System.Drawing.Point(170, 337)
+        Me.txt_laser_datecode_pnl.Name = "txt_laser_datecode_pnl"
+        Me.txt_laser_datecode_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_laser_datecode_pnl.TabIndex = 5
+        '
+        'txt_dif_str_tol_pnl
+        '
+        Me.txt_dif_str_tol_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_dif_str_tol_pnl.Location = New System.Drawing.Point(169, 177)
+        Me.txt_dif_str_tol_pnl.Name = "txt_dif_str_tol_pnl"
+        Me.txt_dif_str_tol_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_dif_str_tol_pnl.TabIndex = 5
+        '
+        'Label246
+        '
+        Me.Label246.AutoSize = True
+        Me.Label246.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label246.Location = New System.Drawing.Point(18, 340)
+        Me.Label246.Name = "Label246"
+        Me.Label246.Size = New System.Drawing.Size(123, 20)
+        Me.Label246.TabIndex = 16
+        Me.Label246.Text = "Laser Datecode"
+        '
+        'Label238
+        '
+        Me.Label238.AutoSize = True
+        Me.Label238.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label238.Location = New System.Drawing.Point(17, 180)
+        Me.Label238.Name = "Label238"
+        Me.Label238.Size = New System.Drawing.Size(119, 20)
+        Me.Label238.TabIndex = 16
+        Me.Label238.Text = "Dif Str Tol (mm)"
+        '
+        'btn_update
+        '
+        Me.btn_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_update.Location = New System.Drawing.Point(107, 414)
+        Me.btn_update.Name = "btn_update"
+        Me.btn_update.Size = New System.Drawing.Size(85, 59)
+        Me.btn_update.TabIndex = 13
+        Me.btn_update.Text = "Update"
+        Me.btn_update.UseVisualStyleBackColor = True
+        '
+        'txt_unscrew_pnl
+        '
+        Me.txt_unscrew_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_unscrew_pnl.Location = New System.Drawing.Point(170, 305)
+        Me.txt_unscrew_pnl.MaxLength = 2
+        Me.txt_unscrew_pnl.Name = "txt_unscrew_pnl"
+        Me.txt_unscrew_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_unscrew_pnl.TabIndex = 4
+        '
+        'txt_dif_str_pnl
+        '
+        Me.txt_dif_str_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_dif_str_pnl.Location = New System.Drawing.Point(169, 145)
+        Me.txt_dif_str_pnl.MaxLength = 2
+        Me.txt_dif_str_pnl.Name = "txt_dif_str_pnl"
+        Me.txt_dif_str_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_dif_str_pnl.TabIndex = 4
+        '
+        'txt_cfg_2nd_pnl
+        '
+        Me.txt_cfg_2nd_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_cfg_2nd_pnl.Location = New System.Drawing.Point(170, 273)
+        Me.txt_cfg_2nd_pnl.MaxLength = 2
+        Me.txt_cfg_2nd_pnl.Name = "txt_cfg_2nd_pnl"
+        Me.txt_cfg_2nd_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_cfg_2nd_pnl.TabIndex = 3
+        '
+        'txt_act_val_tol_pnl
+        '
+        Me.txt_act_val_tol_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_act_val_tol_pnl.Location = New System.Drawing.Point(169, 113)
+        Me.txt_act_val_tol_pnl.MaxLength = 2
+        Me.txt_act_val_tol_pnl.Name = "txt_act_val_tol_pnl"
+        Me.txt_act_val_tol_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_act_val_tol_pnl.TabIndex = 3
+        '
+        'Label245
+        '
+        Me.Label245.AutoSize = True
+        Me.Label245.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label245.Location = New System.Drawing.Point(18, 308)
+        Me.Label245.Name = "Label245"
+        Me.Label245.Size = New System.Drawing.Size(153, 20)
+        Me.Label245.TabIndex = 13
+        Me.Label245.Text = "Unscrewing Process"
+        '
+        'Label239
+        '
+        Me.Label239.AutoSize = True
+        Me.Label239.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label239.Location = New System.Drawing.Point(17, 148)
+        Me.Label239.Name = "Label239"
+        Me.Label239.Size = New System.Drawing.Size(94, 20)
+        Me.Label239.TabIndex = 13
+        Me.Label239.Text = "Dif Str (mm)"
+        '
+        'Label244
+        '
+        Me.Label244.AutoSize = True
+        Me.Label244.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label244.Location = New System.Drawing.Point(18, 276)
+        Me.Label244.Name = "Label244"
+        Me.Label244.Size = New System.Drawing.Size(150, 20)
+        Me.Label244.TabIndex = 12
+        Me.Label244.Text = "Config 2 nd Contact"
+        '
+        'Label240
+        '
+        Me.Label240.AutoSize = True
+        Me.Label240.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label240.Location = New System.Drawing.Point(17, 116)
+        Me.Label240.Name = "Label240"
+        Me.Label240.Size = New System.Drawing.Size(125, 20)
+        Me.Label240.TabIndex = 12
+        Me.Label240.Text = "Act Val Tol (mm)"
+        '
+        'btn_delete
+        '
+        Me.btn_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_delete.Location = New System.Drawing.Point(197, 414)
+        Me.btn_delete.Name = "btn_delete"
+        Me.btn_delete.Size = New System.Drawing.Size(85, 59)
+        Me.btn_delete.TabIndex = 14
+        Me.btn_delete.Text = "Delete"
+        Me.btn_delete.UseVisualStyleBackColor = True
+        '
+        'btn_add
+        '
+        Me.btn_add.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_add.Location = New System.Drawing.Point(22, 414)
+        Me.btn_add.Name = "btn_add"
+        Me.btn_add.Size = New System.Drawing.Size(80, 59)
+        Me.btn_add.TabIndex = 12
+        Me.btn_add.Text = "Add"
+        Me.btn_add.UseVisualStyleBackColor = True
+        '
+        'txt_cfg_1st_pnl
+        '
+        Me.txt_cfg_1st_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_cfg_1st_pnl.Location = New System.Drawing.Point(170, 241)
+        Me.txt_cfg_1st_pnl.MaxLength = 2
+        Me.txt_cfg_1st_pnl.Name = "txt_cfg_1st_pnl"
+        Me.txt_cfg_1st_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_cfg_1st_pnl.TabIndex = 2
+        '
+        'txt_act_val_pnl
+        '
+        Me.txt_act_val_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_act_val_pnl.Location = New System.Drawing.Point(169, 81)
+        Me.txt_act_val_pnl.MaxLength = 2
+        Me.txt_act_val_pnl.Name = "txt_act_val_pnl"
+        Me.txt_act_val_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_act_val_pnl.TabIndex = 2
+        '
+        'Label243
+        '
+        Me.Label243.AutoSize = True
+        Me.Label243.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label243.Location = New System.Drawing.Point(18, 244)
+        Me.Label243.Name = "Label243"
+        Me.Label243.Size = New System.Drawing.Size(141, 20)
+        Me.Label243.TabIndex = 7
+        Me.Label243.Text = "Config 1st Contact"
+        '
+        'txt_ref_pnl
+        '
+        Me.txt_ref_pnl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_ref_pnl.Location = New System.Drawing.Point(169, 49)
+        Me.txt_ref_pnl.MaxLength = 32
+        Me.txt_ref_pnl.Name = "txt_ref_pnl"
+        Me.txt_ref_pnl.Size = New System.Drawing.Size(112, 26)
+        Me.txt_ref_pnl.TabIndex = 1
+        '
+        'Label241
+        '
+        Me.Label241.AutoSize = True
+        Me.Label241.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label241.Location = New System.Drawing.Point(17, 84)
+        Me.Label241.Name = "Label241"
+        Me.Label241.Size = New System.Drawing.Size(100, 20)
+        Me.Label241.TabIndex = 7
+        Me.Label241.Text = "Act Val (mm)"
+        '
+        'Label242
+        '
+        Me.Label242.AutoSize = True
+        Me.Label242.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label242.Location = New System.Drawing.Point(17, 52)
+        Me.Label242.Name = "Label242"
+        Me.Label242.Size = New System.Drawing.Size(92, 20)
+        Me.Label242.TabIndex = 6
+        Me.Label242.Text = "References"
+        '
+        'Label236
+        '
+        Me.Label236.AutoSize = True
+        Me.Label236.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label236.Location = New System.Drawing.Point(345, 19)
+        Me.Label236.Name = "Label236"
+        Me.Label236.Size = New System.Drawing.Size(177, 29)
+        Me.Label236.TabIndex = 61
+        Me.Label236.Text = "REFERENCES"
         '
         'frmMain
         '
@@ -9540,6 +10116,8 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_stn6)
         Me.Controls.Add(Me.btn_stn5)
         Me.Controls.Add(Me.btn_stn4)
+        Me.Controls.Add(Me.btn_ref)
+        Me.Controls.Add(Me.btn_laser)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.btn_setting)
@@ -9554,6 +10132,8 @@ Partial Class frmMain
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pnl_ref)
+        Me.Controls.Add(Me.pnl_laser)
         Me.Controls.Add(Me.pnl_multi)
         Me.Controls.Add(Me.pnl_alarm)
         Me.Controls.Add(Me.pnl_mon_stn6)
@@ -10048,13 +10628,25 @@ Partial Class frmMain
         Me.GroupBox168.PerformLayout
         CType(Me.mon_stn6_cyl1_fw, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.mon_stn6_cyl1_bw, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
         Me.pnl_multi.ResumeLayout(False)
         Me.pnl_multi.PerformLayout
         Me.GroupBox170.ResumeLayout(False)
         Me.GroupBox170.PerformLayout
+        Me.pnl_laser.ResumeLayout(False)
+        Me.pnl_laser.PerformLayout
+        Me.GroupBox171.ResumeLayout(False)
+        Me.GroupBox172.ResumeLayout(False)
+        Me.GroupBox172.PerformLayout
+        Me.GroupBox173.ResumeLayout(False)
+        Me.GroupBox173.PerformLayout
+        CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
+        Me.pnl_ref.ResumeLayout(False)
+        Me.pnl_ref.PerformLayout
+        CType(Me.dgv_ref, System.ComponentModel.ISupportInitialize).EndInit
+        Me.GroupBox_Control.ResumeLayout(False)
+        Me.GroupBox_Control.PerformLayout
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -10792,4 +11384,54 @@ Partial Class frmMain
     Friend WithEvents btn_read_ch_1 As Button
     Friend WithEvents txt_ch_2 As TextBox
     Friend WithEvents btn_read_ch_2 As Button
+    Friend WithEvents btn_laser As Button
+    Friend WithEvents pnl_laser As Panel
+    Friend WithEvents Label231 As Label
+    Friend WithEvents GroupBox171 As GroupBox
+    Friend WithEvents GroupBox172 As GroupBox
+    Friend WithEvents txt_comm_log As TextBox
+    Friend WithEvents GroupBox173 As GroupBox
+    Friend WithEvents btn_mark_flag As Button
+    Friend WithEvents btn_change_prg As Button
+    Friend WithEvents btn_start_marking As Button
+    Friend WithEvents btn_string_char As Button
+    Friend WithEvents txt_block2 As TextBox
+    Friend WithEvents txt_block1 As TextBox
+    Friend WithEvents txt_block0 As TextBox
+    Friend WithEvents Label232 As Label
+    Friend WithEvents chb_mark_cavity_1 As CheckBox
+    Friend WithEvents Label233 As Label
+    Friend WithEvents cb_prg_num As ComboBox
+    Friend WithEvents Label234 As Label
+    Friend WithEvents Label235 As Label
+    Friend WithEvents btn_ref As Button
+    Friend WithEvents pnl_ref As Panel
+    Friend WithEvents dgv_ref As DataGridView
+    Friend WithEvents GroupBox_Control As GroupBox
+    Friend WithEvents txt_laser_template_pnl As TextBox
+    Friend WithEvents txt_beating_times_pnl As TextBox
+    Friend WithEvents Label247 As Label
+    Friend WithEvents Label237 As Label
+    Friend WithEvents txt_laser_datecode_pnl As TextBox
+    Friend WithEvents txt_dif_str_tol_pnl As TextBox
+    Friend WithEvents Label246 As Label
+    Friend WithEvents Label238 As Label
+    Friend WithEvents btn_update As Button
+    Friend WithEvents txt_unscrew_pnl As TextBox
+    Friend WithEvents txt_dif_str_pnl As TextBox
+    Friend WithEvents txt_cfg_2nd_pnl As TextBox
+    Friend WithEvents txt_act_val_tol_pnl As TextBox
+    Friend WithEvents Label245 As Label
+    Friend WithEvents Label239 As Label
+    Friend WithEvents Label244 As Label
+    Friend WithEvents Label240 As Label
+    Friend WithEvents btn_delete As Button
+    Friend WithEvents btn_add As Button
+    Friend WithEvents txt_cfg_1st_pnl As TextBox
+    Friend WithEvents txt_act_val_pnl As TextBox
+    Friend WithEvents Label243 As Label
+    Friend WithEvents txt_ref_pnl As TextBox
+    Friend WithEvents Label241 As Label
+    Friend WithEvents Label242 As Label
+    Friend WithEvents Label236 As Label
 End Class

@@ -99,6 +99,13 @@ Public Class frmMain
     Private Sub btn_multimeter_Click(sender As Object, e As EventArgs) Handles btn_multimeter.Click
         ShowPanelGeneral("multi")
     End Sub
+    Private Sub btn_laser_Click(sender As Object, e As EventArgs) Handles btn_laser.Click
+        ShowPanelGeneral("laser")
+    End Sub
+    Private Sub btn_ref_Click(sender As Object, e As EventArgs) Handles btn_ref.Click
+        ShowPanelGeneral("ref")
+        LoadTbRef()
+    End Sub
 
     'Show Panel General
     Private Sub ShowPanelGeneral(mode As String)
@@ -132,10 +139,23 @@ Public Class frmMain
         Else
             pnl_alarm.Visible = False
         End If
+
         If mode = "multi" Then
             pnl_multi.Visible = True
         Else
             pnl_multi.Visible = False
+        End If
+
+        If mode = "laser" Then
+            pnl_laser.Visible = True
+        Else
+            pnl_laser.Visible = False
+        End If
+
+        If mode = "ref" Then
+            pnl_ref.Visible = True
+        Else
+            pnl_ref.Visible = False
         End If
     End Sub
 
@@ -2499,5 +2519,58 @@ Public Class frmMain
         Dim productRes As Double = Multimeter.MeasureResistance()
         txt_ch_2.Text = productRes.ToString
         txt_ch_1.Text = ""
+    End Sub
+    ' panel references
+    Private Sub LoadTbRef()
+        Call KoneksiDB.koneksi_db()
+        Try
+            Dim sc As New SqlCommand("SELECT * FROM ProductDatabase order by Ref asc", KoneksiDB.koneksi)
+            Dim adapter As New SqlDataAdapter(sc)
+            Dim ds As New DataSet
+
+            adapter.Fill(ds)
+            dgv_ref.DataSource = ds.Tables(0)
+        Catch ex As Exception
+            MsgBox(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") + "Error: Database not found!")
+        End Try
+    End Sub
+
+    Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
+        If txt_ref_pnl.Text = "" And txt_act_val_pnl.Text = "" And txt_act_val_tol_pnl.Text = "" And txt_dif_str_pnl.Text = "" And txt_dif_str_tol_pnl.Text = "" And txt_beating_times_pnl.Text = "" And txt_cfg_1st_pnl.Text = "" And txt_cfg_2nd_pnl.Text = "" And txt_unscrew_pnl.Text = "" And txt_laser_datecode_pnl.Text = "" And txt_laser_template_pnl.Text = "" Then
+            MsgBox("Please Fill All Field!")
+            Exit Sub
+        Else
+            Call KoneksiDB.koneksi_db()
+            Dim sc As New SqlCommand("INSERT INTO ProductDatabase (Reff, ActVal, ActValTol, DifStr, DifStrTol, BeatingTimes, FirstContact, SecondContact, UnscrewingProcess, LaserDateCode, LaserTemplate) VALUES('" & txt_ref_pnl.Text & "', '" & txt_act_val_pnl.Text & "', '" & txt_act_val_tol_pnl.Text & "', '" & txt_dif_str_pnl.Text & "', '" & txt_dif_str_tol_pnl.Text & "', '" & txt_beating_times_pnl.Text & "', '" & txt_cfg_1st_pnl.Text & "', '" & txt_cfg_2nd_pnl.Text & "', '" & txt_unscrew_pnl.Text & "', '" & txt_laser_datecode_pnl.Text & "', '" & txt_laser_template_pnl.Text & "')", KoneksiDB.koneksi)
+            Dim adapter As New SqlDataAdapter(sc)
+            adapter.SelectCommand.ExecuteNonQuery()
+            LoadTbRef()
+        End If
+    End Sub
+
+    Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
+        If txt_ref_pnl.Text = "" Then
+            MsgBox("Please Fill Product References")
+            Exit Sub
+        Else
+            Call KoneksiDB.koneksi_db()
+            Dim sc As New SqlCommand("DELETE from ProductDatabase where Reff = '" & txt_ref_pnl.Text & "')", KoneksiDB.koneksi)
+            Dim adapter As New SqlDataAdapter(sc)
+            adapter.SelectCommand.ExecuteNonQuery()
+            LoadTbRef()
+        End If
+    End Sub
+
+    Private Sub btn_update_Click(sender As Object, e As EventArgs) Handles btn_update.Click
+        If txt_ref_pnl.Text = "" Then
+            MsgBox("Please Fill Product References")
+            Exit Sub
+        Else
+            Call KoneksiDB.koneksi_db()
+            Dim sc As New SqlCommand("UPDATE ProductDatabase SET ActVal = '" & txt_act_val_pnl.Text & "', ActValTol = '" & txt_act_val_tol_pnl.Text & "', DifStr = '" & txt_dif_str_pnl.Text & "', DifStrTol = '" & txt_dif_str_tol_pnl.Text & "', BeatingTimes = '" & txt_beating_times_pnl.Text & "', FirstContact = '" & txt_cfg_1st_pnl.Text & "', SecondContact = '" & txt_cfg_2nd_pnl.Text & "', ActVal = '" & txt_act_val_pnl.Text & "', UnscrewingProcess = '" & txt_unscrew_pnl.Text & "', LaserDatecode = '" & txt_laser_datecode_pnl.Text & "', LaserTemplate = '" & txt_laser_template_pnl.Text & "')", KoneksiDB.koneksi)
+            Dim adapter As New SqlDataAdapter(sc)
+            adapter.SelectCommand.ExecuteNonQuery()
+            LoadTbRef()
+        End If
     End Sub
 End Class

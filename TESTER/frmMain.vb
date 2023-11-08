@@ -205,7 +205,7 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub btn_connect_multi_Click(sender As Object, e As EventArgs) Handles btn_connect_multi.Click, btn_check_multi.Click
+    Private Sub btn_connect_multi_Click(sender As Object, e As EventArgs) Handles btn_connect_multi.Click
         If btn_connect_multi.Text = "Connect" Then
             If Multimeter.Connect(txtIP_multi.Text, txtPort_multi.Text) Then
                 btn_connect_multi.Text = "Disconnect"
@@ -2576,7 +2576,7 @@ Public Class frmMain
             Exit Sub
         Else
             Call KoneksiDB.koneksi_db()
-            Dim sc As New SqlCommand("UPDATE ProductDatabase SET ActVal = '" & txt_act_val_pnl.Text & "', ActValTol = '" & txt_act_val_tol_pnl.Text & "', DifStr = '" & txt_dif_str_pnl.Text & "', DifStrTol = '" & txt_dif_str_tol_pnl.Text & "', BeatingTimes = '" & txt_beating_times_pnl.Text & "', FirstContact = '" & txt_cfg_1st_pnl.Text & "', SecondContact = '" & txt_cfg_2nd_pnl.Text & "', ActVal = '" & txt_act_val_pnl.Text & "', UnscrewingProcess = '" & txt_unscrew_pnl.Text & "', LaserDatecode = '" & txt_laser_datecode_pnl.Text & "', LaserTemplate = '" & txt_laser_template_pnl.Text & "'", KoneksiDB.koneksi)
+            Dim sc As New SqlCommand("UPDATE ProductDatabase SET ActVal = '" & txt_act_val_pnl.Text & "', ActValTol = '" & txt_act_val_tol_pnl.Text & "', DifStr = '" & txt_dif_str_pnl.Text & "', DifStrTol = '" & txt_dif_str_tol_pnl.Text & "', BeatingTimes = '" & txt_beating_times_pnl.Text & "', FirstContact = '" & txt_cfg_1st_pnl.Text & "', SecondContact = '" & txt_cfg_2nd_pnl.Text & "', UnscrewingProcess = '" & txt_unscrew_pnl.Text & "', LaserDatecode = '" & txt_laser_datecode_pnl.Text & "', LaserTemplate = '" & txt_laser_template_pnl.Text & "'", KoneksiDB.koneksi)
             Dim adapter As New SqlDataAdapter(sc)
             adapter.SelectCommand.ExecuteNonQuery()
             LoadTbRef()
@@ -2623,6 +2623,4 @@ Public Class frmMain
                 End Try
         End Select
     End Sub
-
-
 End Class

@@ -57,7 +57,7 @@ Public Class Modbus
                 Dim ReadValues() As Integer = modbusClient.ReadInputRegisters(StartAddress, 2)
                 ReadValue = ReadValues(0)
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
                 Dim vals() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 2)
                 ReadValue = ConvertDW2Float(vals(0), vals(1))
 

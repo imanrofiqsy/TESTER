@@ -34,6 +34,7 @@ Public Class frmMain
         Thread.Sleep(500)
         CloseLoadForm()
         Show()
+        SCAN_MODE = 3
     End Sub
     'Loading Bar
     Private Sub initLoadingBar()
@@ -2392,16 +2393,16 @@ Public Class frmMain
             ST_COMM2 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM2)
             Dim binaryString As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
             If binaryString(15) = "1" And binaryString(14) = "0" Then
-                txt_msg.Text = "Start recording ST2 (Measuring)..." & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Start recording ST2 (Measuring)..." & vbCrLf
                 CNT_ST2 = CNT_ST2 + 1
                 lbl_st2_meas.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
 
                 Call KoneksiDB.koneksi_db()
-                Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement, Date) VALUES('" & CNT_ST2.ToString & "', '" & lbl_ref.Text & "', '" & lbl_ope_id.Text & "', '" & lbl_po_num.Text & "', '" & lbl_st2_meas.Text & "', '" & Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") & "')", KoneksiDB.koneksi)
+                Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement, DateTime) VALUES('" & CNT_ST2.ToString & "', '" & lbl_ref.Text & "', '" & lbl_ope_id.Text & "', '" & lbl_po_num.Text & "', '" & lbl_st2_meas.Text & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
                 Dim adapter As New SqlDataAdapter(sc)
                 adapter.SelectCommand.ExecuteNonQuery()
 
-                txt_msg.Text = "Finish recording ST2 Result = " + lbl_st2_meas.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Finish recording ST2 Result = " + lbl_st2_meas.Text & vbCrLf
                 Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, 3)
                 lbl_cnt_st2.Text = CNT_ST2
             End If
@@ -2413,7 +2414,7 @@ Public Class frmMain
             ST_COMM3 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM3)
             Dim binaryString As String = Convert.ToString(ST_COMM3, 2).PadLeft(16, "0"c)
             If binaryString(15) = "1" And binaryString(14) = "0" Then
-                txt_msg.Text = "Start recording ST3 (Resistance)..." & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Start recording ST3 (Resistance)..." & vbCrLf
                 CNT_ST3 = CNT_ST3 + 1
                 '======================== program baca resistant ========================
                 Dim Value As Decimal = Rnd()
@@ -2424,7 +2425,7 @@ Public Class frmMain
                 Dim adapter As New SqlDataAdapter(sc)
                 adapter.SelectCommand.ExecuteNonQuery()
 
-                txt_msg.Text = "Finish recording ST3 Result = " + lbl_st3_res.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Finish recording ST3 Result = " + lbl_st3_res.Text & vbCrLf
                 Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM3, 7) ' dummy
                 lbl_cnt_st3.Text = CNT_ST3
             End If
@@ -2436,7 +2437,7 @@ Public Class frmMain
             ST_COMM4 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM4)
             Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
             If binaryString(15) = "1" And binaryString(14) = "0" Then
-                txt_msg.Text = "Start recording ST4..." & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Start recording ST4..." & vbCrLf
                 CNT_ST4 = CNT_ST4 + 1
                 lbl_st4_p2.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
                 lbl_st4_p3.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
@@ -2450,13 +2451,13 @@ Public Class frmMain
                 Dim adapter As New SqlDataAdapter(sc)
                 adapter.SelectCommand.ExecuteNonQuery()
 
-                txt_msg.Text = "Finish recording ST4 Result = " & vbCrLf
-                txt_msg.Text = "P2 = " + lbl_st4_p2.Text & vbCrLf
-                txt_msg.Text = "P3 = " + lbl_st4_p3.Text & vbCrLf
-                txt_msg.Text = "Diff = " + lbl_diff_result.Text & vbCrLf
-                txt_msg.Text = "T1 = " + lbl_st4_t1.Text & vbCrLf
-                txt_msg.Text = "T2 = " + lbl_st4_t2.Text & vbCrLf
-                txt_msg.Text = "COT = " + lbl_cot.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Finish recording ST4 Result = " & vbCrLf
+                txt_msg.Text = txt_msg.Text + "P2 = " + lbl_st4_p2.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "P3 = " + lbl_st4_p3.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Diff = " + lbl_diff_result.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "T1 = " + lbl_st4_t1.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "T2 = " + lbl_st4_t2.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "COT = " + lbl_cot.Text & vbCrLf
                 Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
                 lbl_cnt_st4.Text = CNT_ST4
             End If
@@ -2468,7 +2469,7 @@ Public Class frmMain
             ST_COMM5 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM5)
             Dim binaryString As String = Convert.ToString(ST_COMM5, 2).PadLeft(16, "0"c)
             If binaryString(15) = "1" And binaryString(14) = "0" Then
-                txt_msg.Text = "Start recording ST5 (Unscrewing)..." & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Start recording ST5 (Unscrewing)..." & vbCrLf
                 CNT_ST5 = CNT_ST5 + 1
                 lbl_unscrew_status.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_UNSCREW_STATUS)
 
@@ -2477,7 +2478,7 @@ Public Class frmMain
                 Dim adapter As New SqlDataAdapter(sc)
                 adapter.SelectCommand.ExecuteNonQuery()
 
-                txt_msg.Text = "Finish recording ST5 Result = " + lbl_unscrew_status.Text & vbCrLf
+                txt_msg.Text = txt_msg.Text + "Finish recording ST5 Result = " + lbl_unscrew_status.Text & vbCrLf
                 Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM5, 3)
                 lbl_cnt_st5.Text = CNT_ST5
             End If

@@ -2776,41 +2776,75 @@ Public Class frmMain
     Private Sub btn_search_other_Click(sender As Object, e As EventArgs) Handles btn_search_other.Click
         Select Case cb_search_opt.Text
             Case "References"
-                Call KoneksiDB.koneksi_db()
-                Try
-                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where Reff = '" & txt_find_other.Text & "' ORDER BY [Reff] ASC", KoneksiDB.koneksi)
-                    Dim adapter As New SqlDataAdapter(sc)
-                    Dim ds As New DataSet
+                Me.Invoke(Sub()
+                              txt_log.Text = "Searching Database....." + vbCrLf
+                              Call KoneksiDB.koneksi_db()
+                              Try
+                                  Dim sc As New SqlCommand("SELECT * FROM ProductionData where Reff = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
+                                  Dim adapter As New SqlDataAdapter(sc)
+                                  Dim ds As New DataSet
 
-                    adapter.Fill(ds)
-                    dgv_ref.DataSource = ds.Tables(0)
-                Catch ex As Exception
-                    MsgBox(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") + "Error: Database not found!")
-                End Try
+                                  adapter.Fill(ds)
+                                  dgv_ref.DataSource = ds.Tables(0)
+                              Catch ex As Exception
+                                  txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
+                              End Try
+                              txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
+                          End Sub)
             Case "PO Number"
-                Call KoneksiDB.koneksi_db()
-                Try
-                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where ProductOrderNo = '" & txt_find_other.Text & "' ORDER BY [Reff] ASC", KoneksiDB.koneksi)
-                    Dim adapter As New SqlDataAdapter(sc)
-                    Dim ds As New DataSet
+                Me.Invoke(Sub()
+                              txt_log.Text = "Searching Database....." + vbCrLf
+                              Call KoneksiDB.koneksi_db()
+                              Try
+                                  Dim sc As New SqlCommand("SELECT * FROM ProductionData where ProductOrderNo = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
+                                  Dim adapter As New SqlDataAdapter(sc)
+                                  Dim ds As New DataSet
 
-                    adapter.Fill(ds)
-                    dgv_ref.DataSource = ds.Tables(0)
-                Catch ex As Exception
-                    MsgBox(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") + "Error: Database not found!")
-                End Try
+                                  adapter.Fill(ds)
+                                  dgv_ref.DataSource = ds.Tables(0)
+                              Catch ex As Exception
+                                  txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
+                              End Try
+                              txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
+                          End Sub)
             Case "Operator ID"
-                Call KoneksiDB.koneksi_db()
-                Try
-                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase where OperatorID = '" & txt_find_other.Text & "' ORDER BY [Reff] ASC", KoneksiDB.koneksi)
-                    Dim adapter As New SqlDataAdapter(sc)
-                    Dim ds As New DataSet
+                Me.Invoke(Sub()
+                              txt_log.Text = "Searching Database....." + vbCrLf
+                              Call KoneksiDB.koneksi_db()
+                              Try
+                                  Dim sc As New SqlCommand("SELECT * FROM ProductionData where OperatorID = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
+                                  Dim adapter As New SqlDataAdapter(sc)
+                                  Dim ds As New DataSet
 
-                    adapter.Fill(ds)
-                    dgv_ref.DataSource = ds.Tables(0)
-                Catch ex As Exception
-                    MsgBox(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss => ") + "Error: Database not found!")
-                End Try
+                                  adapter.Fill(ds)
+                                  dgv_ref.DataSource = ds.Tables(0)
+                              Catch ex As Exception
+                                  txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
+                              End Try
+                              txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
+                          End Sub)
         End Select
+    End Sub
+
+    Private Sub btn_search_Click(sender As Object, e As EventArgs) Handles btn_search.Click
+        Me.Invoke(Sub()
+                      Try
+                          txt_log.Text = "Searching Database....." + vbCrLf
+                          Dim range1 As String = DateTimePickerStartDate.Value.ToString("yyyy-MM-dd 00:00:00")
+                          Dim range2 As String = DateTimePickerEndDate.Value.ToString("yyyy-MM-dd 23:59:59")
+
+                          Call KoneksiDB.koneksi_db()
+                          ' Try
+                          Dim sc As New SqlCommand("SELECT * FROM ProductionData WHERE DateTime BETWEEN '" + range1 + "' AND '" + range2 + "' ORDER BY No ASC", KoneksiDB.koneksi)
+                          Dim adapter As New SqlDataAdapter(sc)
+                          Dim ds As New DataSet
+
+                          adapter.Fill(ds)
+                          DataGridView1.DataSource = ds.Tables(0)
+                      Catch ex As Exception
+                          txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
+                      End Try
+                      txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
+                  End Sub)
     End Sub
 End Class

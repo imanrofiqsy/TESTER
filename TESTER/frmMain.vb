@@ -2287,7 +2287,6 @@ Public Class frmMain
             lbl_op_ins.Text = "You're All Set!"
         End If
 
-
     End Sub
     Private Sub BarcodeComm_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles BarcodeComm.DataReceived
         If SCAN_MODE = 0 Then
@@ -2387,7 +2386,7 @@ Public Class frmMain
         lbl_ope_id.Text = "..."
         lbl_po_num.Text = "..."
     End Sub
-
+    Dim Action_ST2 As Integer = 1
     Private Sub ST2_Tick(sender As Object, e As EventArgs) Handles ST2.Tick
         If SCAN_MODE = 3 Then
             ST_COMM2 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM2)
@@ -2396,21 +2395,96 @@ Public Class frmMain
                 Me.Invoke(Sub()
                               txt_msg.Text = txt_msg.Text + "Start recording ST2 (Measuring)..." & vbCrLf
                               CNT_ST2 = CNT_ST2 + 1
-                              lbl_st2_meas.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
+                              Dim st2_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
+
+                              Select Case Action_ST2
+                                  Case 1
+                                      lbl_item_1.Text = CNT_ST2
+                                      lbl_st2_meas.Text = st2_result
+                                      lbl_st3_res.Text = ""
+                                      lbl_st4_p2.Text = ""
+                                      lbl_st4_p3.Text = ""
+                                      lbl_st4_t1.Text = ""
+                                      lbl_st4_t2.Text = ""
+                                      lbl_diff_result.Text = ""
+                                      lbl_cot.Text = ""
+                                      lbl_unscrew_status.Text = ""
+                                      Action_ST2 += 1
+                                  Case 2
+                                      lbl_item_2.Text = CNT_ST2
+                                      lbl_st2_meas_1.Text = st2_result
+                                      lbl_st3_res_1.Text = ""
+                                      lbl_st4_p2_1.Text = ""
+                                      lbl_st4_p3_1.Text = ""
+                                      lbl_st4_t1_1.Text = ""
+                                      lbl_st4_t2_1.Text = ""
+                                      lbl_diff_result_1.Text = ""
+                                      lbl_cot_1.Text = ""
+                                      lbl_unscrew_status_1.Text = ""
+                                      Action_ST2 += 1
+                                  Case 3
+                                      lbl_item_3.Text = CNT_ST2
+                                      lbl_st2_meas_2.Text = st2_result
+                                      lbl_st3_res_2.Text = ""
+                                      lbl_st4_p2_2.Text = ""
+                                      lbl_st4_p3_2.Text = ""
+                                      lbl_st4_t1_2.Text = ""
+                                      lbl_st4_t2_2.Text = ""
+                                      lbl_diff_result_2.Text = ""
+                                      lbl_cot_2.Text = ""
+                                      lbl_unscrew_status_2.Text = ""
+                                      Action_ST2 += 1
+                                  Case 4
+                                      lbl_item_4.Text = CNT_ST2
+                                      lbl_st2_meas_3.Text = st2_result
+                                      lbl_st3_res_3.Text = ""
+                                      lbl_st4_p2_3.Text = ""
+                                      lbl_st4_p3_3.Text = ""
+                                      lbl_st4_t1_3.Text = ""
+                                      lbl_st4_t2_3.Text = ""
+                                      lbl_diff_result_3.Text = ""
+                                      lbl_cot_3.Text = ""
+                                      lbl_unscrew_status_3.Text = ""
+                                      Action_ST2 += 1
+                                  Case 5
+                                      lbl_item_5.Text = CNT_ST2
+                                      lbl_st2_meas_4.Text = st2_result
+                                      lbl_st3_res_4.Text = ""
+                                      lbl_st4_p2_4.Text = ""
+                                      lbl_st4_p3_4.Text = ""
+                                      lbl_st4_t1_4.Text = ""
+                                      lbl_st4_t2_4.Text = ""
+                                      lbl_diff_result_4.Text = ""
+                                      lbl_cot_4.Text = ""
+                                      lbl_unscrew_status_4.Text = ""
+                                      Action_ST2 += 1
+                                  Case 6
+                                      lbl_item_6.Text = CNT_ST2
+                                      lbl_st2_meas_5.Text = st2_result
+                                      lbl_st3_res_5.Text = ""
+                                      lbl_st4_p2_5.Text = ""
+                                      lbl_st4_p3_5.Text = ""
+                                      lbl_st4_t1_5.Text = ""
+                                      lbl_st4_t2_5.Text = ""
+                                      lbl_diff_result_5.Text = ""
+                                      lbl_cot_5.Text = ""
+                                      lbl_unscrew_status_5.Text = ""
+                                      Action_ST2 = 1
+                              End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement, DateTime) VALUES('" & CNT_ST2.ToString & "', '" & lbl_ref.Text & "', '" & lbl_ope_id.Text & "', '" & lbl_po_num.Text & "', '" & lbl_st2_meas.Text & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement, DateTime) VALUES('" & CNT_ST2.ToString & "', '" & lbl_ref.Text & "', '" & lbl_ope_id.Text & "', '" & lbl_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
-                              txt_msg.Text = txt_msg.Text + "Finish recording ST2 Result = " + lbl_st2_meas.Text & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "Finish recording ST2 Result = " + st2_result & vbCrLf
                               Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, 3)
                               lbl_cnt_st2.Text = CNT_ST2
                           End Sub)
             End If
         End If
     End Sub
-
+    Dim Action_ST3 As Integer = 1
     Private Sub ST3_Tick(sender As Object, e As EventArgs) Handles ST3.Tick
         If SCAN_MODE = 3 Then
             ST_COMM3 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM3)
@@ -2421,21 +2495,42 @@ Public Class frmMain
                               CNT_ST3 = CNT_ST3 + 1
                               '======================== program baca resistant ========================
                               Dim Value As Decimal = Rnd()
-                              lbl_st3_res.Text = Value.ToString
+                              Dim st3_result As String = Value.ToString
+
+                              Select Case Action_ST3
+                                  Case 1
+                                      lbl_st3_res.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 2
+                                      lbl_st3_res_1.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 3
+                                      lbl_st3_res_2.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 4
+                                      lbl_st3_res_3.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 5
+                                      lbl_st3_res_4.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 6
+                                      lbl_st3_res_5.Text = st3_result
+                                      Action_ST3 = 1
+                              End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("UPDATE ProductionData SET Resistance = '" & lbl_st3_res.Text & "' WHERE No = '" & CNT_ST3.ToString & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("UPDATE ProductionData SET Resistance = '" & st3_result & "' WHERE No = '" & CNT_ST3.ToString & "'", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
-                              txt_msg.Text = txt_msg.Text + "Finish recording ST3 Result = " + lbl_st3_res.Text & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "Finish recording ST3 Result = " + st3_result & vbCrLf
                               Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM3, 7) ' dummy
                               lbl_cnt_st3.Text = CNT_ST3
                           End Sub)
             End If
         End If
     End Sub
-
+    Dim Action_ST4 As Integer = 1
     Private Sub ST4_Tick(sender As Object, e As EventArgs) Handles ST4.Tick
         If SCAN_MODE = 3 Then
             ST_COMM4 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM4)
@@ -2444,32 +2539,83 @@ Public Class frmMain
                 Me.Invoke(Sub()
                               txt_msg.Text = txt_msg.Text + "Start recording ST4..." & vbCrLf
                               CNT_ST4 = CNT_ST4 + 1
-                              lbl_st4_p2.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
-                              lbl_st4_p3.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
-                              lbl_diff_result.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
-                              lbl_st4_t1.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_T1)
-                              lbl_st4_t2.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_T2)
-                              lbl_cot.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_COT)
+                              Dim st4_p2_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
+                              Dim st4_p3_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
+                              Dim diff_result_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
+                              Dim st4_t1_result As String = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_T1)
+                              Dim st4_t2_result As String = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_T2)
+                              Dim cot_result As String = Modbus.ReadData(REGISTER_TYPE, ADDR_COT)
+
+                              Select Case Action_ST4
+                                  Case 1
+                                      lbl_st4_p2.Text = st4_p2_result
+                                      lbl_st4_p3.Text = st4_p3_result
+                                      lbl_diff_result.Text = diff_result_result
+                                      lbl_st4_t1.Text = st4_t1_result
+                                      lbl_st4_t2.Text = st4_t2_result
+                                      lbl_cot.Text = cot_result
+                                      Action_ST4 += 1
+                                  Case 2
+                                      lbl_st4_p2_1.Text = st4_p2_result
+                                      lbl_st4_p3_1.Text = st4_p3_result
+                                      lbl_diff_result_1.Text = diff_result_result
+                                      lbl_st4_t1_1.Text = st4_t1_result
+                                      lbl_st4_t2_1.Text = st4_t2_result
+                                      lbl_cot_1.Text = cot_result
+                                      Action_ST4 += 1
+                                  Case 3
+                                      lbl_st4_p2_2.Text = st4_p2_result
+                                      lbl_st4_p3_2.Text = st4_p3_result
+                                      lbl_diff_result_2.Text = diff_result_result
+                                      lbl_st4_t1_2.Text = st4_t1_result
+                                      lbl_st4_t2_2.Text = st4_t2_result
+                                      lbl_cot_2.Text = cot_result
+                                      Action_ST4 += 1
+                                  Case 4
+                                      lbl_st4_p2_3.Text = st4_p2_result
+                                      lbl_st4_p3_3.Text = st4_p3_result
+                                      lbl_diff_result_3.Text = diff_result_result
+                                      lbl_st4_t1_3.Text = st4_t1_result
+                                      lbl_st4_t2_3.Text = st4_t2_result
+                                      lbl_cot_3.Text = cot_result
+                                      Action_ST4 += 1
+                                  Case 5
+                                      lbl_st4_p2_4.Text = st4_p2_result
+                                      lbl_st4_p3_4.Text = st4_p3_result
+                                      lbl_diff_result_4.Text = diff_result_result
+                                      lbl_st4_t1_4.Text = st4_t1_result
+                                      lbl_st4_t2_4.Text = st4_t2_result
+                                      lbl_cot_4.Text = cot_result
+                                      Action_ST4 += 1
+                                  Case 6
+                                      lbl_st4_p2_5.Text = st4_p2_result
+                                      lbl_st4_p3_5.Text = st4_p3_result
+                                      lbl_diff_result_5.Text = diff_result_result
+                                      lbl_st4_t1_5.Text = st4_t1_result
+                                      lbl_st4_t2_5.Text = st4_t2_result
+                                      lbl_cot_5.Text = cot_result
+                                      Action_ST4 = 1
+                              End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("UPDATE ProductionData SET TravelP2 = '" & lbl_st4_p2.Text & "', TravelP3 = '" & lbl_st4_p3.Text & "', Difference = '" & lbl_diff_result.Text & "', ST4T1 = '" & lbl_st4_t1.Text & "', ST4T2 = '" & lbl_st4_t2.Text & "', COT = '" & lbl_cot.Text & "' WHERE No = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("UPDATE ProductionData SET TravelP2 = '" & st4_p2_result & "', TravelP3 = '" & st4_p3_result & "', Difference = '" & diff_result_result & "', ST4T1 = '" & st4_t1_result & "', ST4T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE No = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
                               txt_msg.Text = txt_msg.Text + "Finish recording ST4 Result = " & vbCrLf
-                              txt_msg.Text = txt_msg.Text + "P2 = " + lbl_st4_p2.Text & vbCrLf
-                              txt_msg.Text = txt_msg.Text + "P3 = " + lbl_st4_p3.Text & vbCrLf
-                              txt_msg.Text = txt_msg.Text + "Diff = " + lbl_diff_result.Text & vbCrLf
-                              txt_msg.Text = txt_msg.Text + "T1 = " + lbl_st4_t1.Text & vbCrLf
-                              txt_msg.Text = txt_msg.Text + "T2 = " + lbl_st4_t2.Text & vbCrLf
-                              txt_msg.Text = txt_msg.Text + "COT = " + lbl_cot.Text & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "P2 = " + st4_p2_result & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "P3 = " + st4_p3_result & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "Diff = " + diff_result_result & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "T1 = " + st4_t1_result & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "T2 = " + st4_t2_result & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "COT = " + cot_result & vbCrLf
                               Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
                               lbl_cnt_st4.Text = CNT_ST4
                           End Sub)
             End If
         End If
     End Sub
-
+    Dim Action_ST5 As Integer = 1
     Private Sub ST5_Tick(sender As Object, e As EventArgs) Handles ST5.Tick
         If SCAN_MODE = 3 Then
             ST_COMM5 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM5)
@@ -2478,14 +2624,35 @@ Public Class frmMain
                 Me.Invoke(Sub()
                               txt_msg.Text = txt_msg.Text + "Start recording ST5 (Unscrewing)..." & vbCrLf
                               CNT_ST5 = CNT_ST5 + 1
-                              lbl_unscrew_status.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_UNSCREW_STATUS)
+                              Dim unscrew_status_result As String = Modbus.ReadData(REGISTER_TYPE, ADDR_UNSCREW_STATUS)
+
+                              Select Case Action_ST5
+                                  Case 1
+                                      lbl_unscrew_status.Text = unscrew_status_result
+                                      Action_ST5 += 1
+                                  Case 2
+                                      lbl_unscrew_status_1.Text = unscrew_status_result
+                                      Action_ST5 += 1
+                                  Case 3
+                                      lbl_unscrew_status_2.Text = unscrew_status_result
+                                      Action_ST5 += 1
+                                  Case 4
+                                      lbl_unscrew_status_3.Text = unscrew_status_result
+                                      Action_ST5 += 1
+                                  Case 5
+                                      lbl_unscrew_status_4.Text = unscrew_status_result
+                                      Action_ST5 += 1
+                                  Case 6
+                                      lbl_unscrew_status_5.Text = unscrew_status_result
+                                      Action_ST5 = 1
+                              End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("UPDATE ProductionData SET UnscrewStatus = '" & lbl_unscrew_status.Text & "' WHERE No = '" & CNT_ST5.ToString & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("UPDATE ProductionData SET UnscrewStatus = '" & unscrew_status_result & "' WHERE No = '" & CNT_ST5.ToString & "'", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
-                              txt_msg.Text = txt_msg.Text + "Finish recording ST5 Result = " + lbl_unscrew_status.Text & vbCrLf
+                              txt_msg.Text = txt_msg.Text + "Finish recording ST5 Result = " + unscrew_status_result & vbCrLf
                               Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM5, 3)
                               lbl_cnt_st5.Text = CNT_ST5
                           End Sub)

@@ -88,6 +88,7 @@ Public Class Modbus
             ReadHelper(Address, RegType)
         Catch ex As Exception
             MsgBox("Modbus Error Read! " & ex.Message)
+            frmMain.btn_connect_plc.PerformClick()
         End Try
         Return CInt(ReadValue)
     End Function
@@ -96,6 +97,7 @@ Public Class Modbus
             ReadHelperFloat(Address, RegType)
         Catch ex As Exception
             MsgBox("Modbus Error Read! " & ex.Message)
+            'frmMain.btn_connect_plc.PerformClick()
         End Try
         Return ReadValue
     End Function
@@ -147,6 +149,7 @@ Public Class Modbus
             WriteHelper(RegType, Value, StartAddress)
         Catch ex As Exception
             MsgBox("Modbus Error Write! " & ex.Message)
+            'frmMain.btn_connect_plc.PerformClick()
         End Try
     End Sub
     Public Sub WriteDataFloat(RegType As Integer, StartAddress As Integer, Value As String)
@@ -154,6 +157,7 @@ Public Class Modbus
             WriteHelperFloat(RegType, Value, StartAddress)
         Catch ex As Exception
             MsgBox("Modbus Error Write! " & ex.Message)
+            'frmMain.btn_connect_plc.PerformClick()
         End Try
     End Sub
 End Class

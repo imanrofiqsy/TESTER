@@ -262,6 +262,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="105450_web-removebg-preview.ico" />
+    <None Include="Resources\emptying.jpg" />
     <None Include="Resources\imgonline-com-ua-ReplaceColor-xBihTEFLjatznSmQ.jpg" />
     <None Include="Resources\image__4_-removebg-preview-modified1.png" />
     <None Include="Resources\image__4_-removebg-preview-modified.png" />

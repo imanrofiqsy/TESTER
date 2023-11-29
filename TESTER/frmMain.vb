@@ -34,7 +34,6 @@ Public Class frmMain
         Thread.Sleep(500)
         CloseLoadForm()
         Show()
-        SCAN_MODE = 3
     End Sub
     'Loading Bar
     Private Sub initLoadingBar()
@@ -57,19 +56,19 @@ Public Class frmMain
         Select Case state
             Case 100
                 Modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 1)
-                ind_software_open.BackColor = Color.Lime
-                ind_software_run.BackColor = Color.Red
-                ind_software_stop.BackColor = Color.Red
+                ind_software_open.BackColor = Color.Red
+                ind_software_run.BackColor = Color.DarkRed
+                ind_software_stop.BackColor = Color.DarkRed
             Case 110
                 Modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 3)
-                ind_software_open.BackColor = Color.Lime
-                ind_software_run.BackColor = Color.Lime
-                ind_software_stop.BackColor = Color.Red
+                ind_software_open.BackColor = Color.Red
+                ind_software_run.BackColor = Color.Red
+                ind_software_stop.BackColor = Color.DarkRed
             Case 101
                 Modbus.WriteData(REGISTER_TYPE, ADDR_PC_STATUS, 5)
-                ind_software_open.BackColor = Color.Lime
-                ind_software_run.BackColor = Color.Red
-                ind_software_stop.BackColor = Color.Lime
+                ind_software_open.BackColor = Color.Red
+                ind_software_run.BackColor = Color.DarkRed
+                ind_software_stop.BackColor = Color.Red
         End Select
     End Sub
     Private Sub dateTime_Tick(sender As Object, e As EventArgs) Handles dateTime.Tick
@@ -199,8 +198,8 @@ Public Class frmMain
         ElseIf btn_connect_plc.Text = "Disconnect" Then
             If Modbus.ClosePort() Then
                 btn_connect_plc.Text = "Connect"
-                connect_plc_ind.Image = My.Resources.led_red_on
-                ind_plc_status.BackColor = Color.Red
+                connect_plc_ind.Image = My.Resources.led_red_off
+                ind_plc_status.BackColor = Color.DarkRed
                 ModbusRW.Enabled = False
             End If
         End If
@@ -1167,6 +1166,13 @@ Public Class frmMain
         End If
     End Sub
     Private Sub PlcReading()
+        Dim fpy_number As Double = 0
+        Dim oee_number As Double = 0
+        lbl_pass.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_PASS)
+        lbl_fail.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_FAIL)
+        lbl_fpy.Text = Math.Round(Double.Parse(Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_FPY)), 1).ToString + " %"
+        lbl_oee.Text = Math.Round(Double.Parse(Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_OEE)), 1).ToString + " %"
+
         'Alarm General
         ALARM_GENERAL = Modbus.ReadData(REGISTER_TYPE, ADDR_ALARM_GENERAL)
         ReadAlarm(ALARM_GENERAL)
@@ -1184,9 +1190,9 @@ Public Class frmMain
         'Check PLC
         PLC_READY = Modbus.ReadData(REGISTER_TYPE, ADDR_PLC_READY)
         If PLC_READY Then
-            ind_plc_status.BackColor = Color.Lime
-        Else
             ind_plc_status.BackColor = Color.Red
+        Else
+            ind_plc_status.BackColor = Color.DarkRed
         End If
 
         'running state
@@ -2106,7 +2112,7 @@ Public Class frmMain
 
     'panel home
     Private Sub btn_run_Click(sender As Object, e As EventArgs) Handles btn_run.Click
-        If lbl_ref.Text = "..." Or lbl_ope_id.Text = "..." Or lbl_po_num.Text = "..." Then
+        If txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "" Then
             MsgBox("Please Scan Barcode!")
             Exit Sub
         End If
@@ -2127,134 +2133,151 @@ Public Class frmMain
     Private Sub ReadAlarm(decimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_door_lock_1.BackColor = Color.Lime
-        Else
             ind_door_lock_1.BackColor = Color.Red
+        Else
+            ind_door_lock_1.BackColor = Color.DarkRed
         End If
 
         If binaryString(14) = "1" Then
-            ind_door_lock_2.BackColor = Color.Lime
-        Else
             ind_door_lock_2.BackColor = Color.Red
+        Else
+            ind_door_lock_2.BackColor = Color.DarkRed
         End If
 
         If binaryString(13) = "1" Then
-            ind_door_lock_3.BackColor = Color.Lime
-        Else
             ind_door_lock_3.BackColor = Color.Red
+        Else
+            ind_door_lock_3.BackColor = Color.DarkRed
         End If
 
         If binaryString(12) = "1" Then
-            ind_door_lock_4.BackColor = Color.Lime
-        Else
             ind_door_lock_4.BackColor = Color.Red
+        Else
+            ind_door_lock_4.BackColor = Color.DarkRed
         End If
 
         If binaryString(11) = "1" Then
-            ind_door_lock_5.BackColor = Color.Lime
-        Else
             ind_door_lock_5.BackColor = Color.Red
+        Else
+            ind_door_lock_5.BackColor = Color.DarkRed
         End If
 
         If binaryString(10) = "1" Then
-            ind_door_lock_6.BackColor = Color.Lime
-        Else
             ind_door_lock_6.BackColor = Color.Red
+        Else
+            ind_door_lock_6.BackColor = Color.DarkRed
         End If
 
         If binaryString(9) = "1" Then
-            ind_altivar_fault.BackColor = Color.Lime
-        Else
             ind_altivar_fault.BackColor = Color.Red
+        Else
+            ind_altivar_fault.BackColor = Color.DarkRed
         End If
 
         If binaryString(8) = "1" Then
-            ind_air_presence.BackColor = Color.Lime
-        Else
             ind_air_presence.BackColor = Color.Red
+        Else
+            ind_air_presence.BackColor = Color.DarkRed
         End If
 
         If binaryString(7) = "1" Then
-            ind_emg_button.BackColor = Color.Lime
-        Else
             ind_emg_button.BackColor = Color.Red
+        Else
+            ind_emg_button.BackColor = Color.DarkRed
         End If
     End Sub
     Private Sub ReadAlarmStn2(decimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_v201_descrepancy.BackColor = Color.Lime
-        Else
             ind_v201_descrepancy.BackColor = Color.Red
+        Else
+            ind_v201_descrepancy.BackColor = Color.DarkRed
         End If
 
         If binaryString(14) = "1" Then
-            ind_v202_descrepancy.BackColor = Color.Lime
-        Else
             ind_v202_descrepancy.BackColor = Color.Red
+        Else
+            ind_v202_descrepancy.BackColor = Color.DarkRed
         End If
     End Sub
     Private Sub ReadAlarmStn3(decimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_v301_descrepancy.BackColor = Color.Lime
-        Else
             ind_v301_descrepancy.BackColor = Color.Red
+        Else
+            ind_v301_descrepancy.BackColor = Color.DarkRed
         End If
 
         If binaryString(14) = "1" Then
-            ind_v302_descrepancy.BackColor = Color.Lime
-        Else
             ind_v302_descrepancy.BackColor = Color.Red
+        Else
+            ind_v302_descrepancy.BackColor = Color.DarkRed
         End If
     End Sub
 
     Private Sub ReadAlarmStn4(decimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_v401_descrepancy.BackColor = Color.Lime
-        Else
             ind_v401_descrepancy.BackColor = Color.Red
+        Else
+            ind_v401_descrepancy.BackColor = Color.DarkRed
         End If
 
         If binaryString(14) = "1" Then
-            ind_v402_descrepancy.BackColor = Color.Lime
-        Else
             ind_v402_descrepancy.BackColor = Color.Red
+        Else
+            ind_v402_descrepancy.BackColor = Color.DarkRed
         End If
     End Sub
 
     Private Sub ReadAlarmStn5(decimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_v501_descrepancy.BackColor = Color.Lime
-        Else
             ind_v501_descrepancy.BackColor = Color.Red
+        Else
+            ind_v501_descrepancy.BackColor = Color.DarkRed
         End If
 
         If binaryString(14) = "1" Then
-            ind_v502_descrepancy.BackColor = Color.Lime
-        Else
             ind_v502_descrepancy.BackColor = Color.Red
+        Else
+            ind_v502_descrepancy.BackColor = Color.DarkRed
         End If
     End Sub
 
     Private Sub ReadAlarmStn6(decimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_v601_descrepancy.BackColor = Color.Lime
-        Else
             ind_v601_descrepancy.BackColor = Color.Red
+        Else
+            ind_v601_descrepancy.BackColor = Color.DarkRed
         End If
 
         If binaryString(14) = "1" Then
-            ind_v602_descrepancy.BackColor = Color.Lime
-        Else
             ind_v602_descrepancy.BackColor = Color.Red
+        Else
+            ind_v602_descrepancy.BackColor = Color.DarkRed
         End If
     End Sub
 
     Private Sub Status_Tick(sender As Object, e As EventArgs) Handles Status.Tick
+        Select Case SCAN_MODE
+            Case 0
+                'txt_ref.Select()
+                If txt_ref.Text <> "" Then
+                    SCAN_MODE = 1
+                End If
+            Case 1
+                'txt_ope_id.Select()
+                If txt_ope_id.Text <> "" Then
+                    SCAN_MODE = 2
+                End If
+            Case 2
+                'txt_po_num.Select()
+                If txt_po_num.Text <> "" Then
+                    SCAN_MODE = 3
+                End If
+        End Select
         'status bar
         If RUNNING_STATE = 1 Then 'running
             status_bar.Image = My.Resources.GUI___statusBar1
@@ -2295,11 +2318,11 @@ Public Class frmMain
             If InStr(1, AssyBuff, vbCrLf) <> 0 Then
                 Me.Invoke(Sub()
                               AssyBuff = Mid(AssyBuff, 1, InStr(1, AssyBuff, vbCr) - 1)
-                              lbl_ref.Text = AssyBuff
+                              txt_ref.Text = AssyBuff
 
                               Call KoneksiDB.koneksi_db()
 
-                              Dim sc As New SqlCommand("SELECT * FROM ProductDatabase WHERE Reff='" & lbl_ref.Text & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("SELECT * FROM ProductDatabase WHERE Reff='" & txt_ref.Text & "'", KoneksiDB.koneksi)
                               Dim rd As SqlDataReader = sc.ExecuteReader
                               rd.Read()
                               If Not rd.HasRows Then
@@ -2318,7 +2341,7 @@ Public Class frmMain
             If InStr(1, AssyBuff, vbCrLf) <> 0 Then
                 Me.Invoke(Sub()
                               AssyBuff = Mid(AssyBuff, 1, InStr(1, AssyBuff, vbCr) - 1)
-                              lbl_ope_id.Text = AssyBuff
+                              txt_ope_id.Text = AssyBuff
 
                               AssyBuff = ""
                               SCAN_MODE = 2
@@ -2330,11 +2353,11 @@ Public Class frmMain
             If InStr(1, AssyBuff, vbCrLf) <> 0 Then
                 Me.Invoke(Sub()
                               AssyBuff = Mid(AssyBuff, 1, InStr(1, AssyBuff, vbCr) - 1)
-                              lbl_po_num.Text = AssyBuff
+                              txt_po_num.Text = AssyBuff
 
                               'Insert data to database
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("SELECT * FROM ProductDatabase WHERE Reff='" & lbl_ref.Text & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("SELECT * FROM ProductDatabase WHERE Reff='" & txt_ref.Text & "'", KoneksiDB.koneksi)
                               Dim rd As SqlDataReader = sc.ExecuteReader
                               rd.Read()
 
@@ -2367,14 +2390,14 @@ Public Class frmMain
         End If
     End Sub
     Private Function CheckDuplicate() As Boolean
-        Dim sc As New SqlCommand("SELECT * FROM ProductionData WHERE Reff='" & lbl_ref.Text & "'", KoneksiDB.koneksi)
+        Dim sc As New SqlCommand("SELECT * FROM ProductionData WHERE Reff='" & txt_ref.Text & "'", KoneksiDB.koneksi)
         Dim rd As SqlDataReader = sc.ExecuteReader
         rd.Read()
         If Not rd.HasRows Then
             Return False
             Exit Function
         End If
-        If rd.Item("OperatorID") <> lbl_ope_id.Text Then
+        If rd.Item("OperatorID") <> txt_ope_id.Text Then
             Return True
         End If
         Console.WriteLine(rd.Item("OperatorID"))
@@ -2382,9 +2405,9 @@ Public Class frmMain
     End Function
     Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click
         SCAN_MODE = 0
-        lbl_ref.Text = "..."
-        lbl_ope_id.Text = "..."
-        lbl_po_num.Text = "..."
+        txt_ref.Text = ""
+        txt_ope_id.Text = ""
+        txt_po_num.Text = ""
     End Sub
     Dim Action_ST2 As Integer = 1
     Private Sub ST2_Tick(sender As Object, e As EventArgs) Handles ST2.Tick
@@ -2473,7 +2496,7 @@ Public Class frmMain
                               End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement, DateTime) VALUES('" & CNT_ST2.ToString & "', '" & lbl_ref.Text & "', '" & lbl_ope_id.Text & "', '" & lbl_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement, DateTime) VALUES('" & CNT_ST2.ToString & "', '" & txt_ref.Text & "', '" & txt_ope_id.Text & "', '" & txt_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
@@ -2542,9 +2565,9 @@ Public Class frmMain
                               Dim st4_p2_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
                               Dim st4_p3_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
                               Dim diff_result_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
-                              Dim st4_t1_result As String = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_T1)
-                              Dim st4_t2_result As String = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_T2)
-                              Dim cot_result As String = Modbus.ReadData(REGISTER_TYPE, ADDR_COT)
+                              Dim st4_t1_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T1)
+                              Dim st4_t2_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T2)
+                              Dim cot_result As String = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_COT)
 
                               Select Case Action_ST4
                                   Case 1
@@ -2846,5 +2869,17 @@ Public Class frmMain
                       End Try
                       txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
                   End Sub)
+    End Sub
+
+    Private Sub btn_empty_Click(sender As Object, e As EventArgs) Handles btn_empty.Click
+        Dim empty_process As String = Modbus.ReadData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS)
+
+        If Val(empty_process) <> 2 And Val(empty_process) <> 4 And Val(empty_process) <> 1 Then
+            Modbus.WriteData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS, 1)
+        ElseIf Val(empty_process) = 2 Then
+            MsgBox("Please Wait Until Emptying Process Is Finish")
+        ElseIf Val(empty_process) = 1 Then
+            MsgBox("Emptying In Process")
+        End If
     End Sub
 End Class

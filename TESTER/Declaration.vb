@@ -1,4 +1,10 @@
 ﻿Module Declaration
+    Public ADDR_PASS As Integer = 40003
+    Public ADDR_FAIL As Integer = 40004
+    Public ADDR_OEE As Integer = 40005
+    Public ADDR_FPY As Integer = 40007
+    Public ADDR_EMPTY_PROCCESS As Integer = 40009
+
     Public CNT_ST2 As Integer = 0
     Public CNT_ST3 As Integer = 0
     Public CNT_ST4 As Integer = 0
@@ -23,9 +29,9 @@
     Public ADDR_ST4_P3_TRAVEL As Integer = 47204
     Public ADDR_DIFF_STR_RESULT As Integer = 47206
     Public ADDR_ST4_T1 As Integer = 47208
-    Public ADDR_ST4_T2 As Integer = 47209
-    Public ADDR_COT As Integer = 47210
-    Public ADDR_UNSCREW_STATUS As Integer = 47211
+    Public ADDR_ST4_T2 As Integer = 47210
+    Public ADDR_COT As Integer = 47212
+    Public ADDR_UNSCREW_STATUS As Integer = 47214
 
     Public ADDR_ACT_VAL As Integer = 47000
     Public ADDR_ACT_VAL_TOL As Integer = 47002

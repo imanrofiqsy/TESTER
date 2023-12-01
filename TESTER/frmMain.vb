@@ -2271,8 +2271,8 @@ Public Class frmMain
                     Dim rd As SqlDataReader = sc.ExecuteReader
                     rd.Read()
                     If Not rd.HasRows Then
-                        MsgBox("Invalid References!, " + lbl_op_ins.Text)
-                        AssyBuff = ""
+                        txt_msg.Text = "Invalid Reference"
+                        txt_ref.Text = ""
                         Exit Sub
                     End If
 
@@ -2411,10 +2411,10 @@ Public Class frmMain
                               lbl_laser_template.Text = rd.Item("LaserTemplate")
 
                               'write to plc
-                              Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_ACT_VAL, Single.Parse(lbl_act_val.Text))
-                              Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_ACT_VAL_TOL, Single.Parse(lbl_act_val_tol.Text))
-                              Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_DIF_STR, Single.Parse(lbl_dif_str.Text))
-                              Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_DIF_STR_TOL, Single.Parse(lbl_dif_str_tol.Text))
+                              Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_ACT_VAL, Single.Parse(Val(lbl_act_val.Text)))
+                              Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_ACT_VAL_TOL, Single.Parse(Val(lbl_act_val_tol.Text)))
+                              Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_DIF_STR, Single.Parse(Val(lbl_dif_str.Text)))
+                              Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_DIF_STR_TOL, Single.Parse(Val(lbl_dif_str_tol.Text)))
                               Modbus.WriteData(REGISTER_TYPE, ADDR_BEATING_TIMES, lbl_beating_times.Text)
                               Modbus.WriteData(REGISTER_TYPE, ADDR_CFG_FIRST_CONTACT, lbl_cfg_1st.Text)
                               Modbus.WriteData(REGISTER_TYPE, ADDR_CFG_SECOND_CONTACT, lbl_cfg_2nd.Text)

@@ -3,7 +3,10 @@ Module KoneksiDB
     Public koneksi As SqlConnection
     Public Sub koneksi_db()
         Try
-            Dim database As String = "Data Source=WTID10321122000\SQLEXPRESS;
+            'Dim database As String = "Data Source=WTID10321122000\SQLEXPRESS;
+            'initial catalog=TESE;
+            'integrated security=true"
+            Dim database As String = "Data Source=DESKTOP-R3AJPOP\SQLEXPRESS01;
             initial catalog=TESE;
             integrated security=true"
 

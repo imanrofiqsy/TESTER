@@ -2265,6 +2265,17 @@ Public Class frmMain
             Case 0
                 'txt_ref.Select()
                 If txt_ref.Text <> "" Then
+                    Call KoneksiDB.koneksi_db()
+
+                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase WHERE Reff='" & txt_ref.Text & "'", KoneksiDB.koneksi)
+                    Dim rd As SqlDataReader = sc.ExecuteReader
+                    rd.Read()
+                    If Not rd.HasRows Then
+                        MsgBox("Invalid References!, " + lbl_op_ins.Text)
+                        AssyBuff = ""
+                        Exit Sub
+                    End If
+
                     SCAN_MODE = 1
                 End If
             Case 1
@@ -2275,6 +2286,33 @@ Public Class frmMain
             Case 2
                 'txt_po_num.Select()
                 If txt_po_num.Text <> "" Then
+                    'Insert data to database
+                    Call KoneksiDB.koneksi_db()
+                    Dim sc As New SqlCommand("SELECT * FROM ProductDatabase WHERE Reff='" & txt_ref.Text & "'", KoneksiDB.koneksi)
+                    Dim rd As SqlDataReader = sc.ExecuteReader
+                    rd.Read()
+
+                    lbl_act_val.Text = rd.Item("ActVal")
+                    lbl_act_val_tol.Text = rd.Item("ActValTol")
+                    lbl_dif_str.Text = rd.Item("DifStr")
+                    lbl_dif_str_tol.Text = rd.Item("DifStrTol")
+                    lbl_beating_times.Text = rd.Item("BeatingTimes")
+                    lbl_cfg_1st.Text = rd.Item("FirstContact")
+                    lbl_cfg_2nd.Text = rd.Item("SecondContact")
+                    lbl_unscrew_process.Text = rd.Item("UnscrewingProcess")
+                    lbl_laser_datecode.Text = rd.Item("LaserDateCode")
+                    lbl_laser_template.Text = rd.Item("LaserTemplate")
+
+                    'write to plc
+                    Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_ACT_VAL, Single.Parse(lbl_act_val.Text))
+                    Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_ACT_VAL_TOL, Single.Parse(lbl_act_val_tol.Text))
+                    Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_DIF_STR, Single.Parse(lbl_dif_str.Text))
+                    Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_DIF_STR_TOL, Single.Parse(lbl_dif_str_tol.Text))
+                    Modbus.WriteData(REGISTER_TYPE, ADDR_BEATING_TIMES, lbl_beating_times.Text)
+                    Modbus.WriteData(REGISTER_TYPE, ADDR_CFG_FIRST_CONTACT, lbl_cfg_1st.Text)
+                    Modbus.WriteData(REGISTER_TYPE, ADDR_CFG_SECOND_CONTACT, lbl_cfg_2nd.Text)
+                    Modbus.WriteData(REGISTER_TYPE, ADDR_UNSCREWING_PROCESS, lbl_unscrew_process.Text)
+                    Modbus.WriteData(REGISTER_TYPE, ADDR_LASER_DATE_CODE, lbl_laser_datecode.Text)
                     SCAN_MODE = 3
                 End If
         End Select

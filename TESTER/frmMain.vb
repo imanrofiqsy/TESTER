@@ -1,5 +1,6 @@
 ﻿Imports System.Threading
 Imports System.Data.SqlClient
+Imports System.IO
 Public Class frmMain
     Dim Modbus = New Modbus()
     Dim Multimeter = New Multimeter()
@@ -94,6 +95,7 @@ Public Class frmMain
         ShowPanelGeneral("monitoring")
     End Sub
     Private Sub btn_alarm_Click(sender As Object, e As EventArgs) Handles btn_alarm.Click
+
         ShowPanelGeneral("alarm")
     End Sub
     Private Sub btn_multimeter_Click(sender As Object, e As EventArgs) Handles btn_multimeter.Click
@@ -2135,134 +2137,307 @@ Public Class frmMain
     End Sub
 
     'Read Alarm
+    Dim alarm_text_general(9) As String
+    Dim last_alarm_general(9) As String
     Private Sub ReadAlarm(decimalNumber As Integer)
+        Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [General] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
+            alarm_text_general(0) = "Door Lock 1 Open"
             ind_door_lock_1.BackColor = Color.Red
         Else
+            alarm_text_general(0) = "Door Lock 1 Close"
             ind_door_lock_1.BackColor = Color.DarkRed
         End If
 
         If binaryString(14) = "1" Then
+            alarm_text_general(1) = "Door Lock 2 Open"
             ind_door_lock_2.BackColor = Color.Red
         Else
+            alarm_text_general(1) = "Door Lock 2 Close"
             ind_door_lock_2.BackColor = Color.DarkRed
         End If
 
         If binaryString(13) = "1" Then
+            alarm_text_general(2) = "Door Lock 3 Open"
             ind_door_lock_3.BackColor = Color.Red
         Else
+            alarm_text_general(2) = "Door Lock 3 Close"
             ind_door_lock_3.BackColor = Color.DarkRed
         End If
 
         If binaryString(12) = "1" Then
+            alarm_text_general(3) = "Door Lock 4 Open"
             ind_door_lock_4.BackColor = Color.Red
         Else
+            alarm_text_general(3) = "Door Lock 4 Close"
             ind_door_lock_4.BackColor = Color.DarkRed
         End If
 
         If binaryString(11) = "1" Then
+            alarm_text_general(4) = "Door Lock 5 Open"
             ind_door_lock_5.BackColor = Color.Red
         Else
+            alarm_text_general(4) = "Door Lock 5 Close"
             ind_door_lock_5.BackColor = Color.DarkRed
         End If
 
         If binaryString(10) = "1" Then
+            alarm_text_general(5) = "Door Lock 6 Open"
             ind_door_lock_6.BackColor = Color.Red
         Else
+            alarm_text_general(5) = "Door Lock 6 Close"
             ind_door_lock_6.BackColor = Color.DarkRed
         End If
 
         If binaryString(9) = "1" Then
+            alarm_text_general(6) = "Altivar NOK"
             ind_altivar_fault.BackColor = Color.Red
         Else
+            alarm_text_general(6) = "Altivar OK"
             ind_altivar_fault.BackColor = Color.DarkRed
         End If
 
         If binaryString(8) = "1" Then
+            alarm_text_general(7) = "Air Presence OK"
             ind_air_presence.BackColor = Color.Red
         Else
+            alarm_text_general(7) = "Air Presence NOK"
             ind_air_presence.BackColor = Color.DarkRed
         End If
 
         If binaryString(7) = "1" Then
+            alarm_text_general(8) = "Emergency Button Is Pressed"
             ind_emg_button.BackColor = Color.Red
         Else
+            alarm_text_general(8) = "Emergency Button Is Released"
             ind_emg_button.BackColor = Color.DarkRed
         End If
+
+        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
+        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+
+        If Dir(projectFolder & "\Log\Log.txt") = "" Then
+            MsgBox("Log.txt is missing")
+            End
+        End If
+        For i As Integer = 0 To alarm_text_general.Length - 1
+            If last_alarm_general(i) <> alarm_text_general(i) Then
+                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim fileExists As Boolean = File.Exists(strFile)
+                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
+                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_general(i), "Start Error Log for today"))
+                End Using
+                txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_general(i) + vbCrLf
+                txt_alarm.ScrollToCaret()
+                last_alarm_general(i) = alarm_text_general(i)
+            End If
+        Next
     End Sub
+    Dim alarm_text_stn2(2) As String
+    Dim last_alarm_stn2(2) As String
     Private Sub ReadAlarmStn2(decimalNumber As Integer)
+        Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-2] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
             ind_v201_descrepancy.BackColor = Color.Red
+            alarm_text_stn2(0) = "V201 Descrepancy Detected"
         Else
             ind_v201_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn2(0) = "V201 Descrepancy Not Detected"
         End If
 
         If binaryString(14) = "1" Then
             ind_v202_descrepancy.BackColor = Color.Red
+            alarm_text_stn2(1) = "V202 Descrepancy Detected"
         Else
             ind_v202_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn2(1) = "V202 Descrepancy Not Detected"
         End If
+
+        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
+        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+
+        If Dir(projectFolder & "\Log\Log.txt") = "" Then
+            MsgBox("Log.txt is missing")
+            End
+        End If
+        For i As Integer = 0 To alarm_text_stn2.Length - 1
+            If last_alarm_stn2(i) <> alarm_text_stn2(i) Then
+                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim fileExists As Boolean = File.Exists(strFile)
+                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
+                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn2(i), "Start Error Log for today"))
+                End Using
+                txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn2(i) + vbCrLf
+                txt_alarm.ScrollToCaret()
+                last_alarm_stn2(i) = alarm_text_stn2(i)
+            End If
+        Next
     End Sub
+    Dim alarm_text_stn3(2) As String
+    Dim last_alarm_stn3(2) As String
     Private Sub ReadAlarmStn3(decimalNumber As Integer)
+        Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-3] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
             ind_v301_descrepancy.BackColor = Color.Red
+            alarm_text_stn3(0) = "V301 Descrepancy Detected"
         Else
             ind_v301_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn3(0) = "V301 Descrepancy Not Detected"
         End If
 
         If binaryString(14) = "1" Then
             ind_v302_descrepancy.BackColor = Color.Red
+            alarm_text_stn3(1) = "V302 Descrepancy Detected"
         Else
             ind_v302_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn3(1) = "V302 Descrepancy Not Detected"
         End If
-    End Sub
 
+        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
+        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+
+        If Dir(projectFolder & "\Log\Log.txt") = "" Then
+            MsgBox("Log.txt is missing")
+            End
+        End If
+        For i As Integer = 0 To alarm_text_stn3.Length - 1
+            If last_alarm_stn3(i) <> alarm_text_stn3(i) Then
+                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim fileExists As Boolean = File.Exists(strFile)
+                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
+                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn3(i), "Start Error Log for today"))
+                End Using
+                txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn3(i) + vbCrLf
+                txt_alarm.ScrollToCaret()
+                last_alarm_stn3(i) = alarm_text_stn3(i)
+            End If
+        Next
+    End Sub
+    Dim alarm_text_stn4(2) As String
+    Dim last_alarm_stn4(2) As String
     Private Sub ReadAlarmStn4(decimalNumber As Integer)
+        Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-4] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
             ind_v401_descrepancy.BackColor = Color.Red
+            alarm_text_stn4(0) = "V401 Descrepancy Detected"
         Else
             ind_v401_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn4(0) = "V401 Descrepancy Not Detected"
         End If
 
         If binaryString(14) = "1" Then
             ind_v402_descrepancy.BackColor = Color.Red
+            alarm_text_stn4(1) = "V402 Descrepancy Detected"
         Else
             ind_v402_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn4(1) = "V402 Descrepancy Not Detected"
         End If
-    End Sub
 
+        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
+        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+
+        If Dir(projectFolder & "\Log\Log.txt") = "" Then
+            MsgBox("Log.txt is missing")
+            End
+        End If
+        For i As Integer = 0 To alarm_text_stn4.Length - 1
+            If last_alarm_stn4(i) <> alarm_text_stn4(i) Then
+                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim fileExists As Boolean = File.Exists(strFile)
+                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
+                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn4(i), "Start Error Log for today"))
+                End Using
+                txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn4(i) + vbCrLf
+                txt_alarm.ScrollToCaret()
+                last_alarm_stn4(i) = alarm_text_stn4(i)
+            End If
+        Next
+    End Sub
+    Dim alarm_text_stn5(2) As String
+    Dim last_alarm_stn5(2) As String
     Private Sub ReadAlarmStn5(decimalNumber As Integer)
+        Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-5] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
             ind_v501_descrepancy.BackColor = Color.Red
+            alarm_text_stn5(0) = "V501 Descrepancy Detected"
         Else
             ind_v501_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn5(0) = "V501 Descrepancy Not Detected"
         End If
 
         If binaryString(14) = "1" Then
             ind_v502_descrepancy.BackColor = Color.Red
+            alarm_text_stn5(1) = "V502 Descrepancy Detected"
         Else
             ind_v502_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn5(1) = "V501 Descrepancy Not Detected"
         End If
-    End Sub
 
+        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
+        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+
+        If Dir(projectFolder & "\Log\Log.txt") = "" Then
+            MsgBox("Log.txt is missing")
+            End
+        End If
+        For i As Integer = 0 To alarm_text_stn5.Length - 1
+            If last_alarm_stn5(i) <> alarm_text_stn5(i) Then
+                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim fileExists As Boolean = File.Exists(strFile)
+                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
+                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn5(i), "Start Error Log for today"))
+                End Using
+                txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn5(i) + vbCrLf
+                txt_alarm.ScrollToCaret()
+                last_alarm_stn5(i) = alarm_text_stn5(i)
+            End If
+        Next
+    End Sub
+    Dim alarm_text_stn6(2) As String
+    Dim last_alarm_stn6(2) As String
     Private Sub ReadAlarmStn6(decimalNumber As Integer)
+        Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-6] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
             ind_v601_descrepancy.BackColor = Color.Red
+            alarm_text_stn6(0) = "V601 Descrepancy Detected"
         Else
             ind_v601_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn6(0) = "V601 Descrepancy Not Detected"
         End If
 
         If binaryString(14) = "1" Then
             ind_v602_descrepancy.BackColor = Color.Red
+            alarm_text_stn6(1) = "V602 Descrepancy Detected"
         Else
             ind_v602_descrepancy.BackColor = Color.DarkRed
+            alarm_text_stn6(1) = "V602 Descrepancy Not Detected"
         End If
+
+        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
+        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+
+        If Dir(projectFolder & "\Log\Log.txt") = "" Then
+            MsgBox("Log.txt is missing")
+            End
+        End If
+        For i As Integer = 0 To alarm_text_stn6.Length - 1
+            If last_alarm_stn6(i) <> alarm_text_stn6(i) Then
+                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim fileExists As Boolean = File.Exists(strFile)
+                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
+                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn6(i), "Start Error Log for today"))
+                End Using
+                txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn6(i) + vbCrLf
+                txt_alarm.ScrollToCaret()
+                last_alarm_stn6(i) = alarm_text_stn6(i)
+            End If
+        Next
     End Sub
 
     Private Sub Status_Tick(sender As Object, e As EventArgs) Handles Status.Tick

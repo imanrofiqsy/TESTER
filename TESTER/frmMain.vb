@@ -103,10 +103,14 @@ Public Class frmMain
         ShowPanelGeneral("laser")
     End Sub
     Private Sub btn_ref_Click(sender As Object, e As EventArgs) Handles btn_ref.Click
+        dgv_ref.ColumnHeadersDefaultCellStyle.Font = New Font("Arial", 10)
+        dgv_ref.DefaultCellStyle.Font = New Font("Arial", 10)
         ShowPanelGeneral("ref")
         LoadTbRef()
     End Sub
     Private Sub btn_log_Click(sender As Object, e As EventArgs) Handles btn_log.Click
+        DataGridView1.ColumnHeadersDefaultCellStyle.Font = New Font("Arial", 10)
+        DataGridView1.DefaultCellStyle.Font = New Font("Arial", 10)
         ShowPanelGeneral("log")
     End Sub
 
@@ -194,6 +198,7 @@ Public Class frmMain
                 btn_connect_plc.Text = "Disconnect"
                 connect_plc_ind.Image = My.Resources.led_green_on
                 ModbusRW.Enabled = True
+                MODBUS_ERR = False
             End If
         ElseIf btn_connect_plc.Text = "Disconnect" Then
             If Modbus.ClosePort() Then
@@ -2261,6 +2266,7 @@ Public Class frmMain
     End Sub
 
     Private Sub Status_Tick(sender As Object, e As EventArgs) Handles Status.Tick
+
         Select Case SCAN_MODE
             Case 0
                 'txt_ref.Select()
@@ -2337,15 +2343,20 @@ Public Class frmMain
             lbl_date.BackColor = Color.FromArgb(236, 28, 36)
         End If
 
-        'operator instruction msg
-        If SCAN_MODE = 0 Then
-            lbl_op_ins.Text = "Please Scan Product References.."
-        ElseIf SCAN_MODE = 1 Then
-            lbl_op_ins.Text = "Please Scan Operator ID.."
-        ElseIf SCAN_MODE = 2 Then
-            lbl_op_ins.Text = "Please Scan PO Number.."
+        If Not MODBUS_ERR Then
+            'operator instruction msg
+            If SCAN_MODE = 0 Then
+                lbl_op_ins.Text = "Please Scan Product References.."
+            ElseIf SCAN_MODE = 1 Then
+                lbl_op_ins.Text = "Please Scan Operator ID.."
+            ElseIf SCAN_MODE = 2 Then
+                lbl_op_ins.Text = "Please Scan PO Number.."
+            Else
+                lbl_op_ins.Text = "You're All Set!"
+            End If
         Else
-            lbl_op_ins.Text = "You're All Set!"
+            lbl_op_ins.Text = "Modbus Error, Please Check Modbus Connection!"
+            ind_plc_status.BackColor = Color.DarkRed
         End If
 
     End Sub
@@ -2428,7 +2439,7 @@ Public Class frmMain
         End If
     End Sub
     Private Function CheckDuplicate() As Boolean
-        Dim sc As New SqlCommand("SELECT * FROM ProductionData WHERE Reff='" & txt_ref.Text & "'", KoneksiDB.koneksi)
+        Dim sc As New SqlCommand("SELECT * FROM Production_Data WHERE Reff='" & txt_ref.Text & "'", KoneksiDB.koneksi)
         Dim rd As SqlDataReader = sc.ExecuteReader
         rd.Read()
         If Not rd.HasRows Then
@@ -2534,7 +2545,7 @@ Public Class frmMain
                               End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("INSERT INTO ProductionData (No, Reff, OperatorID, ProductOrderNo, Measurement, DateTime) VALUES('" & CNT_ST2.ToString & "', '" & txt_ref.Text & "', '" & txt_ope_id.Text & "', '" & txt_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("INSERT INTO Production_Data (No, Reff, OperatorID, ProductOrderNo, Measurement, DateTime) VALUES('" & CNT_ST2.ToString & "', '" & txt_ref.Text & "', '" & txt_ope_id.Text & "', '" & txt_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
@@ -2580,7 +2591,7 @@ Public Class frmMain
                               End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("UPDATE ProductionData SET Resistance = '" & st3_result & "' WHERE No = '" & CNT_ST3.ToString & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("UPDATE Production_Data SET Resistance = '" & st3_result & "' WHERE No = '" & CNT_ST3.ToString & "'", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
@@ -2659,7 +2670,7 @@ Public Class frmMain
                               End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("UPDATE ProductionData SET TravelP2 = '" & st4_p2_result & "', TravelP3 = '" & st4_p3_result & "', Difference = '" & diff_result_result & "', ST4T1 = '" & st4_t1_result & "', ST4T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE No = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("UPDATE Production_Data SET TravelP2 = '" & st4_p2_result & "', TravelP3 = '" & st4_p3_result & "', Difference = '" & diff_result_result & "', ST4T1 = '" & st4_t1_result & "', ST4T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE No = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
@@ -2709,7 +2720,7 @@ Public Class frmMain
                               End Select
 
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("UPDATE ProductionData SET UnscrewStatus = '" & unscrew_status_result & "' WHERE No = '" & CNT_ST5.ToString & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("UPDATE Production_Data SET UnscrewStatus = '" & unscrew_status_result & "' WHERE No = '" & CNT_ST5.ToString & "'", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
@@ -2723,7 +2734,7 @@ Public Class frmMain
 
     Private Sub btn_clear_database_Click(sender As Object, e As EventArgs) Handles btn_clear_database.Click
         Call KoneksiDB.koneksi_db()
-        Dim sc As New SqlCommand("DELETE from ProductionData;", KoneksiDB.koneksi)
+        Dim sc As New SqlCommand("DELETE from Production_Data;", KoneksiDB.koneksi)
         Dim adapter As New SqlDataAdapter(sc)
         adapter.SelectCommand.ExecuteNonQuery()
 
@@ -2841,12 +2852,12 @@ Public Class frmMain
                               txt_log.Text = "Searching Database....." + vbCrLf
                               Call KoneksiDB.koneksi_db()
                               Try
-                                  Dim sc As New SqlCommand("SELECT * FROM ProductionData where Reff = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
+                                  Dim sc As New SqlCommand("SELECT * FROM Production_Data where Reff = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
                                   Dim adapter As New SqlDataAdapter(sc)
                                   Dim ds As New DataSet
 
                                   adapter.Fill(ds)
-                                  dgv_ref.DataSource = ds.Tables(0)
+                                  DataGridView1.DataSource = ds.Tables(0)
                               Catch ex As Exception
                                   txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
                               End Try
@@ -2857,12 +2868,12 @@ Public Class frmMain
                               txt_log.Text = "Searching Database....." + vbCrLf
                               Call KoneksiDB.koneksi_db()
                               Try
-                                  Dim sc As New SqlCommand("SELECT * FROM ProductionData where ProductOrderNo = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
+                                  Dim sc As New SqlCommand("SELECT * FROM Production_Data where ProductOrderNo = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
                                   Dim adapter As New SqlDataAdapter(sc)
                                   Dim ds As New DataSet
 
                                   adapter.Fill(ds)
-                                  dgv_ref.DataSource = ds.Tables(0)
+                                  DataGridView1.DataSource = ds.Tables(0)
                               Catch ex As Exception
                                   txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
                               End Try
@@ -2873,12 +2884,12 @@ Public Class frmMain
                               txt_log.Text = "Searching Database....." + vbCrLf
                               Call KoneksiDB.koneksi_db()
                               Try
-                                  Dim sc As New SqlCommand("SELECT * FROM ProductionData where OperatorID = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
+                                  Dim sc As New SqlCommand("SELECT * FROM Production_Data where OperatorID = '" & txt_find_other.Text & "' ORDER BY No ASC", KoneksiDB.koneksi)
                                   Dim adapter As New SqlDataAdapter(sc)
                                   Dim ds As New DataSet
 
                                   adapter.Fill(ds)
-                                  dgv_ref.DataSource = ds.Tables(0)
+                                  DataGridView1.DataSource = ds.Tables(0)
                               Catch ex As Exception
                                   txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
                               End Try
@@ -2896,7 +2907,7 @@ Public Class frmMain
 
                           Call KoneksiDB.koneksi_db()
                           ' Try
-                          Dim sc As New SqlCommand("SELECT * FROM ProductionData WHERE DateTime BETWEEN '" + range1 + "' AND '" + range2 + "' ORDER BY No ASC", KoneksiDB.koneksi)
+                          Dim sc As New SqlCommand("SELECT * FROM Production_Data WHERE DateTime BETWEEN '" + range1 + "' AND '" + range2 + "' ORDER BY No ASC", KoneksiDB.koneksi)
                           Dim adapter As New SqlDataAdapter(sc)
                           Dim ds As New DataSet
 

@@ -1,4 +1,6 @@
 ﻿Module Declaration
+    Public MODBUS_ERR As Boolean = False
+
     Public ADDR_PASS As Integer = 40003
     Public ADDR_FAIL As Integer = 40004
     Public ADDR_OEE As Integer = 40005

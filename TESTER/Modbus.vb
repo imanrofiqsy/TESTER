@@ -8,7 +8,8 @@ Public Class Modbus
             modbusClient.Connect()
             Return True
         Catch ex As Exception
-            MsgBox("Modbus Error Connect! " & ex.Message)
+            MODBUS_ERR = True
+            'MsgBox("Modbus Error Connect! " & ex.Message)
             'End
             Return False
         End Try
@@ -18,7 +19,8 @@ Public Class Modbus
             modbusClient.Disconnect()
             Return True
         Catch ex As Exception
-            MsgBox("Modbus Error Disconnect! " & ex.Message)
+            MODBUS_ERR = True
+            'MsgBox("Modbus Error Disconnect! " & ex.Message)
             End
         End Try
     End Function
@@ -87,8 +89,11 @@ Public Class Modbus
         Try
             ReadHelper(Address, RegType)
         Catch ex As Exception
-            MsgBox("Modbus Error Read! " & ex.Message)
-            frmMain.btn_connect_plc.PerformClick()
+            'MsgBox("Modbus Error Read! " & ex.Message)
+            MODBUS_ERR = True
+            If frmMain.btn_connect_plc.Text = "Disconnect" Then
+                frmMain.btn_connect_plc.PerformClick()
+            End If
         End Try
         Return CInt(ReadValue)
     End Function
@@ -96,8 +101,11 @@ Public Class Modbus
         Try
             ReadHelperFloat(Address, RegType)
         Catch ex As Exception
-            MsgBox("Modbus Error Read! " & ex.Message)
-            'frmMain.btn_connect_plc.PerformClick()
+            'MsgBox("Modbus Error Read! " & ex.Message)
+            MODBUS_ERR = True
+            If frmMain.btn_connect_plc.Text = "Disconnect" Then
+                frmMain.btn_connect_plc.PerformClick()
+            End If
         End Try
         Return ReadValue
     End Function
@@ -148,16 +156,22 @@ Public Class Modbus
         Try
             WriteHelper(RegType, Value, StartAddress)
         Catch ex As Exception
-            MsgBox("Modbus Error Write! " & ex.Message)
-            'frmMain.btn_connect_plc.PerformClick()
+            MODBUS_ERR = True
+            'MsgBox("Modbus Error Write! " & ex.Message)
+            If frmMain.btn_connect_plc.Text = "Disconnect" Then
+                frmMain.btn_connect_plc.PerformClick()
+            End If
         End Try
     End Sub
     Public Sub WriteDataFloat(RegType As Integer, StartAddress As Integer, Value As String)
         Try
             WriteHelperFloat(RegType, Value, StartAddress)
         Catch ex As Exception
-            MsgBox("Modbus Error Write! " & ex.Message)
-            'frmMain.btn_connect_plc.PerformClick()
+            MODBUS_ERR = True
+            'MsgBox("Modbus Error Write! " & ex.Message)
+            If frmMain.btn_connect_plc.Text = "Disconnect" Then
+                frmMain.btn_connect_plc.PerformClick()
+            End If
         End Try
     End Sub
 End Class

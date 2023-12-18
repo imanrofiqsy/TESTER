@@ -1177,8 +1177,8 @@ Public Class frmMain
         Dim oee_number As Double = 0
         lbl_pass.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_PASS)
         lbl_fail.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_FAIL)
-        lbl_fpy.Text = Math.Round(Double.Parse(Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_FPY)), 1).ToString + " %"
-        lbl_oee.Text = Math.Round(Double.Parse(Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_OEE)), 1).ToString + " %"
+        lbl_fpy.Text = Math.Round(Double.Parse(Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_FPY)), 2).ToString + " %"
+        lbl_oee.Text = Math.Round(Double.Parse(Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_OEE)), 2).ToString + " %"
 
         'Alarm General
         ALARM_GENERAL = Modbus.ReadData(REGISTER_TYPE, ADDR_ALARM_GENERAL)

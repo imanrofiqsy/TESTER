@@ -39,7 +39,7 @@ Public Class Modbus
                 Dim ReadValues() As Integer = modbusClient.ReadInputRegisters(StartAddress, 1)
                 ReadValue = ReadValues(0)
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
                 Dim ReadValues() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 1)
                 ReadValue = ReadValues(0)
         End Select
@@ -48,43 +48,36 @@ Public Class Modbus
         Dim StartAddress As Integer = Val(Address)
         Select Case RegType
             Case 0
-                Dim ReadValues() As Boolean = modbusClient.ReadCoils(StartAddress, 2)
-                ReadValue = ReadValues(0)
+            ' Code for reading coils
             Case 1
-                If StartAddress > 10000 Then StartAddress = StartAddress - 10001
-                Dim ReadValues() As Boolean = modbusClient.ReadDiscreteInputs(StartAddress, 2)
-                ReadValue = ReadValues(0)
+            ' Code for reading discrete inputs
             Case 2
-                If StartAddress > 30000 Then StartAddress = StartAddress - 30001
-                Dim ReadValues() As Integer = modbusClient.ReadInputRegisters(StartAddress, 2)
-                ReadValue = ReadValues(0)
+            ' Code for reading input registers
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
                 Dim vals() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 2)
-                ReadValue = ConvertDW2Float(vals(0), vals(1))
-
+                Console.WriteLine(vals(0).ToString + " " + vals(1).ToString)
+                ReadValue = ConvertDW2Float(CShort(vals(0)), CShort(vals(1)))
         End Select
     End Sub
+
     Private Function ConvertDW2Float(reg1 As Short, reg2 As Short) As Single
-        Dim fval As Single
+        Dim bytes(3) As Byte
+        Dim intBytes1 As Byte() = BitConverter.GetBytes(reg2)
+        Dim intBytes2 As Byte() = BitConverter.GetBytes(reg1)
 
-        Dim intBytes1 As Byte() = BitConverter.GetBytes(reg1)
-        If (BitConverter.IsLittleEndian) Then Array.Reverse(intBytes1)
-        Dim result1 As Byte() = intBytes1
-        Dim intBytes2 As Byte() = BitConverter.GetBytes(reg2)
-        If (BitConverter.IsLittleEndian) Then Array.Reverse(intBytes2)
-        Dim result2 As Byte() = intBytes2
-        Dim _bytes(4) As Byte
-        _bytes(0) = intBytes1(1)
-        _bytes(1) = intBytes1(0)
-        _bytes(2) = intBytes2(1)
-        _bytes(3) = intBytes2(0)
-        Dim _val As Double = BitConverter.ToSingle(_bytes, 0)
-        _val = Math.Round(_val, 2)
-        fval = _val
+        ' Assuming Float Swap format (swapping the two 16-bit registers)
+        bytes(0) = intBytes2(0)
+        bytes(1) = intBytes2(1)
+        bytes(2) = intBytes1(0)
+        bytes(3) = intBytes1(1)
 
-        Return fval
+        Dim result As Single = BitConverter.ToSingle(bytes, 0)
+        Console.WriteLine(result)
+        Return result
     End Function
+
+
     Public Function ReadData(RegType As String, Address As Integer) As Integer
         Try
             ReadHelper(Address, RegType)
@@ -120,38 +113,46 @@ Public Class Modbus
             Case 2
                     '
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
                 Dim WriteVals(0) As Integer
                 WriteVals(0) = Value
                 modbusClient.WriteMultipleRegisters(StartAddress, WriteVals)
         End Select
     End Sub
-    Private Sub WriteHelperFloat(RegType As Integer, Value As String, StartAddress As Integer)
+
+    Private Sub WriteHelperFloat(RegType As Integer, Value As Single, StartAddress As Integer)
         Select Case RegType
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
-                modbusClient.WriteMultipleRegisters(StartAddress, ConvertFloat2DW(Value))
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
+                Dim values() As Integer = ConvertFloat2DW(Value)
+                modbusClient.WriteMultipleRegisters(StartAddress, values)
         End Select
     End Sub
+
     Private Function ConvertFloat2DW(fval As Single) As Integer()
         Dim byVals As Byte() = BitConverter.GetBytes(fval)
-        If (BitConverter.IsLittleEndian) Then Array.Reverse(byVals)
-        Dim bytes1(2) As Byte
-        bytes1(0) = byVals(1)
-        bytes1(1) = byVals(0)
-        Dim int1 As Short = BitConverter.ToInt16(bytes1, 0)
-        Dim bytes2(2) As Byte
-        bytes2(0) = byVals(3)
-        bytes2(1) = byVals(2)
-        Dim int2 As Short = BitConverter.ToInt16(bytes2, 0)
-        Dim values_(2) As Short
-        values_(0) = int2
-        values_(1) = int1
-        Dim values(2) As Integer
-        values(0) = values_(0)
-        values(1) = values_(1)
-        Return values
+
+        ' Swap the byte order for "Float Swap" format
+        Dim bytes(3) As Byte
+        bytes(0) = byVals(2)
+        bytes(1) = byVals(3)
+        bytes(2) = byVals(0)
+        bytes(3) = byVals(1)
+
+        ' Convert to Short array for Modbus WriteMultipleRegisters
+        Dim values(1) As Short
+        values(0) = BitConverter.ToInt16(bytes, 0)
+        values(1) = BitConverter.ToInt16(bytes, 2)
+
+        ' Convert to Integer array for Modbus WriteMultipleRegisters
+        Dim result(1) As Integer
+        result(0) = values(1)
+        result(1) = values(0)
+
+        Return result
     End Function
+
+
     Public Sub WriteData(RegType As Integer, StartAddress As Integer, Value As String)
         Try
             WriteHelper(RegType, Value, StartAddress)

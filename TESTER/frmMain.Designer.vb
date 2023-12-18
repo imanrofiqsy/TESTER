@@ -534,6 +534,7 @@ Partial Class frmMain
         Me.txt_ch_2 = New System.Windows.Forms.TextBox()
         Me.pnl_alarm = New System.Windows.Forms.TabControl()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.txt_alarm = New System.Windows.Forms.TextBox()
         Me.GroupBox85 = New System.Windows.Forms.GroupBox()
         Me.ind_v602_descrepancy = New System.Windows.Forms.PictureBox()
         Me.Label94 = New System.Windows.Forms.Label()
@@ -889,7 +890,6 @@ Partial Class frmMain
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.txt_alarm = New System.Windows.Forms.TextBox()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -7294,6 +7294,16 @@ Partial Class frmMain
         Me.TabPage15.Text = "Alarm"
         Me.TabPage15.UseVisualStyleBackColor = True
         '
+        'txt_alarm
+        '
+        Me.txt_alarm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_alarm.Location = New System.Drawing.Point(12, 13)
+        Me.txt_alarm.Multiline = True
+        Me.txt_alarm.Name = "txt_alarm"
+        Me.txt_alarm.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txt_alarm.Size = New System.Drawing.Size(410, 487)
+        Me.txt_alarm.TabIndex = 63
+        '
         'GroupBox85
         '
         Me.GroupBox85.Controls.Add(Me.ind_v602_descrepancy)
@@ -11199,16 +11209,6 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
         '
-        'txt_alarm
-        '
-        Me.txt_alarm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_alarm.Location = New System.Drawing.Point(12, 13)
-        Me.txt_alarm.Multiline = True
-        Me.txt_alarm.Name = "txt_alarm"
-        Me.txt_alarm.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txt_alarm.Size = New System.Drawing.Size(410, 487)
-        Me.txt_alarm.TabIndex = 63
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -11243,6 +11243,11 @@ Partial Class frmMain
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.pnl_log)
+        Me.Controls.Add(Me.pnl_ref)
+        Me.Controls.Add(Me.pnl_laser)
+        Me.Controls.Add(Me.pnl_multi)
         Me.Controls.Add(Me.pnl_alarm)
         Me.Controls.Add(Me.pnl_mon_stn6)
         Me.Controls.Add(Me.pnl_mon_stn5)
@@ -11257,11 +11262,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
         Me.Controls.Add(Me.pnl_man_stn1)
-        Me.Controls.Add(Me.pnl_setting)
-        Me.Controls.Add(Me.pnl_log)
-        Me.Controls.Add(Me.pnl_ref)
-        Me.Controls.Add(Me.pnl_laser)
-        Me.Controls.Add(Me.pnl_multi)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

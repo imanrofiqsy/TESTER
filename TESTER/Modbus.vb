@@ -39,7 +39,7 @@ Public Class Modbus
                 Dim ReadValues() As Integer = modbusClient.ReadInputRegisters(StartAddress, 1)
                 ReadValue = ReadValues(0)
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
                 Dim ReadValues() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 1)
                 ReadValue = ReadValues(0)
         End Select
@@ -54,7 +54,7 @@ Public Class Modbus
             Case 2
             ' Code for reading input registers
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
                 Dim vals() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 2)
                 Console.WriteLine(vals(0).ToString + " " + vals(1).ToString)
                 ReadValue = ConvertDW2Float(CShort(vals(0)), CShort(vals(1)))
@@ -113,7 +113,7 @@ Public Class Modbus
             Case 2
                     '
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
                 Dim WriteVals(0) As Integer
                 WriteVals(0) = Value
                 modbusClient.WriteMultipleRegisters(StartAddress, WriteVals)
@@ -123,7 +123,7 @@ Public Class Modbus
     Private Sub WriteHelperFloat(RegType As Integer, Value As Single, StartAddress As Integer)
         Select Case RegType
             Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40001
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
                 Dim values() As Integer = ConvertFloat2DW(Value)
                 modbusClient.WriteMultipleRegisters(StartAddress, values)
         End Select

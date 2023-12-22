@@ -436,6 +436,20 @@ Partial Class frmMain
         Me.btn_stn1_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_setting = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.GroupBox176 = New System.Windows.Forms.GroupBox()
+        Me.cb_downgrade_6 = New System.Windows.Forms.ComboBox()
+        Me.Label166 = New System.Windows.Forms.Label()
+        Me.cb_downgrade_5 = New System.Windows.Forms.ComboBox()
+        Me.Label149 = New System.Windows.Forms.Label()
+        Me.cb_downgrade_4 = New System.Windows.Forms.ComboBox()
+        Me.btn_apply = New System.Windows.Forms.Button()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.cb_downgrade_3 = New System.Windows.Forms.ComboBox()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.cb_downgrade_2 = New System.Windows.Forms.ComboBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.cb_downgrade_1 = New System.Windows.Forms.ComboBox()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.GroupBox169 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.connect_multi_ind = New System.Windows.Forms.PictureBox()
@@ -890,6 +904,7 @@ Partial Class frmMain
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.txt_alarm_copy = New System.Windows.Forms.RichTextBox()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1047,6 +1062,7 @@ Partial Class frmMain
         Me.GroupBox1.SuspendLayout
         Me.pnl_setting.SuspendLayout
         Me.TabPage10.SuspendLayout
+        Me.GroupBox176.SuspendLayout
         Me.GroupBox169.SuspendLayout
         CType(Me.connect_multi_ind, System.ComponentModel.ISupportInitialize).BeginInit
         Me.grp_plc.SuspendLayout
@@ -1476,8 +1492,8 @@ Partial Class frmMain
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.txt_alarm_copy)
         Me.TabPage3.Controls.Add(Me.GroupBox175)
-        Me.TabPage3.Controls.Add(Me.GroupBox87)
         Me.TabPage3.Controls.Add(Me.GroupBox78)
         Me.TabPage3.Controls.Add(Me.GroupBox77)
         Me.TabPage3.Controls.Add(Me.GroupBox80)
@@ -1610,12 +1626,13 @@ Partial Class frmMain
         Me.GroupBox87.Controls.Add(Me.lbl_cnt_st3)
         Me.GroupBox87.Controls.Add(Me.lbl_cnt_st2)
         Me.GroupBox87.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox87.Location = New System.Drawing.Point(289, 434)
+        Me.GroupBox87.Location = New System.Drawing.Point(600, 719)
         Me.GroupBox87.Name = "GroupBox87"
         Me.GroupBox87.Size = New System.Drawing.Size(485, 61)
         Me.GroupBox87.TabIndex = 51
         Me.GroupBox87.TabStop = False
         Me.GroupBox87.Text = "Station Counter :"
+        Me.GroupBox87.Visible = False
         '
         'btn_clear_database
         '
@@ -2501,7 +2518,7 @@ Partial Class frmMain
         Me.lbl_item_6.Name = "lbl_item_6"
         Me.lbl_item_6.Size = New System.Drawing.Size(50, 20)
         Me.lbl_item_6.TabIndex = 37
-        Me.lbl_item_6.Text = "..."
+        Me.lbl_item_6.Text = "6"
         Me.lbl_item_6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl_item_5
@@ -2513,7 +2530,7 @@ Partial Class frmMain
         Me.lbl_item_5.Name = "lbl_item_5"
         Me.lbl_item_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_item_5.TabIndex = 37
-        Me.lbl_item_5.Text = "..."
+        Me.lbl_item_5.Text = "5"
         Me.lbl_item_5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl_status_5
@@ -2536,7 +2553,7 @@ Partial Class frmMain
         Me.lbl_item_4.Name = "lbl_item_4"
         Me.lbl_item_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_item_4.TabIndex = 37
-        Me.lbl_item_4.Text = "..."
+        Me.lbl_item_4.Text = "4"
         Me.lbl_item_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl_status_4
@@ -2559,7 +2576,7 @@ Partial Class frmMain
         Me.lbl_item_3.Name = "lbl_item_3"
         Me.lbl_item_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_item_3.TabIndex = 37
-        Me.lbl_item_3.Text = "..."
+        Me.lbl_item_3.Text = "3"
         Me.lbl_item_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl_status_3
@@ -2582,7 +2599,7 @@ Partial Class frmMain
         Me.lbl_item_2.Name = "lbl_item_2"
         Me.lbl_item_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_item_2.TabIndex = 37
-        Me.lbl_item_2.Text = "..."
+        Me.lbl_item_2.Text = "2"
         Me.lbl_item_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl_status_2
@@ -2605,7 +2622,7 @@ Partial Class frmMain
         Me.lbl_item_1.Name = "lbl_item_1"
         Me.lbl_item_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_item_1.TabIndex = 37
-        Me.lbl_item_1.Text = "..."
+        Me.lbl_item_1.Text = "1"
         Me.lbl_item_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl_status_1
@@ -6253,6 +6270,7 @@ Partial Class frmMain
         '
         'TabPage10
         '
+        Me.TabPage10.Controls.Add(Me.GroupBox176)
         Me.TabPage10.Controls.Add(Me.GroupBox169)
         Me.TabPage10.Controls.Add(Me.grp_plc)
         Me.TabPage10.Location = New System.Drawing.Point(4, 38)
@@ -6262,6 +6280,166 @@ Partial Class frmMain
         Me.TabPage10.TabIndex = 0
         Me.TabPage10.Text = "Configuration"
         Me.TabPage10.UseVisualStyleBackColor = True
+        '
+        'GroupBox176
+        '
+        Me.GroupBox176.Controls.Add(Me.cb_downgrade_6)
+        Me.GroupBox176.Controls.Add(Me.Label166)
+        Me.GroupBox176.Controls.Add(Me.cb_downgrade_5)
+        Me.GroupBox176.Controls.Add(Me.Label149)
+        Me.GroupBox176.Controls.Add(Me.cb_downgrade_4)
+        Me.GroupBox176.Controls.Add(Me.btn_apply)
+        Me.GroupBox176.Controls.Add(Me.Label71)
+        Me.GroupBox176.Controls.Add(Me.cb_downgrade_3)
+        Me.GroupBox176.Controls.Add(Me.Label60)
+        Me.GroupBox176.Controls.Add(Me.cb_downgrade_2)
+        Me.GroupBox176.Controls.Add(Me.Label42)
+        Me.GroupBox176.Controls.Add(Me.cb_downgrade_1)
+        Me.GroupBox176.Controls.Add(Me.Label24)
+        Me.GroupBox176.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox176.Location = New System.Drawing.Point(600, 33)
+        Me.GroupBox176.Name = "GroupBox176"
+        Me.GroupBox176.Size = New System.Drawing.Size(214, 302)
+        Me.GroupBox176.TabIndex = 60
+        Me.GroupBox176.TabStop = False
+        Me.GroupBox176.Text = "Station Downgrade"
+        '
+        'cb_downgrade_6
+        '
+        Me.cb_downgrade_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_downgrade_6.FormattingEnabled = True
+        Me.cb_downgrade_6.Items.AddRange(New Object() {"Enable", "Disable"})
+        Me.cb_downgrade_6.Location = New System.Drawing.Point(73, 207)
+        Me.cb_downgrade_6.Name = "cb_downgrade_6"
+        Me.cb_downgrade_6.Size = New System.Drawing.Size(121, 28)
+        Me.cb_downgrade_6.TabIndex = 0
+        Me.cb_downgrade_6.Text = "Enable"
+        '
+        'Label166
+        '
+        Me.Label166.AutoSize = True
+        Me.Label166.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label166.Location = New System.Drawing.Point(10, 211)
+        Me.Label166.Name = "Label166"
+        Me.Label166.Size = New System.Drawing.Size(50, 20)
+        Me.Label166.TabIndex = 1
+        Me.Label166.Text = "ST 6 :"
+        '
+        'cb_downgrade_5
+        '
+        Me.cb_downgrade_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_downgrade_5.FormattingEnabled = True
+        Me.cb_downgrade_5.Items.AddRange(New Object() {"Enable", "Disable"})
+        Me.cb_downgrade_5.Location = New System.Drawing.Point(73, 173)
+        Me.cb_downgrade_5.Name = "cb_downgrade_5"
+        Me.cb_downgrade_5.Size = New System.Drawing.Size(121, 28)
+        Me.cb_downgrade_5.TabIndex = 0
+        Me.cb_downgrade_5.Text = "Enable"
+        '
+        'Label149
+        '
+        Me.Label149.AutoSize = True
+        Me.Label149.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label149.Location = New System.Drawing.Point(10, 177)
+        Me.Label149.Name = "Label149"
+        Me.Label149.Size = New System.Drawing.Size(50, 20)
+        Me.Label149.TabIndex = 1
+        Me.Label149.Text = "ST 5 :"
+        '
+        'cb_downgrade_4
+        '
+        Me.cb_downgrade_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_downgrade_4.FormattingEnabled = True
+        Me.cb_downgrade_4.Items.AddRange(New Object() {"Enable", "Disable"})
+        Me.cb_downgrade_4.Location = New System.Drawing.Point(73, 139)
+        Me.cb_downgrade_4.Name = "cb_downgrade_4"
+        Me.cb_downgrade_4.Size = New System.Drawing.Size(121, 28)
+        Me.cb_downgrade_4.TabIndex = 0
+        Me.cb_downgrade_4.Text = "Enable"
+        '
+        'btn_apply
+        '
+        Me.btn_apply.AutoSize = True
+        Me.btn_apply.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_apply.Location = New System.Drawing.Point(92, 251)
+        Me.btn_apply.Name = "btn_apply"
+        Me.btn_apply.Size = New System.Drawing.Size(102, 35)
+        Me.btn_apply.TabIndex = 4
+        Me.btn_apply.Text = "Apply"
+        Me.btn_apply.UseVisualStyleBackColor = True
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label71.Location = New System.Drawing.Point(10, 143)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(50, 20)
+        Me.Label71.TabIndex = 1
+        Me.Label71.Text = "ST 4 :"
+        '
+        'cb_downgrade_3
+        '
+        Me.cb_downgrade_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_downgrade_3.FormattingEnabled = True
+        Me.cb_downgrade_3.Items.AddRange(New Object() {"Enable", "Disable"})
+        Me.cb_downgrade_3.Location = New System.Drawing.Point(73, 105)
+        Me.cb_downgrade_3.Name = "cb_downgrade_3"
+        Me.cb_downgrade_3.Size = New System.Drawing.Size(121, 28)
+        Me.cb_downgrade_3.TabIndex = 0
+        Me.cb_downgrade_3.Text = "Enable"
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label60.Location = New System.Drawing.Point(10, 109)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(50, 20)
+        Me.Label60.TabIndex = 1
+        Me.Label60.Text = "ST 3 :"
+        '
+        'cb_downgrade_2
+        '
+        Me.cb_downgrade_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_downgrade_2.FormattingEnabled = True
+        Me.cb_downgrade_2.Items.AddRange(New Object() {"Enable", "Disable"})
+        Me.cb_downgrade_2.Location = New System.Drawing.Point(73, 72)
+        Me.cb_downgrade_2.Name = "cb_downgrade_2"
+        Me.cb_downgrade_2.Size = New System.Drawing.Size(121, 28)
+        Me.cb_downgrade_2.TabIndex = 0
+        Me.cb_downgrade_2.Text = "Enable"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(10, 76)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(50, 20)
+        Me.Label42.TabIndex = 1
+        Me.Label42.Text = "ST 2 :"
+        '
+        'cb_downgrade_1
+        '
+        Me.cb_downgrade_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_downgrade_1.FormattingEnabled = True
+        Me.cb_downgrade_1.Items.AddRange(New Object() {"Enable", "Disable"})
+        Me.cb_downgrade_1.Location = New System.Drawing.Point(73, 38)
+        Me.cb_downgrade_1.Name = "cb_downgrade_1"
+        Me.cb_downgrade_1.Size = New System.Drawing.Size(121, 28)
+        Me.cb_downgrade_1.TabIndex = 0
+        Me.cb_downgrade_1.Text = "Enable"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(10, 42)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(50, 20)
+        Me.Label24.TabIndex = 1
+        Me.Label24.Text = "ST 1 :"
         '
         'GroupBox169
         '
@@ -6273,7 +6451,7 @@ Partial Class frmMain
         Me.GroupBox169.Controls.Add(Me.btn_connect_multi)
         Me.GroupBox169.Controls.Add(Me.txtPort_multi)
         Me.GroupBox169.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox169.Location = New System.Drawing.Point(476, 118)
+        Me.GroupBox169.Location = New System.Drawing.Point(319, 34)
         Me.GroupBox169.Name = "GroupBox169"
         Me.GroupBox169.Size = New System.Drawing.Size(214, 190)
         Me.GroupBox169.TabIndex = 59
@@ -6293,7 +6471,7 @@ Partial Class frmMain
         'connect_multi_ind
         '
         Me.connect_multi_ind.BackColor = System.Drawing.Color.Transparent
-        Me.connect_multi_ind.Image = Global.TESTER.My.Resources.Resources.led_red_on
+        Me.connect_multi_ind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.connect_multi_ind.Location = New System.Drawing.Point(124, 106)
         Me.connect_multi_ind.Name = "connect_multi_ind"
         Me.connect_multi_ind.Size = New System.Drawing.Size(20, 20)
@@ -6368,7 +6546,7 @@ Partial Class frmMain
         Me.grp_plc.Controls.Add(Me.Label6)
         Me.grp_plc.Controls.Add(Me.Label9)
         Me.grp_plc.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grp_plc.Location = New System.Drawing.Point(155, 118)
+        Me.grp_plc.Location = New System.Drawing.Point(32, 34)
         Me.grp_plc.Name = "grp_plc"
         Me.grp_plc.Size = New System.Drawing.Size(214, 301)
         Me.grp_plc.TabIndex = 58
@@ -6387,7 +6565,7 @@ Partial Class frmMain
         'connect_plc_ind
         '
         Me.connect_plc_ind.BackColor = System.Drawing.Color.Transparent
-        Me.connect_plc_ind.Image = Global.TESTER.My.Resources.Resources.led_red_on
+        Me.connect_plc_ind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.connect_plc_ind.Location = New System.Drawing.Point(121, 100)
         Me.connect_plc_ind.Name = "connect_plc_ind"
         Me.connect_plc_ind.Size = New System.Drawing.Size(20, 20)
@@ -11209,6 +11387,16 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
         '
+        'txt_alarm_copy
+        '
+        Me.txt_alarm_copy.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txt_alarm_copy.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_alarm_copy.Location = New System.Drawing.Point(288, 446)
+        Me.txt_alarm_copy.Name = "txt_alarm_copy"
+        Me.txt_alarm_copy.Size = New System.Drawing.Size(487, 49)
+        Me.txt_alarm_copy.TabIndex = 58
+        Me.txt_alarm_copy.Text = ""
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -11216,6 +11404,7 @@ Partial Class frmMain
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.lbl_date)
+        Me.Controls.Add(Me.GroupBox87)
         Me.Controls.Add(Me.lbl_run_state)
         Me.Controls.Add(Me.lbl_curr_time)
         Me.Controls.Add(Me.GroupBox86)
@@ -11243,6 +11432,13 @@ Partial Class frmMain
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
@@ -11255,13 +11451,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -11463,6 +11652,8 @@ Partial Class frmMain
         Me.GroupBox1.ResumeLayout(False)
         Me.pnl_setting.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
+        Me.GroupBox176.ResumeLayout(False)
+        Me.GroupBox176.PerformLayout
         Me.GroupBox169.ResumeLayout(False)
         Me.GroupBox169.PerformLayout
         CType(Me.connect_multi_ind, System.ComponentModel.ISupportInitialize).EndInit
@@ -12654,4 +12845,19 @@ Partial Class frmMain
     Friend WithEvents lbl_pass As Label
     Friend WithEvents btn_empty As Button
     Friend WithEvents txt_alarm As TextBox
+    Friend WithEvents GroupBox176 As GroupBox
+    Friend WithEvents cb_downgrade_6 As ComboBox
+    Friend WithEvents Label166 As Label
+    Friend WithEvents cb_downgrade_5 As ComboBox
+    Friend WithEvents Label149 As Label
+    Friend WithEvents cb_downgrade_4 As ComboBox
+    Friend WithEvents Label71 As Label
+    Friend WithEvents cb_downgrade_3 As ComboBox
+    Friend WithEvents Label60 As Label
+    Friend WithEvents cb_downgrade_2 As ComboBox
+    Friend WithEvents Label42 As Label
+    Friend WithEvents cb_downgrade_1 As ComboBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents btn_apply As Button
+    Friend WithEvents txt_alarm_copy As RichTextBox
 End Class

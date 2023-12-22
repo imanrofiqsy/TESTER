@@ -198,14 +198,14 @@ Public Class frmMain
         If btn_connect_plc.Text = "Connect" Then
             If Modbus.OpenPort(txtIP_PLC.Text, txtPort_PLC.Text) Then
                 btn_connect_plc.Text = "Disconnect"
-                connect_plc_ind.Image = My.Resources.led_green_on
+                connect_plc_ind.BackColor = Color.Red
                 ModbusRW.Enabled = True
                 MODBUS_ERR = False
             End If
         ElseIf btn_connect_plc.Text = "Disconnect" Then
             If Modbus.ClosePort() Then
                 btn_connect_plc.Text = "Connect"
-                connect_plc_ind.Image = My.Resources.led_red_off
+                connect_plc_ind.BackColor = Color.DarkRed
                 ind_plc_status.BackColor = Color.DarkRed
                 ModbusRW.Enabled = False
             End If
@@ -216,12 +216,12 @@ Public Class frmMain
         If btn_connect_multi.Text = "Connect" Then
             If Multimeter.Connect(txtIP_multi.Text, txtPort_multi.Text) Then
                 btn_connect_multi.Text = "Disconnect"
-                connect_multi_ind.Image = My.Resources.led_green_on
+                connect_multi_ind.BackColor = Color.DarkRed
             End If
         ElseIf btn_connect_multi.Text = "Disconnect" Then
             If Multimeter.Close() Then
                 btn_connect_multi.Text = "Connect"
-                connect_multi_ind.Image = My.Resources.led_red_on
+                connect_multi_ind.BackColor = Color.Red
             End If
         End If
     End Sub
@@ -1193,6 +1193,8 @@ Public Class frmMain
         ReadAlarmStn5(ALARM_STN5)
         ALARM_STN6 = Modbus.ReadData(REGISTER_TYPE, ADDR_ALARM_STN6)
         ReadAlarmStn6(ALARM_STN6)
+
+
 
         'Check PLC
         PLC_READY = Modbus.ReadData(REGISTER_TYPE, ADDR_PLC_READY)
@@ -2216,6 +2218,7 @@ Public Class frmMain
 
         Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
         Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
 
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             MsgBox("Log.txt is missing")
@@ -2223,13 +2226,24 @@ Public Class frmMain
         End If
         For i As Integer = 0 To alarm_text_general.Length - 1
             If last_alarm_general(i) <> alarm_text_general(i) Then
-                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim strFile As String = projectFolder & "\Log\" & logFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
-                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
-                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_general(i), "Start Error Log for today"))
-                End Using
+                If File.Exists(strFile) Then
+                    ' If the file exists, append the log entry
+                    Using sw As New StreamWriter(strFile, True)
+                        sw.WriteLine(timestamp + alarm_text_general(i))
+                    End Using
+                Else
+                    ' If the file does not exist, create it and write the log entry
+                    Using sw As New StreamWriter(strFile)
+                        sw.WriteLine(timestamp + alarm_text_general(i))
+                    End Using
+                End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_general(i) + vbCrLf
                 txt_alarm.ScrollToCaret()
+                txt_alarm_copy.Text = txt_alarm.Text
+                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
+                txt_alarm_copy.ScrollToCaret()
                 last_alarm_general(i) = alarm_text_general(i)
             End If
         Next
@@ -2257,6 +2271,7 @@ Public Class frmMain
 
         Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
         Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
 
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             MsgBox("Log.txt is missing")
@@ -2264,13 +2279,24 @@ Public Class frmMain
         End If
         For i As Integer = 0 To alarm_text_stn2.Length - 1
             If last_alarm_stn2(i) <> alarm_text_stn2(i) Then
-                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim strFile As String = projectFolder & "\Log\" & logFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
-                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
-                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn2(i), "Start Error Log for today"))
-                End Using
+                If File.Exists(strFile) Then
+                    ' If the file exists, append the log entry
+                    Using sw As New StreamWriter(strFile, True)
+                        sw.WriteLine(timestamp + alarm_text_stn2(i))
+                    End Using
+                Else
+                    ' If the file does not exist, create it and write the log entry
+                    Using sw As New StreamWriter(strFile)
+                        sw.WriteLine(timestamp + alarm_text_stn2(i))
+                    End Using
+                End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn2(i) + vbCrLf
                 txt_alarm.ScrollToCaret()
+                txt_alarm_copy.Text = txt_alarm.Text
+                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
+                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn2(i) = alarm_text_stn2(i)
             End If
         Next
@@ -2298,6 +2324,7 @@ Public Class frmMain
 
         Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
         Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
 
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             MsgBox("Log.txt is missing")
@@ -2305,13 +2332,24 @@ Public Class frmMain
         End If
         For i As Integer = 0 To alarm_text_stn3.Length - 1
             If last_alarm_stn3(i) <> alarm_text_stn3(i) Then
-                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim strFile As String = projectFolder & "\Log\" & logFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
-                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
-                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn3(i), "Start Error Log for today"))
-                End Using
+                If File.Exists(strFile) Then
+                    ' If the file exists, append the log entry
+                    Using sw As New StreamWriter(strFile, True)
+                        sw.WriteLine(timestamp + alarm_text_stn3(i))
+                    End Using
+                Else
+                    ' If the file does not exist, create it and write the log entry
+                    Using sw As New StreamWriter(strFile)
+                        sw.WriteLine(timestamp + alarm_text_stn3(i))
+                    End Using
+                End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn3(i) + vbCrLf
                 txt_alarm.ScrollToCaret()
+                txt_alarm_copy.Text = txt_alarm.Text
+                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
+                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn3(i) = alarm_text_stn3(i)
             End If
         Next
@@ -2339,6 +2377,8 @@ Public Class frmMain
 
         Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
         Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
+
 
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             MsgBox("Log.txt is missing")
@@ -2346,13 +2386,24 @@ Public Class frmMain
         End If
         For i As Integer = 0 To alarm_text_stn4.Length - 1
             If last_alarm_stn4(i) <> alarm_text_stn4(i) Then
-                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim strFile As String = projectFolder & "\Log\" & logFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
-                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
-                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn4(i), "Start Error Log for today"))
-                End Using
+                If File.Exists(strFile) Then
+                    ' If the file exists, append the log entry
+                    Using sw As New StreamWriter(strFile, True)
+                        sw.WriteLine(timestamp + alarm_text_stn4(i))
+                    End Using
+                Else
+                    ' If the file does not exist, create it and write the log entry
+                    Using sw As New StreamWriter(strFile)
+                        sw.WriteLine(timestamp + alarm_text_stn4(i))
+                    End Using
+                End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn4(i) + vbCrLf
                 txt_alarm.ScrollToCaret()
+                txt_alarm_copy.Text = txt_alarm.Text
+                txt_alarm_copy.ScrollToCaret()
+                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
                 last_alarm_stn4(i) = alarm_text_stn4(i)
             End If
         Next
@@ -2380,6 +2431,7 @@ Public Class frmMain
 
         Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
         Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
 
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             MsgBox("Log.txt is missing")
@@ -2387,13 +2439,24 @@ Public Class frmMain
         End If
         For i As Integer = 0 To alarm_text_stn5.Length - 1
             If last_alarm_stn5(i) <> alarm_text_stn5(i) Then
-                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim strFile As String = projectFolder & "\Log\" & logFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
-                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
-                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn5(i), "Start Error Log for today"))
-                End Using
+                If File.Exists(strFile) Then
+                    ' If the file exists, append the log entry
+                    Using sw As New StreamWriter(strFile, True)
+                        sw.WriteLine(timestamp + alarm_text_stn5(i))
+                    End Using
+                Else
+                    ' If the file does not exist, create it and write the log entry
+                    Using sw As New StreamWriter(strFile)
+                        sw.WriteLine(timestamp + alarm_text_stn5(i))
+                    End Using
+                End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn5(i) + vbCrLf
                 txt_alarm.ScrollToCaret()
+                txt_alarm_copy.Text = txt_alarm.Text
+                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
+                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn5(i) = alarm_text_stn5(i)
             End If
         Next
@@ -2421,6 +2484,7 @@ Public Class frmMain
 
         Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
         Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
 
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             MsgBox("Log.txt is missing")
@@ -2428,13 +2492,24 @@ Public Class frmMain
         End If
         For i As Integer = 0 To alarm_text_stn6.Length - 1
             If last_alarm_stn6(i) <> alarm_text_stn6(i) Then
-                Dim strFile As String = projectFolder & "\Log\Log.txt"
+                Dim strFile As String = projectFolder & "\Log\" & logFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
-                Using sw As New StreamWriter(File.Open(strFile, FileMode.Append))
-                    sw.WriteLine(IIf(fileExists, timestamp + alarm_text_stn6(i), "Start Error Log for today"))
-                End Using
+                If File.Exists(strFile) Then
+                    ' If the file exists, append the log entry
+                    Using sw As New StreamWriter(strFile, True)
+                        sw.WriteLine(timestamp + alarm_text_stn6(i))
+                    End Using
+                Else
+                    ' If the file does not exist, create it and write the log entry
+                    Using sw As New StreamWriter(strFile)
+                        sw.WriteLine(timestamp + alarm_text_stn6(i))
+                    End Using
+                End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn6(i) + vbCrLf
                 txt_alarm.ScrollToCaret()
+                txt_alarm_copy.Text = txt_alarm.Text
+                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
+                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn6(i) = alarm_text_stn6(i)
             End If
         Next
@@ -2646,7 +2721,7 @@ Public Class frmMain
 
                               Select Case Action_ST2
                                   Case 1
-                                      lbl_item_1.Text = CNT_ST2
+                                      'lbl_item_1.Text = CNT_ST2
                                       lbl_st2_meas.Text = st2_result
                                       lbl_st3_res.Text = ""
                                       lbl_st4_p2.Text = ""
@@ -2658,7 +2733,7 @@ Public Class frmMain
                                       lbl_unscrew_status.Text = ""
                                       Action_ST2 += 1
                                   Case 2
-                                      lbl_item_2.Text = CNT_ST2
+                                      'lbl_item_2.Text = CNT_ST2
                                       lbl_st2_meas_1.Text = st2_result
                                       lbl_st3_res_1.Text = ""
                                       lbl_st4_p2_1.Text = ""
@@ -2670,7 +2745,7 @@ Public Class frmMain
                                       lbl_unscrew_status_1.Text = ""
                                       Action_ST2 += 1
                                   Case 3
-                                      lbl_item_3.Text = CNT_ST2
+                                      'lbl_item_3.Text = CNT_ST2
                                       lbl_st2_meas_2.Text = st2_result
                                       lbl_st3_res_2.Text = ""
                                       lbl_st4_p2_2.Text = ""
@@ -2682,7 +2757,7 @@ Public Class frmMain
                                       lbl_unscrew_status_2.Text = ""
                                       Action_ST2 += 1
                                   Case 4
-                                      lbl_item_4.Text = CNT_ST2
+                                      'lbl_item_4.Text = CNT_ST2
                                       lbl_st2_meas_3.Text = st2_result
                                       lbl_st3_res_3.Text = ""
                                       lbl_st4_p2_3.Text = ""
@@ -2694,7 +2769,7 @@ Public Class frmMain
                                       lbl_unscrew_status_3.Text = ""
                                       Action_ST2 += 1
                                   Case 5
-                                      lbl_item_5.Text = CNT_ST2
+                                      'lbl_item_5.Text = CNT_ST2
                                       lbl_st2_meas_4.Text = st2_result
                                       lbl_st3_res_4.Text = ""
                                       lbl_st4_p2_4.Text = ""
@@ -2706,7 +2781,7 @@ Public Class frmMain
                                       lbl_unscrew_status_4.Text = ""
                                       Action_ST2 += 1
                                   Case 6
-                                      lbl_item_6.Text = CNT_ST2
+                                      'lbl_item_6.Text = CNT_ST2
                                       lbl_st2_meas_5.Text = st2_result
                                       lbl_st3_res_5.Text = ""
                                       lbl_st4_p2_5.Text = ""
@@ -3105,5 +3180,50 @@ Public Class frmMain
         ElseIf Val(empty_process) = 1 Then
             MsgBox("Emptying In Process")
         End If
+    End Sub
+    Dim bin_val(6) As Integer
+    Dim bin_str As String
+    Private Sub btn_apply_Click(sender As Object, e As EventArgs) Handles btn_apply.Click
+        If cb_downgrade_1.Text = "Enable" Then
+            bin_val(0) = 1
+        Else
+            bin_val(0) = 0
+        End If
+
+        If cb_downgrade_2.Text = "Enable" Then
+            bin_val(1) = 1
+        Else
+            bin_val(1) = 0
+        End If
+
+        If cb_downgrade_3.Text = "Enable" Then
+            bin_val(2) = 1
+        Else
+            bin_val(2) = 0
+        End If
+
+        If cb_downgrade_4.Text = "Enable" Then
+            bin_val(3) = 1
+        Else
+            bin_val(3) = 0
+        End If
+
+        If cb_downgrade_5.Text = "Enable" Then
+            bin_val(4) = 1
+        Else
+            bin_val(4) = 0
+        End If
+
+        If cb_downgrade_6.Text = "Enable" Then
+            bin_val(5) = 1
+        Else
+            bin_val(5) = 0
+        End If
+
+        bin_str = bin_val(5).ToString + bin_val(4).ToString + bin_val(3).ToString + bin_val(2).ToString + bin_val(1).ToString + bin_val(0).ToString
+
+        Dim integerValue As Integer = Convert.ToInt32(bin_str, 2)
+
+        Modbus.WriteData(REGISTER_TYPE, ADDR_ST_DOWNGRADE, integerValue)
     End Sub
 End Class

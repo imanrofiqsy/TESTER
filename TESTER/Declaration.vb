@@ -1,4 +1,6 @@
 ﻿Module Declaration
+    Public ADDR_ST_DOWNGRADE As Integer = 40011
+
     Public MODBUS_ERR As Boolean = False
 
     Public ADDR_PASS As Integer = 40003

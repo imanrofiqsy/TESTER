@@ -1,4 +1,6 @@
 ﻿Module Declaration
+    Public STATION_STATUS As Integer
+
     Public ADDR_ST_DOWNGRADE As Integer = 40011
 
     Public MODBUS_ERR As Boolean = False

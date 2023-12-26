@@ -1194,7 +1194,9 @@ Public Class frmMain
         ALARM_STN6 = Modbus.ReadData(REGISTER_TYPE, ADDR_ALARM_STN6)
         ReadAlarmStn6(ALARM_STN6)
 
-
+        'Station Downgrade Status
+        STATION_STATUS = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_DOWNGRADE)
+        ReadStationStatus(STATION_STATUS)
 
         'Check PLC
         PLC_READY = Modbus.ReadData(REGISTER_TYPE, ADDR_PLC_READY)
@@ -2515,6 +2517,46 @@ Public Class frmMain
         Next
     End Sub
 
+    Private Sub ReadStationStatus(DecimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
+
+        If binaryString(15) = "1" Then
+            ind_stn_1.BackColor = Color.DarkRed
+        Else
+            ind_stn_1.BackColor = Color.Red
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_stn_2.BackColor = Color.DarkRed
+        Else
+            ind_stn_2.BackColor = Color.Red
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_stn_3.BackColor = Color.DarkRed
+        Else
+            ind_stn_3.BackColor = Color.Red
+        End If
+
+        If binaryString(12) = "1" Then
+            ind_stn_4.BackColor = Color.DarkRed
+        Else
+            ind_stn_4.BackColor = Color.Red
+        End If
+
+        If binaryString(11) = "1" Then
+            ind_stn_5.BackColor = Color.DarkRed
+        Else
+            ind_stn_5.BackColor = Color.Red
+        End If
+
+        If binaryString(10) = "1" Then
+            ind_stn_6.BackColor = Color.DarkRed
+        Else
+            ind_stn_6.BackColor = Color.Red
+        End If
+    End Sub
+
     Private Sub Status_Tick(sender As Object, e As EventArgs) Handles Status.Tick
 
         Select Case SCAN_MODE
@@ -3184,37 +3226,37 @@ Public Class frmMain
     Dim bin_val(6) As Integer
     Dim bin_str As String
     Private Sub btn_apply_Click(sender As Object, e As EventArgs) Handles btn_apply.Click
-        If cb_downgrade_1.Text = "Enable" Then
+        If cb_downgrade_1.Text = "Disable" Then
             bin_val(0) = 1
         Else
             bin_val(0) = 0
         End If
 
-        If cb_downgrade_2.Text = "Enable" Then
+        If cb_downgrade_2.Text = "Disable" Then
             bin_val(1) = 1
         Else
             bin_val(1) = 0
         End If
 
-        If cb_downgrade_3.Text = "Enable" Then
+        If cb_downgrade_3.Text = "Disable" Then
             bin_val(2) = 1
         Else
             bin_val(2) = 0
         End If
 
-        If cb_downgrade_4.Text = "Enable" Then
+        If cb_downgrade_4.Text = "Disable" Then
             bin_val(3) = 1
         Else
             bin_val(3) = 0
         End If
 
-        If cb_downgrade_5.Text = "Enable" Then
+        If cb_downgrade_5.Text = "Disable" Then
             bin_val(4) = 1
         Else
             bin_val(4) = 0
         End If
 
-        If cb_downgrade_6.Text = "Enable" Then
+        If cb_downgrade_6.Text = "Disable" Then
             bin_val(5) = 1
         Else
             bin_val(5) = 0

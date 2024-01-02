@@ -6473,8 +6473,8 @@ Partial Class frmMain
         Me.GroupBox176.Controls.Add(Me.st1_beating)
         Me.GroupBox176.Controls.Add(Me.st4_cot)
         Me.GroupBox176.Controls.Add(Me.st3_adjustment)
-        Me.GroupBox176.Controls.Add(Me.st1_measuring)
         Me.GroupBox176.Controls.Add(Me.cb_downgrade_6)
+        Me.GroupBox176.Controls.Add(Me.st1_measuring)
         Me.GroupBox176.Controls.Add(Me.Label166)
         Me.GroupBox176.Controls.Add(Me.cb_downgrade_5)
         Me.GroupBox176.Controls.Add(Me.Label149)
@@ -6595,7 +6595,7 @@ Partial Class frmMain
         Me.cb_downgrade_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_downgrade_2.FormattingEnabled = True
         Me.cb_downgrade_2.Items.AddRange(New Object() {"Enable", "Disable"})
-        Me.cb_downgrade_2.Location = New System.Drawing.Point(73, 112)
+        Me.cb_downgrade_2.Location = New System.Drawing.Point(73, 72)
         Me.cb_downgrade_2.Name = "cb_downgrade_2"
         Me.cb_downgrade_2.Size = New System.Drawing.Size(121, 28)
         Me.cb_downgrade_2.TabIndex = 0
@@ -6605,7 +6605,7 @@ Partial Class frmMain
         '
         Me.Label42.AutoSize = True
         Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label42.Location = New System.Drawing.Point(10, 116)
+        Me.Label42.Location = New System.Drawing.Point(10, 76)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(50, 20)
         Me.Label42.TabIndex = 1
@@ -11582,7 +11582,7 @@ Partial Class frmMain
         '
         Me.st1_measuring.AutoSize = True
         Me.st1_measuring.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st1_measuring.Location = New System.Drawing.Point(73, 68)
+        Me.st1_measuring.Location = New System.Drawing.Point(73, 104)
         Me.st1_measuring.Name = "st1_measuring"
         Me.st1_measuring.Size = New System.Drawing.Size(90, 20)
         Me.st1_measuring.TabIndex = 5
@@ -11593,7 +11593,7 @@ Partial Class frmMain
         '
         Me.st1_beating.AutoSize = True
         Me.st1_beating.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st1_beating.Location = New System.Drawing.Point(73, 85)
+        Me.st1_beating.Location = New System.Drawing.Point(73, 121)
         Me.st1_beating.Name = "st1_beating"
         Me.st1_beating.Size = New System.Drawing.Size(73, 20)
         Me.st1_beating.TabIndex = 5

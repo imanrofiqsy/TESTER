@@ -3262,13 +3262,13 @@ Public Class frmMain
             bin_val(5) = 0
         End If
 
-        If st1_measuring.Checked = False Then
+        If st2_measuring.Checked = False Then
             bin_val_(0) = 1
         Else
             bin_val_(0) = 0
         End If
 
-        If st1_beating.Checked = False Then
+        If st2_beating.Checked = False Then
             bin_val_(1) = 1
         Else
             bin_val_(1) = 0
@@ -3308,16 +3308,6 @@ Public Class frmMain
         Modbus.WriteData(REGISTER_TYPE, ADDR_ST_DOWNGRADE_SUB, integerValue_)
     End Sub
 
-    Private Sub cb_downgrade_1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_downgrade_1.SelectedIndexChanged
-        If cb_downgrade_1.Text = "Enable" Then
-            st1_beating.Checked = True
-            st1_measuring.Checked = True
-        Else
-            st1_beating.Checked = False
-            st1_measuring.Checked = False
-        End If
-    End Sub
-
     Private Sub cb_downgrade_3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_downgrade_3.SelectedIndexChanged
         If cb_downgrade_3.Text = "Enable" Then
             st3_adjustment.Checked = True
@@ -3335,6 +3325,16 @@ Public Class frmMain
         Else
             st4_cot.Checked = False
             st4_resistance.Checked = False
+        End If
+    End Sub
+
+    Private Sub cb_downgrade_2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_downgrade_2.SelectedIndexChanged
+        If cb_downgrade_2.Text = "Enable" Then
+            st2_beating.Checked = True
+            st2_measuring.Checked = True
+        Else
+            st2_beating.Checked = False
+            st2_measuring.Checked = False
         End If
     End Sub
 End Class

@@ -918,8 +918,8 @@ Partial Class frmMain
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.st1_measuring = New System.Windows.Forms.CheckBox()
-        Me.st1_beating = New System.Windows.Forms.CheckBox()
+        Me.st2_measuring = New System.Windows.Forms.CheckBox()
+        Me.st2_beating = New System.Windows.Forms.CheckBox()
         Me.st3_adjustment = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.st4_cot = New System.Windows.Forms.CheckBox()
@@ -6470,11 +6470,11 @@ Partial Class frmMain
         '
         Me.GroupBox176.Controls.Add(Me.st4_resistance)
         Me.GroupBox176.Controls.Add(Me.CheckBox2)
-        Me.GroupBox176.Controls.Add(Me.st1_beating)
+        Me.GroupBox176.Controls.Add(Me.st2_beating)
         Me.GroupBox176.Controls.Add(Me.st4_cot)
         Me.GroupBox176.Controls.Add(Me.st3_adjustment)
         Me.GroupBox176.Controls.Add(Me.cb_downgrade_6)
-        Me.GroupBox176.Controls.Add(Me.st1_measuring)
+        Me.GroupBox176.Controls.Add(Me.st2_measuring)
         Me.GroupBox176.Controls.Add(Me.Label166)
         Me.GroupBox176.Controls.Add(Me.cb_downgrade_5)
         Me.GroupBox176.Controls.Add(Me.Label149)
@@ -11578,27 +11578,27 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
         '
-        'st1_measuring
+        'st2_measuring
         '
-        Me.st1_measuring.AutoSize = True
-        Me.st1_measuring.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st1_measuring.Location = New System.Drawing.Point(73, 104)
-        Me.st1_measuring.Name = "st1_measuring"
-        Me.st1_measuring.Size = New System.Drawing.Size(90, 20)
-        Me.st1_measuring.TabIndex = 5
-        Me.st1_measuring.Text = "Measuring"
-        Me.st1_measuring.UseVisualStyleBackColor = True
+        Me.st2_measuring.AutoSize = True
+        Me.st2_measuring.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.st2_measuring.Location = New System.Drawing.Point(73, 104)
+        Me.st2_measuring.Name = "st2_measuring"
+        Me.st2_measuring.Size = New System.Drawing.Size(90, 20)
+        Me.st2_measuring.TabIndex = 5
+        Me.st2_measuring.Text = "Measuring"
+        Me.st2_measuring.UseVisualStyleBackColor = True
         '
-        'st1_beating
+        'st2_beating
         '
-        Me.st1_beating.AutoSize = True
-        Me.st1_beating.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st1_beating.Location = New System.Drawing.Point(73, 121)
-        Me.st1_beating.Name = "st1_beating"
-        Me.st1_beating.Size = New System.Drawing.Size(73, 20)
-        Me.st1_beating.TabIndex = 5
-        Me.st1_beating.Text = "Beating"
-        Me.st1_beating.UseVisualStyleBackColor = True
+        Me.st2_beating.AutoSize = True
+        Me.st2_beating.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.st2_beating.Location = New System.Drawing.Point(73, 121)
+        Me.st2_beating.Name = "st2_beating"
+        Me.st2_beating.Size = New System.Drawing.Size(73, 20)
+        Me.st2_beating.TabIndex = 5
+        Me.st2_beating.Text = "Beating"
+        Me.st2_beating.UseVisualStyleBackColor = True
         '
         'st3_adjustment
         '
@@ -13130,8 +13130,8 @@ Partial Class frmMain
     Friend WithEvents ind_stn_1 As PictureBox
     Friend WithEvents st4_resistance As CheckBox
     Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents st1_beating As CheckBox
+    Friend WithEvents st2_beating As CheckBox
     Friend WithEvents st4_cot As CheckBox
     Friend WithEvents st3_adjustment As CheckBox
-    Friend WithEvents st1_measuring As CheckBox
+    Friend WithEvents st2_measuring As CheckBox
 End Class

@@ -56,7 +56,7 @@ Public Class Modbus
             Case 3
                 If StartAddress > 40000 Then StartAddress = StartAddress - 40000
                 Dim vals() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 2)
-                Console.WriteLine(vals(0).ToString + " " + vals(1).ToString)
+                'Console.WriteLine(vals(0).ToString + " " + vals(1).ToString)
                 ReadValue = ConvertDW2Float(CShort(vals(0)), CShort(vals(1)))
         End Select
     End Sub
@@ -73,7 +73,7 @@ Public Class Modbus
         bytes(3) = intBytes1(1)
 
         Dim result As Single = BitConverter.ToSingle(bytes, 0)
-        Console.WriteLine(result)
+        'Console.WriteLine(result)
         Return result
     End Function
 

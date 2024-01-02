@@ -2,6 +2,7 @@
     Public STATION_STATUS As Integer
 
     Public ADDR_ST_DOWNGRADE As Integer = 40011
+    Public ADDR_ST_DOWNGRADE_SUB As Integer = 40012
 
     Public MODBUS_ERR As Boolean = False
 

@@ -34,6 +34,7 @@ Public Class frmMain
         UpdateLoadingBar(100, "Load App GUI")
         Thread.Sleep(500)
         CloseLoadForm()
+        Cursor = Cursors.Default
         Show()
     End Sub
     'Loading Bar
@@ -2741,7 +2742,7 @@ Public Class frmMain
         If rd.Item("OperatorID") <> txt_ope_id.Text Then
             Return True
         End If
-        Console.WriteLine(rd.Item("OperatorID"))
+        'Console.WriteLine(rd.Item("OperatorID"))
         Return False
     End Function
     Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click
@@ -3123,7 +3124,6 @@ Public Class frmMain
             LoadTbRef()
         End If
     End Sub
-
     Private Sub btn_update_Click(sender As Object, e As EventArgs) Handles btn_update.Click
         If txt_ref_pnl.Text = "" Then
             MsgBox("Please Fill Product References")
@@ -3189,7 +3189,6 @@ Public Class frmMain
                           End Sub)
         End Select
     End Sub
-
     Private Sub btn_search_Click(sender As Object, e As EventArgs) Handles btn_search.Click
         Me.Invoke(Sub()
                       Try
@@ -3211,7 +3210,6 @@ Public Class frmMain
                       txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
                   End Sub)
     End Sub
-
     Private Sub btn_empty_Click(sender As Object, e As EventArgs) Handles btn_empty.Click
         Dim empty_process As String = Modbus.ReadData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS)
 
@@ -3224,7 +3222,9 @@ Public Class frmMain
         End If
     End Sub
     Dim bin_val(6) As Integer
+    Dim bin_val_(6) As Integer
     Dim bin_str As String
+    Dim bin_str_ As String
     Private Sub btn_apply_Click(sender As Object, e As EventArgs) Handles btn_apply.Click
         If cb_downgrade_1.Text = "Disable" Then
             bin_val(0) = 1
@@ -3262,10 +3262,79 @@ Public Class frmMain
             bin_val(5) = 0
         End If
 
+        If st1_measuring.Checked = False Then
+            bin_val_(0) = 1
+        Else
+            bin_val_(0) = 0
+        End If
+
+        If st1_beating.Checked = False Then
+            bin_val_(1) = 1
+        Else
+            bin_val_(1) = 0
+        End If
+
+        If st3_adjustment.Checked = False Then
+            bin_val_(2) = 1
+        Else
+            bin_val_(2) = 0
+        End If
+
+        If CheckBox2.Checked = False Then
+            bin_val_(3) = 1
+        Else
+            bin_val_(3) = 0
+        End If
+
+        If st4_cot.Checked = False Then
+            bin_val_(4) = 1
+        Else
+            bin_val_(4) = 0
+        End If
+
+        If st4_resistance.Checked = False Then
+            bin_val_(5) = 1
+        Else
+            bin_val_(5) = 0
+        End If
+
         bin_str = bin_val(5).ToString + bin_val(4).ToString + bin_val(3).ToString + bin_val(2).ToString + bin_val(1).ToString + bin_val(0).ToString
+        bin_str_ = bin_val_(5).ToString + bin_val_(4).ToString + bin_val_(3).ToString + bin_val_(2).ToString + bin_val_(1).ToString + bin_val_(0).ToString
 
         Dim integerValue As Integer = Convert.ToInt32(bin_str, 2)
+        Dim integerValue_ As Integer = Convert.ToInt32(bin_str_, 2)
 
         Modbus.WriteData(REGISTER_TYPE, ADDR_ST_DOWNGRADE, integerValue)
+        Modbus.WriteData(REGISTER_TYPE, ADDR_ST_DOWNGRADE_SUB, integerValue_)
+    End Sub
+
+    Private Sub cb_downgrade_1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_downgrade_1.SelectedIndexChanged
+        If cb_downgrade_1.Text = "Enable" Then
+            st1_beating.Checked = True
+            st1_measuring.Checked = True
+        Else
+            st1_beating.Checked = False
+            st1_measuring.Checked = False
+        End If
+    End Sub
+
+    Private Sub cb_downgrade_3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_downgrade_3.SelectedIndexChanged
+        If cb_downgrade_3.Text = "Enable" Then
+            st3_adjustment.Checked = True
+            CheckBox2.Checked = True
+        Else
+            st3_adjustment.Checked = False
+            CheckBox2.Checked = False
+        End If
+    End Sub
+
+    Private Sub cb_downgrade_4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_downgrade_4.SelectedIndexChanged
+        If cb_downgrade_4.Text = "Enable" Then
+            st4_cot.Checked = True
+            st4_resistance.Checked = True
+        Else
+            st4_cot.Checked = False
+            st4_resistance.Checked = False
+        End If
     End Sub
 End Class

@@ -70,7 +70,7 @@ Public Class Multimeter
     End Sub
     Public Function MeasureResistance() As Double
         Dim command As String = "MEAS?" + System.Environment.NewLine
-        Console.WriteLine(command)
+        'Console.WriteLine(command)
         SendCommand(command)
         Dim reply As String = GetReply()
         Dim value As Double

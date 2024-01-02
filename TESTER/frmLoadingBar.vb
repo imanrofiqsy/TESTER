@@ -6,5 +6,6 @@
 
     Private Sub frmLoadingBar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Enabled = True
+        Cursor = Cursors.WaitCursor
     End Sub
 End Class

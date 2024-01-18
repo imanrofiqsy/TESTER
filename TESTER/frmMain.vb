@@ -8,7 +8,15 @@ Public Class frmMain
 
     Dim AssyBuff As String
     Dim ManualState As Boolean
+    Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
+    Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
+    Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Dir(projectFolder & "\Log\Log.txt") = "" Then
+            Directory.CreateDirectory(projectFolder & "\Log")
+            File.WriteAllText(projectFolder & "\Log\Log.txt", "")
+        End If
+
         initLoadingBar()
         btn_connect_plc.PerformClick()
         Hide()
@@ -1235,7 +1243,7 @@ Public Class frmMain
                 lbl_auto_man.Text = "MANUAL"
         End Select
 
-        If pnl_home.Visible = False And pnl_setting.Visible = False And pnl_alarm.Visible = False Then
+        If pnl_home.Visible = False And pnl_setting.Visible = False And pnl_alarm.Visible = False And pnl_multi.Visible = False Then
             ' STN 1
             If Modbus.ReadData(REGISTER_TYPE, ADDR_STN1_SEN1) = FORWARD Then
                 stn1_cyl1_max.Image = My.Resources.led_red_on
@@ -2219,14 +2227,7 @@ Public Class frmMain
             ind_emg_button.BackColor = Color.DarkRed
         End If
 
-        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
-        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
-        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
 
-        If Dir(projectFolder & "\Log\Log.txt") = "" Then
-            MsgBox("Log.txt is missing")
-            End
-        End If
         For i As Integer = 0 To alarm_text_general.Length - 1
             If last_alarm_general(i) <> alarm_text_general(i) Then
                 Dim strFile As String = projectFolder & "\Log\" & logFileName
@@ -2250,6 +2251,7 @@ Public Class frmMain
                 last_alarm_general(i) = alarm_text_general(i)
             End If
         Next
+
     End Sub
     Dim alarm_text_stn2(2) As String
     Dim last_alarm_stn2(2) As String
@@ -2272,14 +2274,6 @@ Public Class frmMain
             alarm_text_stn2(1) = "V202 Descrepancy Not Detected"
         End If
 
-        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
-        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
-        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
-
-        If Dir(projectFolder & "\Log\Log.txt") = "" Then
-            MsgBox("Log.txt is missing")
-            End
-        End If
         For i As Integer = 0 To alarm_text_stn2.Length - 1
             If last_alarm_stn2(i) <> alarm_text_stn2(i) Then
                 Dim strFile As String = projectFolder & "\Log\" & logFileName
@@ -2325,14 +2319,6 @@ Public Class frmMain
             alarm_text_stn3(1) = "V302 Descrepancy Not Detected"
         End If
 
-        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
-        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
-        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
-
-        If Dir(projectFolder & "\Log\Log.txt") = "" Then
-            MsgBox("Log.txt is missing")
-            End
-        End If
         For i As Integer = 0 To alarm_text_stn3.Length - 1
             If last_alarm_stn3(i) <> alarm_text_stn3(i) Then
                 Dim strFile As String = projectFolder & "\Log\" & logFileName
@@ -2378,15 +2364,6 @@ Public Class frmMain
             alarm_text_stn4(1) = "V402 Descrepancy Not Detected"
         End If
 
-        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
-        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
-        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
-
-
-        If Dir(projectFolder & "\Log\Log.txt") = "" Then
-            MsgBox("Log.txt is missing")
-            End
-        End If
         For i As Integer = 0 To alarm_text_stn4.Length - 1
             If last_alarm_stn4(i) <> alarm_text_stn4(i) Then
                 Dim strFile As String = projectFolder & "\Log\" & logFileName
@@ -2432,14 +2409,6 @@ Public Class frmMain
             alarm_text_stn5(1) = "V501 Descrepancy Not Detected"
         End If
 
-        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
-        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
-        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
-
-        If Dir(projectFolder & "\Log\Log.txt") = "" Then
-            MsgBox("Log.txt is missing")
-            End
-        End If
         For i As Integer = 0 To alarm_text_stn5.Length - 1
             If last_alarm_stn5(i) <> alarm_text_stn5(i) Then
                 Dim strFile As String = projectFolder & "\Log\" & logFileName
@@ -2485,14 +2454,6 @@ Public Class frmMain
             alarm_text_stn6(1) = "V602 Descrepancy Not Detected"
         End If
 
-        Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
-        Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
-        Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
-
-        If Dir(projectFolder & "\Log\Log.txt") = "" Then
-            MsgBox("Log.txt is missing")
-            End
-        End If
         For i As Integer = 0 To alarm_text_stn6.Length - 1
             If last_alarm_stn6(i) <> alarm_text_stn6(i) Then
                 Dim strFile As String = projectFolder & "\Log\" & logFileName

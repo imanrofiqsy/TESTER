@@ -451,7 +451,13 @@ Partial Class frmMain
         Me.ind_stn_4 = New System.Windows.Forms.PictureBox()
         Me.ind_stn_1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox176 = New System.Windows.Forms.GroupBox()
+        Me.st4_resistance = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.st2_beating = New System.Windows.Forms.CheckBox()
+        Me.st4_cot = New System.Windows.Forms.CheckBox()
+        Me.st3_adjustment = New System.Windows.Forms.CheckBox()
         Me.cb_downgrade_6 = New System.Windows.Forms.ComboBox()
+        Me.st2_measuring = New System.Windows.Forms.CheckBox()
         Me.Label166 = New System.Windows.Forms.Label()
         Me.cb_downgrade_5 = New System.Windows.Forms.ComboBox()
         Me.Label149 = New System.Windows.Forms.Label()
@@ -918,12 +924,6 @@ Partial Class frmMain
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.st2_measuring = New System.Windows.Forms.CheckBox()
-        Me.st2_beating = New System.Windows.Forms.CheckBox()
-        Me.st3_adjustment = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.st4_cot = New System.Windows.Forms.CheckBox()
-        Me.st4_resistance = New System.Windows.Forms.CheckBox()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -2820,7 +2820,7 @@ Partial Class frmMain
         Me.GroupBox87.Controls.Add(Me.lbl_cnt_st3)
         Me.GroupBox87.Controls.Add(Me.lbl_cnt_st2)
         Me.GroupBox87.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox87.Location = New System.Drawing.Point(600, 719)
+        Me.GroupBox87.Location = New System.Drawing.Point(350, 855)
         Me.GroupBox87.Name = "GroupBox87"
         Me.GroupBox87.Size = New System.Drawing.Size(485, 61)
         Me.GroupBox87.TabIndex = 51
@@ -2929,7 +2929,7 @@ Partial Class frmMain
         Me.txt_msg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txt_msg.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_msg.ForeColor = System.Drawing.Color.Black
-        Me.txt_msg.Location = New System.Drawing.Point(327, 750)
+        Me.txt_msg.Location = New System.Drawing.Point(77, 886)
         Me.txt_msg.Name = "txt_msg"
         Me.txt_msg.Size = New System.Drawing.Size(216, 253)
         Me.txt_msg.TabIndex = 49
@@ -2938,7 +2938,7 @@ Partial Class frmMain
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(324, 721)
+        Me.Label18.Location = New System.Drawing.Point(74, 857)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(178, 24)
         Me.Label18.TabIndex = 50
@@ -2967,7 +2967,7 @@ Partial Class frmMain
         Me.GroupBox86.Controls.Add(Me.lbl_beating_times)
         Me.GroupBox86.Controls.Add(Me.lbl_act_val)
         Me.GroupBox86.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox86.Location = New System.Drawing.Point(1005, 591)
+        Me.GroupBox86.Location = New System.Drawing.Point(755, 727)
         Me.GroupBox86.Name = "GroupBox86"
         Me.GroupBox86.Size = New System.Drawing.Size(215, 278)
         Me.GroupBox86.TabIndex = 53
@@ -6495,6 +6495,61 @@ Partial Class frmMain
         Me.GroupBox176.TabStop = False
         Me.GroupBox176.Text = "Station Downgrade"
         '
+        'st4_resistance
+        '
+        Me.st4_resistance.AutoSize = True
+        Me.st4_resistance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.st4_resistance.Location = New System.Drawing.Point(73, 268)
+        Me.st4_resistance.Name = "st4_resistance"
+        Me.st4_resistance.Size = New System.Drawing.Size(95, 20)
+        Me.st4_resistance.TabIndex = 5
+        Me.st4_resistance.Text = "Resistance"
+        Me.st4_resistance.UseVisualStyleBackColor = True
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox2.Location = New System.Drawing.Point(73, 193)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(64, 20)
+        Me.CheckBox2.TabIndex = 5
+        Me.CheckBox2.Text = "Spare"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'st2_beating
+        '
+        Me.st2_beating.AutoSize = True
+        Me.st2_beating.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.st2_beating.Location = New System.Drawing.Point(73, 121)
+        Me.st2_beating.Name = "st2_beating"
+        Me.st2_beating.Size = New System.Drawing.Size(73, 20)
+        Me.st2_beating.TabIndex = 5
+        Me.st2_beating.Text = "Beating"
+        Me.st2_beating.UseVisualStyleBackColor = True
+        '
+        'st4_cot
+        '
+        Me.st4_cot.AutoSize = True
+        Me.st4_cot.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.st4_cot.Location = New System.Drawing.Point(73, 251)
+        Me.st4_cot.Name = "st4_cot"
+        Me.st4_cot.Size = New System.Drawing.Size(55, 20)
+        Me.st4_cot.TabIndex = 5
+        Me.st4_cot.Text = "COT"
+        Me.st4_cot.UseVisualStyleBackColor = True
+        '
+        'st3_adjustment
+        '
+        Me.st3_adjustment.AutoSize = True
+        Me.st3_adjustment.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.st3_adjustment.Location = New System.Drawing.Point(73, 176)
+        Me.st3_adjustment.Name = "st3_adjustment"
+        Me.st3_adjustment.Size = New System.Drawing.Size(93, 20)
+        Me.st3_adjustment.TabIndex = 5
+        Me.st3_adjustment.Text = "Adjustment"
+        Me.st3_adjustment.UseVisualStyleBackColor = True
+        '
         'cb_downgrade_6
         '
         Me.cb_downgrade_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -6505,6 +6560,17 @@ Partial Class frmMain
         Me.cb_downgrade_6.Size = New System.Drawing.Size(121, 28)
         Me.cb_downgrade_6.TabIndex = 0
         Me.cb_downgrade_6.Text = "Enable"
+        '
+        'st2_measuring
+        '
+        Me.st2_measuring.AutoSize = True
+        Me.st2_measuring.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.st2_measuring.Location = New System.Drawing.Point(73, 104)
+        Me.st2_measuring.Name = "st2_measuring"
+        Me.st2_measuring.Size = New System.Drawing.Size(90, 20)
+        Me.st2_measuring.TabIndex = 5
+        Me.st2_measuring.Text = "Measuring"
+        Me.st2_measuring.UseVisualStyleBackColor = True
         '
         'Label166
         '
@@ -11577,72 +11643,6 @@ Partial Class frmMain
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
-        '
-        'st2_measuring
-        '
-        Me.st2_measuring.AutoSize = True
-        Me.st2_measuring.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st2_measuring.Location = New System.Drawing.Point(73, 104)
-        Me.st2_measuring.Name = "st2_measuring"
-        Me.st2_measuring.Size = New System.Drawing.Size(90, 20)
-        Me.st2_measuring.TabIndex = 5
-        Me.st2_measuring.Text = "Measuring"
-        Me.st2_measuring.UseVisualStyleBackColor = True
-        '
-        'st2_beating
-        '
-        Me.st2_beating.AutoSize = True
-        Me.st2_beating.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st2_beating.Location = New System.Drawing.Point(73, 121)
-        Me.st2_beating.Name = "st2_beating"
-        Me.st2_beating.Size = New System.Drawing.Size(73, 20)
-        Me.st2_beating.TabIndex = 5
-        Me.st2_beating.Text = "Beating"
-        Me.st2_beating.UseVisualStyleBackColor = True
-        '
-        'st3_adjustment
-        '
-        Me.st3_adjustment.AutoSize = True
-        Me.st3_adjustment.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st3_adjustment.Location = New System.Drawing.Point(73, 176)
-        Me.st3_adjustment.Name = "st3_adjustment"
-        Me.st3_adjustment.Size = New System.Drawing.Size(93, 20)
-        Me.st3_adjustment.TabIndex = 5
-        Me.st3_adjustment.Text = "Adjustment"
-        Me.st3_adjustment.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.Location = New System.Drawing.Point(73, 193)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(64, 20)
-        Me.CheckBox2.TabIndex = 5
-        Me.CheckBox2.Text = "Spare"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'st4_cot
-        '
-        Me.st4_cot.AutoSize = True
-        Me.st4_cot.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st4_cot.Location = New System.Drawing.Point(73, 251)
-        Me.st4_cot.Name = "st4_cot"
-        Me.st4_cot.Size = New System.Drawing.Size(55, 20)
-        Me.st4_cot.TabIndex = 5
-        Me.st4_cot.Text = "COT"
-        Me.st4_cot.UseVisualStyleBackColor = True
-        '
-        'st4_resistance
-        '
-        Me.st4_resistance.AutoSize = True
-        Me.st4_resistance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st4_resistance.Location = New System.Drawing.Point(73, 268)
-        Me.st4_resistance.Name = "st4_resistance"
-        Me.st4_resistance.Size = New System.Drawing.Size(95, 20)
-        Me.st4_resistance.TabIndex = 5
-        Me.st4_resistance.Text = "Resistance"
-        Me.st4_resistance.UseVisualStyleBackColor = True
         '
         'frmMain
         '

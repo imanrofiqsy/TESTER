@@ -559,6 +559,12 @@ Partial Class frmMain
         Me.Label235 = New System.Windows.Forms.Label()
         Me.pnl_multi = New System.Windows.Forms.TabControl()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.GroupBox178 = New System.Windows.Forms.GroupBox()
+        Me.Label236 = New System.Windows.Forms.Label()
+        Me.Label248 = New System.Windows.Forms.Label()
+        Me.txt_cmd_multi = New System.Windows.Forms.TextBox()
+        Me.btn_send_multi = New System.Windows.Forms.Button()
+        Me.txt_respond_multi = New System.Windows.Forms.TextBox()
         Me.GroupBox170 = New System.Windows.Forms.GroupBox()
         Me.Label229 = New System.Windows.Forms.Label()
         Me.Label230 = New System.Windows.Forms.Label()
@@ -924,6 +930,14 @@ Partial Class frmMain
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ChromaComm = New System.IO.Ports.SerialPort(Me.components)
+        Me.lbl_st3_res2 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_1 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_2 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_3 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_4 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_5 = New System.Windows.Forms.Label()
+        Me.Label257 = New System.Windows.Forms.Label()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1111,6 +1125,7 @@ Partial Class frmMain
         Me.GroupBox173.SuspendLayout
         Me.pnl_multi.SuspendLayout
         Me.TabPage14.SuspendLayout
+        Me.GroupBox178.SuspendLayout
         Me.GroupBox170.SuspendLayout
         Me.pnl_alarm.SuspendLayout
         Me.TabPage15.SuspendLayout
@@ -1536,9 +1551,9 @@ Partial Class frmMain
         '
         'txt_alarm_copy
         '
-        Me.txt_alarm_copy.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txt_alarm_copy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txt_alarm_copy.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_alarm_copy.Location = New System.Drawing.Point(289, 445)
+        Me.txt_alarm_copy.Location = New System.Drawing.Point(289, 460)
         Me.txt_alarm_copy.Name = "txt_alarm_copy"
         Me.txt_alarm_copy.Size = New System.Drawing.Size(486, 49)
         Me.txt_alarm_copy.TabIndex = 58
@@ -1555,7 +1570,7 @@ Partial Class frmMain
         Me.GroupBox175.Controls.Add(Me.lbl_fail)
         Me.GroupBox175.Controls.Add(Me.lbl_pass)
         Me.GroupBox175.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox175.Location = New System.Drawing.Point(518, 23)
+        Me.GroupBox175.Location = New System.Drawing.Point(518, 4)
         Me.GroupBox175.Name = "GroupBox175"
         Me.GroupBox175.Size = New System.Drawing.Size(256, 118)
         Me.GroupBox175.TabIndex = 57
@@ -1659,6 +1674,7 @@ Partial Class frmMain
         Me.GroupBox78.Controls.Add(Me.Label116)
         Me.GroupBox78.Controls.Add(Me.Label117)
         Me.GroupBox78.Controls.Add(Me.laabel3)
+        Me.GroupBox78.Controls.Add(Me.Label257)
         Me.GroupBox78.Controls.Add(Me.Label119)
         Me.GroupBox78.Controls.Add(Me.laabel1)
         Me.GroupBox78.Controls.Add(Me.Label121)
@@ -1703,11 +1719,17 @@ Partial Class frmMain
         Me.GroupBox78.Controls.Add(Me.lbl_st4_t1_3)
         Me.GroupBox78.Controls.Add(Me.lbl_st4_t1_2)
         Me.GroupBox78.Controls.Add(Me.lbl_st4_t1_1)
+        Me.GroupBox78.Controls.Add(Me.lbl_st3_res2_5)
         Me.GroupBox78.Controls.Add(Me.lbl_st4_t1)
+        Me.GroupBox78.Controls.Add(Me.lbl_st3_res2_4)
         Me.GroupBox78.Controls.Add(Me.lbl_st3_res_5)
+        Me.GroupBox78.Controls.Add(Me.lbl_st3_res2_3)
         Me.GroupBox78.Controls.Add(Me.lbl_st3_res_4)
+        Me.GroupBox78.Controls.Add(Me.lbl_st3_res2_2)
         Me.GroupBox78.Controls.Add(Me.lbl_st3_res_3)
+        Me.GroupBox78.Controls.Add(Me.lbl_st3_res2_1)
         Me.GroupBox78.Controls.Add(Me.lbl_st3_res_2)
+        Me.GroupBox78.Controls.Add(Me.lbl_st3_res2)
         Me.GroupBox78.Controls.Add(Me.lbl_st3_res_1)
         Me.GroupBox78.Controls.Add(Me.lbl_st3_res)
         Me.GroupBox78.Controls.Add(Me.lbl_st4_p3_5)
@@ -1729,9 +1751,9 @@ Partial Class frmMain
         Me.GroupBox78.Controls.Add(Me.lbl_status_1)
         Me.GroupBox78.Controls.Add(Me.lbl_status)
         Me.GroupBox78.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox78.Location = New System.Drawing.Point(289, 145)
+        Me.GroupBox78.Location = New System.Drawing.Point(289, 126)
         Me.GroupBox78.Name = "GroupBox78"
-        Me.GroupBox78.Size = New System.Drawing.Size(486, 284)
+        Me.GroupBox78.Size = New System.Drawing.Size(486, 317)
         Me.GroupBox78.TabIndex = 52
         Me.GroupBox78.TabStop = False
         Me.GroupBox78.Text = "Production Data :"
@@ -1740,7 +1762,7 @@ Partial Class frmMain
         '
         Me.Label68.AutoSize = True
         Me.Label68.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label68.Location = New System.Drawing.Point(6, 258)
+        Me.Label68.Location = New System.Drawing.Point(6, 280)
         Me.Label68.Name = "Label68"
         Me.Label68.Size = New System.Drawing.Size(144, 18)
         Me.Label68.TabIndex = 36
@@ -1750,7 +1772,7 @@ Partial Class frmMain
         '
         Me.Label81.AutoSize = True
         Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label81.Location = New System.Drawing.Point(6, 210)
+        Me.Label81.Location = New System.Drawing.Point(6, 232)
         Me.Label81.Name = "Label81"
         Me.Label81.Size = New System.Drawing.Size(56, 18)
         Me.Label81.TabIndex = 36
@@ -1760,7 +1782,7 @@ Partial Class frmMain
         '
         Me.Label84.AutoSize = True
         Me.Label84.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label84.Location = New System.Drawing.Point(6, 117)
+        Me.Label84.Location = New System.Drawing.Point(6, 139)
         Me.Label84.Name = "Label84"
         Me.Label84.Size = New System.Drawing.Size(105, 18)
         Me.Label84.TabIndex = 36
@@ -1770,7 +1792,7 @@ Partial Class frmMain
         '
         Me.laabel2.AutoSize = True
         Me.laabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.laabel2.Location = New System.Drawing.Point(6, 163)
+        Me.laabel2.Location = New System.Drawing.Point(6, 185)
         Me.laabel2.Name = "laabel2"
         Me.laabel2.Size = New System.Drawing.Size(99, 18)
         Me.laabel2.TabIndex = 36
@@ -1790,7 +1812,7 @@ Partial Class frmMain
         '
         Me.Label117.AutoSize = True
         Me.Label117.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label117.Location = New System.Drawing.Point(6, 234)
+        Me.Label117.Location = New System.Drawing.Point(6, 256)
         Me.Label117.Name = "Label117"
         Me.Label117.Size = New System.Drawing.Size(93, 18)
         Me.Label117.TabIndex = 36
@@ -1800,7 +1822,7 @@ Partial Class frmMain
         '
         Me.laabel3.AutoSize = True
         Me.laabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.laabel3.Location = New System.Drawing.Point(6, 186)
+        Me.laabel3.Location = New System.Drawing.Point(6, 208)
         Me.laabel3.Name = "laabel3"
         Me.laabel3.Size = New System.Drawing.Size(56, 18)
         Me.laabel3.TabIndex = 36
@@ -1814,13 +1836,13 @@ Partial Class frmMain
         Me.Label119.Name = "Label119"
         Me.Label119.Size = New System.Drawing.Size(113, 18)
         Me.Label119.TabIndex = 36
-        Me.Label119.Text = "ST3 Resistance"
+        Me.Label119.Text = "ST4 Resistance"
         '
         'laabel1
         '
         Me.laabel1.AutoSize = True
         Me.laabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.laabel1.Location = New System.Drawing.Point(6, 139)
+        Me.laabel1.Location = New System.Drawing.Point(6, 161)
         Me.laabel1.Name = "laabel1"
         Me.laabel1.Size = New System.Drawing.Size(101, 18)
         Me.laabel1.TabIndex = 36
@@ -1841,7 +1863,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_5.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_5.Location = New System.Drawing.Point(426, 256)
+        Me.lbl_unscrew_status_5.Location = New System.Drawing.Point(426, 278)
         Me.lbl_unscrew_status_5.Name = "lbl_unscrew_status_5"
         Me.lbl_unscrew_status_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_5.TabIndex = 37
@@ -1852,7 +1874,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_4.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_4.Location = New System.Drawing.Point(373, 256)
+        Me.lbl_unscrew_status_4.Location = New System.Drawing.Point(373, 278)
         Me.lbl_unscrew_status_4.Name = "lbl_unscrew_status_4"
         Me.lbl_unscrew_status_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_4.TabIndex = 37
@@ -1863,7 +1885,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_3.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_3.Location = New System.Drawing.Point(320, 256)
+        Me.lbl_unscrew_status_3.Location = New System.Drawing.Point(320, 278)
         Me.lbl_unscrew_status_3.Name = "lbl_unscrew_status_3"
         Me.lbl_unscrew_status_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_3.TabIndex = 37
@@ -1874,7 +1896,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_2.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_2.Location = New System.Drawing.Point(267, 256)
+        Me.lbl_unscrew_status_2.Location = New System.Drawing.Point(267, 278)
         Me.lbl_unscrew_status_2.Name = "lbl_unscrew_status_2"
         Me.lbl_unscrew_status_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_2.TabIndex = 37
@@ -1885,7 +1907,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_1.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_1.Location = New System.Drawing.Point(214, 256)
+        Me.lbl_unscrew_status_1.Location = New System.Drawing.Point(214, 278)
         Me.lbl_unscrew_status_1.Name = "lbl_unscrew_status_1"
         Me.lbl_unscrew_status_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_1.TabIndex = 37
@@ -1896,7 +1918,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status.Location = New System.Drawing.Point(161, 256)
+        Me.lbl_unscrew_status.Location = New System.Drawing.Point(161, 278)
         Me.lbl_unscrew_status.Name = "lbl_unscrew_status"
         Me.lbl_unscrew_status.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status.TabIndex = 37
@@ -1907,7 +1929,7 @@ Partial Class frmMain
         Me.lbl_st4_t2_5.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t2_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t2_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t2_5.Location = New System.Drawing.Point(426, 208)
+        Me.lbl_st4_t2_5.Location = New System.Drawing.Point(426, 230)
         Me.lbl_st4_t2_5.Name = "lbl_st4_t2_5"
         Me.lbl_st4_t2_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t2_5.TabIndex = 37
@@ -1918,7 +1940,7 @@ Partial Class frmMain
         Me.lbl_st4_t2_4.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t2_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t2_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t2_4.Location = New System.Drawing.Point(373, 208)
+        Me.lbl_st4_t2_4.Location = New System.Drawing.Point(373, 230)
         Me.lbl_st4_t2_4.Name = "lbl_st4_t2_4"
         Me.lbl_st4_t2_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t2_4.TabIndex = 37
@@ -1929,7 +1951,7 @@ Partial Class frmMain
         Me.lbl_st4_t2_3.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t2_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t2_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t2_3.Location = New System.Drawing.Point(320, 208)
+        Me.lbl_st4_t2_3.Location = New System.Drawing.Point(320, 230)
         Me.lbl_st4_t2_3.Name = "lbl_st4_t2_3"
         Me.lbl_st4_t2_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t2_3.TabIndex = 37
@@ -1940,7 +1962,7 @@ Partial Class frmMain
         Me.lbl_st4_t2_2.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t2_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t2_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t2_2.Location = New System.Drawing.Point(267, 208)
+        Me.lbl_st4_t2_2.Location = New System.Drawing.Point(267, 230)
         Me.lbl_st4_t2_2.Name = "lbl_st4_t2_2"
         Me.lbl_st4_t2_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t2_2.TabIndex = 37
@@ -1951,7 +1973,7 @@ Partial Class frmMain
         Me.lbl_st4_t2_1.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t2_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t2_1.Location = New System.Drawing.Point(214, 208)
+        Me.lbl_st4_t2_1.Location = New System.Drawing.Point(214, 230)
         Me.lbl_st4_t2_1.Name = "lbl_st4_t2_1"
         Me.lbl_st4_t2_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t2_1.TabIndex = 37
@@ -1962,7 +1984,7 @@ Partial Class frmMain
         Me.lbl_st4_t2.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t2.Location = New System.Drawing.Point(161, 208)
+        Me.lbl_st4_t2.Location = New System.Drawing.Point(161, 230)
         Me.lbl_st4_t2.Name = "lbl_st4_t2"
         Me.lbl_st4_t2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t2.TabIndex = 37
@@ -1973,7 +1995,7 @@ Partial Class frmMain
         Me.lbl_st4_p2_5.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p2_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p2_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p2_5.Location = New System.Drawing.Point(426, 115)
+        Me.lbl_st4_p2_5.Location = New System.Drawing.Point(426, 137)
         Me.lbl_st4_p2_5.Name = "lbl_st4_p2_5"
         Me.lbl_st4_p2_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p2_5.TabIndex = 37
@@ -1984,7 +2006,7 @@ Partial Class frmMain
         Me.lbl_st4_p2_4.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p2_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p2_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p2_4.Location = New System.Drawing.Point(373, 115)
+        Me.lbl_st4_p2_4.Location = New System.Drawing.Point(373, 137)
         Me.lbl_st4_p2_4.Name = "lbl_st4_p2_4"
         Me.lbl_st4_p2_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p2_4.TabIndex = 37
@@ -1995,7 +2017,7 @@ Partial Class frmMain
         Me.lbl_st4_p2_3.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p2_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p2_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p2_3.Location = New System.Drawing.Point(320, 115)
+        Me.lbl_st4_p2_3.Location = New System.Drawing.Point(320, 137)
         Me.lbl_st4_p2_3.Name = "lbl_st4_p2_3"
         Me.lbl_st4_p2_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p2_3.TabIndex = 37
@@ -2006,7 +2028,7 @@ Partial Class frmMain
         Me.lbl_st4_p2_2.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p2_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p2_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p2_2.Location = New System.Drawing.Point(267, 115)
+        Me.lbl_st4_p2_2.Location = New System.Drawing.Point(267, 137)
         Me.lbl_st4_p2_2.Name = "lbl_st4_p2_2"
         Me.lbl_st4_p2_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p2_2.TabIndex = 37
@@ -2017,7 +2039,7 @@ Partial Class frmMain
         Me.lbl_st4_p2_1.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p2_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p2_1.Location = New System.Drawing.Point(214, 115)
+        Me.lbl_st4_p2_1.Location = New System.Drawing.Point(214, 137)
         Me.lbl_st4_p2_1.Name = "lbl_st4_p2_1"
         Me.lbl_st4_p2_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p2_1.TabIndex = 37
@@ -2028,7 +2050,7 @@ Partial Class frmMain
         Me.lbl_st4_p2.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p2.Location = New System.Drawing.Point(161, 115)
+        Me.lbl_st4_p2.Location = New System.Drawing.Point(161, 137)
         Me.lbl_st4_p2.Name = "lbl_st4_p2"
         Me.lbl_st4_p2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p2.TabIndex = 37
@@ -2039,7 +2061,7 @@ Partial Class frmMain
         Me.lbl_diff_result_5.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_5.Location = New System.Drawing.Point(426, 161)
+        Me.lbl_diff_result_5.Location = New System.Drawing.Point(426, 183)
         Me.lbl_diff_result_5.Name = "lbl_diff_result_5"
         Me.lbl_diff_result_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_5.TabIndex = 37
@@ -2050,7 +2072,7 @@ Partial Class frmMain
         Me.lbl_diff_result_4.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_4.Location = New System.Drawing.Point(373, 161)
+        Me.lbl_diff_result_4.Location = New System.Drawing.Point(373, 183)
         Me.lbl_diff_result_4.Name = "lbl_diff_result_4"
         Me.lbl_diff_result_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_4.TabIndex = 37
@@ -2061,7 +2083,7 @@ Partial Class frmMain
         Me.lbl_diff_result_3.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_3.Location = New System.Drawing.Point(320, 161)
+        Me.lbl_diff_result_3.Location = New System.Drawing.Point(320, 183)
         Me.lbl_diff_result_3.Name = "lbl_diff_result_3"
         Me.lbl_diff_result_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_3.TabIndex = 37
@@ -2072,7 +2094,7 @@ Partial Class frmMain
         Me.lbl_diff_result_2.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_2.Location = New System.Drawing.Point(267, 161)
+        Me.lbl_diff_result_2.Location = New System.Drawing.Point(267, 183)
         Me.lbl_diff_result_2.Name = "lbl_diff_result_2"
         Me.lbl_diff_result_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_2.TabIndex = 37
@@ -2083,7 +2105,7 @@ Partial Class frmMain
         Me.lbl_diff_result_1.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_1.Location = New System.Drawing.Point(214, 161)
+        Me.lbl_diff_result_1.Location = New System.Drawing.Point(214, 183)
         Me.lbl_diff_result_1.Name = "lbl_diff_result_1"
         Me.lbl_diff_result_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_1.TabIndex = 37
@@ -2094,7 +2116,7 @@ Partial Class frmMain
         Me.lbl_diff_result.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result.Location = New System.Drawing.Point(161, 161)
+        Me.lbl_diff_result.Location = New System.Drawing.Point(161, 183)
         Me.lbl_diff_result.Name = "lbl_diff_result"
         Me.lbl_diff_result.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result.TabIndex = 37
@@ -2171,7 +2193,7 @@ Partial Class frmMain
         Me.lbl_cot_5.BackColor = System.Drawing.Color.White
         Me.lbl_cot_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_cot_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cot_5.Location = New System.Drawing.Point(426, 232)
+        Me.lbl_cot_5.Location = New System.Drawing.Point(426, 254)
         Me.lbl_cot_5.Name = "lbl_cot_5"
         Me.lbl_cot_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_cot_5.TabIndex = 37
@@ -2182,7 +2204,7 @@ Partial Class frmMain
         Me.lbl_cot_4.BackColor = System.Drawing.Color.White
         Me.lbl_cot_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_cot_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cot_4.Location = New System.Drawing.Point(373, 232)
+        Me.lbl_cot_4.Location = New System.Drawing.Point(373, 254)
         Me.lbl_cot_4.Name = "lbl_cot_4"
         Me.lbl_cot_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_cot_4.TabIndex = 37
@@ -2193,7 +2215,7 @@ Partial Class frmMain
         Me.lbl_cot_3.BackColor = System.Drawing.Color.White
         Me.lbl_cot_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_cot_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cot_3.Location = New System.Drawing.Point(320, 232)
+        Me.lbl_cot_3.Location = New System.Drawing.Point(320, 254)
         Me.lbl_cot_3.Name = "lbl_cot_3"
         Me.lbl_cot_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_cot_3.TabIndex = 37
@@ -2204,7 +2226,7 @@ Partial Class frmMain
         Me.lbl_cot_2.BackColor = System.Drawing.Color.White
         Me.lbl_cot_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_cot_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cot_2.Location = New System.Drawing.Point(267, 232)
+        Me.lbl_cot_2.Location = New System.Drawing.Point(267, 254)
         Me.lbl_cot_2.Name = "lbl_cot_2"
         Me.lbl_cot_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_cot_2.TabIndex = 37
@@ -2215,7 +2237,7 @@ Partial Class frmMain
         Me.lbl_cot_1.BackColor = System.Drawing.Color.White
         Me.lbl_cot_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_cot_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cot_1.Location = New System.Drawing.Point(214, 232)
+        Me.lbl_cot_1.Location = New System.Drawing.Point(214, 254)
         Me.lbl_cot_1.Name = "lbl_cot_1"
         Me.lbl_cot_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_cot_1.TabIndex = 37
@@ -2226,7 +2248,7 @@ Partial Class frmMain
         Me.lbl_cot.BackColor = System.Drawing.Color.White
         Me.lbl_cot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_cot.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cot.Location = New System.Drawing.Point(161, 232)
+        Me.lbl_cot.Location = New System.Drawing.Point(161, 254)
         Me.lbl_cot.Name = "lbl_cot"
         Me.lbl_cot.Size = New System.Drawing.Size(50, 20)
         Me.lbl_cot.TabIndex = 37
@@ -2237,7 +2259,7 @@ Partial Class frmMain
         Me.lbl_st4_t1_5.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t1_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t1_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t1_5.Location = New System.Drawing.Point(426, 184)
+        Me.lbl_st4_t1_5.Location = New System.Drawing.Point(426, 206)
         Me.lbl_st4_t1_5.Name = "lbl_st4_t1_5"
         Me.lbl_st4_t1_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t1_5.TabIndex = 37
@@ -2248,7 +2270,7 @@ Partial Class frmMain
         Me.lbl_st4_t1_4.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t1_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t1_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t1_4.Location = New System.Drawing.Point(373, 184)
+        Me.lbl_st4_t1_4.Location = New System.Drawing.Point(373, 206)
         Me.lbl_st4_t1_4.Name = "lbl_st4_t1_4"
         Me.lbl_st4_t1_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t1_4.TabIndex = 37
@@ -2259,7 +2281,7 @@ Partial Class frmMain
         Me.lbl_st4_t1_3.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t1_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t1_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t1_3.Location = New System.Drawing.Point(320, 184)
+        Me.lbl_st4_t1_3.Location = New System.Drawing.Point(320, 206)
         Me.lbl_st4_t1_3.Name = "lbl_st4_t1_3"
         Me.lbl_st4_t1_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t1_3.TabIndex = 37
@@ -2270,7 +2292,7 @@ Partial Class frmMain
         Me.lbl_st4_t1_2.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t1_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t1_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t1_2.Location = New System.Drawing.Point(267, 184)
+        Me.lbl_st4_t1_2.Location = New System.Drawing.Point(267, 206)
         Me.lbl_st4_t1_2.Name = "lbl_st4_t1_2"
         Me.lbl_st4_t1_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t1_2.TabIndex = 37
@@ -2281,7 +2303,7 @@ Partial Class frmMain
         Me.lbl_st4_t1_1.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t1_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t1_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t1_1.Location = New System.Drawing.Point(214, 184)
+        Me.lbl_st4_t1_1.Location = New System.Drawing.Point(214, 206)
         Me.lbl_st4_t1_1.Name = "lbl_st4_t1_1"
         Me.lbl_st4_t1_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t1_1.TabIndex = 37
@@ -2292,7 +2314,7 @@ Partial Class frmMain
         Me.lbl_st4_t1.BackColor = System.Drawing.Color.White
         Me.lbl_st4_t1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_t1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_t1.Location = New System.Drawing.Point(161, 184)
+        Me.lbl_st4_t1.Location = New System.Drawing.Point(161, 206)
         Me.lbl_st4_t1.Name = "lbl_st4_t1"
         Me.lbl_st4_t1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t1.TabIndex = 37
@@ -2369,7 +2391,7 @@ Partial Class frmMain
         Me.lbl_st4_p3_5.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p3_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p3_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p3_5.Location = New System.Drawing.Point(426, 137)
+        Me.lbl_st4_p3_5.Location = New System.Drawing.Point(426, 159)
         Me.lbl_st4_p3_5.Name = "lbl_st4_p3_5"
         Me.lbl_st4_p3_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p3_5.TabIndex = 37
@@ -2380,7 +2402,7 @@ Partial Class frmMain
         Me.lbl_st4_p3_4.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p3_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p3_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p3_4.Location = New System.Drawing.Point(373, 137)
+        Me.lbl_st4_p3_4.Location = New System.Drawing.Point(373, 159)
         Me.lbl_st4_p3_4.Name = "lbl_st4_p3_4"
         Me.lbl_st4_p3_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p3_4.TabIndex = 37
@@ -2391,7 +2413,7 @@ Partial Class frmMain
         Me.lbl_st4_p3_3.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p3_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p3_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p3_3.Location = New System.Drawing.Point(320, 137)
+        Me.lbl_st4_p3_3.Location = New System.Drawing.Point(320, 159)
         Me.lbl_st4_p3_3.Name = "lbl_st4_p3_3"
         Me.lbl_st4_p3_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p3_3.TabIndex = 37
@@ -2402,7 +2424,7 @@ Partial Class frmMain
         Me.lbl_st4_p3_2.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p3_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p3_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p3_2.Location = New System.Drawing.Point(267, 137)
+        Me.lbl_st4_p3_2.Location = New System.Drawing.Point(267, 159)
         Me.lbl_st4_p3_2.Name = "lbl_st4_p3_2"
         Me.lbl_st4_p3_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p3_2.TabIndex = 37
@@ -2413,7 +2435,7 @@ Partial Class frmMain
         Me.lbl_st4_p3_1.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p3_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p3_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p3_1.Location = New System.Drawing.Point(214, 137)
+        Me.lbl_st4_p3_1.Location = New System.Drawing.Point(214, 159)
         Me.lbl_st4_p3_1.Name = "lbl_st4_p3_1"
         Me.lbl_st4_p3_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p3_1.TabIndex = 37
@@ -2424,7 +2446,7 @@ Partial Class frmMain
         Me.lbl_st4_p3.BackColor = System.Drawing.Color.White
         Me.lbl_st4_p3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_p3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_p3.Location = New System.Drawing.Point(161, 137)
+        Me.lbl_st4_p3.Location = New System.Drawing.Point(161, 159)
         Me.lbl_st4_p3.Name = "lbl_st4_p3"
         Me.lbl_st4_p3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_p3.TabIndex = 37
@@ -2579,7 +2601,7 @@ Partial Class frmMain
         Me.GroupBox77.Controls.Add(Me.btn_stop)
         Me.GroupBox77.Controls.Add(Me.btn_run)
         Me.GroupBox77.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox77.Location = New System.Drawing.Point(73, 290)
+        Me.GroupBox77.Location = New System.Drawing.Point(73, 271)
         Me.GroupBox77.Name = "GroupBox77"
         Me.GroupBox77.Size = New System.Drawing.Size(200, 140)
         Me.GroupBox77.TabIndex = 54
@@ -2675,7 +2697,7 @@ Partial Class frmMain
         Me.GroupBox80.Controls.Add(Me.btn_clear)
         Me.GroupBox80.Controls.Add(Me.Label80)
         Me.GroupBox80.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox80.Location = New System.Drawing.Point(73, 23)
+        Me.GroupBox80.Location = New System.Drawing.Point(73, 4)
         Me.GroupBox80.Name = "GroupBox80"
         Me.GroupBox80.Size = New System.Drawing.Size(200, 261)
         Me.GroupBox80.TabIndex = 55
@@ -2760,7 +2782,7 @@ Partial Class frmMain
         Me.GroupBox76.Controls.Add(Me.ind_plc_status)
         Me.GroupBox76.Controls.Add(Me.Label64)
         Me.GroupBox76.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox76.Location = New System.Drawing.Point(73, 434)
+        Me.GroupBox76.Location = New System.Drawing.Point(73, 449)
         Me.GroupBox76.Name = "GroupBox76"
         Me.GroupBox76.Size = New System.Drawing.Size(200, 61)
         Me.GroupBox76.TabIndex = 56
@@ -2792,7 +2814,7 @@ Partial Class frmMain
         Me.lbl_op_ins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_op_ins.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_op_ins.ForeColor = System.Drawing.Color.Red
-        Me.lbl_op_ins.Location = New System.Drawing.Point(289, 56)
+        Me.lbl_op_ins.Location = New System.Drawing.Point(289, 37)
         Me.lbl_op_ins.Name = "lbl_op_ins"
         Me.lbl_op_ins.Size = New System.Drawing.Size(216, 85)
         Me.lbl_op_ins.TabIndex = 49
@@ -2802,7 +2824,7 @@ Partial Class frmMain
         '
         Me.Label86.AutoSize = True
         Me.Label86.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label86.Location = New System.Drawing.Point(285, 23)
+        Me.Label86.Location = New System.Drawing.Point(285, 4)
         Me.Label86.Name = "Label86"
         Me.Label86.Size = New System.Drawing.Size(193, 24)
         Me.Label86.TabIndex = 50
@@ -7619,6 +7641,7 @@ Partial Class frmMain
         '
         'TabPage14
         '
+        Me.TabPage14.Controls.Add(Me.GroupBox178)
         Me.TabPage14.Controls.Add(Me.GroupBox170)
         Me.TabPage14.Location = New System.Drawing.Point(4, 38)
         Me.TabPage14.Name = "TabPage14"
@@ -7627,6 +7650,68 @@ Partial Class frmMain
         Me.TabPage14.TabIndex = 0
         Me.TabPage14.Text = "Multimeter"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'GroupBox178
+        '
+        Me.GroupBox178.Controls.Add(Me.Label236)
+        Me.GroupBox178.Controls.Add(Me.Label248)
+        Me.GroupBox178.Controls.Add(Me.txt_cmd_multi)
+        Me.GroupBox178.Controls.Add(Me.btn_send_multi)
+        Me.GroupBox178.Controls.Add(Me.txt_respond_multi)
+        Me.GroupBox178.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox178.Location = New System.Drawing.Point(497, 158)
+        Me.GroupBox178.Name = "GroupBox178"
+        Me.GroupBox178.Size = New System.Drawing.Size(235, 146)
+        Me.GroupBox178.TabIndex = 61
+        Me.GroupBox178.TabStop = False
+        Me.GroupBox178.Text = "Check Connection"
+        '
+        'Label236
+        '
+        Me.Label236.AutoSize = True
+        Me.Label236.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label236.Location = New System.Drawing.Point(6, 34)
+        Me.Label236.Name = "Label236"
+        Me.Label236.Size = New System.Drawing.Size(90, 20)
+        Me.Label236.TabIndex = 1
+        Me.Label236.Text = "Command :"
+        '
+        'Label248
+        '
+        Me.Label248.AutoSize = True
+        Me.Label248.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label248.Location = New System.Drawing.Point(14, 64)
+        Me.Label248.Name = "Label248"
+        Me.Label248.Size = New System.Drawing.Size(82, 20)
+        Me.Label248.TabIndex = 1
+        Me.Label248.Text = "Respond :"
+        '
+        'txt_cmd_multi
+        '
+        Me.txt_cmd_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_cmd_multi.Location = New System.Drawing.Point(102, 30)
+        Me.txt_cmd_multi.Name = "txt_cmd_multi"
+        Me.txt_cmd_multi.Size = New System.Drawing.Size(123, 26)
+        Me.txt_cmd_multi.TabIndex = 2
+        '
+        'btn_send_multi
+        '
+        Me.btn_send_multi.AutoSize = True
+        Me.btn_send_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_send_multi.Location = New System.Drawing.Point(12, 99)
+        Me.btn_send_multi.Name = "btn_send_multi"
+        Me.btn_send_multi.Size = New System.Drawing.Size(102, 35)
+        Me.btn_send_multi.TabIndex = 4
+        Me.btn_send_multi.Text = "Send"
+        Me.btn_send_multi.UseVisualStyleBackColor = True
+        '
+        'txt_respond_multi
+        '
+        Me.txt_respond_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_respond_multi.Location = New System.Drawing.Point(102, 63)
+        Me.txt_respond_multi.Name = "txt_respond_multi"
+        Me.txt_respond_multi.Size = New System.Drawing.Size(123, 26)
+        Me.txt_respond_multi.TabIndex = 3
         '
         'GroupBox170
         '
@@ -7637,7 +7722,7 @@ Partial Class frmMain
         Me.GroupBox170.Controls.Add(Me.btn_read_ch_1)
         Me.GroupBox170.Controls.Add(Me.txt_ch_2)
         Me.GroupBox170.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox170.Location = New System.Drawing.Point(305, 195)
+        Me.GroupBox170.Location = New System.Drawing.Point(102, 157)
         Me.GroupBox170.Name = "GroupBox170"
         Me.GroupBox170.Size = New System.Drawing.Size(235, 146)
         Me.GroupBox170.TabIndex = 61
@@ -11644,6 +11729,87 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
         '
+        'ChromaComm
+        '
+        Me.ChromaComm.BaudRate = 19200
+        Me.ChromaComm.PortName = "COM8"
+        '
+        'lbl_st3_res2
+        '
+        Me.lbl_st3_res2.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2.Location = New System.Drawing.Point(161, 114)
+        Me.lbl_st3_res2.Name = "lbl_st3_res2"
+        Me.lbl_st3_res2.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2.TabIndex = 37
+        Me.lbl_st3_res2.Text = "..."
+        '
+        'lbl_st3_res2_1
+        '
+        Me.lbl_st3_res2_1.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_1.Location = New System.Drawing.Point(214, 114)
+        Me.lbl_st3_res2_1.Name = "lbl_st3_res2_1"
+        Me.lbl_st3_res2_1.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_1.TabIndex = 37
+        Me.lbl_st3_res2_1.Text = "..."
+        '
+        'lbl_st3_res2_2
+        '
+        Me.lbl_st3_res2_2.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_2.Location = New System.Drawing.Point(267, 114)
+        Me.lbl_st3_res2_2.Name = "lbl_st3_res2_2"
+        Me.lbl_st3_res2_2.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_2.TabIndex = 37
+        Me.lbl_st3_res2_2.Text = "..."
+        '
+        'lbl_st3_res2_3
+        '
+        Me.lbl_st3_res2_3.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_3.Location = New System.Drawing.Point(320, 114)
+        Me.lbl_st3_res2_3.Name = "lbl_st3_res2_3"
+        Me.lbl_st3_res2_3.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_3.TabIndex = 37
+        Me.lbl_st3_res2_3.Text = "..."
+        '
+        'lbl_st3_res2_4
+        '
+        Me.lbl_st3_res2_4.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_4.Location = New System.Drawing.Point(373, 114)
+        Me.lbl_st3_res2_4.Name = "lbl_st3_res2_4"
+        Me.lbl_st3_res2_4.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_4.TabIndex = 37
+        Me.lbl_st3_res2_4.Text = "..."
+        '
+        'lbl_st3_res2_5
+        '
+        Me.lbl_st3_res2_5.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_5.Location = New System.Drawing.Point(426, 114)
+        Me.lbl_st3_res2_5.Name = "lbl_st3_res2_5"
+        Me.lbl_st3_res2_5.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_5.TabIndex = 37
+        Me.lbl_st3_res2_5.Text = "..."
+        '
+        'Label257
+        '
+        Me.Label257.AutoSize = True
+        Me.Label257.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label257.Location = New System.Drawing.Point(6, 116)
+        Me.Label257.Name = "Label257"
+        Me.Label257.Size = New System.Drawing.Size(125, 18)
+        Me.Label257.TabIndex = 36
+        Me.Label257.Text = "ST4 Resistance 2"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -11679,6 +11845,13 @@ Partial Class frmMain
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
@@ -11691,13 +11864,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -11939,6 +12105,8 @@ Partial Class frmMain
         Me.GroupBox173.PerformLayout
         Me.pnl_multi.ResumeLayout(False)
         Me.TabPage14.ResumeLayout(False)
+        Me.GroupBox178.ResumeLayout(False)
+        Me.GroupBox178.PerformLayout
         Me.GroupBox170.ResumeLayout(False)
         Me.GroupBox170.PerformLayout
         Me.pnl_alarm.ResumeLayout(False)
@@ -13134,4 +13302,18 @@ Partial Class frmMain
     Friend WithEvents st4_cot As CheckBox
     Friend WithEvents st3_adjustment As CheckBox
     Friend WithEvents st2_measuring As CheckBox
+    Friend WithEvents ChromaComm As IO.Ports.SerialPort
+    Friend WithEvents GroupBox178 As GroupBox
+    Friend WithEvents Label236 As Label
+    Friend WithEvents Label248 As Label
+    Friend WithEvents txt_cmd_multi As TextBox
+    Friend WithEvents btn_send_multi As Button
+    Friend WithEvents txt_respond_multi As TextBox
+    Friend WithEvents Label257 As Label
+    Friend WithEvents lbl_st3_res2_5 As Label
+    Friend WithEvents lbl_st3_res2_4 As Label
+    Friend WithEvents lbl_st3_res2_3 As Label
+    Friend WithEvents lbl_st3_res2_2 As Label
+    Friend WithEvents lbl_st3_res2_1 As Label
+    Friend WithEvents lbl_st3_res2 As Label
 End Class

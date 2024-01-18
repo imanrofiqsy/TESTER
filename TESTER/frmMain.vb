@@ -27,8 +27,14 @@ Public Class frmMain
         ShowPanelGeneral("home")
         ShowButtonSTN(0)
         ShowPanelManual("None")
-        UpdateLoadingBar(40, "Loading...")
-        Thread.Sleep(500)
+        UpdateLoadingBar(40, "Connecting to Chroma...")
+        ChromaComm.Open()
+        Thread.Sleep(100)
+        If Not initChroma() Then
+            MsgBox("Unable to communicate with Chroma 16502")
+            End
+        End If
+        Thread.Sleep(400)
 
         'BarcodeComm.Open()
         ST2.Enabled = True
@@ -45,6 +51,13 @@ Public Class frmMain
         Cursor = Cursors.Default
         Show()
     End Sub
+    Private Function initChroma() As Boolean
+        If Not Set_chroma("*IDN?", "Chroma, 16502,165020003868,2.11,0") Then
+            Return False
+            Exit Function
+        End If
+        Return True
+    End Function
     'Loading Bar
     Private Sub initLoadingBar()
         ThreadLoadFrm = New Thread(New ThreadStart(AddressOf ProcessLoad))
@@ -2861,7 +2874,7 @@ Public Class frmMain
         If SCAN_MODE = 3 Then
             ST_COMM4 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM4)
             Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
-            If binaryString(15) = "1" And binaryString(14) = "0" Then
+            If binaryString(15) = "1" And binaryString(14) = "0" And binaryString(13) = "0" And binaryString(12) = "0" Then
                 Me.Invoke(Sub()
                               txt_msg.Text = txt_msg.Text + "Start recording ST4..." & vbCrLf
                               CNT_ST4 = CNT_ST4 + 1
@@ -2923,8 +2936,31 @@ Public Class frmMain
                                       Action_ST4 = 1
                               End Select
 
+                              Dim st3_result As String = Chroma_measure()
+
+                              Select Case Action_ST3
+                                  Case 1
+                                      lbl_st3_res.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 2
+                                      lbl_st3_res_1.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 3
+                                      lbl_st3_res_2.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 4
+                                      lbl_st3_res_3.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 5
+                                      lbl_st3_res_4.Text = st3_result
+                                      Action_ST3 += 1
+                                  Case 6
+                                      lbl_st3_res_5.Text = st3_result
+                                      Action_ST3 = 1
+                              End Select
+
                               Call KoneksiDB.koneksi_db()
-                              Dim sc As New SqlCommand("UPDATE Production_Data SET TravelP2 = '" & st4_p2_result & "', TravelP3 = '" & st4_p3_result & "', Difference = '" & diff_result_result & "', ST4T1 = '" & st4_t1_result & "', ST4T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE No = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                              Dim sc As New SqlCommand("UPDATE Production_Data SET Resistance = '" & st3_result & "', TravelP2 = '" & st4_p2_result & "', TravelP3 = '" & st4_p3_result & "', Difference = '" & diff_result_result & "', ST4T1 = '" & st4_t1_result & "', ST4T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE No = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
                               Dim adapter As New SqlDataAdapter(sc)
                               adapter.SelectCommand.ExecuteNonQuery()
 
@@ -2938,6 +2974,8 @@ Public Class frmMain
                               Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
                               lbl_cnt_st4.Text = CNT_ST4
                           End Sub)
+            ElseIf binaryString(15) = "0" And binaryString(14) = "0" And binaryString(13) = "1" And binaryString(12) = "0" Then
+
             End If
         End If
     End Sub
@@ -3298,4 +3336,46 @@ Public Class frmMain
             st2_measuring.Checked = False
         End If
     End Sub
+    Dim strChromaRaw As String
+    Private Sub ChromaComm_DataReceived(sender As Object, e As Ports.SerialDataReceivedEventArgs) Handles ChromaComm.DataReceived
+        strChromaRaw = ChromaComm.ReadLine
+        Me.Invoke(Sub()
+                      txt_respond_multi.Text = strChromaRaw
+                  End Sub)
+    End Sub
+
+    Private Sub btn_send_multi_Click(sender As Object, e As EventArgs) Handles btn_send_multi.Click
+        ChromaComm.Write(txt_cmd_multi.Text + vbCrLf)
+    End Sub
+
+    Public Function Set_chroma(Command As String, Reply As String) As Boolean
+        Dim Retry As Integer
+        Dim Timeout As Double
+
+Retry:
+        Timeout = 0
+        ChromaComm.Write(Command & vbCrLf)
+        If Reply <> "" Then
+            Do While strChromaRaw <> Reply
+                Timeout = Timeout + 1
+                If Timeout > 60000 Then
+                    Retry = Retry + 1
+                    If Retry > 4 Then
+                        Return False
+                        Exit Function
+                    Else
+                        GoTo Retry
+                    End If
+                End If
+                System.Windows.Forms.Application.DoEvents()
+            Loop
+        End If
+        Return True
+    End Function
+
+    Private Function Chroma_measure() As String
+        ChromaComm.Write("TRIG:SOUR INT" + vbCrLf)
+        Thread.Sleep(10)
+        Return strChromaRaw
+    End Function
 End Class

@@ -1,4 +1,19 @@
 ﻿Module Declaration
+    Public Config As New machineConfig
+    Public Result As New testerResult
+    Public Structure machineConfig
+        Dim addressPlc As String
+        Dim portPlc As String
+        Dim dbHostName As String
+        Dim dbUsername As String
+        Dim dbPassword As String
+        Dim dbDatabase As String
+        Dim instrumentName As String
+        Dim instrumentBaud As String
+        Dim instrumentPort As String
+        Dim sequenceCounter As String
+    End Structure
+
     Public STATION_STATUS As Integer
 
     Public ADDR_ST_DOWNGRADE As Integer = 40011
@@ -39,6 +54,20 @@
     Public ADDR_ST4_T2 As Integer = 47210
     Public ADDR_COT As Integer = 47212
     Public ADDR_UNSCREW_STATUS As Integer = 47214
+
+    Public Structure testerResult
+        Dim MEASUREMENT As String
+        Dim RESISTANCE_OFF As String
+        Dim RESISTANCE_ON As String
+        Dim TRAVEL_P2 As String
+        Dim TRAVEL_P3 As String
+        Dim DIFF_STR As String
+        Dim T1 As String
+        Dim T2 As String
+        Dim COT As String
+        Dim UNSCREW_STATUS As String
+    End Structure
+
 
     Public ADDR_ACT_VAL As Integer = 47000
     Public ADDR_ACT_VAL_TOL As Integer = 47002

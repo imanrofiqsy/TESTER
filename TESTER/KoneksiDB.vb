@@ -3,12 +3,14 @@ Module KoneksiDB
     Public koneksi As SqlConnection
     Public Sub koneksi_db()
         Try
-            Dim database As String = "Data Source=WTID10321122000\SQLEXPRESS;
-            initial catalog=TESE;
-            integrated security=true"
-            'Dim database As String = "Data Source=DESKTOP-R3AJPOP\SQLEXPRESS01;
-            'initial catalog=TESE;
-            'integrated security=true"
+            Dim database As String
+            With Config
+                database = "Data Source=" & .dbHostName & "\SQLEXPRESS;
+                initial catalog=" & .dbDatabase & ";
+                User ID=" & .dbUsername & ";
+                Password=" & .dbPassword & ";
+                MultipleActiveResultSets=true"
+            End With
 
             koneksi = New SqlConnection(database)
             If koneksi.State = ConnectionState.Closed Then koneksi.Open() Else koneksi.Close()

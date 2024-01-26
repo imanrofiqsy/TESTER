@@ -36,10 +36,6 @@ Partial Class frmMain
         Me.ModbusRW = New System.Windows.Forms.Timer(Me.components)
         Me.Status = New System.Windows.Forms.Timer(Me.components)
         Me.BarcodeComm = New System.IO.Ports.SerialPort(Me.components)
-        Me.ST2 = New System.Windows.Forms.Timer(Me.components)
-        Me.ST3 = New System.Windows.Forms.Timer(Me.components)
-        Me.ST4 = New System.Windows.Forms.Timer(Me.components)
-        Me.ST5 = New System.Windows.Forms.Timer(Me.components)
         Me.lbl_date = New System.Windows.Forms.Label()
         Me.lbl_run_state = New System.Windows.Forms.Label()
         Me.lbl_curr_time = New System.Windows.Forms.Label()
@@ -64,6 +60,7 @@ Partial Class frmMain
         Me.Label116 = New System.Windows.Forms.Label()
         Me.Label117 = New System.Windows.Forms.Label()
         Me.laabel3 = New System.Windows.Forms.Label()
+        Me.Label257 = New System.Windows.Forms.Label()
         Me.Label119 = New System.Windows.Forms.Label()
         Me.laabel1 = New System.Windows.Forms.Label()
         Me.Label121 = New System.Windows.Forms.Label()
@@ -108,11 +105,17 @@ Partial Class frmMain
         Me.lbl_st4_t1_3 = New System.Windows.Forms.Label()
         Me.lbl_st4_t1_2 = New System.Windows.Forms.Label()
         Me.lbl_st4_t1_1 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_5 = New System.Windows.Forms.Label()
         Me.lbl_st4_t1 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_4 = New System.Windows.Forms.Label()
         Me.lbl_st3_res_5 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_3 = New System.Windows.Forms.Label()
         Me.lbl_st3_res_4 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_2 = New System.Windows.Forms.Label()
         Me.lbl_st3_res_3 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2_1 = New System.Windows.Forms.Label()
         Me.lbl_st3_res_2 = New System.Windows.Forms.Label()
+        Me.lbl_st3_res2 = New System.Windows.Forms.Label()
         Me.lbl_st3_res_1 = New System.Windows.Forms.Label()
         Me.lbl_st3_res = New System.Windows.Forms.Label()
         Me.lbl_st4_p3_5 = New System.Windows.Forms.Label()
@@ -437,6 +440,17 @@ Partial Class frmMain
         Me.btn_stn1_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_setting = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.RTB_CFG = New System.Windows.Forms.RichTextBox()
+        Me.GroupBox179 = New System.Windows.Forms.GroupBox()
+        Me.Label254 = New System.Windows.Forms.Label()
+        Me.Label252 = New System.Windows.Forms.Label()
+        Me.txt_database = New System.Windows.Forms.TextBox()
+        Me.txt_username = New System.Windows.Forms.TextBox()
+        Me.Label253 = New System.Windows.Forms.Label()
+        Me.Label251 = New System.Windows.Forms.Label()
+        Me.txt_password = New System.Windows.Forms.TextBox()
+        Me.txt_hostname = New System.Windows.Forms.TextBox()
+        Me.btn_apply_database = New System.Windows.Forms.Button()
         Me.GroupBox177 = New System.Windows.Forms.GroupBox()
         Me.Label231 = New System.Windows.Forms.Label()
         Me.Label217 = New System.Windows.Forms.Label()
@@ -462,7 +476,7 @@ Partial Class frmMain
         Me.cb_downgrade_5 = New System.Windows.Forms.ComboBox()
         Me.Label149 = New System.Windows.Forms.Label()
         Me.cb_downgrade_4 = New System.Windows.Forms.ComboBox()
-        Me.btn_apply = New System.Windows.Forms.Button()
+        Me.btn_apply_station = New System.Windows.Forms.Button()
         Me.Label71 = New System.Windows.Forms.Label()
         Me.cb_downgrade_3 = New System.Windows.Forms.ComboBox()
         Me.Label60 = New System.Windows.Forms.Label()
@@ -471,17 +485,20 @@ Partial Class frmMain
         Me.cb_downgrade_1 = New System.Windows.Forms.ComboBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.GroupBox169 = New System.Windows.Forms.GroupBox()
+        Me.Label255 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.connect_multi_ind = New System.Windows.Forms.PictureBox()
         Me.Label226 = New System.Windows.Forms.Label()
-        Me.txtIP_multi = New System.Windows.Forms.TextBox()
-        Me.btn_check_multi = New System.Windows.Forms.Button()
-        Me.btn_connect_multi = New System.Windows.Forms.Button()
-        Me.txtPort_multi = New System.Windows.Forms.TextBox()
+        Me.txt_name_multi = New System.Windows.Forms.TextBox()
+        Me.txt_port_multi = New System.Windows.Forms.TextBox()
+        Me.btn_apply_multi = New System.Windows.Forms.Button()
+        Me.btn_open_multi = New System.Windows.Forms.Button()
+        Me.txt_baud_multi = New System.Windows.Forms.TextBox()
         Me.grp_plc = New System.Windows.Forms.GroupBox()
         Me.cbo_data_type = New System.Windows.Forms.ComboBox()
         Me.connect_plc_ind = New System.Windows.Forms.PictureBox()
         Me.btn_write = New System.Windows.Forms.Button()
+        Me.btn_save_plc = New System.Windows.Forms.Button()
         Me.btn_connect_plc = New System.Windows.Forms.Button()
         Me.btn_read = New System.Windows.Forms.Button()
         Me.txtPort_PLC = New System.Windows.Forms.TextBox()
@@ -567,11 +584,8 @@ Partial Class frmMain
         Me.txt_respond_multi = New System.Windows.Forms.TextBox()
         Me.GroupBox170 = New System.Windows.Forms.GroupBox()
         Me.Label229 = New System.Windows.Forms.Label()
-        Me.Label230 = New System.Windows.Forms.Label()
         Me.txt_ch_1 = New System.Windows.Forms.TextBox()
-        Me.btn_read_ch_2 = New System.Windows.Forms.Button()
         Me.btn_read_ch_1 = New System.Windows.Forms.Button()
-        Me.txt_ch_2 = New System.Windows.Forms.TextBox()
         Me.pnl_alarm = New System.Windows.Forms.TabControl()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
         Me.txt_alarm = New System.Windows.Forms.TextBox()
@@ -931,13 +945,6 @@ Partial Class frmMain
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ChromaComm = New System.IO.Ports.SerialPort(Me.components)
-        Me.lbl_st3_res2 = New System.Windows.Forms.Label()
-        Me.lbl_st3_res2_1 = New System.Windows.Forms.Label()
-        Me.lbl_st3_res2_2 = New System.Windows.Forms.Label()
-        Me.lbl_st3_res2_3 = New System.Windows.Forms.Label()
-        Me.lbl_st3_res2_4 = New System.Windows.Forms.Label()
-        Me.lbl_st3_res2_5 = New System.Windows.Forms.Label()
-        Me.Label257 = New System.Windows.Forms.Label()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1095,6 +1102,7 @@ Partial Class frmMain
         Me.GroupBox1.SuspendLayout
         Me.pnl_setting.SuspendLayout
         Me.TabPage10.SuspendLayout
+        Me.GroupBox179.SuspendLayout
         Me.GroupBox177.SuspendLayout
         CType(Me.ind_stn_6, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_stn_3, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1457,18 +1465,6 @@ Partial Class frmMain
         '
         Me.BarcodeComm.PortName = "COM7"
         '
-        'ST2
-        '
-        '
-        'ST3
-        '
-        '
-        'ST4
-        '
-        '
-        'ST5
-        '
-        '
         'lbl_date
         '
         Me.lbl_date.AutoSize = True
@@ -1828,15 +1824,25 @@ Partial Class frmMain
         Me.laabel3.TabIndex = 36
         Me.laabel3.Text = "ST4 T1"
         '
+        'Label257
+        '
+        Me.Label257.AutoSize = True
+        Me.Label257.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label257.Location = New System.Drawing.Point(6, 116)
+        Me.Label257.Name = "Label257"
+        Me.Label257.Size = New System.Drawing.Size(140, 18)
+        Me.Label257.TabIndex = 36
+        Me.Label257.Text = "ST4 Resistance ON"
+        '
         'Label119
         '
         Me.Label119.AutoSize = True
         Me.Label119.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label119.Location = New System.Drawing.Point(6, 93)
         Me.Label119.Name = "Label119"
-        Me.Label119.Size = New System.Drawing.Size(113, 18)
+        Me.Label119.Size = New System.Drawing.Size(147, 18)
         Me.Label119.TabIndex = 36
-        Me.Label119.Text = "ST4 Resistance"
+        Me.Label119.Text = "ST4 Resistance OFF"
         '
         'laabel1
         '
@@ -2309,6 +2315,17 @@ Partial Class frmMain
         Me.lbl_st4_t1_1.TabIndex = 37
         Me.lbl_st4_t1_1.Text = "..."
         '
+        'lbl_st3_res2_5
+        '
+        Me.lbl_st3_res2_5.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_5.Location = New System.Drawing.Point(426, 114)
+        Me.lbl_st3_res2_5.Name = "lbl_st3_res2_5"
+        Me.lbl_st3_res2_5.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_5.TabIndex = 37
+        Me.lbl_st3_res2_5.Text = "..."
+        '
         'lbl_st4_t1
         '
         Me.lbl_st4_t1.BackColor = System.Drawing.Color.White
@@ -2319,6 +2336,17 @@ Partial Class frmMain
         Me.lbl_st4_t1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_t1.TabIndex = 37
         Me.lbl_st4_t1.Text = "..."
+        '
+        'lbl_st3_res2_4
+        '
+        Me.lbl_st3_res2_4.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_4.Location = New System.Drawing.Point(373, 114)
+        Me.lbl_st3_res2_4.Name = "lbl_st3_res2_4"
+        Me.lbl_st3_res2_4.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_4.TabIndex = 37
+        Me.lbl_st3_res2_4.Text = "..."
         '
         'lbl_st3_res_5
         '
@@ -2331,6 +2359,17 @@ Partial Class frmMain
         Me.lbl_st3_res_5.TabIndex = 37
         Me.lbl_st3_res_5.Text = "..."
         '
+        'lbl_st3_res2_3
+        '
+        Me.lbl_st3_res2_3.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_3.Location = New System.Drawing.Point(320, 114)
+        Me.lbl_st3_res2_3.Name = "lbl_st3_res2_3"
+        Me.lbl_st3_res2_3.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_3.TabIndex = 37
+        Me.lbl_st3_res2_3.Text = "..."
+        '
         'lbl_st3_res_4
         '
         Me.lbl_st3_res_4.BackColor = System.Drawing.Color.White
@@ -2341,6 +2380,17 @@ Partial Class frmMain
         Me.lbl_st3_res_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st3_res_4.TabIndex = 37
         Me.lbl_st3_res_4.Text = "..."
+        '
+        'lbl_st3_res2_2
+        '
+        Me.lbl_st3_res2_2.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_2.Location = New System.Drawing.Point(267, 114)
+        Me.lbl_st3_res2_2.Name = "lbl_st3_res2_2"
+        Me.lbl_st3_res2_2.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_2.TabIndex = 37
+        Me.lbl_st3_res2_2.Text = "..."
         '
         'lbl_st3_res_3
         '
@@ -2353,6 +2403,17 @@ Partial Class frmMain
         Me.lbl_st3_res_3.TabIndex = 37
         Me.lbl_st3_res_3.Text = "..."
         '
+        'lbl_st3_res2_1
+        '
+        Me.lbl_st3_res2_1.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2_1.Location = New System.Drawing.Point(214, 114)
+        Me.lbl_st3_res2_1.Name = "lbl_st3_res2_1"
+        Me.lbl_st3_res2_1.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2_1.TabIndex = 37
+        Me.lbl_st3_res2_1.Text = "..."
+        '
         'lbl_st3_res_2
         '
         Me.lbl_st3_res_2.BackColor = System.Drawing.Color.White
@@ -2363,6 +2424,17 @@ Partial Class frmMain
         Me.lbl_st3_res_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st3_res_2.TabIndex = 37
         Me.lbl_st3_res_2.Text = "..."
+        '
+        'lbl_st3_res2
+        '
+        Me.lbl_st3_res2.BackColor = System.Drawing.Color.White
+        Me.lbl_st3_res2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st3_res2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st3_res2.Location = New System.Drawing.Point(161, 114)
+        Me.lbl_st3_res2.Name = "lbl_st3_res2"
+        Me.lbl_st3_res2.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st3_res2.TabIndex = 37
+        Me.lbl_st3_res2.Text = "..."
         '
         'lbl_st3_res_1
         '
@@ -2842,7 +2914,7 @@ Partial Class frmMain
         Me.GroupBox87.Controls.Add(Me.lbl_cnt_st3)
         Me.GroupBox87.Controls.Add(Me.lbl_cnt_st2)
         Me.GroupBox87.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox87.Location = New System.Drawing.Point(350, 855)
+        Me.GroupBox87.Location = New System.Drawing.Point(371, 859)
         Me.GroupBox87.Name = "GroupBox87"
         Me.GroupBox87.Size = New System.Drawing.Size(485, 61)
         Me.GroupBox87.TabIndex = 51
@@ -2951,7 +3023,7 @@ Partial Class frmMain
         Me.txt_msg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txt_msg.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_msg.ForeColor = System.Drawing.Color.Black
-        Me.txt_msg.Location = New System.Drawing.Point(77, 886)
+        Me.txt_msg.Location = New System.Drawing.Point(98, 890)
         Me.txt_msg.Name = "txt_msg"
         Me.txt_msg.Size = New System.Drawing.Size(216, 253)
         Me.txt_msg.TabIndex = 49
@@ -2960,7 +3032,7 @@ Partial Class frmMain
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(74, 857)
+        Me.Label18.Location = New System.Drawing.Point(95, 861)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(178, 24)
         Me.Label18.TabIndex = 50
@@ -2989,7 +3061,7 @@ Partial Class frmMain
         Me.GroupBox86.Controls.Add(Me.lbl_beating_times)
         Me.GroupBox86.Controls.Add(Me.lbl_act_val)
         Me.GroupBox86.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox86.Location = New System.Drawing.Point(755, 727)
+        Me.GroupBox86.Location = New System.Drawing.Point(822, 728)
         Me.GroupBox86.Name = "GroupBox86"
         Me.GroupBox86.Size = New System.Drawing.Size(215, 278)
         Me.GroupBox86.TabIndex = 53
@@ -6328,6 +6400,8 @@ Partial Class frmMain
         '
         'TabPage10
         '
+        Me.TabPage10.Controls.Add(Me.RTB_CFG)
+        Me.TabPage10.Controls.Add(Me.GroupBox179)
         Me.TabPage10.Controls.Add(Me.GroupBox177)
         Me.TabPage10.Controls.Add(Me.GroupBox176)
         Me.TabPage10.Controls.Add(Me.GroupBox169)
@@ -6339,6 +6413,117 @@ Partial Class frmMain
         Me.TabPage10.TabIndex = 0
         Me.TabPage10.Text = "Configuration"
         Me.TabPage10.UseVisualStyleBackColor = True
+        '
+        'RTB_CFG
+        '
+        Me.RTB_CFG.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RTB_CFG.Location = New System.Drawing.Point(316, 453)
+        Me.RTB_CFG.Name = "RTB_CFG"
+        Me.RTB_CFG.Size = New System.Drawing.Size(494, 53)
+        Me.RTB_CFG.TabIndex = 63
+        Me.RTB_CFG.Text = ""
+        '
+        'GroupBox179
+        '
+        Me.GroupBox179.Controls.Add(Me.Label254)
+        Me.GroupBox179.Controls.Add(Me.Label252)
+        Me.GroupBox179.Controls.Add(Me.txt_database)
+        Me.GroupBox179.Controls.Add(Me.txt_username)
+        Me.GroupBox179.Controls.Add(Me.Label253)
+        Me.GroupBox179.Controls.Add(Me.Label251)
+        Me.GroupBox179.Controls.Add(Me.txt_password)
+        Me.GroupBox179.Controls.Add(Me.txt_hostname)
+        Me.GroupBox179.Controls.Add(Me.btn_apply_database)
+        Me.GroupBox179.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox179.Location = New System.Drawing.Point(597, 239)
+        Me.GroupBox179.Name = "GroupBox179"
+        Me.GroupBox179.Size = New System.Drawing.Size(213, 201)
+        Me.GroupBox179.TabIndex = 62
+        Me.GroupBox179.TabStop = False
+        Me.GroupBox179.Text = "Database"
+        '
+        'Label254
+        '
+        Me.Label254.AutoSize = True
+        Me.Label254.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label254.Location = New System.Drawing.Point(5, 100)
+        Me.Label254.Name = "Label254"
+        Me.Label254.Size = New System.Drawing.Size(86, 20)
+        Me.Label254.TabIndex = 1
+        Me.Label254.Text = "Password :"
+        '
+        'Label252
+        '
+        Me.Label252.AutoSize = True
+        Me.Label252.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label252.Location = New System.Drawing.Point(0, 35)
+        Me.Label252.Name = "Label252"
+        Me.Label252.Size = New System.Drawing.Size(91, 20)
+        Me.Label252.TabIndex = 1
+        Me.Label252.Text = "Hostname :"
+        '
+        'txt_database
+        '
+        Me.txt_database.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_database.Location = New System.Drawing.Point(92, 130)
+        Me.txt_database.Name = "txt_database"
+        Me.txt_database.Size = New System.Drawing.Size(112, 26)
+        Me.txt_database.TabIndex = 3
+        '
+        'txt_username
+        '
+        Me.txt_username.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_username.Location = New System.Drawing.Point(92, 65)
+        Me.txt_username.Name = "txt_username"
+        Me.txt_username.Size = New System.Drawing.Size(112, 26)
+        Me.txt_username.TabIndex = 3
+        '
+        'Label253
+        '
+        Me.Label253.AutoSize = True
+        Me.Label253.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label253.Location = New System.Drawing.Point(4, 133)
+        Me.Label253.Name = "Label253"
+        Me.Label253.Size = New System.Drawing.Size(87, 20)
+        Me.Label253.TabIndex = 1
+        Me.Label253.Text = "Database :"
+        '
+        'Label251
+        '
+        Me.Label251.AutoSize = True
+        Me.Label251.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label251.Location = New System.Drawing.Point(0, 67)
+        Me.Label251.Name = "Label251"
+        Me.Label251.Size = New System.Drawing.Size(91, 20)
+        Me.Label251.TabIndex = 1
+        Me.Label251.Text = "Username :"
+        '
+        'txt_password
+        '
+        Me.txt_password.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_password.Location = New System.Drawing.Point(92, 97)
+        Me.txt_password.Name = "txt_password"
+        Me.txt_password.Size = New System.Drawing.Size(112, 26)
+        Me.txt_password.TabIndex = 2
+        '
+        'txt_hostname
+        '
+        Me.txt_hostname.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_hostname.Location = New System.Drawing.Point(92, 32)
+        Me.txt_hostname.Name = "txt_hostname"
+        Me.txt_hostname.Size = New System.Drawing.Size(112, 26)
+        Me.txt_hostname.TabIndex = 2
+        '
+        'btn_apply_database
+        '
+        Me.btn_apply_database.AutoSize = True
+        Me.btn_apply_database.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_apply_database.Location = New System.Drawing.Point(99, 160)
+        Me.btn_apply_database.Name = "btn_apply_database"
+        Me.btn_apply_database.Size = New System.Drawing.Size(105, 35)
+        Me.btn_apply_database.TabIndex = 4
+        Me.btn_apply_database.Text = "Save Config"
+        Me.btn_apply_database.UseVisualStyleBackColor = True
         '
         'GroupBox177
         '
@@ -6501,7 +6686,7 @@ Partial Class frmMain
         Me.GroupBox176.Controls.Add(Me.cb_downgrade_5)
         Me.GroupBox176.Controls.Add(Me.Label149)
         Me.GroupBox176.Controls.Add(Me.cb_downgrade_4)
-        Me.GroupBox176.Controls.Add(Me.btn_apply)
+        Me.GroupBox176.Controls.Add(Me.btn_apply_station)
         Me.GroupBox176.Controls.Add(Me.Label71)
         Me.GroupBox176.Controls.Add(Me.cb_downgrade_3)
         Me.GroupBox176.Controls.Add(Me.Label60)
@@ -6512,7 +6697,7 @@ Partial Class frmMain
         Me.GroupBox176.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox176.Location = New System.Drawing.Point(316, 20)
         Me.GroupBox176.Name = "GroupBox176"
-        Me.GroupBox176.Size = New System.Drawing.Size(214, 447)
+        Me.GroupBox176.Size = New System.Drawing.Size(214, 420)
         Me.GroupBox176.TabIndex = 60
         Me.GroupBox176.TabStop = False
         Me.GroupBox176.Text = "Station Downgrade"
@@ -6636,16 +6821,16 @@ Partial Class frmMain
         Me.cb_downgrade_4.TabIndex = 0
         Me.cb_downgrade_4.Text = "Enable"
         '
-        'btn_apply
+        'btn_apply_station
         '
-        Me.btn_apply.AutoSize = True
-        Me.btn_apply.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_apply.Location = New System.Drawing.Point(92, 372)
-        Me.btn_apply.Name = "btn_apply"
-        Me.btn_apply.Size = New System.Drawing.Size(102, 35)
-        Me.btn_apply.TabIndex = 4
-        Me.btn_apply.Text = "Apply"
-        Me.btn_apply.UseVisualStyleBackColor = True
+        Me.btn_apply_station.AutoSize = True
+        Me.btn_apply_station.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_apply_station.Location = New System.Drawing.Point(94, 368)
+        Me.btn_apply_station.Name = "btn_apply_station"
+        Me.btn_apply_station.Size = New System.Drawing.Size(102, 36)
+        Me.btn_apply_station.TabIndex = 4
+        Me.btn_apply_station.Text = "Apply"
+        Me.btn_apply_station.UseVisualStyleBackColor = True
         '
         'Label71
         '
@@ -6722,36 +6907,48 @@ Partial Class frmMain
         '
         'GroupBox169
         '
+        Me.GroupBox169.Controls.Add(Me.Label255)
         Me.GroupBox169.Controls.Add(Me.Label2)
         Me.GroupBox169.Controls.Add(Me.connect_multi_ind)
         Me.GroupBox169.Controls.Add(Me.Label226)
-        Me.GroupBox169.Controls.Add(Me.txtIP_multi)
-        Me.GroupBox169.Controls.Add(Me.btn_check_multi)
-        Me.GroupBox169.Controls.Add(Me.btn_connect_multi)
-        Me.GroupBox169.Controls.Add(Me.txtPort_multi)
+        Me.GroupBox169.Controls.Add(Me.txt_name_multi)
+        Me.GroupBox169.Controls.Add(Me.txt_port_multi)
+        Me.GroupBox169.Controls.Add(Me.btn_apply_multi)
+        Me.GroupBox169.Controls.Add(Me.btn_open_multi)
+        Me.GroupBox169.Controls.Add(Me.txt_baud_multi)
         Me.GroupBox169.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox169.Location = New System.Drawing.Point(598, 20)
         Me.GroupBox169.Name = "GroupBox169"
-        Me.GroupBox169.Size = New System.Drawing.Size(214, 190)
+        Me.GroupBox169.Size = New System.Drawing.Size(214, 215)
         Me.GroupBox169.TabIndex = 59
         Me.GroupBox169.TabStop = False
-        Me.GroupBox169.Text = "Multimeter"
+        Me.GroupBox169.Text = "Instrument"
+        '
+        'Label255
+        '
+        Me.Label255.AutoSize = True
+        Me.Label255.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label255.Location = New System.Drawing.Point(32, 33)
+        Me.Label255.Name = "Label255"
+        Me.Label255.Size = New System.Drawing.Size(59, 20)
+        Me.Label255.TabIndex = 1
+        Me.Label255.Text = "Name :"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(11, 33)
+        Me.Label2.Location = New System.Drawing.Point(45, 66)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 20)
+        Me.Label2.Size = New System.Drawing.Size(46, 20)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Server IP :"
+        Me.Label2.Text = "Port :"
         '
         'connect_multi_ind
         '
         Me.connect_multi_ind.BackColor = System.Drawing.Color.DarkRed
         Me.connect_multi_ind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.connect_multi_ind.Location = New System.Drawing.Point(124, 106)
+        Me.connect_multi_ind.Location = New System.Drawing.Point(120, 138)
         Me.connect_multi_ind.Name = "connect_multi_ind"
         Me.connect_multi_ind.Size = New System.Drawing.Size(20, 20)
         Me.connect_multi_ind.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -6762,57 +6959,64 @@ Partial Class frmMain
         '
         Me.Label226.AutoSize = True
         Me.Label226.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label226.Location = New System.Drawing.Point(9, 67)
+        Me.Label226.Location = New System.Drawing.Point(8, 99)
         Me.Label226.Name = "Label226"
-        Me.Label226.Size = New System.Drawing.Size(80, 20)
+        Me.Label226.Size = New System.Drawing.Size(83, 20)
         Me.Label226.TabIndex = 1
-        Me.Label226.Text = "TCP Port :"
+        Me.Label226.Text = "Baudrate :"
         '
-        'txtIP_multi
+        'txt_name_multi
         '
-        Me.txtIP_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIP_multi.Location = New System.Drawing.Point(93, 30)
-        Me.txtIP_multi.Name = "txtIP_multi"
-        Me.txtIP_multi.Size = New System.Drawing.Size(112, 26)
-        Me.txtIP_multi.TabIndex = 2
-        Me.txtIP_multi.Text = "127.0.0.1"
+        Me.txt_name_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_name_multi.Location = New System.Drawing.Point(92, 31)
+        Me.txt_name_multi.Name = "txt_name_multi"
+        Me.txt_name_multi.Size = New System.Drawing.Size(112, 26)
+        Me.txt_name_multi.TabIndex = 2
         '
-        'btn_check_multi
+        'txt_port_multi
         '
-        Me.btn_check_multi.AutoSize = True
-        Me.btn_check_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_check_multi.Location = New System.Drawing.Point(13, 140)
-        Me.btn_check_multi.Name = "btn_check_multi"
-        Me.btn_check_multi.Size = New System.Drawing.Size(149, 35)
-        Me.btn_check_multi.TabIndex = 4
-        Me.btn_check_multi.Text = "Check Connection"
-        Me.btn_check_multi.UseVisualStyleBackColor = True
+        Me.txt_port_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_port_multi.Location = New System.Drawing.Point(92, 63)
+        Me.txt_port_multi.Name = "txt_port_multi"
+        Me.txt_port_multi.Size = New System.Drawing.Size(112, 26)
+        Me.txt_port_multi.TabIndex = 2
         '
-        'btn_connect_multi
+        'btn_apply_multi
         '
-        Me.btn_connect_multi.AutoSize = True
-        Me.btn_connect_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_connect_multi.Location = New System.Drawing.Point(13, 99)
-        Me.btn_connect_multi.Name = "btn_connect_multi"
-        Me.btn_connect_multi.Size = New System.Drawing.Size(102, 35)
-        Me.btn_connect_multi.TabIndex = 4
-        Me.btn_connect_multi.Text = "Connect"
-        Me.btn_connect_multi.UseVisualStyleBackColor = True
+        Me.btn_apply_multi.AutoSize = True
+        Me.btn_apply_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_apply_multi.Location = New System.Drawing.Point(9, 172)
+        Me.btn_apply_multi.Name = "btn_apply_multi"
+        Me.btn_apply_multi.Size = New System.Drawing.Size(110, 34)
+        Me.btn_apply_multi.TabIndex = 4
+        Me.btn_apply_multi.Text = "Save Config"
+        Me.btn_apply_multi.UseVisualStyleBackColor = True
         '
-        'txtPort_multi
+        'btn_open_multi
         '
-        Me.txtPort_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPort_multi.Location = New System.Drawing.Point(93, 63)
-        Me.txtPort_multi.Name = "txtPort_multi"
-        Me.txtPort_multi.Size = New System.Drawing.Size(112, 26)
-        Me.txtPort_multi.TabIndex = 3
-        Me.txtPort_multi.Text = "8.8.8.8"
+        Me.btn_open_multi.AutoSize = True
+        Me.btn_open_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_open_multi.Location = New System.Drawing.Point(9, 131)
+        Me.btn_open_multi.Name = "btn_open_multi"
+        Me.btn_open_multi.Size = New System.Drawing.Size(102, 35)
+        Me.btn_open_multi.TabIndex = 4
+        Me.btn_open_multi.Text = "Open Port"
+        Me.btn_open_multi.UseVisualStyleBackColor = True
+        '
+        'txt_baud_multi
+        '
+        Me.txt_baud_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_baud_multi.Location = New System.Drawing.Point(92, 96)
+        Me.txt_baud_multi.Name = "txt_baud_multi"
+        Me.txt_baud_multi.Size = New System.Drawing.Size(112, 26)
+        Me.txt_baud_multi.TabIndex = 3
         '
         'grp_plc
         '
         Me.grp_plc.Controls.Add(Me.cbo_data_type)
         Me.grp_plc.Controls.Add(Me.connect_plc_ind)
         Me.grp_plc.Controls.Add(Me.btn_write)
+        Me.grp_plc.Controls.Add(Me.btn_save_plc)
         Me.grp_plc.Controls.Add(Me.btn_connect_plc)
         Me.grp_plc.Controls.Add(Me.btn_read)
         Me.grp_plc.Controls.Add(Me.txtPort_PLC)
@@ -6825,9 +7029,9 @@ Partial Class frmMain
         Me.grp_plc.Controls.Add(Me.Label6)
         Me.grp_plc.Controls.Add(Me.Label9)
         Me.grp_plc.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grp_plc.Location = New System.Drawing.Point(32, 166)
+        Me.grp_plc.Location = New System.Drawing.Point(32, 158)
         Me.grp_plc.Name = "grp_plc"
-        Me.grp_plc.Size = New System.Drawing.Size(214, 301)
+        Me.grp_plc.Size = New System.Drawing.Size(214, 346)
         Me.grp_plc.TabIndex = 58
         Me.grp_plc.TabStop = False
         Me.grp_plc.Text = "PLC"
@@ -6836,7 +7040,7 @@ Partial Class frmMain
         '
         Me.cbo_data_type.FormattingEnabled = True
         Me.cbo_data_type.Items.AddRange(New Object() {"INT", "FLOAT"})
-        Me.cbo_data_type.Location = New System.Drawing.Point(90, 210)
+        Me.cbo_data_type.Location = New System.Drawing.Point(94, 249)
         Me.cbo_data_type.Name = "cbo_data_type"
         Me.cbo_data_type.Size = New System.Drawing.Size(112, 32)
         Me.cbo_data_type.TabIndex = 57
@@ -6845,7 +7049,7 @@ Partial Class frmMain
         '
         Me.connect_plc_ind.BackColor = System.Drawing.Color.DarkRed
         Me.connect_plc_ind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.connect_plc_ind.Location = New System.Drawing.Point(121, 100)
+        Me.connect_plc_ind.Location = New System.Drawing.Point(119, 99)
         Me.connect_plc_ind.Name = "connect_plc_ind"
         Me.connect_plc_ind.Size = New System.Drawing.Size(20, 20)
         Me.connect_plc_ind.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -6856,12 +7060,23 @@ Partial Class frmMain
         '
         Me.btn_write.AutoSize = True
         Me.btn_write.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_write.Location = New System.Drawing.Point(118, 257)
+        Me.btn_write.Location = New System.Drawing.Point(122, 296)
         Me.btn_write.Name = "btn_write"
         Me.btn_write.Size = New System.Drawing.Size(84, 35)
         Me.btn_write.TabIndex = 4
         Me.btn_write.Text = "Write"
         Me.btn_write.UseVisualStyleBackColor = True
+        '
+        'btn_save_plc
+        '
+        Me.btn_save_plc.AutoSize = True
+        Me.btn_save_plc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_save_plc.Location = New System.Drawing.Point(10, 132)
+        Me.btn_save_plc.Name = "btn_save_plc"
+        Me.btn_save_plc.Size = New System.Drawing.Size(105, 32)
+        Me.btn_save_plc.TabIndex = 4
+        Me.btn_save_plc.Text = "Save Config"
+        Me.btn_save_plc.UseVisualStyleBackColor = True
         '
         'btn_connect_plc
         '
@@ -6869,7 +7084,7 @@ Partial Class frmMain
         Me.btn_connect_plc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_connect_plc.Location = New System.Drawing.Point(10, 93)
         Me.btn_connect_plc.Name = "btn_connect_plc"
-        Me.btn_connect_plc.Size = New System.Drawing.Size(102, 35)
+        Me.btn_connect_plc.Size = New System.Drawing.Size(79, 33)
         Me.btn_connect_plc.TabIndex = 4
         Me.btn_connect_plc.Text = "Connect"
         Me.btn_connect_plc.UseVisualStyleBackColor = True
@@ -6878,7 +7093,7 @@ Partial Class frmMain
         '
         Me.btn_read.AutoSize = True
         Me.btn_read.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_read.Location = New System.Drawing.Point(16, 257)
+        Me.btn_read.Location = New System.Drawing.Point(20, 296)
         Me.btn_read.Name = "btn_read"
         Me.btn_read.Size = New System.Drawing.Size(84, 35)
         Me.btn_read.TabIndex = 4
@@ -6892,12 +7107,11 @@ Partial Class frmMain
         Me.txtPort_PLC.Name = "txtPort_PLC"
         Me.txtPort_PLC.Size = New System.Drawing.Size(112, 26)
         Me.txtPort_PLC.TabIndex = 3
-        Me.txtPort_PLC.Text = "502"
         '
         'txtValue
         '
         Me.txtValue.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValue.Location = New System.Drawing.Point(90, 178)
+        Me.txtValue.Location = New System.Drawing.Point(94, 217)
         Me.txtValue.Name = "txtValue"
         Me.txtValue.Size = New System.Drawing.Size(112, 26)
         Me.txtValue.TabIndex = 3
@@ -6909,13 +7123,12 @@ Partial Class frmMain
         Me.txtIP_PLC.Name = "txtIP_PLC"
         Me.txtIP_PLC.Size = New System.Drawing.Size(112, 26)
         Me.txtIP_PLC.TabIndex = 2
-        Me.txtIP_PLC.Text = "192.168.1.212"
         '
         'Label72
         '
         Me.Label72.AutoSize = True
         Me.Label72.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label72.Location = New System.Drawing.Point(-5, 214)
+        Me.Label72.Location = New System.Drawing.Point(-1, 253)
         Me.Label72.Name = "Label72"
         Me.Label72.Size = New System.Drawing.Size(90, 20)
         Me.Label72.TabIndex = 1
@@ -6925,7 +7138,7 @@ Partial Class frmMain
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(6, 61)
+        Me.Label7.Location = New System.Drawing.Point(6, 57)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 20)
         Me.Label7.TabIndex = 1
@@ -6934,7 +7147,7 @@ Partial Class frmMain
         'txtAddress
         '
         Me.txtAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAddress.Location = New System.Drawing.Point(90, 145)
+        Me.txtAddress.Location = New System.Drawing.Point(94, 184)
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(112, 26)
         Me.txtAddress.TabIndex = 2
@@ -6943,7 +7156,7 @@ Partial Class frmMain
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(27, 181)
+        Me.Label8.Location = New System.Drawing.Point(31, 220)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(58, 20)
         Me.Label8.TabIndex = 1
@@ -6953,7 +7166,7 @@ Partial Class frmMain
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(8, 27)
+        Me.Label6.Location = New System.Drawing.Point(4, 29)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(82, 20)
         Me.Label6.TabIndex = 1
@@ -6963,7 +7176,7 @@ Partial Class frmMain
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(12, 148)
+        Me.Label9.Location = New System.Drawing.Point(16, 187)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(76, 20)
         Me.Label9.TabIndex = 1
@@ -7716,15 +7929,12 @@ Partial Class frmMain
         'GroupBox170
         '
         Me.GroupBox170.Controls.Add(Me.Label229)
-        Me.GroupBox170.Controls.Add(Me.Label230)
         Me.GroupBox170.Controls.Add(Me.txt_ch_1)
-        Me.GroupBox170.Controls.Add(Me.btn_read_ch_2)
         Me.GroupBox170.Controls.Add(Me.btn_read_ch_1)
-        Me.GroupBox170.Controls.Add(Me.txt_ch_2)
         Me.GroupBox170.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox170.Location = New System.Drawing.Point(102, 157)
         Me.GroupBox170.Name = "GroupBox170"
-        Me.GroupBox170.Size = New System.Drawing.Size(235, 146)
+        Me.GroupBox170.Size = New System.Drawing.Size(235, 120)
         Me.GroupBox170.TabIndex = 61
         Me.GroupBox170.TabStop = False
         Me.GroupBox170.Text = "Measurement"
@@ -7735,19 +7945,9 @@ Partial Class frmMain
         Me.Label229.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label229.Location = New System.Drawing.Point(10, 33)
         Me.Label229.Name = "Label229"
-        Me.Label229.Size = New System.Drawing.Size(89, 20)
+        Me.Label229.Size = New System.Drawing.Size(58, 20)
         Me.Label229.TabIndex = 1
-        Me.Label229.Text = "Channel 1 :"
-        '
-        'Label230
-        '
-        Me.Label230.AutoSize = True
-        Me.Label230.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label230.Location = New System.Drawing.Point(11, 66)
-        Me.Label230.Name = "Label230"
-        Me.Label230.Size = New System.Drawing.Size(89, 20)
-        Me.Label230.TabIndex = 1
-        Me.Label230.Text = "Channel 2 :"
+        Me.Label229.Text = "Value :"
         '
         'txt_ch_1
         '
@@ -7757,35 +7957,16 @@ Partial Class frmMain
         Me.txt_ch_1.Size = New System.Drawing.Size(123, 26)
         Me.txt_ch_1.TabIndex = 2
         '
-        'btn_read_ch_2
-        '
-        Me.btn_read_ch_2.AutoSize = True
-        Me.btn_read_ch_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_read_ch_2.Location = New System.Drawing.Point(123, 98)
-        Me.btn_read_ch_2.Name = "btn_read_ch_2"
-        Me.btn_read_ch_2.Size = New System.Drawing.Size(102, 35)
-        Me.btn_read_ch_2.TabIndex = 4
-        Me.btn_read_ch_2.Text = "Read CH 2"
-        Me.btn_read_ch_2.UseVisualStyleBackColor = True
-        '
         'btn_read_ch_1
         '
         Me.btn_read_ch_1.AutoSize = True
         Me.btn_read_ch_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_read_ch_1.Location = New System.Drawing.Point(12, 99)
+        Me.btn_read_ch_1.Location = New System.Drawing.Point(15, 72)
         Me.btn_read_ch_1.Name = "btn_read_ch_1"
         Me.btn_read_ch_1.Size = New System.Drawing.Size(102, 35)
         Me.btn_read_ch_1.TabIndex = 4
-        Me.btn_read_ch_1.Text = "Read CH 1"
+        Me.btn_read_ch_1.Text = "Read"
         Me.btn_read_ch_1.UseVisualStyleBackColor = True
-        '
-        'txt_ch_2
-        '
-        Me.txt_ch_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_ch_2.Location = New System.Drawing.Point(102, 63)
-        Me.txt_ch_2.Name = "txt_ch_2"
-        Me.txt_ch_2.Size = New System.Drawing.Size(123, 26)
-        Me.txt_ch_2.TabIndex = 3
         '
         'pnl_alarm
         '
@@ -11734,82 +11915,6 @@ Partial Class frmMain
         Me.ChromaComm.BaudRate = 19200
         Me.ChromaComm.PortName = "COM8"
         '
-        'lbl_st3_res2
-        '
-        Me.lbl_st3_res2.BackColor = System.Drawing.Color.White
-        Me.lbl_st3_res2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_st3_res2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st3_res2.Location = New System.Drawing.Point(161, 114)
-        Me.lbl_st3_res2.Name = "lbl_st3_res2"
-        Me.lbl_st3_res2.Size = New System.Drawing.Size(50, 20)
-        Me.lbl_st3_res2.TabIndex = 37
-        Me.lbl_st3_res2.Text = "..."
-        '
-        'lbl_st3_res2_1
-        '
-        Me.lbl_st3_res2_1.BackColor = System.Drawing.Color.White
-        Me.lbl_st3_res2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_st3_res2_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st3_res2_1.Location = New System.Drawing.Point(214, 114)
-        Me.lbl_st3_res2_1.Name = "lbl_st3_res2_1"
-        Me.lbl_st3_res2_1.Size = New System.Drawing.Size(50, 20)
-        Me.lbl_st3_res2_1.TabIndex = 37
-        Me.lbl_st3_res2_1.Text = "..."
-        '
-        'lbl_st3_res2_2
-        '
-        Me.lbl_st3_res2_2.BackColor = System.Drawing.Color.White
-        Me.lbl_st3_res2_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_st3_res2_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st3_res2_2.Location = New System.Drawing.Point(267, 114)
-        Me.lbl_st3_res2_2.Name = "lbl_st3_res2_2"
-        Me.lbl_st3_res2_2.Size = New System.Drawing.Size(50, 20)
-        Me.lbl_st3_res2_2.TabIndex = 37
-        Me.lbl_st3_res2_2.Text = "..."
-        '
-        'lbl_st3_res2_3
-        '
-        Me.lbl_st3_res2_3.BackColor = System.Drawing.Color.White
-        Me.lbl_st3_res2_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_st3_res2_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st3_res2_3.Location = New System.Drawing.Point(320, 114)
-        Me.lbl_st3_res2_3.Name = "lbl_st3_res2_3"
-        Me.lbl_st3_res2_3.Size = New System.Drawing.Size(50, 20)
-        Me.lbl_st3_res2_3.TabIndex = 37
-        Me.lbl_st3_res2_3.Text = "..."
-        '
-        'lbl_st3_res2_4
-        '
-        Me.lbl_st3_res2_4.BackColor = System.Drawing.Color.White
-        Me.lbl_st3_res2_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_st3_res2_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st3_res2_4.Location = New System.Drawing.Point(373, 114)
-        Me.lbl_st3_res2_4.Name = "lbl_st3_res2_4"
-        Me.lbl_st3_res2_4.Size = New System.Drawing.Size(50, 20)
-        Me.lbl_st3_res2_4.TabIndex = 37
-        Me.lbl_st3_res2_4.Text = "..."
-        '
-        'lbl_st3_res2_5
-        '
-        Me.lbl_st3_res2_5.BackColor = System.Drawing.Color.White
-        Me.lbl_st3_res2_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lbl_st3_res2_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st3_res2_5.Location = New System.Drawing.Point(426, 114)
-        Me.lbl_st3_res2_5.Name = "lbl_st3_res2_5"
-        Me.lbl_st3_res2_5.Size = New System.Drawing.Size(50, 20)
-        Me.lbl_st3_res2_5.TabIndex = 37
-        Me.lbl_st3_res2_5.Text = "..."
-        '
-        'Label257
-        '
-        Me.Label257.AutoSize = True
-        Me.Label257.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label257.Location = New System.Drawing.Point(6, 116)
-        Me.Label257.Name = "Label257"
-        Me.Label257.Size = New System.Drawing.Size(125, 18)
-        Me.Label257.TabIndex = 36
-        Me.Label257.Text = "ST4 Resistance 2"
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -12065,6 +12170,8 @@ Partial Class frmMain
         Me.GroupBox1.ResumeLayout(False)
         Me.pnl_setting.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
+        Me.GroupBox179.ResumeLayout(False)
+        Me.GroupBox179.PerformLayout
         Me.GroupBox177.ResumeLayout(False)
         Me.GroupBox177.PerformLayout
         CType(Me.ind_stn_6, System.ComponentModel.ISupportInitialize).EndInit
@@ -12422,10 +12529,6 @@ Partial Class frmMain
     Friend WithEvents Status As Timer
     Friend WithEvents BarcodeComm As IO.Ports.SerialPort
     Friend WithEvents btn_alarm As Button
-    Friend WithEvents ST2 As Timer
-    Friend WithEvents ST3 As Timer
-    Friend WithEvents ST4 As Timer
-    Friend WithEvents ST5 As Timer
     Friend WithEvents lbl_date As Label
     Friend WithEvents lbl_run_state As Label
     Friend WithEvents lbl_curr_time As Label
@@ -12760,10 +12863,10 @@ Partial Class frmMain
     Friend WithEvents Label2 As Label
     Friend WithEvents connect_multi_ind As PictureBox
     Friend WithEvents Label226 As Label
-    Friend WithEvents txtIP_multi As TextBox
-    Friend WithEvents btn_check_multi As Button
-    Friend WithEvents btn_connect_multi As Button
-    Friend WithEvents txtPort_multi As TextBox
+    Friend WithEvents txt_port_multi As TextBox
+    Friend WithEvents btn_apply_multi As Button
+    Friend WithEvents btn_open_multi As Button
+    Friend WithEvents txt_baud_multi As TextBox
     Friend WithEvents grp_plc As GroupBox
     Friend WithEvents cbo_data_type As ComboBox
     Friend WithEvents connect_plc_ind As PictureBox
@@ -12845,11 +12948,8 @@ Partial Class frmMain
     Friend WithEvents TabPage14 As TabPage
     Friend WithEvents GroupBox170 As GroupBox
     Friend WithEvents Label229 As Label
-    Friend WithEvents Label230 As Label
     Friend WithEvents txt_ch_1 As TextBox
-    Friend WithEvents btn_read_ch_2 As Button
     Friend WithEvents btn_read_ch_1 As Button
-    Friend WithEvents txt_ch_2 As TextBox
     Friend WithEvents pnl_alarm As TabControl
     Friend WithEvents TabPage15 As TabPage
     Friend WithEvents GroupBox85 As GroupBox
@@ -13281,7 +13381,7 @@ Partial Class frmMain
     Friend WithEvents Label42 As Label
     Friend WithEvents cb_downgrade_1 As ComboBox
     Friend WithEvents Label24 As Label
-    Friend WithEvents btn_apply As Button
+    Friend WithEvents btn_apply_station As Button
     Friend WithEvents txt_alarm_copy As RichTextBox
     Friend WithEvents GroupBox177 As GroupBox
     Friend WithEvents Label183 As Label
@@ -13316,4 +13416,18 @@ Partial Class frmMain
     Friend WithEvents lbl_st3_res2_2 As Label
     Friend WithEvents lbl_st3_res2_1 As Label
     Friend WithEvents lbl_st3_res2 As Label
+    Friend WithEvents GroupBox179 As GroupBox
+    Friend WithEvents Label254 As Label
+    Friend WithEvents Label252 As Label
+    Friend WithEvents txt_database As TextBox
+    Friend WithEvents txt_username As TextBox
+    Friend WithEvents Label253 As Label
+    Friend WithEvents Label251 As Label
+    Friend WithEvents txt_password As TextBox
+    Friend WithEvents txt_hostname As TextBox
+    Friend WithEvents btn_apply_database As Button
+    Friend WithEvents Label255 As Label
+    Friend WithEvents txt_name_multi As TextBox
+    Friend WithEvents RTB_CFG As RichTextBox
+    Friend WithEvents btn_save_plc As Button
 End Class

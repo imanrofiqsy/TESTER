@@ -87,6 +87,11 @@ Public Class frmMain
             End
         End Try
 
+        If Not initChroma() Then
+            MsgBox("Cannot establish chroma connection!")
+            End
+        End If
+
         Thread.Sleep(400)
 
         'BarcodeComm.Open()
@@ -3504,7 +3509,7 @@ Retry:
                         GoTo Retry
                     End If
                 End If
-                System.Windows.Forms.Application.DoEvents()
+                'System.Windows.Forms.Application.DoEvents()
             Loop
         End If
         Return True

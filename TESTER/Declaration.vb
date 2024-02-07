@@ -1,4 +1,6 @@
 ﻿Module Declaration
+    Public CURTAIN As Boolean
+
     Public Config As New machineConfig
     Public Result As New testerResult
     Public Structure machineConfig
@@ -23,7 +25,7 @@
 
     Public ADDR_PASS As Integer = 40003
     Public ADDR_FAIL As Integer = 40004
-    Public ADDR_OEE As Integer = 40005
+    Public ADDR_OEE As Integer = 40008
     Public ADDR_FPY As Integer = 40007
     Public ADDR_EMPTY_PROCCESS As Integer = 40009
 

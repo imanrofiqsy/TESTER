@@ -265,6 +265,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="105450_web-removebg-preview.ico" />
+    <None Include="Resources\icons8-padlock-24.png" />
+    <None Include="Resources\icons8-erase-56.png" />
+    <None Include="Resources\icons8-emptying-baskets-56.png" />
+    <None Include="Resources\icons8-home-56.png" />
+    <None Include="Resources\icons8-manual-56.png" />
+    <None Include="Resources\icons8-monitor-56.png" />
+    <None Include="Resources\icons8-open-book-56.png" />
+    <None Include="Resources\icons8-siren-56.png" />
+    <None Include="Resources\icons8-multimeter-56.png" />
+    <None Include="Resources\icons8-laser-56.png" />
+    <None Include="Resources\icons8-log-56.png" />
+    <None Include="Resources\icons8-setting-56.png" />
+    <None Include="Resources\icons8-check-document-56.png" />
+    <None Include="Resources\imgonline-com-ua-ReplaceColor-lwESfUWPIjw1gJz.jpg" />
+    <None Include="Resources\imgonline-com-ua-ReplaceColor-QMxuEexY8i.jpg" />
+    <None Include="Resources\imgonline-com-ua-ReplaceColor-QHIW94pml0IkNmD.jpg" />
+    <None Include="Resources\a_manual_41.png" />
+    <None Include="Resources\a_scene_tv_41.png" />
+    <None Include="Resources\a_user_guide_4.png" />
+    <None Include="Resources\imgonline-com-ua-ReplaceColor-kLMroJ27Iv1wFU74.jpg" />
+    <None Include="Resources\imgonline-com-ua-ReplaceColor-jdzzRSaRq3Y.jpg" />
+    <None Include="Resources\imgonline-com-ua-ReplaceColor-Rie2I3pWk95z.jpg" />
+    <None Include="Resources\a_menu_blind_4.png" />
+    <None Include="Resources\imgonline-com-ua-ReplaceColor-xJ2m13pdX8Eimdxw.jpg" />
     <None Include="Resources\emptying.jpg" />
     <None Include="Resources\imgonline-com-ua-ReplaceColor-xBihTEFLjatznSmQ.jpg" />
     <None Include="Resources\image__4_-removebg-preview-modified1.png" />

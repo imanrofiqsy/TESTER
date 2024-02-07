@@ -60,6 +60,16 @@ Public Class frmMain
         UpdateLoadingBar(20, "Connecting to PLC...")
         Thread.Sleep(500)
 
+        Try
+            If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
+                MsgBox("Cannot establish connection to PLC!")
+                End
+            End If
+        Catch ex As Exception
+            MsgBox("Cannot establish connection to PLC!")
+            End
+        End Try
+
         GetPCStatus(100) 'Software is open
         ShowPanelGeneral("home")
         ShowButtonSTN(0)
@@ -75,6 +85,7 @@ Public Class frmMain
             End If
         Catch ex As Exception
             MsgBox("Chroma not found")
+            'End
         End Try
 
         Thread.Sleep(400)
@@ -159,6 +170,9 @@ Public Class frmMain
     Private Sub btn_setting_Click(sender As Object, e As EventArgs) Handles btn_setting.Click
         ShowPanelGeneral("setting")
     End Sub
+    Private Sub btn_calib_Click(sender As Object, e As EventArgs) Handles btn_calib.Click
+        ShowPanelGeneral("calib")
+    End Sub
     Private Sub btn_monitoring_Click(sender As Object, e As EventArgs) Handles btn_monitoring.Click
         ShowPanelGeneral("monitoring")
     End Sub
@@ -239,6 +253,12 @@ Public Class frmMain
             pnl_log.Visible = True
         Else
             pnl_log.Visible = False
+        End If
+
+        If mode = "calib" Then
+            pnl_calibration.Visible = True
+        Else
+            pnl_calibration.Visible = False
         End If
     End Sub
 
@@ -2237,8 +2257,8 @@ Public Class frmMain
     End Sub
 
     'Read Alarm
-    Dim alarm_text_general(9) As String
-    Dim last_alarm_general(9) As String
+    Dim alarm_text_general(10) As String
+    Dim last_alarm_general(10) As String
     Private Sub ReadAlarm(decimalNumber As Integer)
         Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [General] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
@@ -2314,6 +2334,15 @@ Public Class frmMain
             ind_emg_button.BackColor = Color.DarkRed
         End If
 
+        If binaryString(6) = "1" Then
+            CURTAIN = True
+            alarm_text_general(9) = "Safety Curtain OK"
+            ind_safety_curtain.BackColor = Color.Red
+        Else
+            CURTAIN = False
+            alarm_text_general(9) = "Safety Curtain NOK"
+            ind_safety_curtain.BackColor = Color.DarkRed
+        End If
 
         For i As Integer = 0 To alarm_text_general.Length - 1
             If last_alarm_general(i) <> alarm_text_general(i) Then
@@ -2693,7 +2722,18 @@ Public Class frmMain
             ElseIf SCAN_MODE = 2 Then
                 lbl_op_ins.Text = "Please Scan PO Number.."
             Else
-                lbl_op_ins.Text = "You're All Set!"
+                If CURTAIN Then
+                    lbl_op_ins.Text = "Can't start process, safety curtain is activated!"
+                Else
+                    lbl_op_ins.Text = "You're All Set!" + vbCrLf
+                    If RUNNING_STATE = 1 Then
+                        lbl_op_ins.Text = lbl_op_ins.Text + "Trigger to start process"
+                    ElseIf RUNNING_STATE = 2 Then
+                        lbl_op_ins.Text = lbl_op_ins.Text + "Machine in stop mode"
+                    ElseIf RUNNING_STATE = 3 Then
+                        lbl_op_ins.Text = lbl_op_ins.Text + "Machine in emergency mode"
+                    End If
+                End If
             End If
         Else
             lbl_op_ins.Text = "Modbus Error, Please Check Modbus Connection!"
@@ -2814,7 +2854,7 @@ Public Class frmMain
                                       Case 1
                                           'lbl_item_1.Text = CNT_ST2
                                           lbl_st2_meas.Text = st2_result
-                                          lbl_st3_res.Text = ""
+                                          lbl_st4NC_res.Text = ""
                                           lbl_st4_p2.Text = ""
                                           lbl_st4_p3.Text = ""
                                           lbl_st4_t1.Text = ""
@@ -2826,7 +2866,7 @@ Public Class frmMain
                                       Case 2
                                           'lbl_item_2.Text = CNT_ST2
                                           lbl_st2_meas_1.Text = st2_result
-                                          lbl_st3_res_1.Text = ""
+                                          lbl_st4NC_res_1.Text = ""
                                           lbl_st4_p2_1.Text = ""
                                           lbl_st4_p3_1.Text = ""
                                           lbl_st4_t1_1.Text = ""
@@ -2838,7 +2878,7 @@ Public Class frmMain
                                       Case 3
                                           'lbl_item_3.Text = CNT_ST2
                                           lbl_st2_meas_2.Text = st2_result
-                                          lbl_st3_res_2.Text = ""
+                                          lbl_st4NC_res_2.Text = ""
                                           lbl_st4_p2_2.Text = ""
                                           lbl_st4_p3_2.Text = ""
                                           lbl_st4_t1_2.Text = ""
@@ -2850,7 +2890,7 @@ Public Class frmMain
                                       Case 4
                                           'lbl_item_4.Text = CNT_ST2
                                           lbl_st2_meas_3.Text = st2_result
-                                          lbl_st3_res_3.Text = ""
+                                          lbl_st4NC_res_3.Text = ""
                                           lbl_st4_p2_3.Text = ""
                                           lbl_st4_p3_3.Text = ""
                                           lbl_st4_t1_3.Text = ""
@@ -2862,7 +2902,7 @@ Public Class frmMain
                                       Case 5
                                           'lbl_item_5.Text = CNT_ST2
                                           lbl_st2_meas_4.Text = st2_result
-                                          lbl_st3_res_4.Text = ""
+                                          lbl_st4NC_res_4.Text = ""
                                           lbl_st4_p2_4.Text = ""
                                           lbl_st4_p3_4.Text = ""
                                           lbl_st4_t1_4.Text = ""
@@ -2874,7 +2914,7 @@ Public Class frmMain
                                       Case 6
                                           'lbl_item_6.Text = CNT_ST2
                                           lbl_st2_meas_5.Text = st2_result
-                                          lbl_st3_res_5.Text = ""
+                                          lbl_st4NC_res_5.Text = ""
                                           lbl_st4_p2_5.Text = ""
                                           lbl_st4_p3_5.Text = ""
                                           lbl_st4_t1_5.Text = ""
@@ -2982,7 +3022,7 @@ Public Class frmMain
 
                                   Select Case Action_ST4
                                       Case 1
-                                          lbl_st3_res.Text = resistance_state_off
+                                          lbl_st4NC_res.Text = resistance_state_off
                                           lbl_st4_p2.Text = st4_p2_result
                                           lbl_st4_p3.Text = st4_p3_result
                                           lbl_diff_result.Text = diff_result_result
@@ -2990,7 +3030,7 @@ Public Class frmMain
                                           lbl_st4_t2.Text = st4_t2_result
                                           lbl_cot.Text = cot_result
                                       Case 2
-                                          lbl_st3_res_1.Text = resistance_state_off
+                                          lbl_st4NC_res_1.Text = resistance_state_off
                                           lbl_st4_p2_1.Text = st4_p2_result
                                           lbl_st4_p3_1.Text = st4_p3_result
                                           lbl_diff_result_1.Text = diff_result_result
@@ -2998,7 +3038,7 @@ Public Class frmMain
                                           lbl_st4_t2_1.Text = st4_t2_result
                                           lbl_cot_1.Text = cot_result
                                       Case 3
-                                          lbl_st3_res_2.Text = resistance_state_off
+                                          lbl_st4NC_res_2.Text = resistance_state_off
                                           lbl_st4_p2_2.Text = st4_p2_result
                                           lbl_st4_p3_2.Text = st4_p3_result
                                           lbl_diff_result_2.Text = diff_result_result
@@ -3006,7 +3046,7 @@ Public Class frmMain
                                           lbl_st4_t2_2.Text = st4_t2_result
                                           lbl_cot_2.Text = cot_result
                                       Case 4
-                                          lbl_st3_res_3.Text = resistance_state_off
+                                          lbl_st4NC_res_3.Text = resistance_state_off
                                           lbl_st4_p2_3.Text = st4_p2_result
                                           lbl_st4_p3_3.Text = st4_p3_result
                                           lbl_diff_result_3.Text = diff_result_result
@@ -3014,7 +3054,7 @@ Public Class frmMain
                                           lbl_st4_t2_3.Text = st4_t2_result
                                           lbl_cot_3.Text = cot_result
                                       Case 5
-                                          lbl_st3_res_4.Text = resistance_state_off
+                                          lbl_st4NC_res_4.Text = resistance_state_off
                                           lbl_st4_p2_4.Text = st4_p2_result
                                           lbl_st4_p3_4.Text = st4_p3_result
                                           lbl_diff_result_4.Text = diff_result_result
@@ -3022,7 +3062,7 @@ Public Class frmMain
                                           lbl_st4_t2_4.Text = st4_t2_result
                                           lbl_cot_4.Text = cot_result
                                       Case 6
-                                          lbl_st3_res_5.Text = resistance_state_off
+                                          lbl_st4NC_res_5.Text = resistance_state_off
                                           lbl_st4_p2_5.Text = st4_p2_result
                                           lbl_st4_p3_5.Text = st4_p3_result
                                           lbl_diff_result_5.Text = diff_result_result
@@ -3053,22 +3093,22 @@ Public Class frmMain
 
                                   Select Case Action_ST4
                                       Case 1
-                                          lbl_st3_res2.Text = resistance_state_on
+                                          lbl_st4NO_res.Text = resistance_state_on
                                           Action_ST4 += 1
                                       Case 2
-                                          lbl_st3_res2_1.Text = resistance_state_on
+                                          lbl_st4NO_res_1.Text = resistance_state_on
                                           Action_ST4 += 1
                                       Case 3
-                                          lbl_st3_res2_2.Text = resistance_state_on
+                                          lbl_st4NO_res_2.Text = resistance_state_on
                                           Action_ST4 += 1
                                       Case 4
-                                          lbl_st3_res2_3.Text = resistance_state_on
+                                          lbl_st4NO_res_3.Text = resistance_state_on
                                           Action_ST4 += 1
                                       Case 5
-                                          lbl_st3_res2_4.Text = resistance_state_on
+                                          lbl_st4NO_res_4.Text = resistance_state_on
                                           Action_ST4 += 1
                                       Case 6
-                                          lbl_st3_res2_5.Text = resistance_state_on
+                                          lbl_st4NO_res_5.Text = resistance_state_on
                                           Action_ST4 = 1
                                   End Select
 
@@ -3148,7 +3188,7 @@ Public Class frmMain
         lbl_cnt_st4.Text = "..."
         lbl_cnt_st5.Text = "..."
         lbl_st2_meas.Text = "..."
-        lbl_st3_res.Text = "..."
+        lbl_st4NC_res.Text = "..."
         lbl_st4_p2.Text = "..."
         lbl_st4_p3.Text = "..."
         lbl_diff_result.Text = "..."

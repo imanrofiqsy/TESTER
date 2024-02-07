@@ -17,6 +17,8 @@ Public Class frmMain
     Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
     Dim iniPath As String = projectFolder + "\Config\Config.INI"
     Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
+
+    Dim delay As Integer = 0
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             Directory.CreateDirectory(projectFolder & "\Log")
@@ -78,7 +80,6 @@ Public Class frmMain
 
         Try
             ChromaComm.Open()
-            Thread.Sleep(100)
             btn_open_multi.Text = "Close Port"
             connect_multi_ind.BackColor = Color.Red
         Catch ex As Exception
@@ -87,9 +88,11 @@ Public Class frmMain
             End
         End Try
 
-        If Not initChroma() Then
+        If Not initChroma() AndAlso delay > 10 Then
             MsgBox("Cannot establish chroma connection!")
             End
+        Else
+            delay += 1
         End If
 
         Thread.Sleep(400)

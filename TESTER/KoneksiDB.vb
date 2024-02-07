@@ -5,11 +5,14 @@ Module KoneksiDB
         Try
             Dim database As String
             With Config
+                'database = "Data Source=" & .dbHostName & "\SQLEXPRESS;
+                'initial catalog=" & .dbDatabase & ";
+                'User ID=" & .dbUsername & ";
+                'Password=" & .dbPassword & ";
+                'MultipleActiveResultSets=true"
                 database = "Data Source=" & .dbHostName & "\SQLEXPRESS;
                 initial catalog=" & .dbDatabase & ";
-                User ID=" & .dbUsername & ";
-                Password=" & .dbPassword & ";
-                MultipleActiveResultSets=true"
+                integrated security=true"
             End With
 
             koneksi = New SqlConnection(database)

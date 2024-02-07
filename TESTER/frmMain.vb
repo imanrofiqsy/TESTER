@@ -2996,6 +2996,8 @@ Public Class frmMain
     Dim Action_ST4 As Integer = 1
     Dim Action_ST4Off As Integer = 1
     Dim Action_ST4On As Integer = 1
+    Dim is_measuring_nc As Boolean = False
+    Dim is_measuring_no As Boolean = False
     Private Sub ST4_Thread()
         Do
             If SCAN_MODE = 3 Then
@@ -3090,70 +3092,84 @@ Public Class frmMain
                                   lbl_cnt_st4.Text = CNT_ST4
                               End Sub)
                 ElseIf binaryString(6) = "0" And binaryString(7) = "1" Then
-                    Console.WriteLine("Save NC")
                     Me.Invoke(Sub()
-                                  Dim resistance_state_off As String = "321" 'Chroma_resistance()
+                                  If is_measuring_nc = False Then
+                                      Reset_resistance()
+                                      is_measuring_nc = True
+                                  Else
+                                      Dim resistance_state_off As String = Chroma_resistance()
+                                      If resistance_state_off <> "waiting" Then
+                                          Select Case Action_ST4Off
+                                              Case 1
+                                                  lbl_st4NC_res.Text = resistance_state_off
+                                                  Action_ST4Off += 1
+                                              Case 2
+                                                  lbl_st4NC_res_1.Text = resistance_state_off
+                                                  Action_ST4Off += 1
+                                              Case 3
+                                                  lbl_st4NC_res_2.Text = resistance_state_off
+                                                  Action_ST4Off += 1
+                                              Case 4
+                                                  lbl_st4NC_res_3.Text = resistance_state_off
+                                                  Action_ST4Off += 1
+                                              Case 5
+                                                  lbl_st4NC_res_4.Text = resistance_state_off
+                                                  Action_ST4Off += 1
+                                              Case 6
+                                                  lbl_st4NC_res_5.Text = resistance_state_off
+                                                  Action_ST4Off = 1
+                                          End Select
 
-                                  Select Case Action_ST4Off
-                                      Case 1
-                                          lbl_st4NC_res.Text = resistance_state_off
-                                          Action_ST4Off += 1
-                                      Case 2
-                                          lbl_st4NC_res_1.Text = resistance_state_off
-                                          Action_ST4Off += 1
-                                      Case 3
-                                          lbl_st4NC_res_2.Text = resistance_state_off
-                                          Action_ST4Off += 1
-                                      Case 4
-                                          lbl_st4NC_res_3.Text = resistance_state_off
-                                          Action_ST4Off += 1
-                                      Case 5
-                                          lbl_st4NC_res_4.Text = resistance_state_off
-                                          Action_ST4Off += 1
-                                      Case 6
-                                          lbl_st4NC_res_5.Text = resistance_state_off
-                                          Action_ST4Off = 1
-                                  End Select
-
-                                  Call KoneksiDB.koneksi_db()
-                                  Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
-                                  Dim adapter As New SqlDataAdapter(sc)
-                                  adapter.SelectCommand.ExecuteNonQuery()
-                                  Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)
-                                  txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
+                                          Call KoneksiDB.koneksi_db()
+                                          Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                          Dim adapter As New SqlDataAdapter(sc)
+                                          adapter.SelectCommand.ExecuteNonQuery()
+                                          Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)
+                                          is_measuring_nc = False
+                                          txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
+                                      End If
+                                  End If
                               End Sub)
                 ElseIf binaryString(4) = "0" And binaryString(5) = "1" Then
-                    Console.WriteLine("Save NO")
                     Me.Invoke(Sub()
-                                  Dim resistance_state_on As String = "123" 'Chroma_resistance()
+                                  If is_measuring_no = False Then
+                                      Reset_resistance()
+                                      is_measuring_no = True
+                                  Else
+                                      Dim resistance_state_on As String = Chroma_resistance()
 
-                                  Select Case Action_ST4On
-                                      Case 1
-                                          lbl_st4NO_res.Text = resistance_state_on
-                                          Action_ST4On += 1
-                                      Case 2
-                                          lbl_st4NO_res_1.Text = resistance_state_on
-                                          Action_ST4On += 1
-                                      Case 3
-                                          lbl_st4NO_res_2.Text = resistance_state_on
-                                          Action_ST4On += 1
-                                      Case 4
-                                          lbl_st4NO_res_3.Text = resistance_state_on
-                                          Action_ST4On += 1
-                                      Case 5
-                                          lbl_st4NO_res_4.Text = resistance_state_on
-                                          Action_ST4On += 1
-                                      Case 6
-                                          lbl_st4NO_res_5.Text = resistance_state_on
-                                          Action_ST4On = 1
-                                  End Select
+                                      If resistance_state_on <> "waiting" Then
+                                          Select Case Action_ST4On
+                                              Case 1
+                                                  lbl_st4NO_res.Text = resistance_state_on
+                                                  Action_ST4On += 1
+                                              Case 2
+                                                  lbl_st4NO_res_1.Text = resistance_state_on
+                                                  Action_ST4On += 1
+                                              Case 3
+                                                  lbl_st4NO_res_2.Text = resistance_state_on
+                                                  Action_ST4On += 1
+                                              Case 4
+                                                  lbl_st4NO_res_3.Text = resistance_state_on
+                                                  Action_ST4On += 1
+                                              Case 5
+                                                  lbl_st4NO_res_4.Text = resistance_state_on
+                                                  Action_ST4On += 1
+                                              Case 6
+                                                  lbl_st4NO_res_5.Text = resistance_state_on
+                                                  Action_ST4On = 1
+                                          End Select
 
-                                  Call KoneksiDB.koneksi_db()
-                                  Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_on & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
-                                  Dim adapter As New SqlDataAdapter(sc)
-                                  adapter.SelectCommand.ExecuteNonQuery()
-                                  Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3072)
-                                  txt_msg.Text = txt_msg.Text + "Resistance ON = " + resistance_state_on & vbCrLf
+                                          Call KoneksiDB.koneksi_db()
+                                          Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_on & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                          Dim adapter As New SqlDataAdapter(sc)
+                                          adapter.SelectCommand.ExecuteNonQuery()
+                                          Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3072)
+                                          is_measuring_no = False
+                                          txt_msg.Text = txt_msg.Text + "Resistance ON = " + resistance_state_on & vbCrLf
+                                      End If
+                                  End If
+
                               End Sub)
                 End If
             End If
@@ -3546,11 +3562,28 @@ Retry:
         End If
         Return True
     End Function
-
+    Private Sub Reset_resistance()
+        strChromaRaw = ""
+        delay = 0
+    End Sub
     Private Function Chroma_resistance() As String
-        ChromaComm.Write("TRIG:SOUR INT" + vbCrLf)
-        Thread.Sleep(10)
-        Return strChromaRaw
+        Dim data_fix As String = "waiting"
+        If delay = 0 Then
+            ChromaComm.Write("TRIG:SOUR INT" + vbCrLf)
+            Thread.Sleep(10)
+            ChromaComm.Write("READ?" + vbCrLf)
+            delay = 1
+        ElseIf delay >= 10 Then
+            If strChromaRaw.Length >= 12 Then
+                data_fix = strChromaRaw
+            Else
+                data_fix = "waiting"
+            End If
+        Else
+            delay += 1
+        End If
+
+        Return data_fix
     End Function
 
     Private Sub btn_apply_multi_Click(sender As Object, e As EventArgs) Handles btn_apply_multi.Click

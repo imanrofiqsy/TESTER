@@ -120,6 +120,7 @@ Public Class frmMain
             Return False
             Exit Function
         End If
+        strChromaRaw = ""
         Return True
     End Function
     'Loading Bar
@@ -1289,13 +1290,13 @@ Public Class frmMain
         ST_COMM5 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM5)
 
         With Result
-            .MEASUREMENT = Modbus.ReadData(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
-            .TRAVEL_P2 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
-            .TRAVEL_P3 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
-            .DIFF_STR = Modbus.ReadData(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
-            .T1 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_T1)
-            .T2 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST4_T2)
-            .COT = Modbus.ReadData(REGISTER_TYPE, ADDR_COT)
+            .MEASUREMENT = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
+            .TRAVEL_P2 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
+            .TRAVEL_P3 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
+            .DIFF_STR = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
+            .T1 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T1)
+            .T2 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T2)
+            .COT = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_COT)
             .UNSCREW_STATUS = Modbus.ReadData(REGISTER_TYPE, ADDR_UNSCREW_STATUS)
         End With
 
@@ -2861,7 +2862,6 @@ Public Class frmMain
                                       Case 1
                                           'lbl_item_1.Text = CNT_ST2
                                           lbl_st2_meas.Text = st2_result
-                                          lbl_st4NC_res.Text = ""
                                           lbl_st4_p2.Text = ""
                                           lbl_st4_p3.Text = ""
                                           lbl_st4_t1.Text = ""
@@ -2873,7 +2873,6 @@ Public Class frmMain
                                       Case 2
                                           'lbl_item_2.Text = CNT_ST2
                                           lbl_st2_meas_1.Text = st2_result
-                                          lbl_st4NC_res_1.Text = ""
                                           lbl_st4_p2_1.Text = ""
                                           lbl_st4_p3_1.Text = ""
                                           lbl_st4_t1_1.Text = ""
@@ -2885,7 +2884,6 @@ Public Class frmMain
                                       Case 3
                                           'lbl_item_3.Text = CNT_ST2
                                           lbl_st2_meas_2.Text = st2_result
-                                          lbl_st4NC_res_2.Text = ""
                                           lbl_st4_p2_2.Text = ""
                                           lbl_st4_p3_2.Text = ""
                                           lbl_st4_t1_2.Text = ""
@@ -2897,7 +2895,6 @@ Public Class frmMain
                                       Case 4
                                           'lbl_item_4.Text = CNT_ST2
                                           lbl_st2_meas_3.Text = st2_result
-                                          lbl_st4NC_res_3.Text = ""
                                           lbl_st4_p2_3.Text = ""
                                           lbl_st4_p3_3.Text = ""
                                           lbl_st4_t1_3.Text = ""
@@ -2909,7 +2906,6 @@ Public Class frmMain
                                       Case 5
                                           'lbl_item_5.Text = CNT_ST2
                                           lbl_st2_meas_4.Text = st2_result
-                                          lbl_st4NC_res_4.Text = ""
                                           lbl_st4_p2_4.Text = ""
                                           lbl_st4_p3_4.Text = ""
                                           lbl_st4_t1_4.Text = ""
@@ -2921,7 +2917,6 @@ Public Class frmMain
                                       Case 6
                                           'lbl_item_6.Text = CNT_ST2
                                           lbl_st2_meas_5.Text = st2_result
-                                          lbl_st4NC_res_5.Text = ""
                                           lbl_st4_p2_5.Text = ""
                                           lbl_st4_p3_5.Text = ""
                                           lbl_st4_t1_5.Text = ""
@@ -2999,13 +2994,15 @@ Public Class frmMain
 
     End Sub
     Dim Action_ST4 As Integer = 1
+    Dim Action_ST4Off As Integer = 1
+    Dim Action_ST4On As Integer = 1
     Private Sub ST4_Thread()
         Do
             If SCAN_MODE = 3 Then
                 Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
-                Console.WriteLine(ST_COMM4)
-                If binaryString(12) = "0" And binaryString(13) = "0" And binaryString(14) = "0" And binaryString(15) = "1" Then
-                    Console.WriteLine("0001")
+
+                If binaryString(15) = "1" Then
+                    'Console.WriteLine("0001")
                     Me.Invoke(Sub()
                                   txt_msg.Text = txt_msg.Text + "Start recording ST4..." & vbCrLf
                                   CNT_ST4 = CNT_ST4 + 1
@@ -3025,66 +3022,64 @@ Public Class frmMain
                                       cot_result = .COT
                                   End With
 
-                                  Dim resistance_state_off As String = Chroma_resistance()
 
                                   Select Case Action_ST4
                                       Case 1
-                                          lbl_st4NC_res.Text = resistance_state_off
                                           lbl_st4_p2.Text = st4_p2_result
                                           lbl_st4_p3.Text = st4_p3_result
                                           lbl_diff_result.Text = diff_result_result
                                           lbl_st4_t1.Text = st4_t1_result
                                           lbl_st4_t2.Text = st4_t2_result
                                           lbl_cot.Text = cot_result
+                                          Action_ST4 += 1
                                       Case 2
-                                          lbl_st4NC_res_1.Text = resistance_state_off
                                           lbl_st4_p2_1.Text = st4_p2_result
                                           lbl_st4_p3_1.Text = st4_p3_result
                                           lbl_diff_result_1.Text = diff_result_result
                                           lbl_st4_t1_1.Text = st4_t1_result
                                           lbl_st4_t2_1.Text = st4_t2_result
                                           lbl_cot_1.Text = cot_result
+                                          Action_ST4 += 1
                                       Case 3
-                                          lbl_st4NC_res_2.Text = resistance_state_off
                                           lbl_st4_p2_2.Text = st4_p2_result
                                           lbl_st4_p3_2.Text = st4_p3_result
                                           lbl_diff_result_2.Text = diff_result_result
                                           lbl_st4_t1_2.Text = st4_t1_result
                                           lbl_st4_t2_2.Text = st4_t2_result
                                           lbl_cot_2.Text = cot_result
+                                          Action_ST4 += 1
                                       Case 4
-                                          lbl_st4NC_res_3.Text = resistance_state_off
                                           lbl_st4_p2_3.Text = st4_p2_result
                                           lbl_st4_p3_3.Text = st4_p3_result
                                           lbl_diff_result_3.Text = diff_result_result
                                           lbl_st4_t1_3.Text = st4_t1_result
                                           lbl_st4_t2_3.Text = st4_t2_result
                                           lbl_cot_3.Text = cot_result
+                                          Action_ST4 += 1
                                       Case 5
-                                          lbl_st4NC_res_4.Text = resistance_state_off
                                           lbl_st4_p2_4.Text = st4_p2_result
                                           lbl_st4_p3_4.Text = st4_p3_result
                                           lbl_diff_result_4.Text = diff_result_result
                                           lbl_st4_t1_4.Text = st4_t1_result
                                           lbl_st4_t2_4.Text = st4_t2_result
                                           lbl_cot_4.Text = cot_result
+                                          Action_ST4 += 1
                                       Case 6
-                                          lbl_st4NC_res_5.Text = resistance_state_off
                                           lbl_st4_p2_5.Text = st4_p2_result
                                           lbl_st4_p3_5.Text = st4_p3_result
                                           lbl_diff_result_5.Text = diff_result_result
                                           lbl_st4_t1_5.Text = st4_t1_result
                                           lbl_st4_t2_5.Text = st4_t2_result
                                           lbl_cot_5.Text = cot_result
+                                          Action_ST4 = 1
                                   End Select
 
                                   Call KoneksiDB.koneksi_db()
-                                  Dim sc As New SqlCommand("UPDATE tb_data SET [State Off Resistance] = '" & resistance_state_off & "', [Travel P2] = '" & st4_p2_result & "', [Travel P3] = '" & st4_p3_result & "', [Dif Str] = '" & diff_result_result & "', T1 = '" & st4_t1_result & "', T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                  Dim sc As New SqlCommand("UPDATE tb_data SET [Travel P2] = '" & st4_p2_result & "', [Travel P3] = '" & st4_p3_result & "', [Dif Str] = '" & diff_result_result & "', T1 = '" & st4_t1_result & "', T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
                                   Dim adapter As New SqlDataAdapter(sc)
                                   adapter.SelectCommand.ExecuteNonQuery()
 
                                   txt_msg.Text = txt_msg.Text + "Finish recording ST4 Result = " & vbCrLf
-                                  txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
                                   txt_msg.Text = txt_msg.Text + "P2 = " + st4_p2_result & vbCrLf
                                   txt_msg.Text = txt_msg.Text + "P3 = " + st4_p3_result & vbCrLf
                                   txt_msg.Text = txt_msg.Text + "Diff = " + diff_result_result & vbCrLf
@@ -3094,37 +3089,71 @@ Public Class frmMain
                                   Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
                                   lbl_cnt_st4.Text = CNT_ST4
                               End Sub)
-                ElseIf binaryString(12) = "0" And binaryString(13) = "0" And binaryString(14) = "1" And binaryString(15) = "0" Then
+                ElseIf binaryString(6) = "0" And binaryString(7) = "1" Then
+                    Console.WriteLine("Save NC")
                     Me.Invoke(Sub()
-                                  Dim resistance_state_on As String = Chroma_resistance()
+                                  Dim resistance_state_off As String = "321" 'Chroma_resistance()
 
-                                  Select Case Action_ST4
+                                  Select Case Action_ST4Off
+                                      Case 1
+                                          lbl_st4NC_res.Text = resistance_state_off
+                                          Action_ST4Off += 1
+                                      Case 2
+                                          lbl_st4NC_res_1.Text = resistance_state_off
+                                          Action_ST4Off += 1
+                                      Case 3
+                                          lbl_st4NC_res_2.Text = resistance_state_off
+                                          Action_ST4Off += 1
+                                      Case 4
+                                          lbl_st4NC_res_3.Text = resistance_state_off
+                                          Action_ST4Off += 1
+                                      Case 5
+                                          lbl_st4NC_res_4.Text = resistance_state_off
+                                          Action_ST4Off += 1
+                                      Case 6
+                                          lbl_st4NC_res_5.Text = resistance_state_off
+                                          Action_ST4Off = 1
+                                  End Select
+
+                                  Call KoneksiDB.koneksi_db()
+                                  Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                  Dim adapter As New SqlDataAdapter(sc)
+                                  adapter.SelectCommand.ExecuteNonQuery()
+                                  Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)
+                                  txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
+                              End Sub)
+                ElseIf binaryString(4) = "0" And binaryString(5) = "1" Then
+                    Console.WriteLine("Save NO")
+                    Me.Invoke(Sub()
+                                  Dim resistance_state_on As String = "123" 'Chroma_resistance()
+
+                                  Select Case Action_ST4On
                                       Case 1
                                           lbl_st4NO_res.Text = resistance_state_on
-                                          Action_ST4 += 1
+                                          Action_ST4On += 1
                                       Case 2
                                           lbl_st4NO_res_1.Text = resistance_state_on
-                                          Action_ST4 += 1
+                                          Action_ST4On += 1
                                       Case 3
                                           lbl_st4NO_res_2.Text = resistance_state_on
-                                          Action_ST4 += 1
+                                          Action_ST4On += 1
                                       Case 4
                                           lbl_st4NO_res_3.Text = resistance_state_on
-                                          Action_ST4 += 1
+                                          Action_ST4On += 1
                                       Case 5
                                           lbl_st4NO_res_4.Text = resistance_state_on
-                                          Action_ST4 += 1
+                                          Action_ST4On += 1
                                       Case 6
                                           lbl_st4NO_res_5.Text = resistance_state_on
-                                          Action_ST4 = 1
+                                          Action_ST4On = 1
                                   End Select
 
                                   Call KoneksiDB.koneksi_db()
                                   Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_on & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
                                   Dim adapter As New SqlDataAdapter(sc)
                                   adapter.SelectCommand.ExecuteNonQuery()
-                                  Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 6)
-                                  txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_on & vbCrLf
+                                  Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3072)
+                                  txt_msg.Text = txt_msg.Text + "Resistance ON = " + resistance_state_on & vbCrLf
                               End Sub)
                 End If
             End If

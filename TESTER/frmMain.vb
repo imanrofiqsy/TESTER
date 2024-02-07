@@ -77,15 +77,14 @@ Public Class frmMain
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
         Try
-            btn_open_multi.PerformClick()
+            ChromaComm.Open()
             Thread.Sleep(100)
-            If Not initChroma() Then
-                MsgBox("Unable to communicate with Chroma 16502")
-                End
-            End If
+            btn_open_multi.Text = "Close Port"
+            connect_multi_ind.BackColor = Color.Red
         Catch ex As Exception
-            MsgBox("Chroma not found")
-            'End
+            MsgBox("Error. " + ex.Message)
+            connect_multi_ind.BackColor = Color.DarkRed
+            End
         End Try
 
         Thread.Sleep(400)

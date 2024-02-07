@@ -9061,9 +9061,9 @@ Partial Class frmMain
         Me.btn_log.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_log.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_log.Image = Global.TESTER.My.Resources.Resources.icons8_log_56
-        Me.btn_log.Location = New System.Drawing.Point(83, 651)
+        Me.btn_log.Location = New System.Drawing.Point(-5, 557)
         Me.btn_log.Name = "btn_log"
-        Me.btn_log.Size = New System.Drawing.Size(60, 86)
+        Me.btn_log.Size = New System.Drawing.Size(87, 86)
         Me.btn_log.TabIndex = 69
         Me.btn_log.Text = "Log"
         Me.btn_log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -9077,7 +9077,7 @@ Partial Class frmMain
         Me.btn_calib.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_calib.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btn_calib.Image = Global.TESTER.My.Resources.Resources.icons8_check_document_56
-        Me.btn_calib.Location = New System.Drawing.Point(229, 651)
+        Me.btn_calib.Location = New System.Drawing.Point(82, 650)
         Me.btn_calib.Name = "btn_calib"
         Me.btn_calib.Size = New System.Drawing.Size(60, 87)
         Me.btn_calib.TabIndex = 69
@@ -9092,7 +9092,7 @@ Partial Class frmMain
         Me.btn_setting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_setting.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btn_setting.Image = Global.TESTER.My.Resources.Resources.icons8_setting_56
-        Me.btn_setting.Location = New System.Drawing.Point(156, 651)
+        Me.btn_setting.Location = New System.Drawing.Point(6, 635)
         Me.btn_setting.Name = "btn_setting"
         Me.btn_setting.Size = New System.Drawing.Size(60, 87)
         Me.btn_setting.TabIndex = 69
@@ -11937,7 +11937,7 @@ Partial Class frmMain
         Me.btn_laser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_laser.Image = Global.TESTER.My.Resources.Resources.icons8_laser_56
-        Me.btn_laser.Location = New System.Drawing.Point(-3, 560)
+        Me.btn_laser.Location = New System.Drawing.Point(140, 648)
         Me.btn_laser.Name = "btn_laser"
         Me.btn_laser.Size = New System.Drawing.Size(92, 90)
         Me.btn_laser.TabIndex = 69
@@ -12025,6 +12025,7 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.lbl_date)
         Me.Controls.Add(Me.GroupBox87)
         Me.Controls.Add(Me.lbl_run_state)
@@ -12037,9 +12038,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_stn5)
         Me.Controls.Add(Me.btn_stn4)
         Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.btn_calib)
-        Me.Controls.Add(Me.btn_setting)
         Me.Controls.Add(Me.btn_stn3)
         Me.Controls.Add(Me.btn_stn2)
         Me.Controls.Add(Me.btn_stn1)
@@ -12068,13 +12067,14 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
-        Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_laser)
+        Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_monitoring)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.btn_setting)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

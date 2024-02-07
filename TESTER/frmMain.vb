@@ -78,22 +78,22 @@ Public Class frmMain
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
-        Try
-            ChromaComm.Open()
-            btn_open_multi.Text = "Close Port"
-            connect_multi_ind.BackColor = Color.Red
-        Catch ex As Exception
-            MsgBox("Error. " + ex.Message)
-            connect_multi_ind.BackColor = Color.DarkRed
-            End
-        End Try
+        'Try
+        '    ChromaComm.Open()
+        '    btn_open_multi.Text = "Close Port"
+        '    connect_multi_ind.BackColor = Color.Red
+        'Catch ex As Exception
+        '    MsgBox("Error. " + ex.Message)
+        '    connect_multi_ind.BackColor = Color.DarkRed
+        '    End
+        'End Try
 
-        If Not initChroma() AndAlso delay > 10 Then
-            MsgBox("Cannot establish chroma connection!")
-            End
-        Else
-            delay += 1
-        End If
+        'If Not initChroma() AndAlso delay > 10 Then
+        '    MsgBox("Cannot establish chroma connection!")
+        '    End
+        'Else
+        '    delay += 1
+        'End If
 
         Thread.Sleep(400)
 

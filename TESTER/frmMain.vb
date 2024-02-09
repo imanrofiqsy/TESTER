@@ -64,11 +64,11 @@ Public Class frmMain
 
         Try
             If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
-                MsgBox("Cannot establish connection to PLC!")
+                MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
                 End
             End If
         Catch ex As Exception
-            MsgBox("Cannot establish connection to PLC!")
+            MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
             End
         End Try
 
@@ -83,13 +83,13 @@ Public Class frmMain
             btn_open_multi.Text = "Close Port"
             connect_multi_ind.BackColor = Color.Red
         Catch ex As Exception
-            MsgBox("Error. " + ex.Message)
+            MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
             connect_multi_ind.BackColor = Color.DarkRed
             End
         End Try
 
         If Not initChroma() AndAlso delay > 10 Then
-            MsgBox("Cannot establish chroma connection!")
+            MsgBox("Cannot establish chroma connection!", MsgBoxStyle.SystemModal, "On Top")
             End
         Else
             delay += 1

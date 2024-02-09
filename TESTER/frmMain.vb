@@ -3557,6 +3557,8 @@ Retry:
         If delay = 0 Then
             ChromaComm.Write("TRIG:SOUR INT" + vbCrLf)
             Thread.Sleep(3000)
+            ChromaComm.Write("TRIG:SOUR MAN" + vbCrLf)
+            Thread.Sleep(10)
             ChromaComm.Write("READ?" + vbCrLf)
             delay = 1
         ElseIf delay >= 10 Then

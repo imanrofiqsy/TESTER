@@ -5,6 +5,7 @@ Imports ControlBPM
 Public Class frmMain
     Dim Modbus = New Modbus()
     Dim Multimeter = New Multimeter()
+    Dim Laser = New CyklopLaser()
     Dim ThreadLoadFrm As Thread
     Dim ThreadST2 As Thread
     Dim ThreadST3 As Thread
@@ -30,6 +31,8 @@ Public Class frmMain
         With Config
             .addressPlc = ReadINI(iniPath, "PLC", "IP")
             .portPlc = ReadINI(iniPath, "PLC", "Port")
+            .addressLaser = ReadINI(iniPath, "LASER", "IP")
+            .portLaser = ReadINI(iniPath, "LASER", "Port")
             .dbHostName = ReadINI(iniPath, "DATABASE", "Hostname")
             .dbUsername = ReadINI(iniPath, "DATABASE", "Username")
             .dbPassword = ReadINI(iniPath, "DATABASE", "Password")
@@ -44,6 +47,8 @@ Public Class frmMain
 
             txtIP_PLC.Text = .addressPlc
             txtPort_PLC.Text = .portPlc
+            txtIP_laser.Text = .addressLaser
+            txtPort_laser.Text = .portLaser
             txt_hostname.Text = .dbHostName
             txt_username.Text = .dbUsername
             txt_password.Text = .dbPassword
@@ -89,13 +94,25 @@ Public Class frmMain
         End Try
 
         If Not initChroma() AndAlso delay > 10 Then
-            MsgBox("Cannot establish chroma connection!", MsgBoxStyle.SystemModal, "On Top")
+            MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
             End
         Else
             delay += 1
         End If
 
-        Thread.Sleep(400)
+        Thread.Sleep(200)
+
+        UpdateLoadingBar(60, "Connecting to Laser...")
+        Try
+            If Not Laser.is_connected() Then
+                Laser.Connect()
+                btn_connect_laser.Text = "Disconnect"
+                connect_laser_ind.BackColor = Color.Red
+            End If
+        Catch ex As Exception
+            MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        End Try
+        Thread.Sleep(200)
 
         'BarcodeComm.Open()
         ThreadST2 = New Thread(AddressOf ST2_Thread)
@@ -106,10 +123,10 @@ Public Class frmMain
         ThreadST5 = New Thread(AddressOf ST5_Thread)
         ThreadST5.Start()
         Status.Enabled = True
-        UpdateLoadingBar(60, "Creating Multithreading...")
+        UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
 
-        UpdateLoadingBar(100, "Load App GUI")
+        UpdateLoadingBar(100, "Load App GUI...")
         Thread.Sleep(500)
         CloseLoadForm()
         Cursor = Cursors.Default
@@ -135,6 +152,7 @@ Public Class frmMain
     Private Sub ProcessLoad()
         Do
             frmLoadingBar.ShowDialog()
+            Thread.Sleep(100)
         Loop
     End Sub
     Private Sub CloseLoadForm()
@@ -290,7 +308,7 @@ Public Class frmMain
     End Sub
 
     'Panel Setting
-    Private Sub btn_connect_Click(sender As Object, e As EventArgs) Handles btn_connect_plc.Click
+    Private Sub btn_connect_Click(sender As Object, e As EventArgs) Handles btn_connect_plc.Click, btn_connect_laser.Click
         If btn_connect_plc.Text = "Connect" Then
             If Modbus.OpenPort(txtIP_PLC.Text, txtPort_PLC.Text) Then
                 btn_connect_plc.Text = "Disconnect"
@@ -3591,7 +3609,7 @@ Retry:
         RTB_CFG.ScrollToCaret()
     End Sub
 
-    Private Sub btn_save_plc_Click(sender As Object, e As EventArgs) Handles btn_save_plc.Click
+    Private Sub btn_save_plc_Click(sender As Object, e As EventArgs) Handles btn_save_plc.Click, btn_save_laser.Click
         WriteINI(iniPath, "PLC", "IP", txtIP_PLC.Text)
         WriteINI(iniPath, "PLC", "Port", txtPort_PLC.Text)
         RTB_CFG.AppendText(Now.ToString("yyyy-MM-dd HH:mm:ss ") + "Save PLC Configuration Success" + Environment.NewLine)

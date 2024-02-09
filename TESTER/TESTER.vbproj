@@ -82,6 +82,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CyklopLaser.vb" />
     <Compile Include="frmLaserMarker.Designer.vb">
       <DependentUpon>frmLaserMarker.vb</DependentUpon>
     </Compile>

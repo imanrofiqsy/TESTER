@@ -6,6 +6,8 @@
     Public Structure machineConfig
         Dim addressPlc As String
         Dim portPlc As String
+        Dim addressLaser As String
+        Dim portLaser As String
         Dim dbHostName As String
         Dim dbUsername As String
         Dim dbPassword As String

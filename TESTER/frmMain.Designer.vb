@@ -2927,7 +2927,7 @@ Partial Class frmMain
         Me.GroupBox87.Controls.Add(Me.lbl_cnt_st3)
         Me.GroupBox87.Controls.Add(Me.lbl_cnt_st2)
         Me.GroupBox87.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox87.Location = New System.Drawing.Point(371, 859)
+        Me.GroupBox87.Location = New System.Drawing.Point(523, 663)
         Me.GroupBox87.Name = "GroupBox87"
         Me.GroupBox87.Size = New System.Drawing.Size(485, 61)
         Me.GroupBox87.TabIndex = 51
@@ -3036,7 +3036,7 @@ Partial Class frmMain
         Me.txt_msg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txt_msg.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_msg.ForeColor = System.Drawing.Color.Black
-        Me.txt_msg.Location = New System.Drawing.Point(98, 890)
+        Me.txt_msg.Location = New System.Drawing.Point(250, 694)
         Me.txt_msg.Name = "txt_msg"
         Me.txt_msg.Size = New System.Drawing.Size(216, 253)
         Me.txt_msg.TabIndex = 49
@@ -3045,7 +3045,7 @@ Partial Class frmMain
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(95, 861)
+        Me.Label18.Location = New System.Drawing.Point(247, 665)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(178, 24)
         Me.Label18.TabIndex = 50
@@ -3074,7 +3074,7 @@ Partial Class frmMain
         Me.GroupBox86.Controls.Add(Me.lbl_beating_times)
         Me.GroupBox86.Controls.Add(Me.lbl_act_val)
         Me.GroupBox86.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox86.Location = New System.Drawing.Point(822, 728)
+        Me.GroupBox86.Location = New System.Drawing.Point(974, 532)
         Me.GroupBox86.Name = "GroupBox86"
         Me.GroupBox86.Size = New System.Drawing.Size(215, 278)
         Me.GroupBox86.TabIndex = 53

@@ -2994,8 +2994,6 @@ Public Class frmMain
 
     End Sub
     Dim Action_ST4 As Integer = 1
-    Dim Action_ST4Off As Integer = 1
-    Dim Action_ST4On As Integer = 1
     Dim is_measuring_nc As Boolean = False
     Dim is_measuring_no As Boolean = False
     Private Sub ST4_Thread()
@@ -3003,7 +3001,7 @@ Public Class frmMain
             If SCAN_MODE = 3 Then
                 Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
 
-                If binaryString(15) = "1" Then
+                If binaryString(14) = "0" And binaryString(15) = "1" Then
                     'Console.WriteLine("0001")
                     Me.Invoke(Sub()
                                   txt_msg.Text = txt_msg.Text + "Start recording ST4..." & vbCrLf
@@ -3099,25 +3097,19 @@ Public Class frmMain
                                   Else
                                       Dim resistance_state_off As String = Chroma_resistance()
                                       If resistance_state_off <> "waiting" Then
-                                          Select Case Action_ST4Off
+                                          Select Case Action_ST4 - 1
                                               Case 1
                                                   lbl_st4NC_res.Text = resistance_state_off
-                                                  Action_ST4Off += 1
                                               Case 2
                                                   lbl_st4NC_res_1.Text = resistance_state_off
-                                                  Action_ST4Off += 1
                                               Case 3
                                                   lbl_st4NC_res_2.Text = resistance_state_off
-                                                  Action_ST4Off += 1
                                               Case 4
                                                   lbl_st4NC_res_3.Text = resistance_state_off
-                                                  Action_ST4Off += 1
                                               Case 5
                                                   lbl_st4NC_res_4.Text = resistance_state_off
-                                                  Action_ST4Off += 1
                                               Case 6
                                                   lbl_st4NC_res_5.Text = resistance_state_off
-                                                  Action_ST4Off = 1
                                           End Select
 
                                           Call KoneksiDB.koneksi_db()
@@ -3139,25 +3131,19 @@ Public Class frmMain
                                       Dim resistance_state_on As String = Chroma_resistance()
 
                                       If resistance_state_on <> "waiting" Then
-                                          Select Case Action_ST4On
+                                          Select Case Action_ST4 - 1
                                               Case 1
                                                   lbl_st4NO_res.Text = resistance_state_on
-                                                  Action_ST4On += 1
                                               Case 2
                                                   lbl_st4NO_res_1.Text = resistance_state_on
-                                                  Action_ST4On += 1
                                               Case 3
                                                   lbl_st4NO_res_2.Text = resistance_state_on
-                                                  Action_ST4On += 1
                                               Case 4
                                                   lbl_st4NO_res_3.Text = resistance_state_on
-                                                  Action_ST4On += 1
                                               Case 5
                                                   lbl_st4NO_res_4.Text = resistance_state_on
-                                                  Action_ST4On += 1
                                               Case 6
                                                   lbl_st4NO_res_5.Text = resistance_state_on
-                                                  Action_ST4On = 1
                                           End Select
 
                                           Call KoneksiDB.koneksi_db()
@@ -3570,7 +3556,7 @@ Retry:
         Dim data_fix As String = "waiting"
         If delay = 0 Then
             ChromaComm.Write("TRIG:SOUR INT" + vbCrLf)
-            Thread.Sleep(10)
+            Thread.Sleep(3000)
             ChromaComm.Write("READ?" + vbCrLf)
             delay = 1
         ElseIf delay >= 10 Then

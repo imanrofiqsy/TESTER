@@ -61,28 +61,19 @@ Public Class CyklopLaser
             Return "None"
         End Try
     End Function
-    Public Function GetMarkStatus() As String
-        Dim temp As String = ""
+    Public Sub GetMarkStatus()
         If Not is_writing() Then
             write_data("GetMarkStatus;;")
-            temp = ReadData()
         End If
-        Return temp
-    End Function
-    Public Function SetMarkingTemplate(template As String) As String
-        Dim temp As String = ""
+    End Sub
+    Public Sub SetMarkingTemplate(template As String)
         If Not is_writing() Then
             write_data("SwitchDoc," + template + ";;")
-            temp = ReadData()
         End If
-        Return temp
-    End Function
-    Public Function StartMark() As String
-        Dim temp As String = ""
+    End Sub
+    Public Sub StartMark()
         If Not is_writing() Then
             write_data("StartMark;;")
-            temp = ReadData()
         End If
-        Return temp
-    End Function
+    End Sub
 End Class

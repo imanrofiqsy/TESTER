@@ -2679,9 +2679,8 @@ Public Class frmMain
             ind_stn_6.BackColor = Color.Red
         End If
     End Sub
-
+    Dim delayLaser As Integer = 0
     Private Sub Status_Tick(sender As Object, e As EventArgs) Handles Status.Tick
-
         Select Case SCAN_MODE
             Case 0
                 'txt_ref.Select()
@@ -2735,18 +2734,37 @@ Public Class frmMain
                     Modbus.WriteData(REGISTER_TYPE, ADDR_UNSCREWING_PROCESS, lbl_unscrew_process.Text)
                     Modbus.WriteData(REGISTER_TYPE, ADDR_LASER_DATE_CODE, lbl_laser_datecode.Text)
 
-                    If Laser.GetMarkStatus = "2;;" Then
-                        If Laser.SetMarkingTemplate(rd.Item("Laser Template")) <> "Ok;;" Then
-                            lbl_op_ins.Text = "Error Set Marking Template"
-                        End If
-                    Else
-                        If Laser.StartMark <> "Ok;;" Then
-                            lbl_op_ins.Text = "Error Start Mark"
-                        End If
-                    End If
+                    Select Case LASER_STATE
+                        Case 0
+                            If delayLaser = 0 Then
+                                Laser.GetMarkStatus
+                                delayLaser = 1
+                            ElseIf delayLaser >= 5 Then
+                                If txtResponse_laser.Text = "2;;" Then
+                                    delayLaser = 0
+                                    LASER_STATE = 1
+                                End If
+                            Else
+                                delayLaser += 1
+                            End If
+                        Case 1
+                            If delayLaser = 0 Then
+                                Laser.SetMarkingTemplate(rd.Item("Laser Template"))
+                                delayLaser = 1
+                            ElseIf delayLaser >= 5 Then
+                                If txtResponse_laser.Text = "Ok;;" Then
+                                    delayLaser = 0
+                                    LASER_STATE = 2
+                                End If
+                            Else
+                                delayLaser += 1
+                            End If
+                        Case 2
+                            SCAN_MODE = 3
+                    End Select
 
-                    SCAN_MODE = 3
-                    End If
+                    'SCAN_MODE = 3
+                End If
         End Select
         'status bar
         If RUNNING_STATE = 1 Then 'running
@@ -2891,6 +2909,7 @@ Public Class frmMain
     End Function
     Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click
         SCAN_MODE = 0
+        LASER_STATE = 0
         txt_ref.Text = ""
         txt_ope_id.Text = ""
         txt_po_num.Text = ""

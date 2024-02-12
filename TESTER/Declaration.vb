@@ -46,6 +46,7 @@
     Public ST_COMM5 As Integer
 
     Public SCAN_MODE As Integer = 0
+    Public LASER_STATE As Integer = 0
     Public ACTION As Integer = 0
     Public IS_RUN As Boolean = False
 

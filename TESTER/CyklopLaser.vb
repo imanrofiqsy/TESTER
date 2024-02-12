@@ -22,10 +22,13 @@ Public Class CyklopLaser
         Return connected
     End Function
     Public Function write_data(cmd As String) As Boolean
+        Dim dataTX() As Byte
+        dataTX = Encoding.ASCII.GetBytes(cmd + Environment.NewLine)
         Try
             Dim stream As NetworkStream = client.GetStream()
-            Dim writer As New StreamWriter(stream, Encoding.UTF8) With {.AutoFlush = True}
-            writer.Write(cmd)
+            client.GetStream.Write(dataTX, 0, dataTX.Length)
+            'Dim writer As New StreamWriter(stream, Encoding.UTF8) With {.AutoFlush = True}
+            'writer.Write(cmd)
             Return True
         Catch ex As Exception
             Return False

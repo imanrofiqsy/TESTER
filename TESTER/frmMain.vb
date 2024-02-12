@@ -3639,7 +3639,7 @@ Retry:
 
     Private Sub btn_send_laser_Click(sender As Object, e As EventArgs) Handles btn_send_laser.Click
         If Laser.write_data(txtCommand_laser.Text) Then
-            Console.WriteLine(Laser.read_data)
+            'Console.WriteLine(Laser.read_data)
         End If
     End Sub
 End Class

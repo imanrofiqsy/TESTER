@@ -12011,7 +12011,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.btn_laser)
         Me.Controls.Add(Me.pnl_laser)
         Me.Controls.Add(Me.btn_setting)
         Me.Controls.Add(Me.pnl_calibration)
@@ -12040,6 +12039,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_setting)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
+        Me.Controls.Add(Me.btn_laser)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

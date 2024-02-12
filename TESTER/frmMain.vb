@@ -11,6 +11,7 @@ Public Class frmMain
     Dim ThreadST3 As Thread
     Dim ThreadST4 As Thread
     Dim ThreadST5 As Thread
+    Dim ThreadLaser As Thread
 
     Dim AssyBuff As String
     Dim ManualState As Boolean
@@ -122,6 +123,8 @@ Public Class frmMain
         ThreadST4.Start()
         ThreadST5 = New Thread(AddressOf ST5_Thread)
         ThreadST5.Start()
+        ThreadLaser = New Thread(AddressOf Laser_Thread)
+        ThreadLaser.Start()
         Status.Enabled = True
         UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
@@ -3204,7 +3207,14 @@ Public Class frmMain
         Loop
 
     End Sub
-
+    Private Sub Laser_Thread()
+        Do
+            Me.Invoke(Sub()
+                          txtResponse_laser.Text = Laser.ReadData
+                      End Sub)
+            Thread.Sleep(100)
+        Loop
+    End Sub
     Private Sub btn_clear_database_Click(sender As Object, e As EventArgs) Handles btn_clear_database.Click
         Call KoneksiDB.koneksi_db()
         Dim sc As New SqlCommand("DELETE from tb_data;", KoneksiDB.koneksi)
@@ -3616,6 +3626,9 @@ Retry:
             End If
             If ThreadST5.IsAlive Then
                 ThreadST5.Abort()
+            End If
+            If ThreadLaser.IsAlive Then
+                ThreadLaser.Abort()
             End If
         Catch ex As Exception
 

@@ -308,7 +308,7 @@ Public Class frmMain
     End Sub
 
     'Panel Setting
-    Private Sub btn_connect_Click(sender As Object, e As EventArgs) Handles btn_connect_plc.Click, btn_connect_laser.Click
+    Private Sub btn_connect_Click(sender As Object, e As EventArgs) Handles btn_connect_plc.Click
         If btn_connect_plc.Text = "Connect" Then
             If Modbus.OpenPort(txtIP_PLC.Text, txtPort_PLC.Text) Then
                 btn_connect_plc.Text = "Disconnect"
@@ -322,6 +322,22 @@ Public Class frmMain
                 connect_plc_ind.BackColor = Color.DarkRed
                 ind_plc_status.BackColor = Color.DarkRed
                 ModbusRW.Enabled = False
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_connect_laser_Click(sender As Object, e As EventArgs) Handles btn_connect_laser.Click
+        If btn_connect_laser.Text = "Connect" Then
+            If Not Laser.is_connected Then
+                Laser.Connect
+                btn_connect_laser.Text = "Disconnect"
+                connect_laser_ind.BackColor = Color.Red
+            End If
+        ElseIf btn_connect_laser.Text = "Disconnect" Then
+            If Laser.is_connected Then
+                Laser.Disconnect
+                btn_connect_laser.Text = "Connect"
+                connect_laser_ind.BackColor = Color.DarkRed
             End If
         End If
     End Sub
@@ -2880,68 +2896,26 @@ Public Class frmMain
                                       Case 1
                                           'lbl_item_1.Text = CNT_ST2
                                           lbl_st2_meas.Text = st2_result
-                                          lbl_st4_p2.Text = ""
-                                          lbl_st4_p3.Text = ""
-                                          lbl_st4_t1.Text = ""
-                                          lbl_st4_t2.Text = ""
-                                          lbl_diff_result.Text = ""
-                                          lbl_cot.Text = ""
-                                          lbl_unscrew_status.Text = ""
                                           Action_ST2 += 1
                                       Case 2
                                           'lbl_item_2.Text = CNT_ST2
                                           lbl_st2_meas_1.Text = st2_result
-                                          lbl_st4_p2_1.Text = ""
-                                          lbl_st4_p3_1.Text = ""
-                                          lbl_st4_t1_1.Text = ""
-                                          lbl_st4_t2_1.Text = ""
-                                          lbl_diff_result_1.Text = ""
-                                          lbl_cot_1.Text = ""
-                                          lbl_unscrew_status_1.Text = ""
                                           Action_ST2 += 1
                                       Case 3
                                           'lbl_item_3.Text = CNT_ST2
                                           lbl_st2_meas_2.Text = st2_result
-                                          lbl_st4_p2_2.Text = ""
-                                          lbl_st4_p3_2.Text = ""
-                                          lbl_st4_t1_2.Text = ""
-                                          lbl_st4_t2_2.Text = ""
-                                          lbl_diff_result_2.Text = ""
-                                          lbl_cot_2.Text = ""
-                                          lbl_unscrew_status_2.Text = ""
                                           Action_ST2 += 1
                                       Case 4
                                           'lbl_item_4.Text = CNT_ST2
                                           lbl_st2_meas_3.Text = st2_result
-                                          lbl_st4_p2_3.Text = ""
-                                          lbl_st4_p3_3.Text = ""
-                                          lbl_st4_t1_3.Text = ""
-                                          lbl_st4_t2_3.Text = ""
-                                          lbl_diff_result_3.Text = ""
-                                          lbl_cot_3.Text = ""
-                                          lbl_unscrew_status_3.Text = ""
                                           Action_ST2 += 1
                                       Case 5
                                           'lbl_item_5.Text = CNT_ST2
                                           lbl_st2_meas_4.Text = st2_result
-                                          lbl_st4_p2_4.Text = ""
-                                          lbl_st4_p3_4.Text = ""
-                                          lbl_st4_t1_4.Text = ""
-                                          lbl_st4_t2_4.Text = ""
-                                          lbl_diff_result_4.Text = ""
-                                          lbl_cot_4.Text = ""
-                                          lbl_unscrew_status_4.Text = ""
                                           Action_ST2 += 1
                                       Case 6
                                           'lbl_item_6.Text = CNT_ST2
                                           lbl_st2_meas_5.Text = st2_result
-                                          lbl_st4_p2_5.Text = ""
-                                          lbl_st4_p3_5.Text = ""
-                                          lbl_st4_t1_5.Text = ""
-                                          lbl_st4_t2_5.Text = ""
-                                          lbl_diff_result_5.Text = ""
-                                          lbl_cot_5.Text = ""
-                                          lbl_unscrew_status_5.Text = ""
                                           Action_ST2 = 1
                                   End Select
 
@@ -3115,19 +3089,20 @@ Public Class frmMain
                                   Else
                                       Dim resistance_state_off As String = Chroma_resistance()
                                       If resistance_state_off <> "waiting" Then
-                                          Select Case Action_ST4 - 1
+                                          Dim numericValue As Double = Double.Parse(resistance_state_off)
+                                          Select Case Action_ST4
                                               Case 1
-                                                  lbl_st4NC_res.Text = resistance_state_off
+                                                  lbl_st4NC_res.Text = numericValue.ToString
                                               Case 2
-                                                  lbl_st4NC_res_1.Text = resistance_state_off
+                                                  lbl_st4NC_res_1.Text = numericValue.ToString
                                               Case 3
-                                                  lbl_st4NC_res_2.Text = resistance_state_off
+                                                  lbl_st4NC_res_2.Text = numericValue.ToString
                                               Case 4
-                                                  lbl_st4NC_res_3.Text = resistance_state_off
+                                                  lbl_st4NC_res_3.Text = numericValue.ToString
                                               Case 5
-                                                  lbl_st4NC_res_4.Text = resistance_state_off
+                                                  lbl_st4NC_res_4.Text = numericValue.ToString
                                               Case 6
-                                                  lbl_st4NC_res_5.Text = resistance_state_off
+                                                  lbl_st4NC_res_5.Text = numericValue.ToString
                                           End Select
 
                                           Call KoneksiDB.koneksi_db()
@@ -3149,19 +3124,20 @@ Public Class frmMain
                                       Dim resistance_state_on As String = Chroma_resistance()
 
                                       If resistance_state_on <> "waiting" Then
-                                          Select Case Action_ST4 - 1
+                                          Dim numericValue As Double = Double.Parse(resistance_state_on)
+                                          Select Case Action_ST4
                                               Case 1
-                                                  lbl_st4NO_res.Text = resistance_state_on
+                                                  lbl_st4NO_res.Text = numericValue.ToString
                                               Case 2
-                                                  lbl_st4NO_res_1.Text = resistance_state_on
+                                                  lbl_st4NO_res_1.Text = numericValue.ToString
                                               Case 3
-                                                  lbl_st4NO_res_2.Text = resistance_state_on
+                                                  lbl_st4NO_res_2.Text = numericValue.ToString
                                               Case 4
-                                                  lbl_st4NO_res_3.Text = resistance_state_on
+                                                  lbl_st4NO_res_3.Text = numericValue.ToString
                                               Case 5
-                                                  lbl_st4NO_res_4.Text = resistance_state_on
+                                                  lbl_st4NO_res_4.Text = numericValue.ToString
                                               Case 6
-                                                  lbl_st4NO_res_5.Text = resistance_state_on
+                                                  lbl_st4NO_res_5.Text = numericValue.ToString
                                           End Select
 
                                           Call KoneksiDB.koneksi_db()
@@ -3576,10 +3552,11 @@ Retry:
             ChromaComm.Write("TRIG:SOUR INT" + vbCrLf)
             Thread.Sleep(3000)
             ChromaComm.Write("TRIG:SOUR MAN" + vbCrLf)
-            Thread.Sleep(10)
+            Thread.Sleep(500)
             ChromaComm.Write("READ?" + vbCrLf)
             delay = 1
         ElseIf delay >= 10 Then
+            Console.WriteLine(strChromaRaw)
             If strChromaRaw.Length >= 12 Then
                 data_fix = strChromaRaw
             Else
@@ -3609,10 +3586,16 @@ Retry:
         RTB_CFG.ScrollToCaret()
     End Sub
 
-    Private Sub btn_save_plc_Click(sender As Object, e As EventArgs) Handles btn_save_plc.Click, btn_save_laser.Click
+    Private Sub btn_save_plc_Click(sender As Object, e As EventArgs) Handles btn_save_plc.Click
         WriteINI(iniPath, "PLC", "IP", txtIP_PLC.Text)
         WriteINI(iniPath, "PLC", "Port", txtPort_PLC.Text)
         RTB_CFG.AppendText(Now.ToString("yyyy-MM-dd HH:mm:ss ") + "Save PLC Configuration Success" + Environment.NewLine)
+        RTB_CFG.ScrollToCaret()
+    End Sub
+    Private Sub btn_save_laser_Click(sender As Object, e As EventArgs) Handles btn_save_laser.Click
+        WriteINI(iniPath, "LASER", "IP", txtIP_laser.Text)
+        WriteINI(iniPath, "LASER", "Port", txtPort_laser.Text)
+        RTB_CFG.AppendText(Now.ToString("yyyy-MM-dd HH:mm:ss ") + "Save Laser Configuration Success" + Environment.NewLine)
         RTB_CFG.ScrollToCaret()
     End Sub
 
@@ -3639,5 +3622,11 @@ Retry:
         End Try
 
         Thread.Sleep(100)
+    End Sub
+
+    Private Sub btn_send_laser_Click(sender As Object, e As EventArgs) Handles btn_send_laser.Click
+        If Laser.write_data(txtCommand_laser.Text) Then
+            Console.WriteLine(Laser.read_data)
+        End If
     End Sub
 End Class

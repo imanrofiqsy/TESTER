@@ -440,6 +440,14 @@ Partial Class frmMain
         Me.btn_stn1_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_setting = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.GroupBox180 = New System.Windows.Forms.GroupBox()
+        Me.txtIP_laser = New System.Windows.Forms.TextBox()
+        Me.connect_laser_ind = New System.Windows.Forms.PictureBox()
+        Me.Label256 = New System.Windows.Forms.Label()
+        Me.Label258 = New System.Windows.Forms.Label()
+        Me.btn_save_laser = New System.Windows.Forms.Button()
+        Me.txtPort_laser = New System.Windows.Forms.TextBox()
+        Me.btn_connect_laser = New System.Windows.Forms.Button()
         Me.RTB_CFG = New System.Windows.Forms.RichTextBox()
         Me.GroupBox179 = New System.Windows.Forms.GroupBox()
         Me.Label254 = New System.Windows.Forms.Label()
@@ -558,22 +566,11 @@ Partial Class frmMain
         Me.pnl_laser = New System.Windows.Forms.TabControl()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.GroupBox171 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox172 = New System.Windows.Forms.GroupBox()
-        Me.txt_comm_log = New System.Windows.Forms.TextBox()
-        Me.GroupBox173 = New System.Windows.Forms.GroupBox()
-        Me.btn_mark_flag = New System.Windows.Forms.Button()
-        Me.btn_change_prg = New System.Windows.Forms.Button()
-        Me.btn_start_marking = New System.Windows.Forms.Button()
-        Me.btn_string_char = New System.Windows.Forms.Button()
-        Me.txt_block2 = New System.Windows.Forms.TextBox()
-        Me.txt_block1 = New System.Windows.Forms.TextBox()
-        Me.txt_block0 = New System.Windows.Forms.TextBox()
-        Me.Label232 = New System.Windows.Forms.Label()
-        Me.chb_mark_cavity_1 = New System.Windows.Forms.CheckBox()
+        Me.btn_send_laser = New System.Windows.Forms.Button()
+        Me.txtResponse_laser = New System.Windows.Forms.TextBox()
         Me.Label233 = New System.Windows.Forms.Label()
-        Me.cb_prg_num = New System.Windows.Forms.ComboBox()
-        Me.Label234 = New System.Windows.Forms.Label()
-        Me.Label235 = New System.Windows.Forms.Label()
+        Me.txtCommand_laser = New System.Windows.Forms.TextBox()
+        Me.Label232 = New System.Windows.Forms.Label()
         Me.pnl_multi = New System.Windows.Forms.TabControl()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
         Me.GroupBox178 = New System.Windows.Forms.GroupBox()
@@ -950,14 +947,6 @@ Partial Class frmMain
         Me.btn_monitoring = New System.Windows.Forms.Button()
         Me.btn_manual = New System.Windows.Forms.Button()
         Me.btn_home = New System.Windows.Forms.Button()
-        Me.GroupBox180 = New System.Windows.Forms.GroupBox()
-        Me.Label256 = New System.Windows.Forms.Label()
-        Me.Label258 = New System.Windows.Forms.Label()
-        Me.txtIP_laser = New System.Windows.Forms.TextBox()
-        Me.txtPort_laser = New System.Windows.Forms.TextBox()
-        Me.btn_connect_laser = New System.Windows.Forms.Button()
-        Me.btn_save_laser = New System.Windows.Forms.Button()
-        Me.connect_laser_ind = New System.Windows.Forms.PictureBox()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1115,6 +1104,8 @@ Partial Class frmMain
         Me.GroupBox1.SuspendLayout
         Me.pnl_setting.SuspendLayout
         Me.TabPage10.SuspendLayout
+        Me.GroupBox180.SuspendLayout
+        CType(Me.connect_laser_ind, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox179.SuspendLayout
         Me.GroupBox177.SuspendLayout
         CType(Me.ind_stn_6, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1142,8 +1133,6 @@ Partial Class frmMain
         Me.pnl_laser.SuspendLayout
         Me.TabPage13.SuspendLayout
         Me.GroupBox171.SuspendLayout
-        Me.GroupBox172.SuspendLayout
-        Me.GroupBox173.SuspendLayout
         Me.pnl_multi.SuspendLayout
         Me.TabPage14.SuspendLayout
         Me.GroupBox178.SuspendLayout
@@ -1374,8 +1363,6 @@ Partial Class frmMain
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBox180.SuspendLayout
-        CType(Me.connect_laser_ind, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'lbl_user
@@ -6440,6 +6427,92 @@ Partial Class frmMain
         Me.TabPage10.Text = "Configuration"
         Me.TabPage10.UseVisualStyleBackColor = True
         '
+        'GroupBox180
+        '
+        Me.GroupBox180.Controls.Add(Me.txtIP_laser)
+        Me.GroupBox180.Controls.Add(Me.connect_laser_ind)
+        Me.GroupBox180.Controls.Add(Me.Label256)
+        Me.GroupBox180.Controls.Add(Me.Label258)
+        Me.GroupBox180.Controls.Add(Me.btn_save_laser)
+        Me.GroupBox180.Controls.Add(Me.txtPort_laser)
+        Me.GroupBox180.Controls.Add(Me.btn_connect_laser)
+        Me.GroupBox180.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox180.Location = New System.Drawing.Point(32, 345)
+        Me.GroupBox180.Name = "GroupBox180"
+        Me.GroupBox180.Size = New System.Drawing.Size(214, 159)
+        Me.GroupBox180.TabIndex = 64
+        Me.GroupBox180.TabStop = False
+        Me.GroupBox180.Text = "Laser"
+        '
+        'txtIP_laser
+        '
+        Me.txtIP_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIP_laser.Location = New System.Drawing.Point(90, 20)
+        Me.txtIP_laser.Name = "txtIP_laser"
+        Me.txtIP_laser.Size = New System.Drawing.Size(112, 26)
+        Me.txtIP_laser.TabIndex = 2
+        '
+        'connect_laser_ind
+        '
+        Me.connect_laser_ind.BackColor = System.Drawing.Color.DarkRed
+        Me.connect_laser_ind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.connect_laser_ind.Location = New System.Drawing.Point(119, 95)
+        Me.connect_laser_ind.Name = "connect_laser_ind"
+        Me.connect_laser_ind.Size = New System.Drawing.Size(20, 20)
+        Me.connect_laser_ind.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.connect_laser_ind.TabIndex = 1
+        Me.connect_laser_ind.TabStop = False
+        '
+        'Label256
+        '
+        Me.Label256.AutoSize = True
+        Me.Label256.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label256.Location = New System.Drawing.Point(4, 25)
+        Me.Label256.Name = "Label256"
+        Me.Label256.Size = New System.Drawing.Size(82, 20)
+        Me.Label256.TabIndex = 1
+        Me.Label256.Text = "Server IP :"
+        '
+        'Label258
+        '
+        Me.Label258.AutoSize = True
+        Me.Label258.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label258.Location = New System.Drawing.Point(6, 53)
+        Me.Label258.Name = "Label258"
+        Me.Label258.Size = New System.Drawing.Size(80, 20)
+        Me.Label258.TabIndex = 1
+        Me.Label258.Text = "TCP Port :"
+        '
+        'btn_save_laser
+        '
+        Me.btn_save_laser.AutoSize = True
+        Me.btn_save_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_save_laser.Location = New System.Drawing.Point(10, 124)
+        Me.btn_save_laser.Name = "btn_save_laser"
+        Me.btn_save_laser.Size = New System.Drawing.Size(105, 32)
+        Me.btn_save_laser.TabIndex = 4
+        Me.btn_save_laser.Text = "Save Config"
+        Me.btn_save_laser.UseVisualStyleBackColor = True
+        '
+        'txtPort_laser
+        '
+        Me.txtPort_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPort_laser.Location = New System.Drawing.Point(90, 53)
+        Me.txtPort_laser.Name = "txtPort_laser"
+        Me.txtPort_laser.Size = New System.Drawing.Size(112, 26)
+        Me.txtPort_laser.TabIndex = 3
+        '
+        'btn_connect_laser
+        '
+        Me.btn_connect_laser.AutoSize = True
+        Me.btn_connect_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_connect_laser.Location = New System.Drawing.Point(10, 89)
+        Me.btn_connect_laser.Name = "btn_connect_laser"
+        Me.btn_connect_laser.Size = New System.Drawing.Size(79, 33)
+        Me.btn_connect_laser.TabIndex = 4
+        Me.btn_connect_laser.Text = "Connect"
+        Me.btn_connect_laser.UseVisualStyleBackColor = True
+        '
         'RTB_CFG
         '
         Me.RTB_CFG.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -7696,8 +7769,11 @@ Partial Class frmMain
         '
         'GroupBox171
         '
-        Me.GroupBox171.Controls.Add(Me.GroupBox172)
-        Me.GroupBox171.Controls.Add(Me.GroupBox173)
+        Me.GroupBox171.Controls.Add(Me.btn_send_laser)
+        Me.GroupBox171.Controls.Add(Me.txtResponse_laser)
+        Me.GroupBox171.Controls.Add(Me.Label233)
+        Me.GroupBox171.Controls.Add(Me.txtCommand_laser)
+        Me.GroupBox171.Controls.Add(Me.Label232)
         Me.GroupBox171.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox171.Location = New System.Drawing.Point(171, 35)
         Me.GroupBox171.Name = "GroupBox171"
@@ -7706,169 +7782,46 @@ Partial Class frmMain
         Me.GroupBox171.TabStop = False
         Me.GroupBox171.Text = "Laser Parameter"
         '
-        'GroupBox172
+        'btn_send_laser
         '
-        Me.GroupBox172.Controls.Add(Me.txt_comm_log)
-        Me.GroupBox172.Location = New System.Drawing.Point(6, 306)
-        Me.GroupBox172.Name = "GroupBox172"
-        Me.GroupBox172.Size = New System.Drawing.Size(485, 146)
-        Me.GroupBox172.TabIndex = 7
-        Me.GroupBox172.TabStop = False
-        Me.GroupBox172.Text = "Communication Log"
+        Me.btn_send_laser.Location = New System.Drawing.Point(226, 143)
+        Me.btn_send_laser.Name = "btn_send_laser"
+        Me.btn_send_laser.Size = New System.Drawing.Size(75, 37)
+        Me.btn_send_laser.TabIndex = 2
+        Me.btn_send_laser.Text = "Send"
+        Me.btn_send_laser.UseVisualStyleBackColor = True
         '
-        'txt_comm_log
+        'txtResponse_laser
         '
-        Me.txt_comm_log.Location = New System.Drawing.Point(6, 30)
-        Me.txt_comm_log.Multiline = True
-        Me.txt_comm_log.Name = "txt_comm_log"
-        Me.txt_comm_log.Size = New System.Drawing.Size(473, 110)
-        Me.txt_comm_log.TabIndex = 6
-        '
-        'GroupBox173
-        '
-        Me.GroupBox173.Controls.Add(Me.btn_mark_flag)
-        Me.GroupBox173.Controls.Add(Me.btn_change_prg)
-        Me.GroupBox173.Controls.Add(Me.btn_start_marking)
-        Me.GroupBox173.Controls.Add(Me.btn_string_char)
-        Me.GroupBox173.Controls.Add(Me.txt_block2)
-        Me.GroupBox173.Controls.Add(Me.txt_block1)
-        Me.GroupBox173.Controls.Add(Me.txt_block0)
-        Me.GroupBox173.Controls.Add(Me.Label232)
-        Me.GroupBox173.Controls.Add(Me.chb_mark_cavity_1)
-        Me.GroupBox173.Controls.Add(Me.Label233)
-        Me.GroupBox173.Controls.Add(Me.cb_prg_num)
-        Me.GroupBox173.Controls.Add(Me.Label234)
-        Me.GroupBox173.Controls.Add(Me.Label235)
-        Me.GroupBox173.Location = New System.Drawing.Point(6, 32)
-        Me.GroupBox173.Name = "GroupBox173"
-        Me.GroupBox173.Size = New System.Drawing.Size(489, 256)
-        Me.GroupBox173.TabIndex = 5
-        Me.GroupBox173.TabStop = False
-        Me.GroupBox173.Text = "Cavity 1"
-        '
-        'btn_mark_flag
-        '
-        Me.btn_mark_flag.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_mark_flag.Location = New System.Drawing.Point(242, 169)
-        Me.btn_mark_flag.Name = "btn_mark_flag"
-        Me.btn_mark_flag.Size = New System.Drawing.Size(105, 28)
-        Me.btn_mark_flag.TabIndex = 4
-        Me.btn_mark_flag.Text = "Mark Flag"
-        Me.btn_mark_flag.UseVisualStyleBackColor = True
-        '
-        'btn_change_prg
-        '
-        Me.btn_change_prg.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_change_prg.Location = New System.Drawing.Point(85, 202)
-        Me.btn_change_prg.Name = "btn_change_prg"
-        Me.btn_change_prg.Size = New System.Drawing.Size(148, 29)
-        Me.btn_change_prg.TabIndex = 4
-        Me.btn_change_prg.Text = "Change Program"
-        Me.btn_change_prg.UseVisualStyleBackColor = True
-        '
-        'btn_start_marking
-        '
-        Me.btn_start_marking.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_start_marking.Location = New System.Drawing.Point(242, 203)
-        Me.btn_start_marking.Name = "btn_start_marking"
-        Me.btn_start_marking.Size = New System.Drawing.Size(105, 28)
-        Me.btn_start_marking.TabIndex = 4
-        Me.btn_start_marking.Text = "Start Marking"
-        Me.btn_start_marking.UseVisualStyleBackColor = True
-        '
-        'btn_string_char
-        '
-        Me.btn_string_char.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_string_char.Location = New System.Drawing.Point(85, 169)
-        Me.btn_string_char.Name = "btn_string_char"
-        Me.btn_string_char.Size = New System.Drawing.Size(148, 28)
-        Me.btn_string_char.TabIndex = 4
-        Me.btn_string_char.Text = "String Character"
-        Me.btn_string_char.UseVisualStyleBackColor = True
-        '
-        'txt_block2
-        '
-        Me.txt_block2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_block2.Location = New System.Drawing.Point(85, 135)
-        Me.txt_block2.Name = "txt_block2"
-        Me.txt_block2.Size = New System.Drawing.Size(310, 26)
-        Me.txt_block2.TabIndex = 3
-        '
-        'txt_block1
-        '
-        Me.txt_block1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_block1.Location = New System.Drawing.Point(85, 104)
-        Me.txt_block1.Name = "txt_block1"
-        Me.txt_block1.Size = New System.Drawing.Size(310, 26)
-        Me.txt_block1.TabIndex = 3
-        '
-        'txt_block0
-        '
-        Me.txt_block0.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_block0.Location = New System.Drawing.Point(85, 73)
-        Me.txt_block0.Name = "txt_block0"
-        Me.txt_block0.Size = New System.Drawing.Size(310, 26)
-        Me.txt_block0.TabIndex = 3
-        '
-        'Label232
-        '
-        Me.Label232.AutoSize = True
-        Me.Label232.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label232.Location = New System.Drawing.Point(13, 138)
-        Me.Label232.Name = "Label232"
-        Me.Label232.Size = New System.Drawing.Size(69, 20)
-        Me.Label232.TabIndex = 0
-        Me.Label232.Text = "Block 2 :"
-        '
-        'chb_mark_cavity_1
-        '
-        Me.chb_mark_cavity_1.AutoSize = True
-        Me.chb_mark_cavity_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chb_mark_cavity_1.Location = New System.Drawing.Point(295, 25)
-        Me.chb_mark_cavity_1.Name = "chb_mark_cavity_1"
-        Me.chb_mark_cavity_1.Size = New System.Drawing.Size(122, 24)
-        Me.chb_mark_cavity_1.TabIndex = 2
-        Me.chb_mark_cavity_1.Text = "Mark Cavity 1"
-        Me.chb_mark_cavity_1.UseVisualStyleBackColor = True
+        Me.txtResponse_laser.Location = New System.Drawing.Point(158, 100)
+        Me.txtResponse_laser.Name = "txtResponse_laser"
+        Me.txtResponse_laser.Size = New System.Drawing.Size(143, 29)
+        Me.txtResponse_laser.TabIndex = 1
         '
         'Label233
         '
         Me.Label233.AutoSize = True
-        Me.Label233.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label233.Location = New System.Drawing.Point(13, 107)
+        Me.Label233.Location = New System.Drawing.Point(46, 105)
         Me.Label233.Name = "Label233"
-        Me.Label233.Size = New System.Drawing.Size(69, 20)
+        Me.Label233.Size = New System.Drawing.Size(106, 24)
         Me.Label233.TabIndex = 0
-        Me.Label233.Text = "Block 1 :"
+        Me.Label233.Text = "Response :"
         '
-        'cb_prg_num
+        'txtCommand_laser
         '
-        Me.cb_prg_num.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cb_prg_num.FormattingEnabled = True
-        Me.cb_prg_num.Location = New System.Drawing.Point(151, 23)
-        Me.cb_prg_num.Name = "cb_prg_num"
-        Me.cb_prg_num.Size = New System.Drawing.Size(121, 28)
-        Me.cb_prg_num.TabIndex = 1
+        Me.txtCommand_laser.Location = New System.Drawing.Point(158, 66)
+        Me.txtCommand_laser.Name = "txtCommand_laser"
+        Me.txtCommand_laser.Size = New System.Drawing.Size(143, 29)
+        Me.txtCommand_laser.TabIndex = 1
         '
-        'Label234
+        'Label232
         '
-        Me.Label234.AutoSize = True
-        Me.Label234.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label234.Location = New System.Drawing.Point(13, 76)
-        Me.Label234.Name = "Label234"
-        Me.Label234.Size = New System.Drawing.Size(69, 20)
-        Me.Label234.TabIndex = 0
-        Me.Label234.Text = "Block 0 :"
-        '
-        'Label235
-        '
-        Me.Label235.AutoSize = True
-        Me.Label235.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label235.Location = New System.Drawing.Point(13, 26)
-        Me.Label235.Name = "Label235"
-        Me.Label235.Size = New System.Drawing.Size(137, 20)
-        Me.Label235.TabIndex = 0
-        Me.Label235.Text = "Program Number :"
+        Me.Label232.AutoSize = True
+        Me.Label232.Location = New System.Drawing.Point(44, 71)
+        Me.Label232.Name = "Label232"
+        Me.Label232.Size = New System.Drawing.Size(108, 24)
+        Me.Label232.TabIndex = 0
+        Me.Label232.Text = "Command :"
         '
         'pnl_multi
         '
@@ -11957,7 +11910,6 @@ Partial Class frmMain
         Me.btn_laser.Text = "Laser Mark"
         Me.btn_laser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_laser.UseVisualStyleBackColor = True
-        Me.btn_laser.Visible = False
         '
         'btn_alarm
         '
@@ -12032,92 +11984,6 @@ Partial Class frmMain
         Me.btn_home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_home.UseVisualStyleBackColor = True
         '
-        'GroupBox180
-        '
-        Me.GroupBox180.Controls.Add(Me.txtIP_laser)
-        Me.GroupBox180.Controls.Add(Me.connect_laser_ind)
-        Me.GroupBox180.Controls.Add(Me.Label256)
-        Me.GroupBox180.Controls.Add(Me.Label258)
-        Me.GroupBox180.Controls.Add(Me.btn_save_laser)
-        Me.GroupBox180.Controls.Add(Me.txtPort_laser)
-        Me.GroupBox180.Controls.Add(Me.btn_connect_laser)
-        Me.GroupBox180.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox180.Location = New System.Drawing.Point(32, 345)
-        Me.GroupBox180.Name = "GroupBox180"
-        Me.GroupBox180.Size = New System.Drawing.Size(214, 159)
-        Me.GroupBox180.TabIndex = 64
-        Me.GroupBox180.TabStop = False
-        Me.GroupBox180.Text = "Laser"
-        '
-        'Label256
-        '
-        Me.Label256.AutoSize = True
-        Me.Label256.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label256.Location = New System.Drawing.Point(4, 25)
-        Me.Label256.Name = "Label256"
-        Me.Label256.Size = New System.Drawing.Size(82, 20)
-        Me.Label256.TabIndex = 1
-        Me.Label256.Text = "Server IP :"
-        '
-        'Label258
-        '
-        Me.Label258.AutoSize = True
-        Me.Label258.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label258.Location = New System.Drawing.Point(6, 53)
-        Me.Label258.Name = "Label258"
-        Me.Label258.Size = New System.Drawing.Size(80, 20)
-        Me.Label258.TabIndex = 1
-        Me.Label258.Text = "TCP Port :"
-        '
-        'txtIP_laser
-        '
-        Me.txtIP_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIP_laser.Location = New System.Drawing.Point(90, 20)
-        Me.txtIP_laser.Name = "txtIP_laser"
-        Me.txtIP_laser.Size = New System.Drawing.Size(112, 26)
-        Me.txtIP_laser.TabIndex = 2
-        '
-        'txtPort_laser
-        '
-        Me.txtPort_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPort_laser.Location = New System.Drawing.Point(90, 53)
-        Me.txtPort_laser.Name = "txtPort_laser"
-        Me.txtPort_laser.Size = New System.Drawing.Size(112, 26)
-        Me.txtPort_laser.TabIndex = 3
-        '
-        'btn_connect_laser
-        '
-        Me.btn_connect_laser.AutoSize = True
-        Me.btn_connect_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_connect_laser.Location = New System.Drawing.Point(10, 89)
-        Me.btn_connect_laser.Name = "btn_connect_laser"
-        Me.btn_connect_laser.Size = New System.Drawing.Size(79, 33)
-        Me.btn_connect_laser.TabIndex = 4
-        Me.btn_connect_laser.Text = "Connect"
-        Me.btn_connect_laser.UseVisualStyleBackColor = True
-        '
-        'btn_save_laser
-        '
-        Me.btn_save_laser.AutoSize = True
-        Me.btn_save_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_save_laser.Location = New System.Drawing.Point(10, 124)
-        Me.btn_save_laser.Name = "btn_save_laser"
-        Me.btn_save_laser.Size = New System.Drawing.Size(105, 32)
-        Me.btn_save_laser.TabIndex = 4
-        Me.btn_save_laser.Text = "Save Config"
-        Me.btn_save_laser.UseVisualStyleBackColor = True
-        '
-        'connect_laser_ind
-        '
-        Me.connect_laser_ind.BackColor = System.Drawing.Color.DarkRed
-        Me.connect_laser_ind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.connect_laser_ind.Location = New System.Drawing.Point(119, 95)
-        Me.connect_laser_ind.Name = "connect_laser_ind"
-        Me.connect_laser_ind.Size = New System.Drawing.Size(20, 20)
-        Me.connect_laser_ind.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.connect_laser_ind.TabIndex = 1
-        Me.connect_laser_ind.TabStop = False
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -12146,9 +12012,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btn_laser)
-        Me.Controls.Add(Me.pnl_setting)
-        Me.Controls.Add(Me.pnl_log)
-        Me.Controls.Add(Me.pnl_ref)
         Me.Controls.Add(Me.pnl_laser)
         Me.Controls.Add(Me.btn_setting)
         Me.Controls.Add(Me.pnl_calibration)
@@ -12174,6 +12037,9 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_home)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_log)
+        Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.pnl_log)
+        Me.Controls.Add(Me.pnl_ref)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -12375,6 +12241,9 @@ Partial Class frmMain
         Me.GroupBox1.ResumeLayout(False)
         Me.pnl_setting.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
+        Me.GroupBox180.ResumeLayout(False)
+        Me.GroupBox180.PerformLayout
+        CType(Me.connect_laser_ind, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox179.ResumeLayout(False)
         Me.GroupBox179.PerformLayout
         Me.GroupBox177.ResumeLayout(False)
@@ -12411,10 +12280,7 @@ Partial Class frmMain
         Me.pnl_laser.ResumeLayout(False)
         Me.TabPage13.ResumeLayout(False)
         Me.GroupBox171.ResumeLayout(False)
-        Me.GroupBox172.ResumeLayout(False)
-        Me.GroupBox172.PerformLayout
-        Me.GroupBox173.ResumeLayout(False)
-        Me.GroupBox173.PerformLayout
+        Me.GroupBox171.PerformLayout
         Me.pnl_multi.ResumeLayout(False)
         Me.TabPage14.ResumeLayout(False)
         Me.GroupBox178.ResumeLayout(False)
@@ -12712,9 +12578,6 @@ Partial Class frmMain
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
-        Me.GroupBox180.ResumeLayout(False)
-        Me.GroupBox180.PerformLayout
-        CType(Me.connect_laser_ind, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -13138,22 +13001,6 @@ Partial Class frmMain
     Friend WithEvents pnl_laser As TabControl
     Friend WithEvents TabPage13 As TabPage
     Friend WithEvents GroupBox171 As GroupBox
-    Friend WithEvents GroupBox172 As GroupBox
-    Friend WithEvents txt_comm_log As TextBox
-    Friend WithEvents GroupBox173 As GroupBox
-    Friend WithEvents btn_mark_flag As Button
-    Friend WithEvents btn_change_prg As Button
-    Friend WithEvents btn_start_marking As Button
-    Friend WithEvents btn_string_char As Button
-    Friend WithEvents txt_block2 As TextBox
-    Friend WithEvents txt_block1 As TextBox
-    Friend WithEvents txt_block0 As TextBox
-    Friend WithEvents Label232 As Label
-    Friend WithEvents chb_mark_cavity_1 As CheckBox
-    Friend WithEvents Label233 As Label
-    Friend WithEvents cb_prg_num As ComboBox
-    Friend WithEvents Label234 As Label
-    Friend WithEvents Label235 As Label
     Friend WithEvents pnl_multi As TabControl
     Friend WithEvents TabPage14 As TabPage
     Friend WithEvents GroupBox170 As GroupBox
@@ -13653,4 +13500,9 @@ Partial Class frmMain
     Friend WithEvents btn_save_laser As Button
     Friend WithEvents txtPort_laser As TextBox
     Friend WithEvents btn_connect_laser As Button
+    Friend WithEvents btn_send_laser As Button
+    Friend WithEvents txtResponse_laser As TextBox
+    Friend WithEvents Label233 As Label
+    Friend WithEvents txtCommand_laser As TextBox
+    Friend WithEvents Label232 As Label
 End Class

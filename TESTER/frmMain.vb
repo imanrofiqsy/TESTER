@@ -2734,8 +2734,19 @@ Public Class frmMain
                     Modbus.WriteData(REGISTER_TYPE, ADDR_CFG_SECOND_CONTACT, lbl_cfg_2nd.Text)
                     Modbus.WriteData(REGISTER_TYPE, ADDR_UNSCREWING_PROCESS, lbl_unscrew_process.Text)
                     Modbus.WriteData(REGISTER_TYPE, ADDR_LASER_DATE_CODE, lbl_laser_datecode.Text)
+
+                    If Laser.GetMarkStatus = "2;;" Then
+                        If Laser.SetMarkingTemplate(rd.Item("Laser Template")) <> "Ok;;" Then
+                            lbl_op_ins.Text = "Error Set Marking Template"
+                        End If
+                    Else
+                        If Laser.StartMark <> "Ok;;" Then
+                            lbl_op_ins.Text = "Error Start Mark"
+                        End If
+                    End If
+
                     SCAN_MODE = 3
-                End If
+                    End If
         End Select
         'status bar
         If RUNNING_STATE = 1 Then 'running

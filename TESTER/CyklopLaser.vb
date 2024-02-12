@@ -5,6 +5,14 @@ Imports System.IO
 Public Class CyklopLaser
     Dim client As TcpClient
     Dim connected As Boolean
+    Dim writeTrig As Boolean
+    Public Function is_writing() As Boolean
+        If writeTrig Then
+            writeTrig = False
+            Return True
+        End If
+        Return False
+    End Function
     Public Sub Connect()
         ' Specify the server IP address and port number
         Dim serverIP As String = Config.addressLaser
@@ -23,13 +31,14 @@ Public Class CyklopLaser
     End Function
     Public Function write_data(cmd As String) As Boolean
         Dim dataTX() As Byte
-        dataTX = Encoding.ASCII.GetBytes(cmd + Environment.NewLine)
+        dataTX = Encoding.ASCII.GetBytes(cmd)
         Try
             Dim stream As NetworkStream = client.GetStream()
             stream.Write(dataTX, 0, dataTX.Length)
             stream.Flush()
             'Dim writer As New StreamWriter(stream, Encoding.UTF8) With {.AutoFlush = True}
             'writer.Write(cmd)
+            writeTrig = True
             Return True
         Catch ex As Exception
             Return False
@@ -37,18 +46,19 @@ Public Class CyklopLaser
     End Function
     Public Function ReadData() As String
         Try
+            Dim dataRX(1024) As Byte
             Dim stream As NetworkStream = client.GetStream()
             Dim reader As New StreamReader(stream, Encoding.UTF8)
-            Dim data As New StringBuilder()
+            Dim data As String
 
-            While stream.DataAvailable
-                data.Append(Convert.ToChar(reader.Read()))
+            While (stream.DataAvailable)
+                stream.Read(dataRX, 0, dataRX.Length)
+                data = Encoding.ASCII.GetString(dataRX)
             End While
 
-            Return data.ToString()
+            Return data
         Catch ex As Exception
             Return "None"
         End Try
     End Function
-
 End Class

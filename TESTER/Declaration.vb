@@ -1,6 +1,6 @@
 ﻿Module Declaration
     Public CURTAIN As Boolean
-
+    Public isLaserWriteData As Boolean
     Public Config As New machineConfig
     Public Result As New testerResult
     Public Structure machineConfig

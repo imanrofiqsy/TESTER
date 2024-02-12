@@ -3210,7 +3210,9 @@ Public Class frmMain
     Private Sub Laser_Thread()
         Do
             Me.Invoke(Sub()
-                          txtResponse_laser.Text = Laser.ReadData
+                          If Laser.is_writing Then
+                              txtResponse_laser.Text = Laser.ReadData
+                          End If
                       End Sub)
             Thread.Sleep(100)
         Loop
@@ -3629,6 +3631,9 @@ Retry:
             End If
             If ThreadLaser.IsAlive Then
                 ThreadLaser.Abort()
+            End If
+            If Laser.is_connected Then
+                Laser.Disconnect
             End If
         Catch ex As Exception
 

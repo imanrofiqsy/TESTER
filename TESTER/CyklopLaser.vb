@@ -26,7 +26,8 @@ Public Class CyklopLaser
         dataTX = Encoding.ASCII.GetBytes(cmd + Environment.NewLine)
         Try
             Dim stream As NetworkStream = client.GetStream()
-            client.GetStream.Write(dataTX, 0, dataTX.Length)
+            stream.Write(dataTX, 0, dataTX.Length)
+            stream.Flush()
             'Dim writer As New StreamWriter(stream, Encoding.UTF8) With {.AutoFlush = True}
             'writer.Write(cmd)
             Return True

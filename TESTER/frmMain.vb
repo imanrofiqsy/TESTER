@@ -11,7 +11,6 @@ Public Class frmMain
     Dim ThreadST3 As Thread
     Dim ThreadST4 As Thread
     Dim ThreadST5 As Thread
-    Dim ThreadLaser As Thread
 
     Dim AssyBuff As String
     Dim ManualState As Boolean
@@ -68,15 +67,15 @@ Public Class frmMain
         UpdateLoadingBar(20, "Connecting to PLC...")
         Thread.Sleep(500)
 
-        'Try
-        '    If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
-        '        MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-        '        End
-        '    End If
-        'Catch ex As Exception
-        '    MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-        '    End
-        'End Try
+        Try
+            If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
+                MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+                End
+            End If
+        Catch ex As Exception
+            MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+            End
+        End Try
 
         GetPCStatus(100) 'Software is open
         ShowPanelGeneral("home")
@@ -84,35 +83,35 @@ Public Class frmMain
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
-        'Try
-        '    ChromaComm.Open()
-        '    btn_open_multi.Text = "Close Port"
-        '    connect_multi_ind.BackColor = Color.Red
-        'Catch ex As Exception
-        '    MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-        '    connect_multi_ind.BackColor = Color.DarkRed
-        '    End
-        'End Try
+        Try
+            ChromaComm.Open()
+            btn_open_multi.Text = "Close Port"
+            connect_multi_ind.BackColor = Color.Red
+        Catch ex As Exception
+            MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+            connect_multi_ind.BackColor = Color.DarkRed
+            End
+        End Try
 
-        'If Not initChroma() AndAlso delay > 10 Then
-        '    MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
-        '    End
-        'Else
-        '    delay += 1
-        'End If
+        If Not initChroma() AndAlso delay > 10 Then
+            MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
+            End
+        Else
+            delay += 1
+        End If
 
         Thread.Sleep(200)
 
         UpdateLoadingBar(60, "Connecting to Laser...")
-        'Try
-        '    If Not Laser.is_connected() Then
-        '        Laser.Connect()
-        '        btn_connect_laser.Text = "Disconnect"
-        '        connect_laser_ind.BackColor = Color.Red
-        '    End If
-        'Catch ex As Exception
-        '    MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-        'End Try
+        Try
+            If Not Laser.is_connected() Then
+                Laser.Connect()
+                btn_connect_laser.Text = "Disconnect"
+                connect_laser_ind.BackColor = Color.Red
+            End If
+        Catch ex As Exception
+            MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        End Try
         Thread.Sleep(200)
 
         'BarcodeComm.Open()
@@ -123,8 +122,6 @@ Public Class frmMain
         ThreadST4.Start()
         ThreadST5 = New Thread(AddressOf ST5_Thread)
         ThreadST5.Start()
-        ThreadLaser = New Thread(AddressOf Laser_Thread)
-        'ThreadLaser.Start()
         Status.Enabled = True
         UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
@@ -2739,31 +2736,14 @@ Public Class frmMain
 
                     Select Case LASER_STATE
                         Case 0
-                            If delayLaser = 0 Then
-                                Laser.GetMarkStatus
-                                delayLaser = 1
-                            ElseIf delayLaser >= 5 Then
-                                If txtResponse_laser.Text = "2;;" Then
-                                    delayLaser = 0
-                                    LASER_STATE = 1
-                                Else
-                                    delayLaser = 0
-                                    MsgBox("Please start the laser!")
-                                End If
-                            Else
-                                delayLaser += 1
+                            Laser.GetMarkStatus
+                            If Laser.ReadData = "2;;" Then
+                                LASER_STATE += 1
                             End If
                         Case 1
-                            If delayLaser = 0 Then
-                                Laser.SetMarkingTemplate(rd.Item("Laser Template"))
-                                delayLaser = 1
-                            ElseIf delayLaser >= 5 Then
-                                If txtResponse_laser.Text = "Ok;;" Then
-                                    delayLaser = 0
-                                    LASER_STATE = 2
-                                End If
-                            Else
-                                delayLaser += 1
+                            Laser.SetMarkingTemplate(rd.Item("Laser Template"))
+                            If Laser.ReadData = "Ok;;" Then
+                                LASER_STATE += 1
                             End If
                         Case 2
                             SCAN_MODE = 3
@@ -3311,16 +3291,6 @@ Public Class frmMain
         Loop
 
     End Sub
-    Private Sub Laser_Thread()
-        Do
-            Me.Invoke(Sub()
-                          If Laser.is_writing Then
-                              txtResponse_laser.Text = Laser.ReadData
-                          End If
-                      End Sub)
-            Thread.Sleep(100)
-        Loop
-    End Sub
     Private Sub btn_clear_database_Click(sender As Object, e As EventArgs) Handles btn_clear_database.Click
         Call KoneksiDB.koneksi_db()
         Dim sc As New SqlCommand("DELETE from tb_data;", KoneksiDB.koneksi)
@@ -3732,9 +3702,6 @@ Retry:
             End If
             If ThreadST5.IsAlive Then
                 ThreadST5.Abort()
-            End If
-            If ThreadLaser.IsAlive Then
-                ThreadLaser.Abort()
             End If
             If Laser.is_connected Then
                 Laser.Disconnect

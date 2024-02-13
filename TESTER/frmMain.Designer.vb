@@ -24,8 +24,6 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lbl_user = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dateTime = New System.Windows.Forms.Timer(Me.components)
@@ -935,6 +933,9 @@ Partial Class frmMain
         Me.ChromaComm = New System.IO.Ports.SerialPort(Me.components)
         Me.pnl_calibration = New System.Windows.Forms.TabControl()
         Me.TabPage22 = New System.Windows.Forms.TabPage()
+        Me.dgv_calibration = New System.Windows.Forms.DataGridView()
+        Me.Parameter = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Value = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_save_calib = New System.Windows.Forms.Button()
         Me.status_bar = New System.Windows.Forms.PictureBox()
         Me.btn_calib = New System.Windows.Forms.Button()
@@ -950,9 +951,6 @@ Partial Class frmMain
         Me.btn_manual = New System.Windows.Forms.Button()
         Me.btn_home = New System.Windows.Forms.Button()
         Me.btn_log = New System.Windows.Forms.Button()
-        Me.dgv_calibration = New System.Windows.Forms.DataGridView()
-        Me.Value = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Parameter = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1367,10 +1365,10 @@ Partial Class frmMain
         CType(Me.mon_stn1_cyl1_bw, System.ComponentModel.ISupportInitialize).BeginInit
         Me.pnl_calibration.SuspendLayout
         Me.TabPage22.SuspendLayout
+        CType(Me.dgv_calibration, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.dgv_calibration, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'lbl_user
@@ -11804,6 +11802,27 @@ Partial Class frmMain
         Me.TabPage22.Text = "Dummy Calibration"
         Me.TabPage22.UseVisualStyleBackColor = True
         '
+        'dgv_calibration
+        '
+        Me.dgv_calibration.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgv_calibration.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.dgv_calibration.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_calibration.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Parameter, Me.Value})
+        Me.dgv_calibration.Location = New System.Drawing.Point(279, 67)
+        Me.dgv_calibration.Name = "dgv_calibration"
+        Me.dgv_calibration.Size = New System.Drawing.Size(337, 150)
+        Me.dgv_calibration.TabIndex = 68
+        '
+        'Parameter
+        '
+        Me.Parameter.HeaderText = "Parameter"
+        Me.Parameter.Name = "Parameter"
+        '
+        'Value
+        '
+        Me.Value.HeaderText = "Value"
+        Me.Value.Name = "Value"
+        '
         'btn_save_calib
         '
         Me.btn_save_calib.FlatAppearance.BorderSize = 0
@@ -11921,6 +11940,7 @@ Partial Class frmMain
         Me.btn_laser.Text = "Laser Mark"
         Me.btn_laser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_laser.UseVisualStyleBackColor = True
+        Me.btn_laser.Visible = False
         '
         'btn_multimeter
         '
@@ -12008,43 +12028,6 @@ Partial Class frmMain
         Me.btn_log.Text = "Log"
         Me.btn_log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_log.UseVisualStyleBackColor = True
-        '
-        'dgv_calibration
-        '
-        Me.dgv_calibration.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgv_calibration.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_calibration.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv_calibration.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_calibration.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Parameter, Me.Value})
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_calibration.DefaultCellStyle = DataGridViewCellStyle4
-        Me.dgv_calibration.Location = New System.Drawing.Point(279, 67)
-        Me.dgv_calibration.Name = "dgv_calibration"
-        Me.dgv_calibration.Size = New System.Drawing.Size(337, 150)
-        Me.dgv_calibration.TabIndex = 68
-        '
-        'Value
-        '
-        Me.Value.HeaderText = "Value"
-        Me.Value.Name = "Value"
-        '
-        'Parameter
-        '
-        Me.Parameter.HeaderText = "Parameter"
-        Me.Parameter.Name = "Parameter"
         '
         'frmMain
         '
@@ -12638,10 +12621,10 @@ Partial Class frmMain
         CType(Me.mon_stn1_cyl1_bw, System.ComponentModel.ISupportInitialize).EndInit
         Me.pnl_calibration.ResumeLayout(False)
         Me.TabPage22.ResumeLayout(False)
+        CType(Me.dgv_calibration, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.dgv_calibration, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 

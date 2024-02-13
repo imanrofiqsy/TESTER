@@ -44,16 +44,16 @@ Public Class CyklopLaser
             Return False
         End Try
     End Function
+    Dim dataRX(1024) As Byte
+    Dim data As String
     Public Function ReadData() As String
         Try
-            Dim dataRX(1024) As Byte
             Dim stream As NetworkStream = client.GetStream()
             Dim reader As New StreamReader(stream, Encoding.UTF8)
-            Dim data As String
 
             While (stream.DataAvailable)
                 stream.Read(dataRX, 0, dataRX.Length)
-                data = Encoding.ASCII.GetString(dataRX)
+                data = Encoding.ASCII.GetString(dataRX).Replace(vbNullChar, "")
             End While
 
             Return data

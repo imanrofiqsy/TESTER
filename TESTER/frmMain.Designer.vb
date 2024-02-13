@@ -24,6 +24,8 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lbl_user = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dateTime = New System.Windows.Forms.Timer(Me.components)
@@ -933,20 +935,24 @@ Partial Class frmMain
         Me.ChromaComm = New System.IO.Ports.SerialPort(Me.components)
         Me.pnl_calibration = New System.Windows.Forms.TabControl()
         Me.TabPage22 = New System.Windows.Forms.TabPage()
+        Me.btn_save_calib = New System.Windows.Forms.Button()
         Me.status_bar = New System.Windows.Forms.PictureBox()
-        Me.btn_log = New System.Windows.Forms.Button()
         Me.btn_calib = New System.Windows.Forms.Button()
-        Me.btn_setting = New System.Windows.Forms.Button()
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btn_multimeter = New System.Windows.Forms.Button()
-        Me.btn_laser = New System.Windows.Forms.Button()
+        Me.btn_setting = New System.Windows.Forms.Button()
         Me.btn_alarm = New System.Windows.Forms.Button()
+        Me.btn_laser = New System.Windows.Forms.Button()
+        Me.btn_multimeter = New System.Windows.Forms.Button()
         Me.btn_ref = New System.Windows.Forms.Button()
         Me.btn_monitoring = New System.Windows.Forms.Button()
         Me.btn_manual = New System.Windows.Forms.Button()
         Me.btn_home = New System.Windows.Forms.Button()
+        Me.btn_log = New System.Windows.Forms.Button()
+        Me.dgv_calibration = New System.Windows.Forms.DataGridView()
+        Me.Value = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Parameter = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1360,9 +1366,11 @@ Partial Class frmMain
         CType(Me.mon_stn1_cyl1_fw, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.mon_stn1_cyl1_bw, System.ComponentModel.ISupportInitialize).BeginInit
         Me.pnl_calibration.SuspendLayout
+        Me.TabPage22.SuspendLayout
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.dgv_calibration, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'lbl_user
@@ -11785,6 +11793,8 @@ Partial Class frmMain
         '
         'TabPage22
         '
+        Me.TabPage22.Controls.Add(Me.dgv_calibration)
+        Me.TabPage22.Controls.Add(Me.btn_save_calib)
         Me.TabPage22.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabPage22.Location = New System.Drawing.Point(4, 38)
         Me.TabPage22.Name = "TabPage22"
@@ -11793,6 +11803,21 @@ Partial Class frmMain
         Me.TabPage22.TabIndex = 0
         Me.TabPage22.Text = "Dummy Calibration"
         Me.TabPage22.UseVisualStyleBackColor = True
+        '
+        'btn_save_calib
+        '
+        Me.btn_save_calib.FlatAppearance.BorderSize = 0
+        Me.btn_save_calib.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_save_calib.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_save_calib.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btn_save_calib.Image = Global.TESTER.My.Resources.Resources.icons8_save_56
+        Me.btn_save_calib.Location = New System.Drawing.Point(740, 402)
+        Me.btn_save_calib.Name = "btn_save_calib"
+        Me.btn_save_calib.Size = New System.Drawing.Size(75, 90)
+        Me.btn_save_calib.TabIndex = 67
+        Me.btn_save_calib.Text = "Save"
+        Me.btn_save_calib.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_save_calib.UseVisualStyleBackColor = True
         '
         'status_bar
         '
@@ -11804,20 +11829,6 @@ Partial Class frmMain
         Me.status_bar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.status_bar.TabIndex = 86
         Me.status_bar.TabStop = False
-        '
-        'btn_log
-        '
-        Me.btn_log.FlatAppearance.BorderSize = 0
-        Me.btn_log.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_log.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_log.Image = Global.TESTER.My.Resources.Resources.icons8_log_56
-        Me.btn_log.Location = New System.Drawing.Point(-5, 567)
-        Me.btn_log.Name = "btn_log"
-        Me.btn_log.Size = New System.Drawing.Size(87, 86)
-        Me.btn_log.TabIndex = 69
-        Me.btn_log.Text = "Log"
-        Me.btn_log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_log.UseVisualStyleBackColor = True
         '
         'btn_calib
         '
@@ -11834,21 +11845,6 @@ Partial Class frmMain
         Me.btn_calib.Text = "Calib"
         Me.btn_calib.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_calib.UseVisualStyleBackColor = False
-        '
-        'btn_setting
-        '
-        Me.btn_setting.FlatAppearance.BorderSize = 0
-        Me.btn_setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_setting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_setting.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btn_setting.Image = Global.TESTER.My.Resources.Resources.icons8_setting_56
-        Me.btn_setting.Location = New System.Drawing.Point(5, 650)
-        Me.btn_setting.Name = "btn_setting"
-        Me.btn_setting.Size = New System.Drawing.Size(60, 87)
-        Me.btn_setting.TabIndex = 69
-        Me.btn_setting.Text = "Setting"
-        Me.btn_setting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_setting.UseVisualStyleBackColor = True
         '
         'btn_user
         '
@@ -11883,19 +11879,34 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
         '
-        'btn_multimeter
+        'btn_setting
         '
-        Me.btn_multimeter.FlatAppearance.BorderSize = 0
-        Me.btn_multimeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_multimeter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_multimeter.Image = Global.TESTER.My.Resources.Resources.icons8_multimeter_56
-        Me.btn_multimeter.Location = New System.Drawing.Point(-3, 490)
-        Me.btn_multimeter.Name = "btn_multimeter"
-        Me.btn_multimeter.Size = New System.Drawing.Size(87, 79)
-        Me.btn_multimeter.TabIndex = 69
-        Me.btn_multimeter.Text = "Ohm Meter"
-        Me.btn_multimeter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_multimeter.UseVisualStyleBackColor = True
+        Me.btn_setting.FlatAppearance.BorderSize = 0
+        Me.btn_setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_setting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_setting.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btn_setting.Image = Global.TESTER.My.Resources.Resources.icons8_setting_56
+        Me.btn_setting.Location = New System.Drawing.Point(5, 650)
+        Me.btn_setting.Name = "btn_setting"
+        Me.btn_setting.Size = New System.Drawing.Size(60, 87)
+        Me.btn_setting.TabIndex = 69
+        Me.btn_setting.Text = "Setting"
+        Me.btn_setting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_setting.UseVisualStyleBackColor = True
+        '
+        'btn_alarm
+        '
+        Me.btn_alarm.FlatAppearance.BorderSize = 0
+        Me.btn_alarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_alarm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_alarm.Image = Global.TESTER.My.Resources.Resources.icons8_siren_56
+        Me.btn_alarm.Location = New System.Drawing.Point(3, 404)
+        Me.btn_alarm.Name = "btn_alarm"
+        Me.btn_alarm.Size = New System.Drawing.Size(75, 90)
+        Me.btn_alarm.TabIndex = 69
+        Me.btn_alarm.Text = "Alarm"
+        Me.btn_alarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_alarm.UseVisualStyleBackColor = True
         '
         'btn_laser
         '
@@ -11911,19 +11922,19 @@ Partial Class frmMain
         Me.btn_laser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_laser.UseVisualStyleBackColor = True
         '
-        'btn_alarm
+        'btn_multimeter
         '
-        Me.btn_alarm.FlatAppearance.BorderSize = 0
-        Me.btn_alarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_alarm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_alarm.Image = Global.TESTER.My.Resources.Resources.icons8_siren_56
-        Me.btn_alarm.Location = New System.Drawing.Point(3, 404)
-        Me.btn_alarm.Name = "btn_alarm"
-        Me.btn_alarm.Size = New System.Drawing.Size(75, 90)
-        Me.btn_alarm.TabIndex = 69
-        Me.btn_alarm.Text = "Alarm"
-        Me.btn_alarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_alarm.UseVisualStyleBackColor = True
+        Me.btn_multimeter.FlatAppearance.BorderSize = 0
+        Me.btn_multimeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_multimeter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_multimeter.Image = Global.TESTER.My.Resources.Resources.icons8_multimeter_56
+        Me.btn_multimeter.Location = New System.Drawing.Point(-3, 490)
+        Me.btn_multimeter.Name = "btn_multimeter"
+        Me.btn_multimeter.Size = New System.Drawing.Size(87, 79)
+        Me.btn_multimeter.TabIndex = 69
+        Me.btn_multimeter.Text = "Ohm Meter"
+        Me.btn_multimeter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_multimeter.UseVisualStyleBackColor = True
         '
         'btn_ref
         '
@@ -11984,6 +11995,57 @@ Partial Class frmMain
         Me.btn_home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_home.UseVisualStyleBackColor = True
         '
+        'btn_log
+        '
+        Me.btn_log.FlatAppearance.BorderSize = 0
+        Me.btn_log.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_log.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_log.Image = Global.TESTER.My.Resources.Resources.icons8_log_56
+        Me.btn_log.Location = New System.Drawing.Point(-5, 567)
+        Me.btn_log.Name = "btn_log"
+        Me.btn_log.Size = New System.Drawing.Size(87, 86)
+        Me.btn_log.TabIndex = 69
+        Me.btn_log.Text = "Log"
+        Me.btn_log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_log.UseVisualStyleBackColor = True
+        '
+        'dgv_calibration
+        '
+        Me.dgv_calibration.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgv_calibration.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_calibration.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgv_calibration.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_calibration.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Parameter, Me.Value})
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_calibration.DefaultCellStyle = DataGridViewCellStyle4
+        Me.dgv_calibration.Location = New System.Drawing.Point(279, 67)
+        Me.dgv_calibration.Name = "dgv_calibration"
+        Me.dgv_calibration.Size = New System.Drawing.Size(337, 150)
+        Me.dgv_calibration.TabIndex = 68
+        '
+        'Value
+        '
+        Me.Value.HeaderText = "Value"
+        Me.Value.Name = "Value"
+        '
+        'Parameter
+        '
+        Me.Parameter.HeaderText = "Parameter"
+        Me.Parameter.Name = "Parameter"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -12011,8 +12073,8 @@ Partial Class frmMain
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.pnl_laser)
         Me.Controls.Add(Me.btn_setting)
+        Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.pnl_calibration)
         Me.Controls.Add(Me.pnl_multi)
         Me.Controls.Add(Me.pnl_alarm)
@@ -12029,16 +12091,16 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
         Me.Controls.Add(Me.pnl_man_stn1)
-        Me.Controls.Add(Me.btn_alarm)
+        Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.pnl_log)
+        Me.Controls.Add(Me.pnl_ref)
+        Me.Controls.Add(Me.pnl_laser)
+        Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_monitoring)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
-        Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_log)
-        Me.Controls.Add(Me.pnl_setting)
-        Me.Controls.Add(Me.pnl_log)
-        Me.Controls.Add(Me.pnl_ref)
         Me.Controls.Add(Me.btn_laser)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
@@ -12575,9 +12637,11 @@ Partial Class frmMain
         CType(Me.mon_stn1_cyl1_fw, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.mon_stn1_cyl1_bw, System.ComponentModel.ISupportInitialize).EndInit
         Me.pnl_calibration.ResumeLayout(False)
+        Me.TabPage22.ResumeLayout(False)
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.dgv_calibration, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -13505,4 +13569,8 @@ Partial Class frmMain
     Friend WithEvents Label233 As Label
     Friend WithEvents txtCommand_laser As TextBox
     Friend WithEvents Label232 As Label
+    Friend WithEvents btn_save_calib As Button
+    Friend WithEvents dgv_calibration As DataGridView
+    Friend WithEvents Parameter As DataGridViewTextBoxColumn
+    Friend WithEvents Value As DataGridViewTextBoxColumn
 End Class

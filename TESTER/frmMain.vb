@@ -68,15 +68,15 @@ Public Class frmMain
         UpdateLoadingBar(20, "Connecting to PLC...")
         Thread.Sleep(500)
 
-        Try
-            If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
-                MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-                End
-            End If
-        Catch ex As Exception
-            MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-            End
-        End Try
+        'Try
+        '    If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
+        '        MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+        '        End
+        '    End If
+        'Catch ex As Exception
+        '    MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End Try
 
         GetPCStatus(100) 'Software is open
         ShowPanelGeneral("home")
@@ -84,35 +84,35 @@ Public Class frmMain
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
-        Try
-            ChromaComm.Open()
-            btn_open_multi.Text = "Close Port"
-            connect_multi_ind.BackColor = Color.Red
-        Catch ex As Exception
-            MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-            connect_multi_ind.BackColor = Color.DarkRed
-            End
-        End Try
+        'Try
+        '    ChromaComm.Open()
+        '    btn_open_multi.Text = "Close Port"
+        '    connect_multi_ind.BackColor = Color.Red
+        'Catch ex As Exception
+        '    MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        '    connect_multi_ind.BackColor = Color.DarkRed
+        '    End
+        'End Try
 
-        If Not initChroma() AndAlso delay > 10 Then
-            MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
-            End
-        Else
-            delay += 1
-        End If
+        'If Not initChroma() AndAlso delay > 10 Then
+        '    MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'Else
+        '    delay += 1
+        'End If
 
         Thread.Sleep(200)
 
         UpdateLoadingBar(60, "Connecting to Laser...")
-        Try
-            If Not Laser.is_connected() Then
-                Laser.Connect()
-                btn_connect_laser.Text = "Disconnect"
-                connect_laser_ind.BackColor = Color.Red
-            End If
-        Catch ex As Exception
-            MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-        End Try
+        'Try
+        '    If Not Laser.is_connected() Then
+        '        Laser.Connect()
+        '        btn_connect_laser.Text = "Disconnect"
+        '        connect_laser_ind.BackColor = Color.Red
+        '    End If
+        'Catch ex As Exception
+        '    MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        'End Try
         Thread.Sleep(200)
 
         'BarcodeComm.Open()
@@ -124,7 +124,7 @@ Public Class frmMain
         ThreadST5 = New Thread(AddressOf ST5_Thread)
         ThreadST5.Start()
         ThreadLaser = New Thread(AddressOf Laser_Thread)
-        ThreadLaser.Start()
+        'ThreadLaser.Start()
         Status.Enabled = True
         UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
@@ -285,8 +285,11 @@ Public Class frmMain
         End If
 
         If mode = "calib" Then
+            CALIBRATION = True
             pnl_calibration.Visible = True
+            dgv_calibration.Rows.Clear()
         Else
+            CALIBRATION = False
             pnl_calibration.Visible = False
         End If
     End Sub
@@ -2284,7 +2287,7 @@ Public Class frmMain
 
     'panel home
     Private Sub btn_run_Click(sender As Object, e As EventArgs) Handles btn_run.Click
-        If txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "" Then
+        If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") AndAlso LASER_STATE <> 2 Then
             MsgBox("Please Scan Barcode!")
             Exit Sub
         End If
@@ -2743,6 +2746,9 @@ Public Class frmMain
                                 If txtResponse_laser.Text = "2;;" Then
                                     delayLaser = 0
                                     LASER_STATE = 1
+                                Else
+                                    delayLaser = 0
+                                    MsgBox("Please start the laser!")
                                 End If
                             Else
                                 delayLaser += 1
@@ -2920,48 +2926,56 @@ Public Class frmMain
             If SCAN_MODE = 3 Then
                 Dim binaryString As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
                 If binaryString(14) = "0" And binaryString(15) = "1" Then
-                    Me.Invoke(Sub()
-                                  txt_msg.Text = txt_msg.Text + "Start recording ST2 (Measuring)..." & vbCrLf
-                                  CNT_ST2 = CNT_ST2 + 1
-                                  Dim st2_result As String = Result.MEASUREMENT
+                    If Not CALIBRATION Then
+                        Me.Invoke(Sub()
+                                      txt_msg.Text = txt_msg.Text + "Start recording ST2 (Measuring)..." & vbCrLf
+                                      CNT_ST2 = CNT_ST2 + 1
+                                      Dim st2_result As String = Result.MEASUREMENT
 
-                                  Select Case Action_ST2
-                                      Case 1
-                                          'lbl_item_1.Text = CNT_ST2
-                                          lbl_st2_meas.Text = st2_result
-                                          Action_ST2 += 1
-                                      Case 2
-                                          'lbl_item_2.Text = CNT_ST2
-                                          lbl_st2_meas_1.Text = st2_result
-                                          Action_ST2 += 1
-                                      Case 3
-                                          'lbl_item_3.Text = CNT_ST2
-                                          lbl_st2_meas_2.Text = st2_result
-                                          Action_ST2 += 1
-                                      Case 4
-                                          'lbl_item_4.Text = CNT_ST2
-                                          lbl_st2_meas_3.Text = st2_result
-                                          Action_ST2 += 1
-                                      Case 5
-                                          'lbl_item_5.Text = CNT_ST2
-                                          lbl_st2_meas_4.Text = st2_result
-                                          Action_ST2 += 1
-                                      Case 6
-                                          'lbl_item_6.Text = CNT_ST2
-                                          lbl_st2_meas_5.Text = st2_result
-                                          Action_ST2 = 1
-                                  End Select
+                                      Select Case Action_ST2
+                                          Case 1
+                                              'lbl_item_1.Text = CNT_ST2
+                                              lbl_st2_meas.Text = st2_result
+                                              Action_ST2 += 1
+                                          Case 2
+                                              'lbl_item_2.Text = CNT_ST2
+                                              lbl_st2_meas_1.Text = st2_result
+                                              Action_ST2 += 1
+                                          Case 3
+                                              'lbl_item_3.Text = CNT_ST2
+                                              lbl_st2_meas_2.Text = st2_result
+                                              Action_ST2 += 1
+                                          Case 4
+                                              'lbl_item_4.Text = CNT_ST2
+                                              lbl_st2_meas_3.Text = st2_result
+                                              Action_ST2 += 1
+                                          Case 5
+                                              'lbl_item_5.Text = CNT_ST2
+                                              lbl_st2_meas_4.Text = st2_result
+                                              Action_ST2 += 1
+                                          Case 6
+                                              'lbl_item_6.Text = CNT_ST2
+                                              lbl_st2_meas_5.Text = st2_result
+                                              Action_ST2 = 1
+                                      End Select
 
-                                  Call KoneksiDB.koneksi_db()
-                                  Dim sc As New SqlCommand("INSERT INTO tb_data ([Sequence Number], [References], [Operator ID], [Product Order], Measurement, [Date Time]) VALUES('" & CNT_ST2.ToString & "', '" & txt_ref.Text & "', '" & txt_ope_id.Text & "', '" & txt_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
-                                  Dim adapter As New SqlDataAdapter(sc)
-                                  adapter.SelectCommand.ExecuteNonQuery()
-                                  WriteINI(iniPath, "STATUS", "SequenceCounter", CNT_ST2)
+                                      Call KoneksiDB.koneksi_db()
+                                      Dim sc As New SqlCommand("INSERT INTO tb_data ([Sequence Number], [References], [Operator ID], [Product Order], Measurement, [Date Time]) VALUES('" & CNT_ST2.ToString & "', '" & txt_ref.Text & "', '" & txt_ope_id.Text & "', '" & txt_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
+                                      Dim adapter As New SqlDataAdapter(sc)
+                                      adapter.SelectCommand.ExecuteNonQuery()
+                                      WriteINI(iniPath, "STATUS", "SequenceCounter", CNT_ST2)
 
-                                  txt_msg.Text = txt_msg.Text + "Finish recording ST2 Result = " + st2_result & vbCrLf
-                                  Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, 3)
-                                  lbl_cnt_st2.Text = CNT_ST2
-                              End Sub)
+                                      txt_msg.Text = txt_msg.Text + "Finish recording ST2 Result = " + st2_result & vbCrLf
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, 3)
+                                      lbl_cnt_st2.Text = CNT_ST2
+                                  End Sub)
+                    Else
+                        Me.Invoke(Sub()
+                                      Dim st2_result As String = Result.MEASUREMENT
+                                      dgv_calibration.Rows.Add("Measurement", st2_result)
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, 3)
+                                  End Sub)
+                    End If
                 End If
             End If
             Thread.Sleep(100)
@@ -3028,162 +3042,222 @@ Public Class frmMain
 
                 If binaryString(14) = "0" And binaryString(15) = "1" Then
                     'Console.WriteLine("0001")
-                    Me.Invoke(Sub()
-                                  txt_msg.Text = txt_msg.Text + "Start recording ST4..." & vbCrLf
-                                  CNT_ST4 = CNT_ST4 + 1
-                                  Dim st4_p2_result As String
-                                  Dim st4_p3_result As String
-                                  Dim diff_result_result As String
-                                  Dim st4_t1_result As String
-                                  Dim st4_t2_result As String
-                                  Dim cot_result As String
+                    If Not CALIBRATION Then
+                        Me.Invoke(Sub()
+                                      txt_msg.Text = txt_msg.Text + "Start recording ST4..." & vbCrLf
+                                      CNT_ST4 = CNT_ST4 + 1
+                                      Dim st4_p2_result As String
+                                      Dim st4_p3_result As String
+                                      Dim diff_result_result As String
+                                      Dim st4_t1_result As String
+                                      Dim st4_t2_result As String
+                                      Dim cot_result As String
 
-                                  With Result
-                                      st4_p2_result = .TRAVEL_P2
-                                      st4_p3_result = .TRAVEL_P3
-                                      diff_result_result = .DIFF_STR
-                                      st4_t1_result = .T1
-                                      st4_t2_result = .T2
-                                      cot_result = .COT
-                                  End With
+                                      With Result
+                                          st4_p2_result = .TRAVEL_P2
+                                          st4_p3_result = .TRAVEL_P3
+                                          diff_result_result = .DIFF_STR
+                                          st4_t1_result = .T1
+                                          st4_t2_result = .T2
+                                          cot_result = .COT
+                                      End With
 
 
-                                  Select Case Action_ST4
-                                      Case 1
-                                          lbl_st4_p2.Text = st4_p2_result
-                                          lbl_st4_p3.Text = st4_p3_result
-                                          lbl_diff_result.Text = diff_result_result
-                                          lbl_st4_t1.Text = st4_t1_result
-                                          lbl_st4_t2.Text = st4_t2_result
-                                          lbl_cot.Text = cot_result
-                                          Action_ST4 += 1
-                                      Case 2
-                                          lbl_st4_p2_1.Text = st4_p2_result
-                                          lbl_st4_p3_1.Text = st4_p3_result
-                                          lbl_diff_result_1.Text = diff_result_result
-                                          lbl_st4_t1_1.Text = st4_t1_result
-                                          lbl_st4_t2_1.Text = st4_t2_result
-                                          lbl_cot_1.Text = cot_result
-                                          Action_ST4 += 1
-                                      Case 3
-                                          lbl_st4_p2_2.Text = st4_p2_result
-                                          lbl_st4_p3_2.Text = st4_p3_result
-                                          lbl_diff_result_2.Text = diff_result_result
-                                          lbl_st4_t1_2.Text = st4_t1_result
-                                          lbl_st4_t2_2.Text = st4_t2_result
-                                          lbl_cot_2.Text = cot_result
-                                          Action_ST4 += 1
-                                      Case 4
-                                          lbl_st4_p2_3.Text = st4_p2_result
-                                          lbl_st4_p3_3.Text = st4_p3_result
-                                          lbl_diff_result_3.Text = diff_result_result
-                                          lbl_st4_t1_3.Text = st4_t1_result
-                                          lbl_st4_t2_3.Text = st4_t2_result
-                                          lbl_cot_3.Text = cot_result
-                                          Action_ST4 += 1
-                                      Case 5
-                                          lbl_st4_p2_4.Text = st4_p2_result
-                                          lbl_st4_p3_4.Text = st4_p3_result
-                                          lbl_diff_result_4.Text = diff_result_result
-                                          lbl_st4_t1_4.Text = st4_t1_result
-                                          lbl_st4_t2_4.Text = st4_t2_result
-                                          lbl_cot_4.Text = cot_result
-                                          Action_ST4 += 1
-                                      Case 6
-                                          lbl_st4_p2_5.Text = st4_p2_result
-                                          lbl_st4_p3_5.Text = st4_p3_result
-                                          lbl_diff_result_5.Text = diff_result_result
-                                          lbl_st4_t1_5.Text = st4_t1_result
-                                          lbl_st4_t2_5.Text = st4_t2_result
-                                          lbl_cot_5.Text = cot_result
-                                          Action_ST4 = 1
-                                  End Select
+                                      Select Case Action_ST4
+                                          Case 1
+                                              lbl_st4_p2.Text = st4_p2_result
+                                              lbl_st4_p3.Text = st4_p3_result
+                                              lbl_diff_result.Text = diff_result_result
+                                              lbl_st4_t1.Text = st4_t1_result
+                                              lbl_st4_t2.Text = st4_t2_result
+                                              lbl_cot.Text = cot_result
+                                              Action_ST4 += 1
+                                          Case 2
+                                              lbl_st4_p2_1.Text = st4_p2_result
+                                              lbl_st4_p3_1.Text = st4_p3_result
+                                              lbl_diff_result_1.Text = diff_result_result
+                                              lbl_st4_t1_1.Text = st4_t1_result
+                                              lbl_st4_t2_1.Text = st4_t2_result
+                                              lbl_cot_1.Text = cot_result
+                                              Action_ST4 += 1
+                                          Case 3
+                                              lbl_st4_p2_2.Text = st4_p2_result
+                                              lbl_st4_p3_2.Text = st4_p3_result
+                                              lbl_diff_result_2.Text = diff_result_result
+                                              lbl_st4_t1_2.Text = st4_t1_result
+                                              lbl_st4_t2_2.Text = st4_t2_result
+                                              lbl_cot_2.Text = cot_result
+                                              Action_ST4 += 1
+                                          Case 4
+                                              lbl_st4_p2_3.Text = st4_p2_result
+                                              lbl_st4_p3_3.Text = st4_p3_result
+                                              lbl_diff_result_3.Text = diff_result_result
+                                              lbl_st4_t1_3.Text = st4_t1_result
+                                              lbl_st4_t2_3.Text = st4_t2_result
+                                              lbl_cot_3.Text = cot_result
+                                              Action_ST4 += 1
+                                          Case 5
+                                              lbl_st4_p2_4.Text = st4_p2_result
+                                              lbl_st4_p3_4.Text = st4_p3_result
+                                              lbl_diff_result_4.Text = diff_result_result
+                                              lbl_st4_t1_4.Text = st4_t1_result
+                                              lbl_st4_t2_4.Text = st4_t2_result
+                                              lbl_cot_4.Text = cot_result
+                                              Action_ST4 += 1
+                                          Case 6
+                                              lbl_st4_p2_5.Text = st4_p2_result
+                                              lbl_st4_p3_5.Text = st4_p3_result
+                                              lbl_diff_result_5.Text = diff_result_result
+                                              lbl_st4_t1_5.Text = st4_t1_result
+                                              lbl_st4_t2_5.Text = st4_t2_result
+                                              lbl_cot_5.Text = cot_result
+                                              Action_ST4 = 1
+                                      End Select
 
-                                  Call KoneksiDB.koneksi_db()
-                                  Dim sc As New SqlCommand("UPDATE tb_data SET [Travel P2] = '" & st4_p2_result & "', [Travel P3] = '" & st4_p3_result & "', [Dif Str] = '" & diff_result_result & "', T1 = '" & st4_t1_result & "', T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
-                                  Dim adapter As New SqlDataAdapter(sc)
-                                  adapter.SelectCommand.ExecuteNonQuery()
+                                      Call KoneksiDB.koneksi_db()
+                                      Dim sc As New SqlCommand("UPDATE tb_data SET [Travel P2] = '" & st4_p2_result & "', [Travel P3] = '" & st4_p3_result & "', [Dif Str] = '" & diff_result_result & "', T1 = '" & st4_t1_result & "', T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                      Dim adapter As New SqlDataAdapter(sc)
+                                      adapter.SelectCommand.ExecuteNonQuery()
 
-                                  txt_msg.Text = txt_msg.Text + "Finish recording ST4 Result = " & vbCrLf
-                                  txt_msg.Text = txt_msg.Text + "P2 = " + st4_p2_result & vbCrLf
-                                  txt_msg.Text = txt_msg.Text + "P3 = " + st4_p3_result & vbCrLf
-                                  txt_msg.Text = txt_msg.Text + "Diff = " + diff_result_result & vbCrLf
-                                  txt_msg.Text = txt_msg.Text + "T1 = " + st4_t1_result & vbCrLf
-                                  txt_msg.Text = txt_msg.Text + "T2 = " + st4_t2_result & vbCrLf
-                                  txt_msg.Text = txt_msg.Text + "COT = " + cot_result & vbCrLf
-                                  Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
-                                  lbl_cnt_st4.Text = CNT_ST4
-                              End Sub)
+                                      txt_msg.Text = txt_msg.Text + "Finish recording ST4 Result = " & vbCrLf
+                                      txt_msg.Text = txt_msg.Text + "P2 = " + st4_p2_result & vbCrLf
+                                      txt_msg.Text = txt_msg.Text + "P3 = " + st4_p3_result & vbCrLf
+                                      txt_msg.Text = txt_msg.Text + "Diff = " + diff_result_result & vbCrLf
+                                      txt_msg.Text = txt_msg.Text + "T1 = " + st4_t1_result & vbCrLf
+                                      txt_msg.Text = txt_msg.Text + "T2 = " + st4_t2_result & vbCrLf
+                                      txt_msg.Text = txt_msg.Text + "COT = " + cot_result & vbCrLf
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
+                                      lbl_cnt_st4.Text = CNT_ST4
+                                  End Sub)
+                    Else
+                        Me.Invoke(Sub()
+                                      Dim st4_p2_result As String
+                                      Dim st4_p3_result As String
+                                      Dim diff_result_result As String
+                                      Dim st4_t1_result As String
+                                      Dim st4_t2_result As String
+                                      Dim cot_result As String
+
+                                      With Result
+                                          st4_p2_result = .TRAVEL_P2
+                                          st4_p3_result = .TRAVEL_P3
+                                          diff_result_result = .DIFF_STR
+                                          st4_t1_result = .T1
+                                          st4_t2_result = .T2
+                                          cot_result = .COT
+                                      End With
+
+                                      dgv_calibration.Rows.Add("P2", st4_p2_result)
+                                      dgv_calibration.Rows.Add("P3", st4_p2_result)
+                                      dgv_calibration.Rows.Add("Diff", diff_result_result)
+                                      dgv_calibration.Rows.Add("T1", st4_t1_result)
+                                      dgv_calibration.Rows.Add("T2", st4_t2_result)
+                                      dgv_calibration.Rows.Add("COT", cot_result)
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
+                                  End Sub)
+                    End If
                 ElseIf binaryString(6) = "0" And binaryString(7) = "1" Then
-                    Me.Invoke(Sub()
-                                  If is_measuring_nc = False Then
-                                      Reset_resistance()
-                                      is_measuring_nc = True
-                                  Else
-                                      Dim resistance_state_off As String = Chroma_resistance()
-                                      If resistance_state_off <> "waiting" Then
-                                          Dim numericValue As Double = Double.Parse(resistance_state_off)
-                                          Select Case Action_ST4
-                                              Case 1
-                                                  lbl_st4NC_res.Text = numericValue.ToString
-                                              Case 2
-                                                  lbl_st4NC_res_1.Text = numericValue.ToString
-                                              Case 3
-                                                  lbl_st4NC_res_2.Text = numericValue.ToString
-                                              Case 4
-                                                  lbl_st4NC_res_3.Text = numericValue.ToString
-                                              Case 5
-                                                  lbl_st4NC_res_4.Text = numericValue.ToString
-                                              Case 6
-                                                  lbl_st4NC_res_5.Text = numericValue.ToString
-                                          End Select
+                    If Not CALIBRATION Then
+                        Me.Invoke(Sub()
+                                      If is_measuring_nc = False Then
+                                          Reset_resistance()
+                                          is_measuring_nc = True
+                                      Else
+                                          Dim resistance_state_off As String = Chroma_resistance()
+                                          If resistance_state_off <> "waiting" Then
+                                              Dim numericValue As Double = Double.Parse(resistance_state_off)
+                                              Select Case Action_ST4
+                                                  Case 1
+                                                      lbl_st4NC_res.Text = numericValue.ToString
+                                                  Case 2
+                                                      lbl_st4NC_res_1.Text = numericValue.ToString
+                                                  Case 3
+                                                      lbl_st4NC_res_2.Text = numericValue.ToString
+                                                  Case 4
+                                                      lbl_st4NC_res_3.Text = numericValue.ToString
+                                                  Case 5
+                                                      lbl_st4NC_res_4.Text = numericValue.ToString
+                                                  Case 6
+                                                      lbl_st4NC_res_5.Text = numericValue.ToString
+                                              End Select
 
-                                          Call KoneksiDB.koneksi_db()
-                                          Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
-                                          Dim adapter As New SqlDataAdapter(sc)
-                                          adapter.SelectCommand.ExecuteNonQuery()
-                                          Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)
-                                          is_measuring_nc = False
-                                          txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
+                                              Call KoneksiDB.koneksi_db()
+                                              Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                              Dim adapter As New SqlDataAdapter(sc)
+                                              adapter.SelectCommand.ExecuteNonQuery()
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)
+                                              is_measuring_nc = False
+                                              txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
+                                          End If
                                       End If
-                                  End If
-                              End Sub)
+                                  End Sub)
+                    Else
+                        Me.Invoke(Sub()
+                                      If is_measuring_nc = False Then
+                                          Reset_resistance()
+                                          is_measuring_nc = True
+                                      Else
+                                          Dim resistance_state_off As String = Chroma_resistance()
+                                          If resistance_state_off <> "waiting" Then
+                                              Dim numericValue As Double = Double.Parse(resistance_state_off)
+                                              dgv_calibration.Rows.Add("Resistance NC", numericValue.ToString)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)
+                                          End If
+                                      End If
+                                  End Sub)
+                    End If
                 ElseIf binaryString(4) = "0" And binaryString(5) = "1" Then
-                    Me.Invoke(Sub()
-                                  If is_measuring_no = False Then
-                                      Reset_resistance()
-                                      is_measuring_no = True
-                                  Else
-                                      Dim resistance_state_on As String = Chroma_resistance()
+                    If Not CALIBRATION Then
+                        Me.Invoke(Sub()
+                                      If is_measuring_no = False Then
+                                          Reset_resistance()
+                                          is_measuring_no = True
+                                      Else
+                                          Dim resistance_state_on As String = Chroma_resistance()
 
-                                      If resistance_state_on <> "waiting" Then
-                                          Dim numericValue As Double = Double.Parse(resistance_state_on)
-                                          Select Case Action_ST4
-                                              Case 1
-                                                  lbl_st4NO_res.Text = numericValue.ToString
-                                              Case 2
-                                                  lbl_st4NO_res_1.Text = numericValue.ToString
-                                              Case 3
-                                                  lbl_st4NO_res_2.Text = numericValue.ToString
-                                              Case 4
-                                                  lbl_st4NO_res_3.Text = numericValue.ToString
-                                              Case 5
-                                                  lbl_st4NO_res_4.Text = numericValue.ToString
-                                              Case 6
-                                                  lbl_st4NO_res_5.Text = numericValue.ToString
-                                          End Select
+                                          If resistance_state_on <> "waiting" Then
+                                              Dim numericValue As Double = Double.Parse(resistance_state_on)
+                                              Select Case Action_ST4
+                                                  Case 1
+                                                      lbl_st4NO_res.Text = numericValue.ToString
+                                                  Case 2
+                                                      lbl_st4NO_res_1.Text = numericValue.ToString
+                                                  Case 3
+                                                      lbl_st4NO_res_2.Text = numericValue.ToString
+                                                  Case 4
+                                                      lbl_st4NO_res_3.Text = numericValue.ToString
+                                                  Case 5
+                                                      lbl_st4NO_res_4.Text = numericValue.ToString
+                                                  Case 6
+                                                      lbl_st4NO_res_5.Text = numericValue.ToString
+                                              End Select
 
-                                          Call KoneksiDB.koneksi_db()
-                                          Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_on & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
-                                          Dim adapter As New SqlDataAdapter(sc)
-                                          adapter.SelectCommand.ExecuteNonQuery()
-                                          Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3072)
-                                          is_measuring_no = False
-                                          txt_msg.Text = txt_msg.Text + "Resistance ON = " + resistance_state_on & vbCrLf
+                                              Call KoneksiDB.koneksi_db()
+                                              Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_on & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                              Dim adapter As New SqlDataAdapter(sc)
+                                              adapter.SelectCommand.ExecuteNonQuery()
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3072)
+                                              is_measuring_no = False
+                                              txt_msg.Text = txt_msg.Text + "Resistance ON = " + resistance_state_on & vbCrLf
+                                          End If
                                       End If
-                                  End If
 
-                              End Sub)
+                                  End Sub)
+                    Else
+                        Me.Invoke(Sub()
+                                      If is_measuring_no = False Then
+                                          Reset_resistance()
+                                          is_measuring_no = True
+                                      Else
+                                          Dim resistance_state_on As String = Chroma_resistance()
+                                          If resistance_state_on <> "waiting" Then
+                                              Dim numericValue As Double = Double.Parse(resistance_state_on)
+                                              dgv_calibration.Rows.Add("Resistance NO", numericValue.ToString)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3072)
+                                          End If
+                                      End If
+                                  End Sub)
+                    End If
                 End If
             End If
             Thread.Sleep(100)

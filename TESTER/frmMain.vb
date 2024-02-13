@@ -285,6 +285,8 @@ Public Class frmMain
             CALIBRATION = True
             pnl_calibration.Visible = True
             dgv_calibration.Rows.Clear()
+            dgv_calibration.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 14)
+            dgv_calibration.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 14)
         Else
             CALIBRATION = False
             pnl_calibration.Visible = False

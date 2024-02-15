@@ -2905,7 +2905,7 @@ Public Class frmMain
     Dim Action_ST2 As Integer = 1
     Private Sub ST2_Thread()
         Do
-            If SCAN_MODE = 3 Then
+            If SCAN_MODE = 3 Or CALIBRATION Then
                 Dim binaryString As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
                 If binaryString(14) = "0" And binaryString(15) = "1" Then
                     If Not CALIBRATION Then
@@ -3019,7 +3019,7 @@ Public Class frmMain
     Dim is_measuring_no As Boolean = False
     Private Sub ST4_Thread()
         Do
-            If SCAN_MODE = 3 Then
+            If SCAN_MODE = 3 Or CALIBRATION Then
                 Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
 
                 If binaryString(14) = "0" And binaryString(15) = "1" Then
@@ -3249,7 +3249,7 @@ Public Class frmMain
     Dim Action_ST5 As Integer = 1
     Private Sub ST5_Thread()
         Do
-            If SCAN_MODE = 3 Then
+            If SCAN_MODE = 3 Or CALIBRATION Then
                 Dim binaryString As String = Convert.ToString(ST_COMM5, 2).PadLeft(16, "0"c)
                 If binaryString(14) = "0" And binaryString(15) = "1" Then
                     Me.Invoke(Sub()

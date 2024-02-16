@@ -112,6 +112,11 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
         End Try
+
+        If Not initCyklop() Then
+            MsgBox("Please turn on the laser and run application again! ", MsgBoxStyle.SystemModal, "On Top")
+        End If
+
         Thread.Sleep(200)
 
         'BarcodeComm.Open()
@@ -132,6 +137,13 @@ Public Class frmMain
         Cursor = Cursors.Default
         Show()
     End Sub
+    Private Function initCyklop() As Boolean
+        Laser.GetMarkStatus
+        If Laser.ReadData = "2;;" Then
+            Return True
+        End If
+        Return False
+    End Function
     Private Function initChroma() As Boolean
         If Not Set_chroma("*IDN?", Config.instrumentName) Then
             Return False
@@ -192,7 +204,7 @@ Public Class frmMain
         End If
         ShowPanelGeneral("manual")
         btn_stop.PerformClick()
-    End Sub
+        End
     Private Sub btn_setting_Click(sender As Object, e As EventArgs) Handles btn_setting.Click
         ShowPanelGeneral("setting")
     End Sub

@@ -222,11 +222,15 @@ Public Class Modbus
         Return result
     End Function
 
-    Private Function ConvertWords2Dword(dval As Integer, dval2 As Integer) As Integer
-        Dim dwordResult As Int32 = (CInt(dval) << 16) Or (CInt(dval2) And &HFFFF)
-        If dval2 = -1 Then
-            Return dval
-        End If
+    Private Function ConvertWords2Dword(dval As Int16, dval2 As Int16) As Int32
+        'Dim dwordResult As Int32 = (CInt(dval) << 16) Or (CInt(dval2) And &HFFFF)
+        'Dim dwordResult As Int32 = (CInt(dval) << 16) Or CInt(dval2)
+        'Dim dwordResult As Int32 = (CInt(dval) << 16) Or (CInt(dval2) And &HFFFF)
+        Dim dwordResult As Int32 = (CInt(dval) And &HFFFF) Or (CInt(dval2) << 16)
+
+        'If dval2 = -1 Then
+        '    Return dval
+        'End If
         Return dwordResult
     End Function
 

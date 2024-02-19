@@ -295,7 +295,7 @@ Partial Class frmMain
         Me.btn_st5_jog_cw = New System.Windows.Forms.Button()
         Me.btn_st5_move_vel = New System.Windows.Forms.Button()
         Me.btn_st5_move_pos = New System.Windows.Forms.Button()
-        Me.Button34 = New System.Windows.Forms.Button()
+        Me.btn_st5_save_data = New System.Windows.Forms.Button()
         Me.btn_st5_homing = New System.Windows.Forms.Button()
         Me.btn_st5_servo_enable = New System.Windows.Forms.Button()
         Me.Label290 = New System.Windows.Forms.Label()
@@ -4617,7 +4617,7 @@ Partial Class frmMain
         Me.TabPage23.Controls.Add(Me.btn_st5_jog_cw)
         Me.TabPage23.Controls.Add(Me.btn_st5_move_vel)
         Me.TabPage23.Controls.Add(Me.btn_st5_move_pos)
-        Me.TabPage23.Controls.Add(Me.Button34)
+        Me.TabPage23.Controls.Add(Me.btn_st5_save_data)
         Me.TabPage23.Controls.Add(Me.btn_st5_homing)
         Me.TabPage23.Controls.Add(Me.btn_st5_servo_enable)
         Me.TabPage23.Controls.Add(Me.Label290)
@@ -4737,15 +4737,15 @@ Partial Class frmMain
         Me.btn_st5_move_pos.Text = "Move POS"
         Me.btn_st5_move_pos.UseVisualStyleBackColor = True
         '
-        'Button34
+        'btn_st5_save_data
         '
-        Me.Button34.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button34.Location = New System.Drawing.Point(319, 284)
-        Me.Button34.Name = "Button34"
-        Me.Button34.Size = New System.Drawing.Size(128, 50)
-        Me.Button34.TabIndex = 86
-        Me.Button34.Text = "Save Data"
-        Me.Button34.UseVisualStyleBackColor = True
+        Me.btn_st5_save_data.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_st5_save_data.Location = New System.Drawing.Point(319, 284)
+        Me.btn_st5_save_data.Name = "btn_st5_save_data"
+        Me.btn_st5_save_data.Size = New System.Drawing.Size(128, 50)
+        Me.btn_st5_save_data.TabIndex = 86
+        Me.btn_st5_save_data.Text = "Save Data"
+        Me.btn_st5_save_data.UseVisualStyleBackColor = True
         '
         'btn_st5_homing
         '
@@ -13453,6 +13453,12 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_monitoring)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_general)
+        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
@@ -13468,12 +13474,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn1)
         Me.Controls.Add(Me.pnl_home)
         Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_general)
-        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -14989,7 +14989,7 @@ Partial Class frmMain
     Friend WithEvents btn_st5_jog_cw As Button
     Friend WithEvents btn_st5_move_vel As Button
     Friend WithEvents btn_st5_move_pos As Button
-    Friend WithEvents Button34 As Button
+    Friend WithEvents btn_st5_save_data As Button
     Friend WithEvents btn_st5_homing As Button
     Friend WithEvents btn_st5_servo_enable As Button
     Friend WithEvents Label290 As Label

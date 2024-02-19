@@ -30,6 +30,18 @@
     Public ADDR_SET_POS_ST5 As Integer = 40050
     Public ADDR_ACT_POS_ST5 As Integer = 40052
 
+    Public ADDR_SERVO_ST4 As Integer = 40028
+    Public ADDR_SET_VEL_ST4 As Integer = 40062
+    Public ADDR_ACT_VEL_ST4 As Integer = 40064
+    Public ADDR_SET_POS_ST4 As Integer = 40058
+    Public ADDR_ACT_POS_ST4 As Integer = 40060
+
+    Public ADDR_SERVO_ST3 As Integer = 40030
+    Public ADDR_SET_VEL_ST3 As Integer = 40070
+    Public ADDR_ACT_VEL_ST3 As Integer = 40072
+    Public ADDR_SET_POS_ST3 As Integer = 40066
+    Public ADDR_ACT_POS_ST3 As Integer = 40068
+
 
     Public ADDR_ST_DOWNGRADE As Integer = 40011
     Public ADDR_ST_DOWNGRADE_SUB As Integer = 40012

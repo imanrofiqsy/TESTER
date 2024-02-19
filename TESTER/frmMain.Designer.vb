@@ -7745,7 +7745,7 @@ Partial Class frmMain
         Me.gb_laser.Controls.Add(Me.txtPort_laser)
         Me.gb_laser.Controls.Add(Me.btn_connect_laser)
         Me.gb_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gb_laser.Location = New System.Drawing.Point(32, 345)
+        Me.gb_laser.Location = New System.Drawing.Point(31, 342)
         Me.gb_laser.Name = "gb_laser"
         Me.gb_laser.Size = New System.Drawing.Size(214, 159)
         Me.gb_laser.TabIndex = 64
@@ -8446,7 +8446,7 @@ Partial Class frmMain
         'cbo_data_type
         '
         Me.cbo_data_type.FormattingEnabled = True
-        Me.cbo_data_type.Items.AddRange(New Object() {"INT", "FLOAT"})
+        Me.cbo_data_type.Items.AddRange(New Object() {"INT", "FLOAT", "DWORD"})
         Me.cbo_data_type.Location = New System.Drawing.Point(94, 249)
         Me.cbo_data_type.Name = "cbo_data_type"
         Me.cbo_data_type.Size = New System.Drawing.Size(112, 32)
@@ -13453,14 +13453,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_monitoring)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_general)
-        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
@@ -13474,6 +13466,14 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_general)
+        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

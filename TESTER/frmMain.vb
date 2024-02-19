@@ -392,6 +392,8 @@ Public Class frmMain
             txtValue.Text = Modbus.ReadDataFloat(REGISTER_TYPE, txtAddress.Text)
         ElseIf cbo_data_type.Text = "INT" Then
             txtValue.Text = Modbus.ReadData(REGISTER_TYPE, txtAddress.Text)
+        ElseIf cbo_data_type.Text = "DWORD" Then
+            txtValue.Text = Modbus.ReadDataDword(REGISTER_TYPE, txtAddress.Text)
         End If
     End Sub
 
@@ -400,6 +402,8 @@ Public Class frmMain
             Modbus.WriteDataFloat(REGISTER_TYPE, Val(txtAddress.Text), Single.Parse(txtValue.Text))
         ElseIf cbo_data_type.Text = "INT" Then
             Modbus.WriteData(REGISTER_TYPE, Val(txtAddress.Text), txtValue.Text)
+        ElseIf cbo_data_type.Text = "DWORD" Then
+            Modbus.WriteDataDword(REGISTER_TYPE, Val(txtAddress.Text), txtValue.Text)
         End If
     End Sub
 
@@ -3934,7 +3938,7 @@ Retry:
 
         Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
 
-        Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_SET_POS_ST5, Single.Parse(txt_st5_set_pos.Text))
+        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST5, Single.Parse(txt_st5_set_pos.Text))
 
         Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST5, integerValue_)
     End Sub
@@ -3966,7 +3970,7 @@ Retry:
 
         Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
 
-        Modbus.WriteDataFloat(REGISTER_TYPE, ADDR_SET_VEL_ST5, Single.Parse(txt_st5_set_vel.Text))
+        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST5, Single.Parse(txt_st5_set_vel.Text))
 
         Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST5, integerValue_)
     End Sub

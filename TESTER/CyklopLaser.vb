@@ -46,7 +46,7 @@ Public Class CyklopLaser
     End Function
     Dim dataRX(1024) As Byte
     Dim data As String
-    Public Function ReadData() As String
+    Public Function ReadData(compare As String) As Boolean
         Try
             Dim stream As NetworkStream = client.GetStream()
             Dim reader As New StreamReader(stream, Encoding.UTF8)
@@ -56,9 +56,18 @@ Public Class CyklopLaser
                 data = Encoding.ASCII.GetString(dataRX).Replace(vbNullChar, "")
             End While
 
-            Return data
+            Dim split_val As String() = data.Split(";;")
+
+            For Each word As String In split_val
+                Console.WriteLine(word + " " + compare)
+                If word = compare Then
+                    Return True
+                End If
+            Next
+
+            Return False
         Catch ex As Exception
-            Return "None"
+            Return False
         End Try
     End Function
     Public Sub GetMarkStatus()

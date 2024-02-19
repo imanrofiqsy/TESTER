@@ -20,6 +20,7 @@ Public Class frmMain
     Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
 
     Dim delay As Integer = 0
+    Dim delay2 As Integer = 0
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             Directory.CreateDirectory(projectFolder & "\Log")
@@ -114,9 +115,11 @@ Public Class frmMain
             End
         End Try
 
-        If Not initCyklop() Then
+        If Not initCyklop() AndAlso delay2 > 10 Then
             MsgBox("Please turn on the laser and run application again! ", MsgBoxStyle.SystemModal, "On Top")
             End
+        Else
+            delay2 += 1
         End If
 
         Thread.Sleep(200)
@@ -141,7 +144,7 @@ Public Class frmMain
     End Sub
     Private Function initCyklop() As Boolean
         Laser.GetMarkStatus
-        If Laser.ReadData = "2;;" Then
+        If Laser.ReadData("2") Then
             Return True
         End If
         Return False
@@ -2320,16 +2323,10 @@ Public Class frmMain
             MsgBox("Please Scan Barcode!")
             Exit Sub
         End If
-
-        Try
-            Laser.SetMarkingTemplate(lbl_laser_template.Text)
-            If Not Laser.ReadData = "Ok;;" Then
-                MsgBox("Error set label template, please check the template name !")
-            End If
-        Catch ex As Exception
-            MsgBox("Error " + ex.Message)
-            Exit Sub
-        End Try
+        'Laser.SetMarkingTemplate(lbl_laser_template.Text)
+        'If Not Laser.ReadData = "Ok;;" Then
+        '    MsgBox("Error set label template, please check the template name !")
+        'End If
 
         GetPCStatus(110)
         btn_run.Enabled = False
@@ -2823,22 +2820,22 @@ Public Class frmMain
                     Modbus.WriteData(REGISTER_TYPE, ADDR_UNSCREWING_PROCESS, lbl_unscrew_process.Text)
                     Modbus.WriteData(REGISTER_TYPE, ADDR_LASER_DATE_CODE, lbl_laser_datecode.Text)
 
-                    'Select Case LASER_STATE
-                    '    Case 0
-                    '        Laser.GetMarkStatus
-                    '        If Laser.ReadData = "2;;" Then
-                    '            LASER_STATE += 1
-                    '        End If
-                    '    Case 1
-                    '        Laser.SetMarkingTemplate(rd.Item("Laser Template"))
-                    '        If Laser.ReadData = "Ok;;" Then
-                    '            LASER_STATE += 1
-                    '        End If
-                    '    Case 2
-                    '        SCAN_MODE = 3
-                    'End Select
+                    Select Case LASER_STATE
+                        Case 0
+                            Laser.GetMarkStatus
+                            If Laser.ReadData("2") Then
+                                LASER_STATE += 1
+                            End If
+                        Case 1
+                            Laser.SetMarkingTemplate(rd.Item("Laser Template"))
+                            If Laser.ReadData("Ok") Then
+                                LASER_STATE += 1
+                            End If
+                        Case 2
+                            SCAN_MODE = 3
+                    End Select
 
-                    SCAN_MODE = 3
+                    'SCAN_MODE = 3
                 End If
         End Select
         'status bar

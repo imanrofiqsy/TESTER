@@ -210,14 +210,23 @@ Public Class Modbus
 
         ' Convert to Integer array for Modbus WriteMultipleRegisters
         Dim result(1) As Integer
-        result(0) = values(0)
-        result(1) = values(1)
+        'If dval < 0 Then
+        result(0) = values(1)
+        result(1) = values(0)
+        'Else
+        '    result(0) = values(0)
+        '    result(1) = values(1)
+        'End If
+
 
         Return result
     End Function
 
     Private Function ConvertWords2Dword(dval As Integer, dval2 As Integer) As Integer
-        Dim dwordResult As Int32 = (CInt(dval) << 16) Or CInt(dval2)
+        Dim dwordResult As Int32 = (CInt(dval) << 16) Or (CInt(dval2) And &HFFFF)
+        If dval2 = -1 Then
+            Return dval
+        End If
         Return dwordResult
     End Function
 

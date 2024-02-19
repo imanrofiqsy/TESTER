@@ -2,7 +2,6 @@
 Public Class Modbus
     Dim modbusClient As ModbusClient
     Dim ReadValue As String
-    Dim ReadDwordValue As String
     Public Function OpenPort(IP As String, PORT As String) As Boolean
         Try
             modbusClient = New ModbusClient(IP, Val(PORT))
@@ -186,16 +185,16 @@ Public Class Modbus
         End Select
     End Sub
 
-    Private Function ConvertDword2Words(dval As Integer) As Integer()
+    Private Function ConvertDword2Words(dval As UInt32) As Integer()
         ' Convert Dword to Short array
-        Dim values(1) As Short
-        values(0) = CShort(dval And &HFFFF)
-        values(1) = CShort((dval >> 16) And &HFFFF)
+        Dim values(1) As UInt16
+        values(0) = CUShort((dval >> 16) And &HFFFF)
+        values(1) = CUShort(dval And &HFFFF)
 
         ' Convert to Integer array for Modbus WriteMultipleRegisters
         Dim result(1) As Integer
-        result(0) = values(1)
-        result(1) = values(0)
+        result(0) = values(0)
+        result(1) = values(1)
 
         Return result
     End Function
@@ -211,41 +210,5 @@ Public Class Modbus
             End If
         End Try
     End Sub
-    Private Sub ReadHelperDword(Address As String, RegType As Integer)
-        Dim StartAddress As Integer = Val(Address)
-        Select Case RegType
-            Case 0
-            ' Code for reading coils
-            Case 1
-            ' Code for reading discrete inputs
-            Case 2
-            ' Code for reading input registers
-            Case 3
-                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
-                Dim vals() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 2)
-                'Console.WriteLine(vals(0).ToString + " " + vals(1).ToString)
-                ReadDwordValue = ConvertWords2Dword(CShort(vals(0)), CShort(vals(1)))
-        End Select
-    End Sub
-
-    Private Function ConvertWords2Dword(reg1 As Short, reg2 As Short) As Integer
-        ' Convert two 16-bit registers to a 32-bit integer
-        Dim result As Integer = (CInt(reg2) << 16) Or (CInt(reg1) And &HFFFF)
-        'Console.WriteLine(result)
-        Return result
-    End Function
-
-    Public Function ReadDataDword(RegType As String, Address As Integer) As Integer
-        Try
-            ReadHelperDword(Address, RegType)
-        Catch ex As Exception
-            ' Handle the exception as needed
-            MODBUS_ERR = True
-            If frmMain.btn_connect_plc.Text = "Disconnect" Then
-                frmMain.btn_connect_plc.PerformClick()
-            End If
-        End Try
-        Return ReadDwordValue
-    End Function
 
 End Class

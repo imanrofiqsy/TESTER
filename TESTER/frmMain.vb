@@ -70,11 +70,11 @@ Public Class frmMain
         Try
             If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
                 MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-                'End
+                End
             End If
         Catch ex As Exception
             MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-            'End
+            End
         End Try
 
         GetPCStatus(100) 'Software is open
@@ -111,10 +111,12 @@ Public Class frmMain
             End If
         Catch ex As Exception
             MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+            End
         End Try
 
         If Not initCyklop() Then
             MsgBox("Please turn on the laser and run application again! ", MsgBoxStyle.SystemModal, "On Top")
+            End
         End If
 
         Thread.Sleep(200)

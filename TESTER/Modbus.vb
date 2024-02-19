@@ -61,6 +61,23 @@ Public Class Modbus
         End Select
     End Sub
 
+    Private Sub ReadHelperDword(Address As String, RegType As Integer)
+        Dim StartAddress As Integer = Val(Address)
+        Select Case RegType
+            Case 0
+            ' Code for reading coils
+            Case 1
+            ' Code for reading discrete inputs
+            Case 2
+            ' Code for reading input registers
+            Case 3
+                If StartAddress > 40000 Then StartAddress = StartAddress - 40000
+                Dim vals() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 2)
+                'Console.WriteLine(vals(0).ToString + " " + vals(1).ToString)
+                ReadValue = ConvertWords2Dword(CShort(vals(0)), CShort(vals(1)))
+        End Select
+    End Sub
+
     Private Function ConvertDW2Float(reg1 As Short, reg2 As Short) As Single
         Dim bytes(3) As Byte
         Dim intBytes1 As Byte() = BitConverter.GetBytes(reg2)
@@ -199,6 +216,11 @@ Public Class Modbus
         Return result
     End Function
 
+    Private Function ConvertWords2Dword(dval As Integer, dval2 As Integer) As Integer
+        Dim dwordResult As UInt32 = (CUInt(dval) << 16) Or CUInt(dval2)
+        Return dwordResult
+    End Function
+
     Public Sub WriteDataDword(RegType As Integer, StartAddress As Integer, Value As Integer)
         Try
             WriteHelperDword(RegType, Value, StartAddress)
@@ -211,4 +233,16 @@ Public Class Modbus
         End Try
     End Sub
 
+    Public Function ReadDataDword(RegType As String, Address As Integer) As String
+        Try
+            ReadHelperDword(Address, RegType)
+        Catch ex As Exception
+            'MsgBox("Modbus Error Read! " & ex.Message)
+            MODBUS_ERR = True
+            If frmMain.btn_connect_plc.Text = "Disconnect" Then
+                frmMain.btn_connect_plc.PerformClick()
+            End If
+        End Try
+        Return ReadValue
+    End Function
 End Class

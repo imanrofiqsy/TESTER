@@ -74,7 +74,7 @@ Public Class Modbus
                 If StartAddress > 40000 Then StartAddress = StartAddress - 40000
                 Dim vals() As Integer = modbusClient.ReadHoldingRegisters(StartAddress, 2)
                 'Console.WriteLine(vals(0).ToString + " " + vals(1).ToString)
-                ReadValue = ConvertWords2Dword(CShort(vals(0)), CShort(vals(1)))
+                ReadValue = ConvertWords2Dword(CInt(vals(0)), CInt(vals(1)))
         End Select
     End Sub
 
@@ -202,11 +202,11 @@ Public Class Modbus
         End Select
     End Sub
 
-    Private Function ConvertDword2Words(dval As UInt32) As Integer()
+    Private Function ConvertDword2Words(dval As Int32) As Integer()
         ' Convert Dword to Short array
-        Dim values(1) As UInt16
-        values(0) = CUShort((dval >> 16) And &HFFFF)
-        values(1) = CUShort(dval And &HFFFF)
+        Dim values(1) As Int32
+        values(0) = CInt((dval >> 16) And &HFFFF)
+        values(1) = CInt(dval And &HFFFF)
 
         ' Convert to Integer array for Modbus WriteMultipleRegisters
         Dim result(1) As Integer
@@ -217,7 +217,7 @@ Public Class Modbus
     End Function
 
     Private Function ConvertWords2Dword(dval As Integer, dval2 As Integer) As Integer
-        Dim dwordResult As UInt32 = (CUInt(dval) << 16) Or CUInt(dval2)
+        Dim dwordResult As Int32 = (CInt(dval) << 16) Or CInt(dval2)
         Return dwordResult
     End Function
 

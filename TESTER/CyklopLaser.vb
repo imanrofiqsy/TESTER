@@ -56,14 +56,16 @@ Public Class CyklopLaser
                 data = Encoding.ASCII.GetString(dataRX).Replace(vbNullChar, "")
             End While
 
-            Dim split_val As String() = data.Split(";;")
+            If data IsNot Nothing Then
+                Dim split_val As String() = data.Split(";;")
 
-            For Each word As String In split_val
-                Console.WriteLine(word + " " + compare)
-                If word = compare Then
-                    Return True
-                End If
-            Next
+                For Each word As String In split_val
+                    Console.WriteLine(word + " " + compare)
+                    If word = compare Then
+                        Return True
+                    End If
+                Next
+            End If
 
             Return False
         Catch ex As Exception

@@ -19,6 +19,17 @@
     End Structure
 
     Public STATION_STATUS As Integer
+    Public SERVO_ST5 As Integer
+    Public SERVO_ST4 As Integer
+    Public SERVO_ST3 As Integer
+    Public HEIDENHAIN As Integer
+
+    Public ADDR_SERVO_ST5 As Integer = 40026
+    Public ADDR_SET_VEL_ST5 As Integer = 40054
+    Public ADDR_ACT_VEL_ST5 As Integer = 40056
+    Public ADDR_SET_POS_ST5 As Integer = 40050
+    Public ADDR_ACT_POS_ST5 As Integer = 40052
+
 
     Public ADDR_ST_DOWNGRADE As Integer = 40011
     Public ADDR_ST_DOWNGRADE_SUB As Integer = 40012

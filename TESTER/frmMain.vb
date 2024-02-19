@@ -1427,12 +1427,21 @@ Public Class frmMain
             ' Servo
             SERVO_ST5 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST5)
             ReadServoST5(SERVO_ST5)
-            'SERVO_ST4 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST4)
-            'ReadServoST4(SERVO_ST5)
-            'SERVO_ST3 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST3)
-            'ReadServoST3(SERVO_ST5)
+            SERVO_ST4 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST4)
+            ReadServoST4(SERVO_ST4)
+            SERVO_ST3 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST3)
+            ReadServoST3(SERVO_ST3)
+            HEIDENHAIN = Modbus.ReadData(REGISTER_TYPE, ADDR_HEIDENHAIN)
+            ReadHeidenhain(HEIDENHAIN)
+            MANUAL_OPERATION = Modbus.ReadData(REGISTER_TYPE, ADDR_MANUAL_OPERATION)
+            ReadManualOperation(MANUAL_OPERATION)
             txt_st5_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST5)
             txt_st5_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST5)
+            txt_st4_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST4)
+            txt_st4_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST4)
+            txt_st3_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST3)
+            txt_st3_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST3)
+            txt_st2_act_mea.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_MEA_ST2)
 
             ' STN 1
             If Modbus.ReadData(REGISTER_TYPE, ADDR_STN1_SEN1) = FORWARD Then
@@ -2772,6 +2781,129 @@ Public Class frmMain
             ind_st5_continuous_motion.BackColor = Color.DarkRed
         End If
     End Sub
+    Private Sub ReadServoST4(DecimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_st4_servo_enabled.BackColor = Color.Red
+        Else
+            ind_st4_servo_enabled.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_st4_servo_error.BackColor = Color.Red
+        Else
+            ind_st4_servo_error.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_st4_home_busy.BackColor = Color.Red
+        Else
+            ind_st4_home_busy.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(12) = "1" Then
+            ind_st4_servo_busy.BackColor = Color.Red
+        Else
+            ind_st4_servo_busy.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(11) = "1" Then
+            ind_st4_standstill.BackColor = Color.Red
+        Else
+            ind_st4_standstill.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(10) = "1" Then
+            ind_st4_stopping.BackColor = Color.Red
+        Else
+            ind_st4_stopping.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(9) = "1" Then
+            ind_st4_continuous_motion.BackColor = Color.Red
+        Else
+            ind_st4_continuous_motion.BackColor = Color.DarkRed
+        End If
+    End Sub
+
+    Private Sub ReadServoST3(DecimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_st3_servo_enabled.BackColor = Color.Red
+        Else
+            ind_st3_servo_enabled.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_st3_servo_error.BackColor = Color.Red
+        Else
+            ind_st3_servo_error.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_st3_home_busy.BackColor = Color.Red
+        Else
+            ind_st3_home_busy.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(12) = "1" Then
+            ind_st3_servo_busy.BackColor = Color.Red
+        Else
+            ind_st3_servo_busy.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(11) = "1" Then
+            ind_st3_standstill.BackColor = Color.Red
+        Else
+            ind_st3_standstill.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(10) = "1" Then
+            ind_st3_stopping.BackColor = Color.Red
+        Else
+            ind_st3_stopping.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(9) = "1" Then
+            ind_st3_continuous_motion.BackColor = Color.Red
+        Else
+            ind_st3_continuous_motion.BackColor = Color.DarkRed
+        End If
+    End Sub
+    Private Sub ReadHeidenhain(DecimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_st2_heidenhain_valid.BackColor = Color.Red
+        Else
+            ind_st2_heidenhain_valid.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_st2_heidenhain_error.BackColor = Color.Red
+        Else
+            ind_st2_heidenhain_error.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_st2_motor_status.BackColor = Color.Red
+        Else
+            ind_st2_motor_status.BackColor = Color.DarkRed
+        End If
+    End Sub
+    Private Sub ReadManualOperation(DecimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_altivar_status.BackColor = Color.Red
+        Else
+            ind_altivar_status.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(14) = "1" Then
+            ind_cycle_status.BackColor = Color.Red
+        Else
+            ind_cycle_status.BackColor = Color.DarkRed
+        End If
+    End Sub
 
     Dim delayLaser As Integer = 0
     Private Sub Status_Tick(sender As Object, e As EventArgs) Handles Status.Tick
@@ -3877,7 +4009,11 @@ Retry:
 
     Private Sub btn_st5_save_data_Click(sender As Object, e As EventArgs) Handles btn_st5_save_data.Click
         txt_st5_set_pos.Text = txt_st5_act_pos.Text
-        txt_st5_set_vel.Text = txt_st5_act_vel.Text
+        'txt_st5_set_vel.Text = txt_st5_act_vel.Text
+        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST5, txt_st5_set_pos.Text)
+        If txt_st5_set_vel.Text <> "" Then
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST5, txt_st5_set_vel.Text)
+        End If
     End Sub
 
     Private Sub btn_st5_servo_enable_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_servo_enable.MouseDown
@@ -4281,5 +4417,1112 @@ Retry:
             Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST5, integerValue_)
         End If
 
+    End Sub
+    Private Sub btn_st4_save_data_Click(sender As Object, e As EventArgs) Handles btn_st4_save_data.Click
+        txt_st5_set_pos.Text = txt_st5_act_pos.Text
+        'txt_st5_set_vel.Text = txt_st5_act_vel.Text
+        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st5_set_pos.Text)
+        If txt_st5_set_vel.Text <> "" Then
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st5_set_vel.Text)
+        End If
+    End Sub
+
+    Private Sub btn_st4_servo_enable_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_servo_enable.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 8 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st4_servo_enable_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_servo_enable.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 8 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_servo_reset_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_servo_reset.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 7 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_servo_reset_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_servo_reset.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 7 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_servo_stop_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_servo_stop.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 6 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_servo_stop_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_servo_stop.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 6 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_homing_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_homing.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 5 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_homing_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_homing.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 5 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_move_pos_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_move_pos.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 4 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_move_pos_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_move_pos.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 4 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            'Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, Single.Parse(txt_st5_set_pos.Text))
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_move_vel_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_move_vel.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 3 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_move_vel_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_move_vel.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 3 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            'Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST4, Single.Parse(txt_st5_set_vel.Text))
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_jog_cw_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_jog_cw.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 2 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_jog_cw_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_jog_cw.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 2 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_jog_ccw_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_jog_ccw.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 1 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st4_jog_ccw_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_jog_ccw.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 1 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST4, integerValue_)
+        End If
+
+    End Sub
+    '' dari sini
+
+    Private Sub btn_st3_save_data_Click(sender As Object, e As EventArgs) Handles btn_st3_save_data.Click
+        txt_st5_set_pos.Text = txt_st5_act_pos.Text
+        'txt_st5_set_vel.Text = txt_st5_act_vel.Text
+        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st5_set_pos.Text)
+        If txt_st5_set_vel.Text <> "" Then
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st5_set_vel.Text)
+        End If
+    End Sub
+
+    Private Sub btn_st3_servo_enable_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st3_servo_enable.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 8 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st3_servo_enable_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st3_servo_enable.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 8 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_servo_reset_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st3_servo_reset.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 7 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_servo_reset_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st3_servo_reset.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 7 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_servo_stop_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st3_servo_stop.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 6 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_servo_stop_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st3_servo_stop.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 6 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_homing_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st3_homing.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 5 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_homing_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st3_homing.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 5 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_move_pos_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st3_move_pos.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 4 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_move_pos_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st3_move_pos.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 4 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            'Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, Single.Parse(txt_st5_set_pos.Text))
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_move_vel_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st3_move_vel.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 3 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_move_vel_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st3_move_vel.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 3 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            'Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST4, Single.Parse(txt_st5_set_vel.Text))
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_jog_cw_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st3_jog_cw.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 2 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_jog_cw_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st3_jog_cw.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 2 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_jog_ccw_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st3_jog_ccw.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 1 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st3_jog_ccw_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st3_jog_ccw.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(SERVO_ST3, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 1 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SERVO_ST3, integerValue_)
+        End If
+
+    End Sub
+
+    Private Sub btn_st2_enable_heidenhain_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st2_enable_heidenhain.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 12 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_enable_heidenhain_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st2_enable_heidenhain.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 12 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_preset_heidenhain_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st2_preset_heidenhain.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 11 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_preset_heidenhain_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st2_preset_heidenhain.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 11 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_set_cal_val_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st2_set_cal_val.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 10 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+            txt_st2_cal_val.Text = txt_st2_act_mea.Text
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2, txt_st2_cal_val.Text)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_set_cal_val_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st2_set_cal_val.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 10 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_start_punch_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st2_start_punch.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 9 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_start_punch_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st2_start_punch.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 9 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_stop_punch_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st2_stop_punch.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 8 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_stop_punch_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st2_stop_punch.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 8 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_trig_turn_table_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_trig_turn_table.MouseDown
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(MANUAL_OPERATION, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 13 Then
+                    servo_st5_val(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_MANUAL_OPERATION, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_trig_turn_table_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_trig_turn_table.MouseUp
+        If Status.Enabled = True Then
+            Dim servo_st5_val(16) As Integer
+            Dim servo_st5_val_str As String
+            Dim binaryString As String = Convert.ToString(MANUAL_OPERATION, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 13 Then
+                    servo_st5_val(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        servo_st5_val(i) = 1
+                    Else
+                        servo_st5_val(i) = 0
+                    End If
+                End If
+                servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_MANUAL_OPERATION, integerValue_)
+        End If
     End Sub
 End Class

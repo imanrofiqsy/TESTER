@@ -23,6 +23,7 @@
     Public SERVO_ST4 As Integer
     Public SERVO_ST3 As Integer
     Public HEIDENHAIN As Integer
+    Public MANUAL_OPERATION As Integer
 
     Public ADDR_SERVO_ST5 As Integer = 40026
     Public ADDR_SET_VEL_ST5 As Integer = 40054
@@ -42,6 +43,11 @@
     Public ADDR_SET_POS_ST3 As Integer = 40066
     Public ADDR_ACT_POS_ST3 As Integer = 40068
 
+    Public ADDR_HEIDENHAIN As Integer = 40030
+    Public ADDR_CAL_VAL_ST2 As Integer = 40070
+    Public ADDR_ACT_MEA_ST2 As Integer = 40072
+
+    Public ADDR_MANUAL_OPERATION As Integer = 40030
 
     Public ADDR_ST_DOWNGRADE As Integer = 40011
     Public ADDR_ST_DOWNGRADE_SUB As Integer = 40012

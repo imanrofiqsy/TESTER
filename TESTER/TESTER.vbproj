@@ -266,6 +266,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="105450_web-removebg-preview.ico" />
+    <None Include="Resources\mark-ok.png" />
+    <None Include="Resources\mark-fail.png" />
     <None Include="Resources\icons8-save-56.png" />
     <None Include="Resources\icons8-padlock-24.png" />
     <None Include="Resources\icons8-erase-56.png" />

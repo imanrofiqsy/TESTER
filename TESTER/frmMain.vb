@@ -70,11 +70,11 @@ Public Class frmMain
         Try
             If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
                 MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-                End
+                'End
             End If
         Catch ex As Exception
             MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-            End
+            'End
         End Try
 
         GetPCStatus(100) 'Software is open
@@ -203,8 +203,9 @@ Public Class frmMain
             Exit Sub
         End If
         ShowPanelGeneral("manual")
+        ShowPanelManual("GEN")
         btn_stop.PerformClick()
-        End
+    End Sub
     Private Sub btn_setting_Click(sender As Object, e As EventArgs) Handles btn_setting.Click
         ShowPanelGeneral("setting")
     End Sub
@@ -463,6 +464,14 @@ Public Class frmMain
         Else
             pnl_man_stn6.Visible = False
             pnl_mon_stn6.Visible = False
+        End If
+
+        If mode = "GEN" Then
+            If ManualState Then
+                pnl_man_general.Visible = True
+            End If
+        Else
+            pnl_man_general.Visible = False
         End If
     End Sub
 
@@ -2298,10 +2307,22 @@ Public Class frmMain
 
     'panel home
     Private Sub btn_run_Click(sender As Object, e As EventArgs) Handles btn_run.Click
-        If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") AndAlso LASER_STATE <> 2 Then
+        'If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") AndAlso LASER_STATE <> 2 Then
+        If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") Then
             MsgBox("Please Scan Barcode!")
             Exit Sub
         End If
+
+        Try
+            Laser.SetMarkingTemplate(lbl_laser_template.Text)
+            If Not Laser.ReadData = "Ok;;" Then
+                MsgBox("Error set label template, please check the template name !")
+            End If
+        Catch ex As Exception
+            MsgBox("Error " + ex.Message)
+            Exit Sub
+        End Try
+
         GetPCStatus(110)
         btn_run.Enabled = False
         btn_stop.Enabled = True
@@ -2748,22 +2769,22 @@ Public Class frmMain
                     Modbus.WriteData(REGISTER_TYPE, ADDR_UNSCREWING_PROCESS, lbl_unscrew_process.Text)
                     Modbus.WriteData(REGISTER_TYPE, ADDR_LASER_DATE_CODE, lbl_laser_datecode.Text)
 
-                    Select Case LASER_STATE
-                        Case 0
-                            Laser.GetMarkStatus
-                            If Laser.ReadData = "2;;" Then
-                                LASER_STATE += 1
-                            End If
-                        Case 1
-                            Laser.SetMarkingTemplate(rd.Item("Laser Template"))
-                            If Laser.ReadData = "Ok;;" Then
-                                LASER_STATE += 1
-                            End If
-                        Case 2
-                            SCAN_MODE = 3
-                    End Select
+                    'Select Case LASER_STATE
+                    '    Case 0
+                    '        Laser.GetMarkStatus
+                    '        If Laser.ReadData = "2;;" Then
+                    '            LASER_STATE += 1
+                    '        End If
+                    '    Case 1
+                    '        Laser.SetMarkingTemplate(rd.Item("Laser Template"))
+                    '        If Laser.ReadData = "Ok;;" Then
+                    '            LASER_STATE += 1
+                    '        End If
+                    '    Case 2
+                    '        SCAN_MODE = 3
+                    'End Select
 
-                    'SCAN_MODE = 3
+                    SCAN_MODE = 3
                 End If
         End Select
         'status bar
@@ -3396,7 +3417,7 @@ Public Class frmMain
             Exit Sub
         Else
             Call KoneksiDB.koneksi_db()
-            Dim sc As New SqlCommand("UPDATE tb_reference SET [Act Val] = '" & txt_act_val_pnl.Text & "', [Act Val Tolerance] = '" & txt_act_val_tol_pnl.Text & "', [Dif Str] = '" & txt_dif_str_pnl.Text & "', [Dif Str Tolerance] = '" & txt_dif_str_tol_pnl.Text & "', [Beating Times] = '" & txt_beating_times_pnl.Text & "', [Config 1st Contact] = '" & txt_cfg_1st_pnl.Text & "', [Config 2nd Contact] = '" & txt_cfg_2nd_pnl.Text & "', [Unscrewing Process] = '" & txt_unscrew_pnl.Text & "', [Laser Datecode] = '" & txt_laser_datecode_pnl.Text & "', [Laser Template] = '" & txt_laser_template_pnl.Text & "'", KoneksiDB.koneksi)
+            Dim sc As New SqlCommand("UPDATE tb_reference SET [Act Val] = '" & txt_act_val_pnl.Text & "', [Act Val Tolerance] = '" & txt_act_val_tol_pnl.Text & "', [Dif Str] = '" & txt_dif_str_pnl.Text & "', [Dif Str Tolerance] = '" & txt_dif_str_tol_pnl.Text & "', [Beating Times] = '" & txt_beating_times_pnl.Text & "', [Config 1st Contact] = '" & txt_cfg_1st_pnl.Text & "', [Config 2nd Contact] = '" & txt_cfg_2nd_pnl.Text & "', [Unscrewing Process] = '" & txt_unscrew_pnl.Text & "', [Laser Datecode] = '" & txt_laser_datecode_pnl.Text & "', [Laser Template] = '" & txt_laser_template_pnl.Text & "' WHERE [References] = '" & txt_ref_pnl.Text & "'", KoneksiDB.koneksi)
             Dim adapter As New SqlDataAdapter(sc)
             adapter.SelectCommand.ExecuteNonQuery()
             LoadTbRef()
@@ -3731,5 +3752,28 @@ Retry:
         If Laser.write_data(txtCommand_laser.Text) Then
             'Console.WriteLine(Laser.read_data)
         End If
+    End Sub
+
+    Private Sub dgv_ref_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_ref.CellDoubleClick
+        Try
+            Call KoneksiDB.koneksi_db()
+            Dim sc As New SqlCommand("SELECT * FROM tb_reference WHERE [References]='" & dgv_ref.CurrentCell.Value & "'", KoneksiDB.koneksi)
+            Dim rd As SqlDataReader = sc.ExecuteReader
+            rd.Read()
+
+            txt_ref_pnl.Text = dgv_ref.CurrentCell.Value
+            txt_act_val_pnl.Text = rd.Item("Act Val")
+            txt_act_val_tol_pnl.Text = rd.Item("Act Val Tolerance")
+            txt_dif_str_pnl.Text = rd.Item("Dif Str")
+            txt_dif_str_tol_pnl.Text = rd.Item("Dif Str Tolerance")
+            txt_beating_times_pnl.Text = rd.Item("Beating Times")
+            txt_cfg_1st_pnl.Text = rd.Item("Config 1st Contact")
+            txt_cfg_2nd_pnl.Text = rd.Item("Config 2nd Contact")
+            txt_unscrew_pnl.Text = rd.Item("Unscrewing Process")
+            txt_laser_datecode_pnl.Text = rd.Item("Laser Datecode")
+            txt_laser_template_pnl.Text = rd.Item("Laser Template")
+        Catch ex As Exception
+            MsgBox("Error " + ex.Message)
+        End Try
     End Sub
 End Class

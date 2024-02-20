@@ -115,11 +115,9 @@ Public Class frmMain
             End
         End Try
 
-        If Not initCyklop() AndAlso delay2 > 10 Then
+        If Not initCyklop() Then
             MsgBox("Please turn on the laser and run application again! ", MsgBoxStyle.SystemModal, "On Top")
             End
-        Else
-            delay2 += 1
         End If
 
         Thread.Sleep(200)
@@ -144,6 +142,7 @@ Public Class frmMain
     End Sub
     Private Function initCyklop() As Boolean
         Laser.GetMarkStatus
+        Thread.Sleep(100)
         If Laser.ReadData("2") Then
             Return True
         End If
@@ -3314,7 +3313,7 @@ Public Class frmMain
                                               lbl_st4_t1.Text = st4_t1_result
                                               lbl_st4_t2.Text = st4_t2_result
                                               lbl_cot.Text = cot_result
-                                              Action_ST4 += 1
+                                              'Action_ST4 += 1
                                           Case 2
                                               lbl_st4_p2_1.Text = st4_p2_result
                                               lbl_st4_p3_1.Text = st4_p3_result
@@ -3322,7 +3321,7 @@ Public Class frmMain
                                               lbl_st4_t1_1.Text = st4_t1_result
                                               lbl_st4_t2_1.Text = st4_t2_result
                                               lbl_cot_1.Text = cot_result
-                                              Action_ST4 += 1
+                                              'Action_ST4 += 1
                                           Case 3
                                               lbl_st4_p2_2.Text = st4_p2_result
                                               lbl_st4_p3_2.Text = st4_p3_result
@@ -3330,7 +3329,7 @@ Public Class frmMain
                                               lbl_st4_t1_2.Text = st4_t1_result
                                               lbl_st4_t2_2.Text = st4_t2_result
                                               lbl_cot_2.Text = cot_result
-                                              Action_ST4 += 1
+                                              'Action_ST4 += 1
                                           Case 4
                                               lbl_st4_p2_3.Text = st4_p2_result
                                               lbl_st4_p3_3.Text = st4_p3_result
@@ -3338,7 +3337,7 @@ Public Class frmMain
                                               lbl_st4_t1_3.Text = st4_t1_result
                                               lbl_st4_t2_3.Text = st4_t2_result
                                               lbl_cot_3.Text = cot_result
-                                              Action_ST4 += 1
+                                              'Action_ST4 += 1
                                           Case 5
                                               lbl_st4_p2_4.Text = st4_p2_result
                                               lbl_st4_p3_4.Text = st4_p3_result
@@ -3346,7 +3345,7 @@ Public Class frmMain
                                               lbl_st4_t1_4.Text = st4_t1_result
                                               lbl_st4_t2_4.Text = st4_t2_result
                                               lbl_cot_4.Text = cot_result
-                                              Action_ST4 += 1
+                                              'Action_ST4 += 1
                                           Case 6
                                               lbl_st4_p2_5.Text = st4_p2_result
                                               lbl_st4_p3_5.Text = st4_p3_result
@@ -3354,7 +3353,7 @@ Public Class frmMain
                                               lbl_st4_t1_5.Text = st4_t1_result
                                               lbl_st4_t2_5.Text = st4_t2_result
                                               lbl_cot_5.Text = cot_result
-                                              Action_ST4 = 1
+                                              'Action_ST4 = 1
                                       End Select
 
                                       Call KoneksiDB.koneksi_db()
@@ -3463,16 +3462,22 @@ Public Class frmMain
                                               Select Case Action_ST4
                                                   Case 1
                                                       lbl_st4NO_res.Text = numericValue.ToString
+                                                      Action_ST4 += 1
                                                   Case 2
                                                       lbl_st4NO_res_1.Text = numericValue.ToString
+                                                      Action_ST4 += 1
                                                   Case 3
                                                       lbl_st4NO_res_2.Text = numericValue.ToString
+                                                      Action_ST4 += 1
                                                   Case 4
                                                       lbl_st4NO_res_3.Text = numericValue.ToString
+                                                      Action_ST4 += 1
                                                   Case 5
                                                       lbl_st4NO_res_4.Text = numericValue.ToString
+                                                      Action_ST4 += 1
                                                   Case 6
                                                       lbl_st4NO_res_5.Text = numericValue.ToString
+                                                      Action_ST4 = 1
                                               End Select
 
                                               Call KoneksiDB.koneksi_db()

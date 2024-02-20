@@ -68,15 +68,15 @@ Public Class frmMain
         UpdateLoadingBar(20, "Connecting to PLC...")
         Thread.Sleep(500)
 
-        'Try
-        '    If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
-        '        MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-        '        End
-        '    End If
-        'Catch ex As Exception
-        '    MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-        '    End
-        'End Try
+        Try
+            If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
+                MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+                End
+            End If
+        Catch ex As Exception
+            MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+            End
+        End Try
 
         GetPCStatus(100) 'Software is open
         ShowPanelGeneral("home")
@@ -84,43 +84,43 @@ Public Class frmMain
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
-        'Try
-        '    ChromaComm.Open()
-        '    btn_open_multi.Text = "Close Port"
-        '    connect_multi_ind.BackColor = Color.Red
-        'Catch ex As Exception
-        '    MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-        '    connect_multi_ind.BackColor = Color.DarkRed
-        '    End
-        'End Try
+        Try
+            ChromaComm.Open()
+            btn_open_multi.Text = "Close Port"
+            connect_multi_ind.BackColor = Color.Red
+        Catch ex As Exception
+            MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+            connect_multi_ind.BackColor = Color.DarkRed
+            End
+        End Try
 
-        'If Not initChroma() AndAlso delay > 10 Then
-        '    MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
-        '    End
-        'Else
-        '    delay += 1
-        'End If
+        If Not initChroma() AndAlso delay > 10 Then
+            MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
+            End
+        Else
+            delay += 1
+        End If
 
         Thread.Sleep(200)
 
         UpdateLoadingBar(60, "Connecting to Laser...")
-        'Try
-        '    If Not Laser.is_connected() Then
-        '        Laser.Connect()
-        '        btn_connect_laser.Text = "Disconnect"
-        '        connect_laser_ind.BackColor = Color.Red
-        '    End If
-        'Catch ex As Exception
-        '    MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-        '    End
-        'End Try
+        Try
+            If Not Laser.is_connected() Then
+                Laser.Connect()
+                btn_connect_laser.Text = "Disconnect"
+                connect_laser_ind.BackColor = Color.Red
+            End If
+        Catch ex As Exception
+            MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+            End
+        End Try
 
-        'If Not initCyklop() AndAlso delay2 > 10 Then
-        '    MsgBox("Please turn on the laser and run application again! ", MsgBoxStyle.SystemModal, "On Top")
-        '    End
-        'Else
-        '    delay2 += 1
-        'End If
+        If Not initCyklop() AndAlso delay2 > 10 Then
+            MsgBox("Please turn on the laser and run application again! ", MsgBoxStyle.SystemModal, "On Top")
+            End
+        Else
+            delay2 += 1
+        End If
 
         Thread.Sleep(200)
 
@@ -5249,7 +5249,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 12 Then
+                If i = 10 Then
                     servo_st5_val(i) = 1
                 Else
                     If binaryString(i) = "1" Then
@@ -5273,7 +5273,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 12 Then
+                If i = 10 Then
                     servo_st5_val(i) = 0
                 Else
                     If binaryString(i) = "1" Then
@@ -5297,7 +5297,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 11 Then
+                If i = 9 Then
                     servo_st5_val(i) = 1
                 Else
                     If binaryString(i) = "1" Then
@@ -5321,7 +5321,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 11 Then
+                If i = 9 Then
                     servo_st5_val(i) = 0
                 Else
                     If binaryString(i) = "1" Then
@@ -5345,7 +5345,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 10 Then
+                If i = 8 Then
                     servo_st5_val(i) = 1
                 Else
                     If binaryString(i) = "1" Then
@@ -5370,7 +5370,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 10 Then
+                If i = 8 Then
                     servo_st5_val(i) = 0
                 Else
                     If binaryString(i) = "1" Then
@@ -5394,7 +5394,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 9 Then
+                If i = 5 Then
                     servo_st5_val(i) = 1
                 Else
                     If binaryString(i) = "1" Then
@@ -5417,7 +5417,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 9 Then
+                If i = 5 Then
                     servo_st5_val(i) = 0
                 Else
                     If binaryString(i) = "1" Then
@@ -5440,7 +5440,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 8 Then
+                If i = 4 Then
                     servo_st5_val(i) = 1
                 Else
                     If binaryString(i) = "1" Then
@@ -5451,7 +5451,7 @@ Retry:
                 End If
                 servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
             Next
-
+            Console.WriteLine(servo_st5_val_str)
             Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
             Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
         End If
@@ -5463,7 +5463,7 @@ Retry:
             Dim servo_st5_val_str As String
             Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
             For i As Integer = 0 To binaryString.Length - 1
-                If i = 8 Then
+                If i = 4 Then
                     servo_st5_val(i) = 0
                 Else
                     If binaryString(i) = "1" Then

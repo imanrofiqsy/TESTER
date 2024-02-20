@@ -43,9 +43,9 @@
     Public ADDR_SET_POS_ST3 As Integer = 40066
     Public ADDR_ACT_POS_ST3 As Integer = 40068
 
-    Public ADDR_HEIDENHAIN As Integer = 40030
-    Public ADDR_CAL_VAL_ST2 As Integer = 40070
-    Public ADDR_ACT_MEA_ST2 As Integer = 40072
+    Public ADDR_HEIDENHAIN As Integer = 40032
+    Public ADDR_CAL_VAL_ST2 As Integer = 40074
+    Public ADDR_ACT_MEA_ST2 As Integer = 40076
 
     Public ADDR_MANUAL_OPERATION As Integer = 40030
 

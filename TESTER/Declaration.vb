@@ -49,7 +49,7 @@
     Public ADDR_PUNCH_COUNTER_ST2 As Integer = 40078
     Public ADDR_PUNCH_CYCLE_ST2 As Integer = 40079
 
-    Public ADDR_MANUAL_OPERATION As Integer = 40030
+    Public ADDR_MANUAL_OPERATION As Integer = 40024
 
     Public ADDR_ST_DOWNGRADE As Integer = 40011
     Public ADDR_ST_DOWNGRADE_SUB As Integer = 40012

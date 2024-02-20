@@ -46,6 +46,8 @@
     Public ADDR_HEIDENHAIN As Integer = 40032
     Public ADDR_CAL_VAL_ST2 As Integer = 40074
     Public ADDR_ACT_MEA_ST2 As Integer = 40076
+    Public ADDR_PUNCH_COUNTER_ST2 As Integer = 40078
+    Public ADDR_PUNCH_CYCLE_ST2 As Integer = 40079
 
     Public ADDR_MANUAL_OPERATION As Integer = 40030
 

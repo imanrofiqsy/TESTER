@@ -1442,6 +1442,7 @@ Public Class frmMain
             txt_st3_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST3)
             txt_st3_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST3)
             txt_st2_act_mea.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_MEA_ST2)
+            txt_st2_punch_cycle.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_PUNCH_CYCLE_ST2)
 
             ' STN 1
             If Modbus.ReadData(REGISTER_TYPE, ADDR_STN1_SEN1) = FORWARD Then
@@ -2902,6 +2903,42 @@ Public Class frmMain
             ind_cycle_status.BackColor = Color.Red
         Else
             ind_cycle_status.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(12) = "1" Then
+            ind_safety_st1.BackColor = Color.Red
+        Else
+            ind_safety_st1.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(11) = "1" Then
+            ind_safety_st2.BackColor = Color.Red
+        Else
+            ind_safety_st2.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(10) = "1" Then
+            ind_safety_st3.BackColor = Color.Red
+        Else
+            ind_safety_st3.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(9) = "1" Then
+            ind_safety_st4.BackColor = Color.Red
+        Else
+            ind_safety_st4.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(8) = "1" Then
+            ind_safety_st5.BackColor = Color.Red
+        Else
+            ind_safety_st5.BackColor = Color.DarkRed
+        End If
+
+        If binaryString(7) = "1" Then
+            ind_safety_st6.BackColor = Color.Red
+        Else
+            ind_safety_st6.BackColor = Color.DarkRed
         End If
     End Sub
 
@@ -5405,9 +5442,11 @@ Retry:
                 End If
                 servo_st5_val_str = servo_st5_val_str + servo_st5_val(i).ToString
             Next
-
-            Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
-            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+            If txt_st2_punch_count.Text <> "" And Val(txt_st2_punch_count.Text) > 0 Then
+                Modbus.WriteData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2, txt_st2_punch_count.Text)
+                Dim integerValue_ As Integer = Convert.ToInt32(servo_st5_val_str.ToString, 2)
+                Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+            End If
         End If
     End Sub
 

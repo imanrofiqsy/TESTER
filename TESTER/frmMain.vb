@@ -3430,7 +3430,7 @@ Public Class frmMain
                                               End Select
 
                                               Call KoneksiDB.koneksi_db()
-                                              Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                              Dim sc As New SqlCommand("UPDATE tb_data SET [State Off Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
                                               Dim adapter As New SqlDataAdapter(sc)
                                               adapter.SelectCommand.ExecuteNonQuery()
                                               Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)

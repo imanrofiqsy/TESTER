@@ -94,12 +94,18 @@ Public Class frmMain
             End
         End Try
 
-        If Not initChroma() AndAlso delay > 10 Then
+        ChromaComm.Write("*IDN?" & vbCrLf)
+        Thread.Sleep(100)
+        If Not strChromaRaw = Config.instrumentName Then
             MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
             End
-        Else
-            delay += 1
         End If
+        'If Not initChroma() AndAlso delay > 10 Then
+        '    MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'Else
+        '    delay += 1
+        'End If
 
         Thread.Sleep(200)
 
@@ -116,7 +122,7 @@ Public Class frmMain
         End Try
 
         If Not initCyklop() Then
-            MsgBox("Please turn on the laser and run application again! ", MsgBoxStyle.SystemModal, "On Top")
+            MsgBox("Cannot establish connection to Laser! ", MsgBoxStyle.SystemModal, "On Top")
             End
         End If
 

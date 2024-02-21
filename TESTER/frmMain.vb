@@ -2374,26 +2374,21 @@ Public Class frmMain
 
     'panel home
     Private Sub btn_run_Click(sender As Object, e As EventArgs)
-        'If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") AndAlso LASER_STATE <> 2 Then
         If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") Then
             MsgBox("Please Scan Barcode!")
             Exit Sub
         End If
-        'Laser.SetMarkingTemplate(lbl_laser_template.Text)
-        'If Not Laser.ReadData = "Ok;;" Then
-        '    MsgBox("Error set label template, please check the template name !")
-        'End If
 
         GetPCStatus("RUN")
 
         With Config
-            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, ReadINI(iniPath, "CALIBRATION", "Posst4"))
-            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, ReadINI(iniPath, "CALIBRATION", "Velst4"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2, ReadINI(iniPath, "CALIBRATION", "Heidenhain"))
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, ReadINI(iniPath, "CALIBRATION", "Posst3"))
             Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST3, ReadINI(iniPath, "CALIBRATION", "Velst3"))
-            Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2, ReadINI(iniPath, "CALIBRATION", "Heidenhain"))
-            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, ReadINI(iniPath, "CALIBRATION", "P0st4"))
-            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, ReadINI(iniPath, "CALIBRATION", "Gt2st4"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, ReadINI(iniPath, "CALIBRATION", "Posst4"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, ReadINI(iniPath, "CALIBRATION", "Velst4"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4, ReadINI(iniPath, "CALIBRATION", "P0st4"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4, ReadINI(iniPath, "CALIBRATION", "Gt2st4"))
         End With
 
         btn_run.Enabled = False
@@ -4492,14 +4487,24 @@ Retry:
 
     End Sub
     Private Sub btn_st4_save_data_Click(sender As Object, e As EventArgs) Handles btn_st4_save_data.Click
-        txt_st4_set_pos.Text = txt_st4_act_pos.Text
-        'txt_st4_set_vel.Text = txt_st4_act_vel.Text
-        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st4_set_pos.Text)
-        WriteINI(iniPath, "CALIBRATION", "Posst4", txt_st4_set_pos.Text)
-        If txt_st4_act_vel.Text <> "" Then
-            txt_st4_set_vel.Text = txt_st4_act_vel.Text
-            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st4_set_vel.Text)
+        If txt_st4_set_pos.Text <> "" And IsNumeric(txt_st4_set_pos.Text) Then
+            WriteINI(iniPath, "CALIBRATION", "Posst4", txt_st4_set_pos.Text)
+        End If
+
+        If txt_st4_set_vel.Text <> "" And IsNumeric(txt_st4_set_vel.Text) Then
             WriteINI(iniPath, "CALIBRATION", "Velst4", txt_st4_set_vel.Text)
+        End If
+    End Sub
+
+    Private Sub txt_st4_set_pos_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_set_pos.TextChanged
+        If txt_st4_set_pos.Text <> "" And IsNumeric(txt_st4_set_pos.Text) Then
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st4_set_pos.Text)
+        End If
+    End Sub
+
+    Private Sub txt_st4_set_vel_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_set_vel.TextChanged
+        If txt_st4_set_vel.Text <> "" And IsNumeric(txt_st4_set_vel.Text) Then
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st4_set_vel.Text)
         End If
     End Sub
 
@@ -4970,13 +4975,13 @@ Retry:
 
             If txt_st4_actu_pos.Text <> "" Then
                 txt_st4_cal_val_p0.Text = txt_st4_actu_pos.Text
-                WriteINI(iniPath, "CALIBRATON", "P0st4", txt_st4_cal_val_p0.Text)
+                WriteINI(iniPath, "CALIBRATION", "P0st4", txt_st4_cal_val_p0.Text)
                 Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4, txt_st4_cal_val_p0.Text)
             End If
 
             If txt_st4_analog_data.Text <> "" Then
                 txt_st4_cal_val_gt2.Text = txt_st4_analog_data.Text
-                WriteINI(iniPath, "CALIBRATON", "Gt2st4", txt_st4_cal_val_p0.Text)
+                WriteINI(iniPath, "CALIBRATION", "Gt2st4", txt_st4_cal_val_p0.Text)
                 Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4, txt_st4_cal_val_gt2.Text)
             End If
             Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
@@ -5007,19 +5012,25 @@ Retry:
     End Sub
 
     '' dari sini
-
     Private Sub btn_st3_save_data_Click(sender As Object, e As EventArgs) Handles btn_st3_save_data.Click
-        If txt_st3_act_pos.Text <> "" Then
-            txt_st3_set_pos.Text = txt_st3_act_pos.Text
+        If txt_st3_set_pos.Text <> "" And IsNumeric(txt_st3_set_pos.Text) Then
             WriteINI(iniPath, "CALIBRATION", "Posst3", txt_st3_set_pos.Text)
         End If
 
-        'txt_st3_set_vel.Text = txt_st3_act_vel.Text
-        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st3_set_pos.Text)
-        If txt_st3_act_vel.Text <> "" Then
-            txt_st3_set_vel.Text = txt_st3_act_vel.Text
-            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st3_set_vel.Text)
-            WriteINI(iniPath, "CALIBRATION", "Velst3", txt_st3_set_pos.Text)
+        If txt_st3_set_vel.Text <> "" And IsNumeric(txt_st3_set_vel.Text) Then
+            WriteINI(iniPath, "CALIBRATION", "Velst3", txt_st3_set_vel.Text)
+        End If
+    End Sub
+
+    Private Sub txt_st3_set_pos_TextChanged(sender As Object, e As EventArgs) Handles txt_st3_set_pos.TextChanged
+        If txt_st3_set_pos.Text <> "" And IsNumeric(txt_st3_set_pos.Text) Then
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, txt_st3_set_pos.Text)
+        End If
+    End Sub
+
+    Private Sub txt_st3_set_vel_TextChanged(sender As Object, e As EventArgs) Handles txt_st3_set_vel.TextChanged
+        If txt_st3_set_vel.Text <> "" And IsNumeric(txt_st3_set_vel.Text) Then
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST3, txt_st3_set_vel.Text)
         End If
     End Sub
 
@@ -5714,6 +5725,5 @@ Retry:
             Modbus.WriteData(REGISTER_TYPE, ADDR_MANUAL_OPERATION, integerValue_)
         End If
     End Sub
-
 
 End Class

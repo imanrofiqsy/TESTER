@@ -1502,9 +1502,9 @@ Public Class frmMain
             MANUAL_OPERATION = Modbus.ReadData(REGISTER_TYPE, ADDR_MANUAL_OPERATION)
             ReadManualOperation(MANUAL_OPERATION)
             txt_st4_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST4)
-            txt_st4_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST4)
+            txt_st4_act_vel.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ACT_VEL_ST4)
             txt_st3_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST3)
-            txt_st3_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST3)
+            txt_st3_act_vel.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ACT_VEL_ST3)
             txt_st2_act_mea.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_MEA_ST2)
             txt_st2_punch_count.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2)
             txt_st4_analog_data.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ANALOG_DATA_ST2)
@@ -2416,7 +2416,7 @@ Public Class frmMain
         GetPCStatus("RUN")
 
         With Config
-            Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2, ReadINI(iniPath, "CALIBRATION", "Heidenhain"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2, ReadINI(iniPath, "CALIBRATION", "Heidenhain"))
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, ReadINI(iniPath, "CALIBRATION", "Posst3"))
             Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST3, ReadINI(iniPath, "CALIBRATION", "Velst3"))
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, ReadINI(iniPath, "CALIBRATION", "Posst4"))
@@ -5023,15 +5023,15 @@ Retry:
                 temp_str = temp_str + temp(i).ToString
             Next
 
-            If txt_st4_actu_pos.Text <> "" Then
-                txt_st4_cal_val_p0.Text = txt_st4_actu_pos.Text
+            If txt_st4_act_pos.Text <> "" Then
+                txt_st4_cal_val_p0.Text = txt_st4_act_pos.Text
                 WriteINI(iniPath, "CALIBRATION", "P0st4", txt_st4_cal_val_p0.Text)
                 Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4, txt_st4_cal_val_p0.Text)
             End If
 
             If txt_st4_analog_data.Text <> "" Then
                 txt_st4_cal_val_gt2.Text = txt_st4_analog_data.Text
-                WriteINI(iniPath, "CALIBRATION", "Gt2st4", txt_st4_cal_val_p0.Text)
+                WriteINI(iniPath, "CALIBRATION", "Gt2st4", txt_st4_cal_val_gt2.Text)
                 Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4, txt_st4_cal_val_gt2.Text)
             End If
             Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)

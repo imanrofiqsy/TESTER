@@ -25,6 +25,12 @@
     Public HEIDENHAIN As Integer
     Public MANUAL_OPERATION As Integer
 
+    Public ADDR_CALIB_VALUE_P0_ST4 As Integer = 40082
+    Public ADDR_CALIB_VALUE_GT2_ST4 As Integer = 40084
+    Public ADDR_ANALOG_DATA_ST2 As Integer = 40080
+    Public ADDR_ACTUATION_POS_ST4 As Integer = 40086
+    Public ADDR_DIFF_STR_ST4 As Integer = 40088
+
     Public ADDR_SERVO_ST5 As Integer = 40026
     Public ADDR_SET_VEL_ST5 As Integer = 40054
     Public ADDR_ACT_VEL_ST5 As Integer = 40056

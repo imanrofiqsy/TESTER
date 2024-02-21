@@ -20,7 +20,7 @@ Public Class frmMain
     Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
 
     Dim delay As Integer = 0
-    Dim delay2 As Integer = 0
+    Dim EmgState As Integer = 0
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Dir(projectFolder & "\Log\Log.txt") = "" Then
             Directory.CreateDirectory(projectFolder & "\Log")
@@ -61,6 +61,8 @@ Public Class frmMain
             CNT_ST2 = CInt(.sequenceCounter)
             CNT_ST4 = CInt(.sequenceCounter)
             CNT_ST5 = CInt(.sequenceCounter)
+
+
         End With
 
         btn_connect_plc.PerformClick()
@@ -134,11 +136,13 @@ Public Class frmMain
         Status.Enabled = True
         UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
-        GetPCStatus("OPEN") 'Software is open
+        'GetPCStatus("OPEN") 'Software is open
         UpdateLoadingBar(100, "Load App GUI...")
         Thread.Sleep(500)
         CloseLoadForm()
         Cursor = Cursors.Default
+        frmLogin.ShowDialog()
+        GetUserLevel()
         Show()
     End Sub
     Private Function initCyklop() As Boolean
@@ -1460,8 +1464,6 @@ Public Class frmMain
 
         If pnl_home.Visible = False And pnl_setting.Visible = False And pnl_alarm.Visible = False And pnl_multi.Visible = False Then
             ' Servo
-            SERVO_ST5 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST5)
-            ReadServoST5(SERVO_ST5)
             SERVO_ST4 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST4)
             ReadServoST4(SERVO_ST4)
             SERVO_ST3 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST3)
@@ -1470,14 +1472,15 @@ Public Class frmMain
             ReadHeidenhain(HEIDENHAIN)
             MANUAL_OPERATION = Modbus.ReadData(REGISTER_TYPE, ADDR_MANUAL_OPERATION)
             ReadManualOperation(MANUAL_OPERATION)
-            txt_st5_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST5)
-            txt_st5_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST5)
             txt_st4_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST4)
             txt_st4_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST4)
             txt_st3_act_pos.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_POS_ST3)
             txt_st3_act_vel.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_VEL_ST3)
             txt_st2_act_mea.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_MEA_ST2)
-            txt_st2_punch_cycle.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_PUNCH_CYCLE_ST2)
+            txt_st2_punch_count.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2)
+            txt_st4_analog_data.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ANALOG_DATA_ST2)
+            txt_st4_actu_pos.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ACTUATION_POS_ST4)
+            txt_st4_diff_str.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_DIFF_STR_ST4)
 
             ' STN 1
             If Modbus.ReadData(REGISTER_TYPE, ADDR_STN1_SEN1) = FORWARD Then
@@ -2370,7 +2373,7 @@ Public Class frmMain
     End Sub
 
     'panel home
-    Private Sub btn_run_Click(sender As Object, e As EventArgs) Handles btn_run.Click
+    Private Sub btn_run_Click(sender As Object, e As EventArgs)
         'If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") AndAlso LASER_STATE <> 2 Then
         If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") Then
             MsgBox("Please Scan Barcode!")
@@ -2382,12 +2385,23 @@ Public Class frmMain
         'End If
 
         GetPCStatus("RUN")
+
+        With Config
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, ReadINI(iniPath, "CALIBRATION", "Posst4"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, ReadINI(iniPath, "CALIBRATION", "Velst4"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, ReadINI(iniPath, "CALIBRATION", "Posst3"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST3, ReadINI(iniPath, "CALIBRATION", "Velst3"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2, ReadINI(iniPath, "CALIBRATION", "Heidenhain"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, ReadINI(iniPath, "CALIBRATION", "P0st4"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, ReadINI(iniPath, "CALIBRATION", "Gt2st4"))
+        End With
+
         btn_run.Enabled = False
         btn_stop.Enabled = True
         IS_RUN = True
     End Sub
 
-    Private Sub btn_stop_Click(sender As Object, e As EventArgs) Handles btn_stop.Click
+    Private Sub btn_stop_Click(sender As Object, e As EventArgs)
         GetPCStatus("STOP")
         btn_run.Enabled = True
         btn_stop.Enabled = False
@@ -2773,50 +2787,6 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub ReadServoST5(DecimalNumber As Integer)
-        Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
-        If binaryString(15) = "1" Then
-            ind_st5_servo_enabled.BackColor = Color.Lime
-        Else
-            ind_st5_servo_enabled.BackColor = Color.Red
-        End If
-
-        If binaryString(14) = "1" Then
-            ind_st5_servo_error.BackColor = Color.Lime
-        Else
-            ind_st5_servo_error.BackColor = Color.Red
-        End If
-
-        If binaryString(13) = "1" Then
-            ind_st5_home_bussy.BackColor = Color.Lime
-        Else
-            ind_st5_home_bussy.BackColor = Color.Red
-        End If
-
-        If binaryString(12) = "1" Then
-            ind_st5_servo_bussy.BackColor = Color.Lime
-        Else
-            ind_st5_servo_bussy.BackColor = Color.Red
-        End If
-
-        If binaryString(11) = "1" Then
-            ind_st5_standstill.BackColor = Color.Lime
-        Else
-            ind_st5_standstill.BackColor = Color.Red
-        End If
-
-        If binaryString(10) = "1" Then
-            ind_st5_stopping.BackColor = Color.Lime
-        Else
-            ind_st5_stopping.BackColor = Color.Red
-        End If
-
-        If binaryString(9) = "1" Then
-            ind_st5_continuous_motion.BackColor = Color.Lime
-        Else
-            ind_st5_continuous_motion.BackColor = Color.Red
-        End If
-    End Sub
     Private Sub ReadServoST4(DecimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
@@ -2859,6 +2829,12 @@ Public Class frmMain
             ind_st4_continuous_motion.BackColor = Color.Lime
         Else
             ind_st4_continuous_motion.BackColor = Color.Red
+        End If
+
+        If binaryString(0) = "1" Then
+            ind_st4_discrete_motion.BackColor = Color.Lime
+        Else
+            ind_st4_discrete_motion.BackColor = Color.Red
         End If
     End Sub
 
@@ -3064,11 +3040,21 @@ Public Class frmMain
             lbl_curr_time.BackColor = Color.FromArgb(255, 202, 24)
             lbl_date.BackColor = Color.FromArgb(255, 202, 24)
         ElseIf RUNNING_STATE = 5 Then 'emg
-            status_bar.Image = My.Resources.GUI___statusBar3
-            lbl_auto_man.BackColor = Color.FromArgb(236, 28, 36)
-            lbl_run_state.BackColor = Color.FromArgb(236, 28, 36)
-            lbl_curr_time.BackColor = Color.FromArgb(236, 28, 36)
-            lbl_date.BackColor = Color.FromArgb(236, 28, 36)
+            If EmgState = 0 Then
+                status_bar.Image = My.Resources.GUI___statusBar3
+                lbl_auto_man.BackColor = Color.FromArgb(236, 28, 36)
+                lbl_run_state.BackColor = Color.FromArgb(236, 28, 36)
+                lbl_curr_time.BackColor = Color.FromArgb(236, 28, 36)
+                lbl_date.BackColor = Color.FromArgb(236, 28, 36)
+                EmgState = 1
+            Else
+                status_bar.Image = My.Resources.GUI___SignUpButtonOn40
+                lbl_auto_man.BackColor = Color.DarkGray
+                lbl_run_state.BackColor = Color.DarkGray
+                lbl_curr_time.BackColor = Color.DarkGray
+                lbl_date.BackColor = Color.DarkGray
+                EmgState = 0
+            End If
         End If
 
         If Not MODBUS_ERR Then
@@ -3191,7 +3177,7 @@ Public Class frmMain
         'Console.WriteLine(rd.Item("[Operator ID]"))
         Return False
     End Function
-    Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click
+    Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click, btn_stop.Click
         SCAN_MODE = 0
         LASER_STATE = 0
         txt_ref.Text = ""
@@ -3618,10 +3604,7 @@ Public Class frmMain
         lbl_st4_t2.Text = "..."
         lbl_cot.Text = "..."
     End Sub
-
-    Private Sub btn_user_Click(sender As Object, e As EventArgs) Handles btn_user.Click
-        'Hide()
-        frmLogin.ShowDialog()
+    Private Sub GetUserLevel()
         If USER_LEVEL = 1 Then
             lbl_user.Text = "ADM"
             btn_setting.Enabled = True
@@ -3634,7 +3617,16 @@ Public Class frmMain
             lbl_user.Text = "OPE"
             btn_setting.Enabled = False
             btn_manual.Enabled = False
+        ElseIf USER_LEVEL = 4 Then
+            lbl_user.Text = "QUA"
+            btn_setting.Enabled = False
+            btn_manual.Enabled = False
         End If
+    End Sub
+    Private Sub btn_user_Click(sender As Object, e As EventArgs) Handles btn_user.Click
+        'Hide()
+        frmLogin.ShowDialog()
+        GetUserLevel()
     End Sub
     'panel multi
     Private Sub btn_read_ch_1_Click(sender As Object, e As EventArgs) Handles btn_read_ch_1.Click
@@ -3766,7 +3758,7 @@ Public Class frmMain
                       txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
                   End Sub)
     End Sub
-    Private Sub btn_empty_Click(sender As Object, e As EventArgs) Handles btn_empty.Click
+    Private Sub btn_empty_Click(sender As Object, e As EventArgs) Handles btn_empty.Click, btn_run.Click
         Dim empty_process As String = Modbus.ReadData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS)
 
         If Val(empty_process) <> 2 And Val(empty_process) <> 4 And Val(empty_process) <> 1 Then
@@ -4045,23 +4037,23 @@ Retry:
             MsgBox("Error " + ex.Message)
         End Try
     End Sub
-    Private Sub btn_st5_servo_enable_Click(sender As Object, e As EventArgs) Handles btn_st5_servo_enable.Click
+    Private Sub btn_st5_servo_enable_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub btn_st5_servo_reset_Click(sender As Object, e As EventArgs) Handles btn_st5_servo_reset.Click
+    Private Sub btn_st5_servo_reset_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub btn_st5_servo_stop_Click(sender As Object, e As EventArgs) Handles btn_st5_servo_stop.Click
+    Private Sub btn_st5_servo_stop_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub btn_st5_homing_Click(sender As Object, e As EventArgs) Handles btn_st5_homing.Click
+    Private Sub btn_st5_homing_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub btn_st5_move_pos_Click(sender As Object, e As EventArgs) Handles btn_st5_move_pos.Click
+    Private Sub btn_st5_move_pos_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -4073,28 +4065,19 @@ Retry:
         End If
     End Sub
 
-    Private Sub Button32_Click(sender As Object, e As EventArgs) Handles btn_st5_move_vel.Click
+    Private Sub Button32_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub btn_st5_jog_cw_Click(sender As Object, e As EventArgs) Handles btn_st5_jog_cw.Click
+    Private Sub btn_st5_jog_cw_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub btn_st5_jog_ccw_Click(sender As Object, e As EventArgs) Handles btn_st5_jog_ccw.Click
+    Private Sub btn_st5_jog_ccw_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub btn_st5_save_data_Click(sender As Object, e As EventArgs) Handles btn_st5_save_data.Click
-        txt_st5_set_pos.Text = txt_st5_act_pos.Text
-        'txt_st5_set_vel.Text = txt_st5_act_vel.Text
-        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST5, txt_st5_set_pos.Text)
-        If txt_st5_set_vel.Text <> "" Then
-            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST5, txt_st5_set_vel.Text)
-        End If
-    End Sub
-
-    Private Sub btn_st5_servo_enable_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_servo_enable.MouseDown
+    Private Sub btn_st5_servo_enable_MouseDown(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4118,7 +4101,7 @@ Retry:
         End If
     End Sub
 
-    Private Sub btn_st5_servo_enable_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st5_servo_enable.MouseUp
+    Private Sub btn_st5_servo_enable_MouseUp(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4143,7 +4126,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_servo_reset_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_servo_reset.MouseDown
+    Private Sub btn_st5_servo_reset_MouseDown(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4168,7 +4151,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_servo_reset_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st5_servo_reset.MouseUp
+    Private Sub btn_st5_servo_reset_MouseUp(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4193,7 +4176,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_servo_stop_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_servo_stop.MouseDown
+    Private Sub btn_st5_servo_stop_MouseDown(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4218,7 +4201,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_servo_stop_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st5_servo_stop.MouseUp
+    Private Sub btn_st5_servo_stop_MouseUp(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4243,7 +4226,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_homing_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_homing.MouseDown
+    Private Sub btn_st5_homing_MouseDown(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4268,7 +4251,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_homing_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st5_homing.MouseUp
+    Private Sub btn_st5_homing_MouseUp(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4293,7 +4276,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_move_pos_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_move_pos.MouseDown
+    Private Sub btn_st5_move_pos_MouseDown(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4318,7 +4301,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_move_pos_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st5_move_pos.MouseUp
+    Private Sub btn_st5_move_pos_MouseUp(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4345,7 +4328,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_move_vel_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_move_vel.MouseDown
+    Private Sub btn_st5_move_vel_MouseDown(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4370,7 +4353,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_move_vel_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st5_move_vel.MouseUp
+    Private Sub btn_st5_move_vel_MouseUp(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4397,7 +4380,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_jog_cw_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_jog_cw.MouseDown
+    Private Sub btn_st5_jog_cw_MouseDown(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4422,7 +4405,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_jog_cw_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st5_jog_cw.MouseUp
+    Private Sub btn_st5_jog_cw_MouseUp(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4447,7 +4430,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_jog_ccw_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st5_jog_ccw.MouseDown
+    Private Sub btn_st5_jog_ccw_MouseDown(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4472,7 +4455,7 @@ Retry:
 
     End Sub
 
-    Private Sub btn_st5_jog_ccw_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st5_jog_ccw.MouseUp
+    Private Sub btn_st5_jog_ccw_MouseUp(sender As Object, e As MouseEventArgs)
         If Status.Enabled = True Then
             Dim temp(16) As Integer
             Dim temp_str As String
@@ -4497,11 +4480,14 @@ Retry:
 
     End Sub
     Private Sub btn_st4_save_data_Click(sender As Object, e As EventArgs) Handles btn_st4_save_data.Click
-        txt_st5_set_pos.Text = txt_st5_act_pos.Text
-        'txt_st5_set_vel.Text = txt_st5_act_vel.Text
-        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st5_set_pos.Text)
-        If txt_st5_set_vel.Text <> "" Then
-            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st5_set_vel.Text)
+        txt_st4_set_pos.Text = txt_st4_act_pos.Text
+        'txt_st4_set_vel.Text = txt_st4_act_vel.Text
+        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st4_set_pos.Text)
+        WriteINI(iniPath, "CALIBRATION", "Posst4", txt_st4_set_pos.Text)
+        If txt_st4_act_vel.Text <> "" Then
+            txt_st4_set_vel.Text = txt_st4_act_vel.Text
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st4_set_vel.Text)
+            WriteINI(iniPath, "CALIBRATION", "Velst4", txt_st4_set_vel.Text)
         End If
     End Sub
 
@@ -4907,14 +4893,121 @@ Retry:
         End If
 
     End Sub
+
+    Private Sub btn_st4_man_trig_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_man_trig.MouseDown
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 3 Then
+                    temp(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st4_man_trig_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_man_trig.MouseUp
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 3 Then
+                    temp(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st4_cal_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_cal.MouseDown
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 2 Then
+                    temp(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+
+            If txt_st4_actu_pos.Text <> "" Then
+                txt_st4_cal_val_p0.Text = txt_st4_actu_pos.Text
+                WriteINI(iniPath, "CALIBRATON", "P0st4", txt_st4_cal_val_p0.Text)
+                Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4, txt_st4_cal_val_p0.Text)
+            End If
+
+            If txt_st4_analog_data.Text <> "" Then
+                txt_st4_cal_val_gt2.Text = txt_st4_analog_data.Text
+                WriteINI(iniPath, "CALIBRATON", "Gt2st4", txt_st4_cal_val_p0.Text)
+                Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4, txt_st4_cal_val_gt2.Text)
+            End If
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st4_cal_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_cal.MouseUp
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(HEIDENHAIN, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 2 Then
+                    temp(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+        End If
+    End Sub
+
     '' dari sini
 
     Private Sub btn_st3_save_data_Click(sender As Object, e As EventArgs) Handles btn_st3_save_data.Click
-        txt_st5_set_pos.Text = txt_st5_act_pos.Text
-        'txt_st5_set_vel.Text = txt_st5_act_vel.Text
-        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st5_set_pos.Text)
-        If txt_st5_set_vel.Text <> "" Then
-            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st5_set_vel.Text)
+        If txt_st3_act_pos.Text <> "" Then
+            txt_st3_set_pos.Text = txt_st3_act_pos.Text
+            WriteINI(iniPath, "CALIBRATION", "Posst3", txt_st3_set_pos.Text)
+        End If
+
+        'txt_st3_set_vel.Text = txt_st3_act_vel.Text
+        Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st3_set_pos.Text)
+        If txt_st3_act_vel.Text <> "" Then
+            txt_st3_set_vel.Text = txt_st3_act_vel.Text
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st3_set_vel.Text)
+            WriteINI(iniPath, "CALIBRATION", "Velst3", txt_st3_set_pos.Text)
         End If
     End Sub
 
@@ -5436,8 +5529,12 @@ Retry:
             Next
 
             Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
-            txt_st2_cal_val.Text = txt_st2_act_mea.Text
-            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2, txt_st2_cal_val.Text)
+            If txt_st2_act_mea.Text <> "" Then
+                txt_st2_cal_val.Text = txt_st2_act_mea.Text
+                Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2, txt_st2_cal_val.Text)
+                WriteINI(iniPath, "CALIBRATION", "Heidenhain", txt_st2_cal_val.Text)
+            End If
+
             Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
         End If
     End Sub
@@ -5483,8 +5580,8 @@ Retry:
                 End If
                 temp_str = temp_str + temp(i).ToString
             Next
-            If txt_st2_punch_count.Text <> "" And Val(txt_st2_punch_count.Text) > 0 Then
-                Modbus.WriteData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2, txt_st2_punch_count.Text)
+            If txt_st2_punch_cycle.Text <> "" And Val(txt_st2_punch_cycle.Text) > 0 Then
+                Modbus.WriteData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2, txt_st2_punch_cycle.Text)
                 Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
                 Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
             End If
@@ -5605,4 +5702,6 @@ Retry:
             Modbus.WriteData(REGISTER_TYPE, ADDR_MANUAL_OPERATION, integerValue_)
         End If
     End Sub
+
+
 End Class

@@ -127,15 +127,15 @@ Partial Class frmMain
         Me.Label66 = New System.Windows.Forms.Label()
         Me.ind_software_open = New System.Windows.Forms.PictureBox()
         Me.Label65 = New System.Windows.Forms.Label()
-        Me.btn_stop = New System.Windows.Forms.Button()
-        Me.btn_run = New System.Windows.Forms.Button()
         Me.GroupBox80 = New System.Windows.Forms.GroupBox()
         Me.txt_po_num = New System.Windows.Forms.TextBox()
         Me.txt_ope_id = New System.Windows.Forms.TextBox()
         Me.txt_ref = New System.Windows.Forms.TextBox()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label83 = New System.Windows.Forms.Label()
+        Me.btn_run = New System.Windows.Forms.Button()
         Me.btn_empty = New System.Windows.Forms.Button()
+        Me.btn_stop = New System.Windows.Forms.Button()
         Me.btn_clear = New System.Windows.Forms.Button()
         Me.Label80 = New System.Windows.Forms.Label()
         Me.GroupBox76 = New System.Windows.Forms.GroupBox()
@@ -291,38 +291,6 @@ Partial Class frmMain
         Me.btn_stn5_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn5_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_man_stn5 = New System.Windows.Forms.TabControl()
-        Me.TabPage23 = New System.Windows.Forms.TabPage()
-        Me.txt_st5_act_vel = New System.Windows.Forms.TextBox()
-        Me.txt_st5_act_pos = New System.Windows.Forms.TextBox()
-        Me.txt_st5_set_vel = New System.Windows.Forms.TextBox()
-        Me.txt_st5_set_pos = New System.Windows.Forms.TextBox()
-        Me.btn_st5_servo_stop = New System.Windows.Forms.Button()
-        Me.btn_st5_servo_reset = New System.Windows.Forms.Button()
-        Me.btn_st5_jog_ccw = New System.Windows.Forms.Button()
-        Me.btn_st5_jog_cw = New System.Windows.Forms.Button()
-        Me.btn_st5_move_vel = New System.Windows.Forms.Button()
-        Me.btn_st5_move_pos = New System.Windows.Forms.Button()
-        Me.btn_st5_save_data = New System.Windows.Forms.Button()
-        Me.btn_st5_homing = New System.Windows.Forms.Button()
-        Me.btn_st5_servo_enable = New System.Windows.Forms.Button()
-        Me.Label290 = New System.Windows.Forms.Label()
-        Me.Label291 = New System.Windows.Forms.Label()
-        Me.Label292 = New System.Windows.Forms.Label()
-        Me.Label293 = New System.Windows.Forms.Label()
-        Me.Label294 = New System.Windows.Forms.Label()
-        Me.Label295 = New System.Windows.Forms.Label()
-        Me.Label296 = New System.Windows.Forms.Label()
-        Me.Label297 = New System.Windows.Forms.Label()
-        Me.Label298 = New System.Windows.Forms.Label()
-        Me.Label299 = New System.Windows.Forms.Label()
-        Me.Label300 = New System.Windows.Forms.Label()
-        Me.ind_st5_continuous_motion = New System.Windows.Forms.PictureBox()
-        Me.ind_st5_servo_bussy = New System.Windows.Forms.PictureBox()
-        Me.ind_st5_standstill = New System.Windows.Forms.PictureBox()
-        Me.ind_st5_stopping = New System.Windows.Forms.PictureBox()
-        Me.ind_st5_servo_error = New System.Windows.Forms.PictureBox()
-        Me.ind_st5_home_bussy = New System.Windows.Forms.PictureBox()
-        Me.ind_st5_servo_enabled = New System.Windows.Forms.PictureBox()
         Me.pnl_man_stn4 = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.GroupBox37 = New System.Windows.Forms.GroupBox()
@@ -362,30 +330,45 @@ Partial Class frmMain
         Me.btn_stn4_cyl2_fw = New System.Windows.Forms.Button()
         Me.btn_stn4_cyl2_bw = New System.Windows.Forms.Button()
         Me.TabPage24 = New System.Windows.Forms.TabPage()
+        Me.txt_st4_analog_data = New System.Windows.Forms.TextBox()
+        Me.txt_st4_diff_str = New System.Windows.Forms.TextBox()
         Me.txt_st4_act_vel = New System.Windows.Forms.TextBox()
+        Me.txt_st4_actu_pos = New System.Windows.Forms.TextBox()
         Me.txt_st4_act_pos = New System.Windows.Forms.TextBox()
+        Me.txt_st4_cal_val_gt2 = New System.Windows.Forms.TextBox()
         Me.txt_st4_set_vel = New System.Windows.Forms.TextBox()
+        Me.txt_st4_cal_val_p0 = New System.Windows.Forms.TextBox()
         Me.txt_st4_set_pos = New System.Windows.Forms.TextBox()
         Me.btn_st4_servo_stop = New System.Windows.Forms.Button()
         Me.btn_st4_servo_reset = New System.Windows.Forms.Button()
         Me.btn_st4_jog_ccw = New System.Windows.Forms.Button()
+        Me.btn_st4_man_trig = New System.Windows.Forms.Button()
+        Me.btn_st4_cal = New System.Windows.Forms.Button()
         Me.btn_st4_jog_cw = New System.Windows.Forms.Button()
         Me.btn_st4_move_vel = New System.Windows.Forms.Button()
         Me.btn_st4_move_pos = New System.Windows.Forms.Button()
         Me.btn_st4_save_data = New System.Windows.Forms.Button()
         Me.btn_st4_homing = New System.Windows.Forms.Button()
         Me.btn_st4_servo_enable = New System.Windows.Forms.Button()
+        Me.Label290 = New System.Windows.Forms.Label()
         Me.Label234 = New System.Windows.Forms.Label()
         Me.Label235 = New System.Windows.Forms.Label()
         Me.Label259 = New System.Windows.Forms.Label()
         Me.Label260 = New System.Windows.Forms.Label()
         Me.Label261 = New System.Windows.Forms.Label()
+        Me.Label291 = New System.Windows.Forms.Label()
+        Me.Label292 = New System.Windows.Forms.Label()
+        Me.label_297 = New System.Windows.Forms.Label()
         Me.Label262 = New System.Windows.Forms.Label()
+        Me.Label295 = New System.Windows.Forms.Label()
         Me.Label263 = New System.Windows.Forms.Label()
+        Me.Label294 = New System.Windows.Forms.Label()
         Me.Label264 = New System.Windows.Forms.Label()
+        Me.Label293 = New System.Windows.Forms.Label()
         Me.Label265 = New System.Windows.Forms.Label()
         Me.Label266 = New System.Windows.Forms.Label()
         Me.Label267 = New System.Windows.Forms.Label()
+        Me.ind_st4_discrete_motion = New System.Windows.Forms.PictureBox()
         Me.ind_st4_continuous_motion = New System.Windows.Forms.PictureBox()
         Me.ind_st4_servo_busy = New System.Windows.Forms.PictureBox()
         Me.ind_st4_standstill = New System.Windows.Forms.PictureBox()
@@ -445,6 +428,7 @@ Partial Class frmMain
         Me.btn_st3_save_data = New System.Windows.Forms.Button()
         Me.btn_st3_homing = New System.Windows.Forms.Button()
         Me.btn_st3_servo_enable = New System.Windows.Forms.Button()
+        Me.Label296 = New System.Windows.Forms.Label()
         Me.Label268 = New System.Windows.Forms.Label()
         Me.Label269 = New System.Windows.Forms.Label()
         Me.Label270 = New System.Windows.Forms.Label()
@@ -456,6 +440,7 @@ Partial Class frmMain
         Me.Label276 = New System.Windows.Forms.Label()
         Me.Label277 = New System.Windows.Forms.Label()
         Me.Label278 = New System.Windows.Forms.Label()
+        Me.ind_st3_discrete_motion = New System.Windows.Forms.PictureBox()
         Me.ind_st3_continuous_motion = New System.Windows.Forms.PictureBox()
         Me.ind_st3_servo_busy = New System.Windows.Forms.PictureBox()
         Me.ind_st3_standstill = New System.Windows.Forms.PictureBox()
@@ -1078,13 +1063,12 @@ Partial Class frmMain
         Me.ind_safety_st3 = New System.Windows.Forms.PictureBox()
         Me.ind_altivar_status = New System.Windows.Forms.PictureBox()
         Me.lbl_date = New System.Windows.Forms.Label()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.MC_Status = New System.Windows.Forms.PictureBox()
         Me.status_bar = New System.Windows.Forms.PictureBox()
         Me.btn_calib = New System.Windows.Forms.Button()
         Me.btn_user = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btn_setting = New System.Windows.Forms.Button()
-        Me.btn_log = New System.Windows.Forms.Button()
         Me.btn_alarm = New System.Windows.Forms.Button()
         Me.btn_laser = New System.Windows.Forms.Button()
         Me.btn_ref = New System.Windows.Forms.Button()
@@ -1092,6 +1076,7 @@ Partial Class frmMain
         Me.btn_monitoring = New System.Windows.Forms.Button()
         Me.btn_manual = New System.Windows.Forms.Button()
         Me.btn_home = New System.Windows.Forms.Button()
+        Me.btn_log = New System.Windows.Forms.Button()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1159,14 +1144,6 @@ Partial Class frmMain
         CType(Me.stn5_cyl1_max, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox60.SuspendLayout
         Me.pnl_man_stn5.SuspendLayout
-        Me.TabPage23.SuspendLayout
-        CType(Me.ind_st5_continuous_motion, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_st5_servo_bussy, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_st5_standstill, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_st5_stopping, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_st5_servo_error, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_st5_home_bussy, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_st5_servo_enabled, System.ComponentModel.ISupportInitialize).BeginInit
         Me.pnl_man_stn4.SuspendLayout
         Me.TabPage6.SuspendLayout
         Me.GroupBox37.SuspendLayout
@@ -1190,6 +1167,7 @@ Partial Class frmMain
         CType(Me.stn4_cyl2_max, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox42.SuspendLayout
         Me.TabPage24.SuspendLayout
+        CType(Me.ind_st4_discrete_motion, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_st4_continuous_motion, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_st4_servo_busy, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_st4_standstill, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1220,6 +1198,7 @@ Partial Class frmMain
         CType(Me.stn3_cyl1_max, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox36.SuspendLayout
         Me.TabPage25.SuspendLayout
+        CType(Me.ind_st3_discrete_motion, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_st3_continuous_motion, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_st3_servo_busy, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_st3_standstill, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1545,7 +1524,7 @@ Partial Class frmMain
         CType(Me.ind_safety_st1, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_safety_st3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_altivar_status, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MC_Status, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
@@ -2733,28 +2712,6 @@ Partial Class frmMain
         Me.Label65.TabIndex = 31
         Me.Label65.Text = "Software Open"
         '
-        'btn_stop
-        '
-        Me.btn_stop.FlatAppearance.BorderSize = 0
-        Me.btn_stop.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stop.Location = New System.Drawing.Point(104, 206)
-        Me.btn_stop.Name = "btn_stop"
-        Me.btn_stop.Size = New System.Drawing.Size(84, 33)
-        Me.btn_stop.TabIndex = 66
-        Me.btn_stop.Text = "Stop"
-        Me.btn_stop.UseVisualStyleBackColor = True
-        '
-        'btn_run
-        '
-        Me.btn_run.FlatAppearance.BorderSize = 0
-        Me.btn_run.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_run.Location = New System.Drawing.Point(11, 207)
-        Me.btn_run.Name = "btn_run"
-        Me.btn_run.Size = New System.Drawing.Size(82, 33)
-        Me.btn_run.TabIndex = 66
-        Me.btn_run.Text = "Run "
-        Me.btn_run.UseVisualStyleBackColor = True
-        '
         'GroupBox80
         '
         Me.GroupBox80.Controls.Add(Me.txt_po_num)
@@ -2762,10 +2719,10 @@ Partial Class frmMain
         Me.GroupBox80.Controls.Add(Me.txt_ref)
         Me.GroupBox80.Controls.Add(Me.Label85)
         Me.GroupBox80.Controls.Add(Me.Label83)
+        Me.GroupBox80.Controls.Add(Me.btn_run)
         Me.GroupBox80.Controls.Add(Me.btn_empty)
         Me.GroupBox80.Controls.Add(Me.btn_stop)
         Me.GroupBox80.Controls.Add(Me.btn_clear)
-        Me.GroupBox80.Controls.Add(Me.btn_run)
         Me.GroupBox80.Controls.Add(Me.Label80)
         Me.GroupBox80.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox80.Location = New System.Drawing.Point(73, 4)
@@ -2816,6 +2773,20 @@ Partial Class frmMain
         Me.Label83.TabIndex = 31
         Me.Label83.Text = "Operator ID :"
         '
+        'btn_run
+        '
+        Me.btn_run.FlatAppearance.BorderSize = 0
+        Me.btn_run.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_run.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_run.Image = Global.TESTER.My.Resources.Resources.icons8_run_56
+        Me.btn_run.Location = New System.Drawing.Point(12, 184)
+        Me.btn_run.Name = "btn_run"
+        Me.btn_run.Size = New System.Drawing.Size(80, 79)
+        Me.btn_run.TabIndex = 69
+        Me.btn_run.Text = "Start"
+        Me.btn_run.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_run.UseVisualStyleBackColor = True
+        '
         'btn_empty
         '
         Me.btn_empty.FlatAppearance.BorderSize = 0
@@ -2829,6 +2800,20 @@ Partial Class frmMain
         Me.btn_empty.Text = "Emptying"
         Me.btn_empty.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_empty.UseVisualStyleBackColor = True
+        '
+        'btn_stop
+        '
+        Me.btn_stop.FlatAppearance.BorderSize = 0
+        Me.btn_stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_stop.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_stop.Image = Global.TESTER.My.Resources.Resources.icons8_stop_56
+        Me.btn_stop.Location = New System.Drawing.Point(117, 184)
+        Me.btn_stop.Name = "btn_stop"
+        Me.btn_stop.Size = New System.Drawing.Size(60, 79)
+        Me.btn_stop.TabIndex = 69
+        Me.btn_stop.Text = "Stop"
+        Me.btn_stop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_stop.UseVisualStyleBackColor = True
         '
         'btn_clear
         '
@@ -4708,348 +4693,12 @@ Partial Class frmMain
         'pnl_man_stn5
         '
         Me.pnl_man_stn5.Controls.Add(Me.TabPage5)
-        Me.pnl_man_stn5.Controls.Add(Me.TabPage23)
         Me.pnl_man_stn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnl_man_stn5.Location = New System.Drawing.Point(78, 87)
         Me.pnl_man_stn5.Name = "pnl_man_stn5"
         Me.pnl_man_stn5.SelectedIndex = 0
         Me.pnl_man_stn5.Size = New System.Drawing.Size(853, 558)
         Me.pnl_man_stn5.TabIndex = 97
-        '
-        'TabPage23
-        '
-        Me.TabPage23.Controls.Add(Me.txt_st5_act_vel)
-        Me.TabPage23.Controls.Add(Me.txt_st5_act_pos)
-        Me.TabPage23.Controls.Add(Me.txt_st5_set_vel)
-        Me.TabPage23.Controls.Add(Me.txt_st5_set_pos)
-        Me.TabPage23.Controls.Add(Me.btn_st5_servo_stop)
-        Me.TabPage23.Controls.Add(Me.btn_st5_servo_reset)
-        Me.TabPage23.Controls.Add(Me.btn_st5_jog_ccw)
-        Me.TabPage23.Controls.Add(Me.btn_st5_jog_cw)
-        Me.TabPage23.Controls.Add(Me.btn_st5_move_vel)
-        Me.TabPage23.Controls.Add(Me.btn_st5_move_pos)
-        Me.TabPage23.Controls.Add(Me.btn_st5_save_data)
-        Me.TabPage23.Controls.Add(Me.btn_st5_homing)
-        Me.TabPage23.Controls.Add(Me.btn_st5_servo_enable)
-        Me.TabPage23.Controls.Add(Me.Label290)
-        Me.TabPage23.Controls.Add(Me.Label291)
-        Me.TabPage23.Controls.Add(Me.Label292)
-        Me.TabPage23.Controls.Add(Me.Label293)
-        Me.TabPage23.Controls.Add(Me.Label294)
-        Me.TabPage23.Controls.Add(Me.Label295)
-        Me.TabPage23.Controls.Add(Me.Label296)
-        Me.TabPage23.Controls.Add(Me.Label297)
-        Me.TabPage23.Controls.Add(Me.Label298)
-        Me.TabPage23.Controls.Add(Me.Label299)
-        Me.TabPage23.Controls.Add(Me.Label300)
-        Me.TabPage23.Controls.Add(Me.ind_st5_continuous_motion)
-        Me.TabPage23.Controls.Add(Me.ind_st5_servo_bussy)
-        Me.TabPage23.Controls.Add(Me.ind_st5_standstill)
-        Me.TabPage23.Controls.Add(Me.ind_st5_stopping)
-        Me.TabPage23.Controls.Add(Me.ind_st5_servo_error)
-        Me.TabPage23.Controls.Add(Me.ind_st5_home_bussy)
-        Me.TabPage23.Controls.Add(Me.ind_st5_servo_enabled)
-        Me.TabPage23.Location = New System.Drawing.Point(4, 38)
-        Me.TabPage23.Name = "TabPage23"
-        Me.TabPage23.Size = New System.Drawing.Size(845, 516)
-        Me.TabPage23.TabIndex = 1
-        Me.TabPage23.Text = "Servo ST5"
-        Me.TabPage23.UseVisualStyleBackColor = True
-        '
-        'txt_st5_act_vel
-        '
-        Me.txt_st5_act_vel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st5_act_vel.Location = New System.Drawing.Point(604, 236)
-        Me.txt_st5_act_vel.Name = "txt_st5_act_vel"
-        Me.txt_st5_act_vel.Size = New System.Drawing.Size(107, 35)
-        Me.txt_st5_act_vel.TabIndex = 96
-        '
-        'txt_st5_act_pos
-        '
-        Me.txt_st5_act_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st5_act_pos.Location = New System.Drawing.Point(604, 187)
-        Me.txt_st5_act_pos.Name = "txt_st5_act_pos"
-        Me.txt_st5_act_pos.Size = New System.Drawing.Size(107, 35)
-        Me.txt_st5_act_pos.TabIndex = 95
-        '
-        'txt_st5_set_vel
-        '
-        Me.txt_st5_set_vel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st5_set_vel.Location = New System.Drawing.Point(398, 236)
-        Me.txt_st5_set_vel.Name = "txt_st5_set_vel"
-        Me.txt_st5_set_vel.Size = New System.Drawing.Size(107, 35)
-        Me.txt_st5_set_vel.TabIndex = 94
-        '
-        'txt_st5_set_pos
-        '
-        Me.txt_st5_set_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st5_set_pos.Location = New System.Drawing.Point(398, 187)
-        Me.txt_st5_set_pos.Name = "txt_st5_set_pos"
-        Me.txt_st5_set_pos.Size = New System.Drawing.Size(107, 35)
-        Me.txt_st5_set_pos.TabIndex = 93
-        '
-        'btn_st5_servo_stop
-        '
-        Me.btn_st5_servo_stop.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_servo_stop.Location = New System.Drawing.Point(604, 48)
-        Me.btn_st5_servo_stop.Name = "btn_st5_servo_stop"
-        Me.btn_st5_servo_stop.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_servo_stop.TabIndex = 92
-        Me.btn_st5_servo_stop.Text = "Servo Stop"
-        Me.btn_st5_servo_stop.UseVisualStyleBackColor = True
-        '
-        'btn_st5_servo_reset
-        '
-        Me.btn_st5_servo_reset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_servo_reset.Location = New System.Drawing.Point(462, 48)
-        Me.btn_st5_servo_reset.Name = "btn_st5_servo_reset"
-        Me.btn_st5_servo_reset.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_servo_reset.TabIndex = 91
-        Me.btn_st5_servo_reset.Text = "Servo Reset"
-        Me.btn_st5_servo_reset.UseVisualStyleBackColor = True
-        '
-        'btn_st5_jog_ccw
-        '
-        Me.btn_st5_jog_ccw.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_jog_ccw.Location = New System.Drawing.Point(462, 418)
-        Me.btn_st5_jog_ccw.Name = "btn_st5_jog_ccw"
-        Me.btn_st5_jog_ccw.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_jog_ccw.TabIndex = 90
-        Me.btn_st5_jog_ccw.Text = "JOG CCW"
-        Me.btn_st5_jog_ccw.UseVisualStyleBackColor = True
-        '
-        'btn_st5_jog_cw
-        '
-        Me.btn_st5_jog_cw.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_jog_cw.Location = New System.Drawing.Point(319, 418)
-        Me.btn_st5_jog_cw.Name = "btn_st5_jog_cw"
-        Me.btn_st5_jog_cw.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_jog_cw.TabIndex = 89
-        Me.btn_st5_jog_cw.Text = "JOG CW"
-        Me.btn_st5_jog_cw.UseVisualStyleBackColor = True
-        '
-        'btn_st5_move_vel
-        '
-        Me.btn_st5_move_vel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_move_vel.Location = New System.Drawing.Point(462, 350)
-        Me.btn_st5_move_vel.Name = "btn_st5_move_vel"
-        Me.btn_st5_move_vel.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_move_vel.TabIndex = 88
-        Me.btn_st5_move_vel.Text = "Move " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VELOCITY"
-        Me.btn_st5_move_vel.UseVisualStyleBackColor = True
-        '
-        'btn_st5_move_pos
-        '
-        Me.btn_st5_move_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_move_pos.Location = New System.Drawing.Point(319, 350)
-        Me.btn_st5_move_pos.Name = "btn_st5_move_pos"
-        Me.btn_st5_move_pos.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_move_pos.TabIndex = 87
-        Me.btn_st5_move_pos.Text = "Move POS"
-        Me.btn_st5_move_pos.UseVisualStyleBackColor = True
-        '
-        'btn_st5_save_data
-        '
-        Me.btn_st5_save_data.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_save_data.Location = New System.Drawing.Point(319, 284)
-        Me.btn_st5_save_data.Name = "btn_st5_save_data"
-        Me.btn_st5_save_data.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_save_data.TabIndex = 86
-        Me.btn_st5_save_data.Text = "Save Data"
-        Me.btn_st5_save_data.UseVisualStyleBackColor = True
-        '
-        'btn_st5_homing
-        '
-        Me.btn_st5_homing.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_homing.Location = New System.Drawing.Point(319, 113)
-        Me.btn_st5_homing.Name = "btn_st5_homing"
-        Me.btn_st5_homing.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_homing.TabIndex = 85
-        Me.btn_st5_homing.Text = "Homing"
-        Me.btn_st5_homing.UseVisualStyleBackColor = True
-        '
-        'btn_st5_servo_enable
-        '
-        Me.btn_st5_servo_enable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st5_servo_enable.Location = New System.Drawing.Point(319, 48)
-        Me.btn_st5_servo_enable.Name = "btn_st5_servo_enable"
-        Me.btn_st5_servo_enable.Size = New System.Drawing.Size(128, 50)
-        Me.btn_st5_servo_enable.TabIndex = 84
-        Me.btn_st5_servo_enable.Text = "Servo Enable"
-        Me.btn_st5_servo_enable.UseVisualStyleBackColor = True
-        '
-        'Label290
-        '
-        Me.Label290.AutoSize = True
-        Me.Label290.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label290.Location = New System.Drawing.Point(153, 393)
-        Me.Label290.Name = "Label290"
-        Me.Label290.Size = New System.Drawing.Size(142, 20)
-        Me.Label290.TabIndex = 82
-        Me.Label290.Text = "Continuous Motion"
-        '
-        'Label291
-        '
-        Me.Label291.AutoSize = True
-        Me.Label291.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label291.Location = New System.Drawing.Point(152, 227)
-        Me.Label291.Name = "Label291"
-        Me.Label291.Size = New System.Drawing.Size(97, 20)
-        Me.Label291.TabIndex = 83
-        Me.Label291.Text = "Servo Bussy"
-        '
-        'Label292
-        '
-        Me.Label292.AutoSize = True
-        Me.Label292.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label292.Location = New System.Drawing.Point(152, 283)
-        Me.Label292.Name = "Label292"
-        Me.Label292.Size = New System.Drawing.Size(74, 20)
-        Me.Label292.TabIndex = 81
-        Me.Label292.Text = "Standstill"
-        '
-        'Label293
-        '
-        Me.Label293.AutoSize = True
-        Me.Label293.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label293.Location = New System.Drawing.Point(151, 115)
-        Me.Label293.Name = "Label293"
-        Me.Label293.Size = New System.Drawing.Size(89, 20)
-        Me.Label293.TabIndex = 80
-        Me.Label293.Text = "Servo Error"
-        '
-        'Label294
-        '
-        Me.Label294.AutoSize = True
-        Me.Label294.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label294.Location = New System.Drawing.Point(153, 338)
-        Me.Label294.Name = "Label294"
-        Me.Label294.Size = New System.Drawing.Size(73, 20)
-        Me.Label294.TabIndex = 79
-        Me.Label294.Text = "Stopping"
-        '
-        'Label295
-        '
-        Me.Label295.AutoSize = True
-        Me.Label295.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label295.Location = New System.Drawing.Point(525, 231)
-        Me.Label295.Name = "Label295"
-        Me.Label295.Size = New System.Drawing.Size(72, 40)
-        Me.Label295.TabIndex = 78
-        Me.Label295.Text = "Actual" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Velocity :"
-        '
-        'Label296
-        '
-        Me.Label296.AutoSize = True
-        Me.Label296.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label296.Location = New System.Drawing.Point(525, 182)
-        Me.Label296.Name = "Label296"
-        Me.Label296.Size = New System.Drawing.Size(73, 40)
-        Me.Label296.TabIndex = 77
-        Me.Label296.Text = "Actual" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Position :"
-        '
-        'Label297
-        '
-        Me.Label297.AutoSize = True
-        Me.Label297.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label297.Location = New System.Drawing.Point(319, 231)
-        Me.Label297.Name = "Label297"
-        Me.Label297.Size = New System.Drawing.Size(72, 40)
-        Me.Label297.TabIndex = 76
-        Me.Label297.Text = "Set " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Velocity :"
-        '
-        'Label298
-        '
-        Me.Label298.AutoSize = True
-        Me.Label298.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label298.Location = New System.Drawing.Point(319, 182)
-        Me.Label298.Name = "Label298"
-        Me.Label298.Size = New System.Drawing.Size(73, 40)
-        Me.Label298.TabIndex = 75
-        Me.Label298.Text = "Set " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Position :"
-        '
-        'Label299
-        '
-        Me.Label299.AutoSize = True
-        Me.Label299.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label299.Location = New System.Drawing.Point(152, 171)
-        Me.Label299.Name = "Label299"
-        Me.Label299.Size = New System.Drawing.Size(99, 20)
-        Me.Label299.TabIndex = 74
-        Me.Label299.Text = "Home Bussy"
-        '
-        'Label300
-        '
-        Me.Label300.AutoSize = True
-        Me.Label300.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label300.Location = New System.Drawing.Point(151, 59)
-        Me.Label300.Name = "Label300"
-        Me.Label300.Size = New System.Drawing.Size(113, 20)
-        Me.Label300.TabIndex = 73
-        Me.Label300.Text = "Servo Enabled"
-        '
-        'ind_st5_continuous_motion
-        '
-        Me.ind_st5_continuous_motion.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st5_continuous_motion.Location = New System.Drawing.Point(115, 388)
-        Me.ind_st5_continuous_motion.Name = "ind_st5_continuous_motion"
-        Me.ind_st5_continuous_motion.Size = New System.Drawing.Size(30, 30)
-        Me.ind_st5_continuous_motion.TabIndex = 71
-        Me.ind_st5_continuous_motion.TabStop = False
-        '
-        'ind_st5_servo_bussy
-        '
-        Me.ind_st5_servo_bussy.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st5_servo_bussy.Location = New System.Drawing.Point(114, 222)
-        Me.ind_st5_servo_bussy.Name = "ind_st5_servo_bussy"
-        Me.ind_st5_servo_bussy.Size = New System.Drawing.Size(30, 30)
-        Me.ind_st5_servo_bussy.TabIndex = 70
-        Me.ind_st5_servo_bussy.TabStop = False
-        '
-        'ind_st5_standstill
-        '
-        Me.ind_st5_standstill.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st5_standstill.Location = New System.Drawing.Point(114, 278)
-        Me.ind_st5_standstill.Name = "ind_st5_standstill"
-        Me.ind_st5_standstill.Size = New System.Drawing.Size(30, 30)
-        Me.ind_st5_standstill.TabIndex = 69
-        Me.ind_st5_standstill.TabStop = False
-        '
-        'ind_st5_stopping
-        '
-        Me.ind_st5_stopping.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st5_stopping.Location = New System.Drawing.Point(115, 333)
-        Me.ind_st5_stopping.Name = "ind_st5_stopping"
-        Me.ind_st5_stopping.Size = New System.Drawing.Size(30, 30)
-        Me.ind_st5_stopping.TabIndex = 68
-        Me.ind_st5_stopping.TabStop = False
-        '
-        'ind_st5_servo_error
-        '
-        Me.ind_st5_servo_error.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st5_servo_error.Location = New System.Drawing.Point(113, 110)
-        Me.ind_st5_servo_error.Name = "ind_st5_servo_error"
-        Me.ind_st5_servo_error.Size = New System.Drawing.Size(30, 30)
-        Me.ind_st5_servo_error.TabIndex = 67
-        Me.ind_st5_servo_error.TabStop = False
-        '
-        'ind_st5_home_bussy
-        '
-        Me.ind_st5_home_bussy.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st5_home_bussy.Location = New System.Drawing.Point(114, 166)
-        Me.ind_st5_home_bussy.Name = "ind_st5_home_bussy"
-        Me.ind_st5_home_bussy.Size = New System.Drawing.Size(30, 30)
-        Me.ind_st5_home_bussy.TabIndex = 72
-        Me.ind_st5_home_bussy.TabStop = False
-        '
-        'ind_st5_servo_enabled
-        '
-        Me.ind_st5_servo_enabled.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st5_servo_enabled.Location = New System.Drawing.Point(113, 54)
-        Me.ind_st5_servo_enabled.Name = "ind_st5_servo_enabled"
-        Me.ind_st5_servo_enabled.Size = New System.Drawing.Size(30, 30)
-        Me.ind_st5_servo_enabled.TabIndex = 66
-        Me.ind_st5_servo_enabled.TabStop = False
         '
         'pnl_man_stn4
         '
@@ -5532,30 +5181,45 @@ Partial Class frmMain
         '
         'TabPage24
         '
+        Me.TabPage24.Controls.Add(Me.txt_st4_analog_data)
+        Me.TabPage24.Controls.Add(Me.txt_st4_diff_str)
         Me.TabPage24.Controls.Add(Me.txt_st4_act_vel)
+        Me.TabPage24.Controls.Add(Me.txt_st4_actu_pos)
         Me.TabPage24.Controls.Add(Me.txt_st4_act_pos)
+        Me.TabPage24.Controls.Add(Me.txt_st4_cal_val_gt2)
         Me.TabPage24.Controls.Add(Me.txt_st4_set_vel)
+        Me.TabPage24.Controls.Add(Me.txt_st4_cal_val_p0)
         Me.TabPage24.Controls.Add(Me.txt_st4_set_pos)
         Me.TabPage24.Controls.Add(Me.btn_st4_servo_stop)
         Me.TabPage24.Controls.Add(Me.btn_st4_servo_reset)
         Me.TabPage24.Controls.Add(Me.btn_st4_jog_ccw)
+        Me.TabPage24.Controls.Add(Me.btn_st4_man_trig)
+        Me.TabPage24.Controls.Add(Me.btn_st4_cal)
         Me.TabPage24.Controls.Add(Me.btn_st4_jog_cw)
         Me.TabPage24.Controls.Add(Me.btn_st4_move_vel)
         Me.TabPage24.Controls.Add(Me.btn_st4_move_pos)
         Me.TabPage24.Controls.Add(Me.btn_st4_save_data)
         Me.TabPage24.Controls.Add(Me.btn_st4_homing)
         Me.TabPage24.Controls.Add(Me.btn_st4_servo_enable)
+        Me.TabPage24.Controls.Add(Me.Label290)
         Me.TabPage24.Controls.Add(Me.Label234)
         Me.TabPage24.Controls.Add(Me.Label235)
         Me.TabPage24.Controls.Add(Me.Label259)
         Me.TabPage24.Controls.Add(Me.Label260)
         Me.TabPage24.Controls.Add(Me.Label261)
+        Me.TabPage24.Controls.Add(Me.Label291)
+        Me.TabPage24.Controls.Add(Me.Label292)
+        Me.TabPage24.Controls.Add(Me.label_297)
         Me.TabPage24.Controls.Add(Me.Label262)
+        Me.TabPage24.Controls.Add(Me.Label295)
         Me.TabPage24.Controls.Add(Me.Label263)
+        Me.TabPage24.Controls.Add(Me.Label294)
         Me.TabPage24.Controls.Add(Me.Label264)
+        Me.TabPage24.Controls.Add(Me.Label293)
         Me.TabPage24.Controls.Add(Me.Label265)
         Me.TabPage24.Controls.Add(Me.Label266)
         Me.TabPage24.Controls.Add(Me.Label267)
+        Me.TabPage24.Controls.Add(Me.ind_st4_discrete_motion)
         Me.TabPage24.Controls.Add(Me.ind_st4_continuous_motion)
         Me.TabPage24.Controls.Add(Me.ind_st4_servo_busy)
         Me.TabPage24.Controls.Add(Me.ind_st4_standstill)
@@ -5570,42 +5234,89 @@ Partial Class frmMain
         Me.TabPage24.Text = "Servo ST4"
         Me.TabPage24.UseVisualStyleBackColor = True
         '
+        'txt_st4_analog_data
+        '
+        Me.txt_st4_analog_data.Enabled = False
+        Me.txt_st4_analog_data.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_st4_analog_data.Location = New System.Drawing.Point(640, 297)
+        Me.txt_st4_analog_data.Name = "txt_st4_analog_data"
+        Me.txt_st4_analog_data.Size = New System.Drawing.Size(193, 35)
+        Me.txt_st4_analog_data.TabIndex = 96
+        '
+        'txt_st4_diff_str
+        '
+        Me.txt_st4_diff_str.Enabled = False
+        Me.txt_st4_diff_str.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_st4_diff_str.Location = New System.Drawing.Point(636, 477)
+        Me.txt_st4_diff_str.Name = "txt_st4_diff_str"
+        Me.txt_st4_diff_str.Size = New System.Drawing.Size(193, 35)
+        Me.txt_st4_diff_str.TabIndex = 96
+        '
         'txt_st4_act_vel
         '
+        Me.txt_st4_act_vel.Enabled = False
         Me.txt_st4_act_vel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st4_act_vel.Location = New System.Drawing.Point(604, 238)
+        Me.txt_st4_act_vel.Location = New System.Drawing.Point(639, 168)
         Me.txt_st4_act_vel.Name = "txt_st4_act_vel"
-        Me.txt_st4_act_vel.Size = New System.Drawing.Size(107, 35)
+        Me.txt_st4_act_vel.Size = New System.Drawing.Size(193, 35)
         Me.txt_st4_act_vel.TabIndex = 96
+        '
+        'txt_st4_actu_pos
+        '
+        Me.txt_st4_actu_pos.Enabled = False
+        Me.txt_st4_actu_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_st4_actu_pos.Location = New System.Drawing.Point(636, 431)
+        Me.txt_st4_actu_pos.Name = "txt_st4_actu_pos"
+        Me.txt_st4_actu_pos.Size = New System.Drawing.Size(193, 35)
+        Me.txt_st4_actu_pos.TabIndex = 95
         '
         'txt_st4_act_pos
         '
+        Me.txt_st4_act_pos.Enabled = False
         Me.txt_st4_act_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st4_act_pos.Location = New System.Drawing.Point(604, 189)
+        Me.txt_st4_act_pos.Location = New System.Drawing.Point(639, 119)
         Me.txt_st4_act_pos.Name = "txt_st4_act_pos"
-        Me.txt_st4_act_pos.Size = New System.Drawing.Size(107, 35)
+        Me.txt_st4_act_pos.Size = New System.Drawing.Size(193, 35)
         Me.txt_st4_act_pos.TabIndex = 95
+        '
+        'txt_st4_cal_val_gt2
+        '
+        Me.txt_st4_cal_val_gt2.Enabled = False
+        Me.txt_st4_cal_val_gt2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_st4_cal_val_gt2.Location = New System.Drawing.Point(349, 478)
+        Me.txt_st4_cal_val_gt2.Name = "txt_st4_cal_val_gt2"
+        Me.txt_st4_cal_val_gt2.Size = New System.Drawing.Size(176, 35)
+        Me.txt_st4_cal_val_gt2.TabIndex = 94
         '
         'txt_st4_set_vel
         '
         Me.txt_st4_set_vel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st4_set_vel.Location = New System.Drawing.Point(398, 238)
+        Me.txt_st4_set_vel.Location = New System.Drawing.Point(352, 169)
         Me.txt_st4_set_vel.Name = "txt_st4_set_vel"
-        Me.txt_st4_set_vel.Size = New System.Drawing.Size(107, 35)
+        Me.txt_st4_set_vel.Size = New System.Drawing.Size(176, 35)
         Me.txt_st4_set_vel.TabIndex = 94
+        '
+        'txt_st4_cal_val_p0
+        '
+        Me.txt_st4_cal_val_p0.Enabled = False
+        Me.txt_st4_cal_val_p0.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_st4_cal_val_p0.Location = New System.Drawing.Point(349, 432)
+        Me.txt_st4_cal_val_p0.Name = "txt_st4_cal_val_p0"
+        Me.txt_st4_cal_val_p0.Size = New System.Drawing.Size(176, 35)
+        Me.txt_st4_cal_val_p0.TabIndex = 93
         '
         'txt_st4_set_pos
         '
         Me.txt_st4_set_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st4_set_pos.Location = New System.Drawing.Point(398, 189)
+        Me.txt_st4_set_pos.Location = New System.Drawing.Point(352, 120)
         Me.txt_st4_set_pos.Name = "txt_st4_set_pos"
-        Me.txt_st4_set_pos.Size = New System.Drawing.Size(107, 35)
+        Me.txt_st4_set_pos.Size = New System.Drawing.Size(176, 35)
         Me.txt_st4_set_pos.TabIndex = 93
         '
         'btn_st4_servo_stop
         '
         Me.btn_st4_servo_stop.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_servo_stop.Location = New System.Drawing.Point(604, 50)
+        Me.btn_st4_servo_stop.Location = New System.Drawing.Point(543, 10)
         Me.btn_st4_servo_stop.Name = "btn_st4_servo_stop"
         Me.btn_st4_servo_stop.Size = New System.Drawing.Size(128, 50)
         Me.btn_st4_servo_stop.TabIndex = 92
@@ -5615,7 +5326,7 @@ Partial Class frmMain
         'btn_st4_servo_reset
         '
         Me.btn_st4_servo_reset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_servo_reset.Location = New System.Drawing.Point(462, 50)
+        Me.btn_st4_servo_reset.Location = New System.Drawing.Point(401, 10)
         Me.btn_st4_servo_reset.Name = "btn_st4_servo_reset"
         Me.btn_st4_servo_reset.Size = New System.Drawing.Size(128, 50)
         Me.btn_st4_servo_reset.TabIndex = 91
@@ -5625,17 +5336,37 @@ Partial Class frmMain
         'btn_st4_jog_ccw
         '
         Me.btn_st4_jog_ccw.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_jog_ccw.Location = New System.Drawing.Point(462, 420)
+        Me.btn_st4_jog_ccw.Location = New System.Drawing.Point(401, 325)
         Me.btn_st4_jog_ccw.Name = "btn_st4_jog_ccw"
-        Me.btn_st4_jog_ccw.Size = New System.Drawing.Size(128, 50)
+        Me.btn_st4_jog_ccw.Size = New System.Drawing.Size(125, 50)
         Me.btn_st4_jog_ccw.TabIndex = 90
         Me.btn_st4_jog_ccw.Text = "JOG CCW"
         Me.btn_st4_jog_ccw.UseVisualStyleBackColor = True
         '
+        'btn_st4_man_trig
+        '
+        Me.btn_st4_man_trig.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_st4_man_trig.Location = New System.Drawing.Point(561, 378)
+        Me.btn_st4_man_trig.Name = "btn_st4_man_trig"
+        Me.btn_st4_man_trig.Size = New System.Drawing.Size(268, 50)
+        Me.btn_st4_man_trig.TabIndex = 89
+        Me.btn_st4_man_trig.Text = "Manual Testing Trigger"
+        Me.btn_st4_man_trig.UseVisualStyleBackColor = True
+        '
+        'btn_st4_cal
+        '
+        Me.btn_st4_cal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_st4_cal.Location = New System.Drawing.Point(257, 378)
+        Me.btn_st4_cal.Name = "btn_st4_cal"
+        Me.btn_st4_cal.Size = New System.Drawing.Size(268, 50)
+        Me.btn_st4_cal.TabIndex = 89
+        Me.btn_st4_cal.Text = "Calibrate Data"
+        Me.btn_st4_cal.UseVisualStyleBackColor = True
+        '
         'btn_st4_jog_cw
         '
         Me.btn_st4_jog_cw.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_jog_cw.Location = New System.Drawing.Point(319, 420)
+        Me.btn_st4_jog_cw.Location = New System.Drawing.Point(258, 325)
         Me.btn_st4_jog_cw.Name = "btn_st4_jog_cw"
         Me.btn_st4_jog_cw.Size = New System.Drawing.Size(128, 50)
         Me.btn_st4_jog_cw.TabIndex = 89
@@ -5645,9 +5376,9 @@ Partial Class frmMain
         'btn_st4_move_vel
         '
         Me.btn_st4_move_vel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_move_vel.Location = New System.Drawing.Point(462, 352)
+        Me.btn_st4_move_vel.Location = New System.Drawing.Point(401, 271)
         Me.btn_st4_move_vel.Name = "btn_st4_move_vel"
-        Me.btn_st4_move_vel.Size = New System.Drawing.Size(128, 50)
+        Me.btn_st4_move_vel.Size = New System.Drawing.Size(125, 50)
         Me.btn_st4_move_vel.TabIndex = 88
         Me.btn_st4_move_vel.Text = "Move " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VELOCITY"
         Me.btn_st4_move_vel.UseVisualStyleBackColor = True
@@ -5655,7 +5386,7 @@ Partial Class frmMain
         'btn_st4_move_pos
         '
         Me.btn_st4_move_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_move_pos.Location = New System.Drawing.Point(319, 352)
+        Me.btn_st4_move_pos.Location = New System.Drawing.Point(258, 271)
         Me.btn_st4_move_pos.Name = "btn_st4_move_pos"
         Me.btn_st4_move_pos.Size = New System.Drawing.Size(128, 50)
         Me.btn_st4_move_pos.TabIndex = 87
@@ -5665,7 +5396,7 @@ Partial Class frmMain
         'btn_st4_save_data
         '
         Me.btn_st4_save_data.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_save_data.Location = New System.Drawing.Point(319, 286)
+        Me.btn_st4_save_data.Location = New System.Drawing.Point(258, 217)
         Me.btn_st4_save_data.Name = "btn_st4_save_data"
         Me.btn_st4_save_data.Size = New System.Drawing.Size(128, 50)
         Me.btn_st4_save_data.TabIndex = 86
@@ -5675,7 +5406,7 @@ Partial Class frmMain
         'btn_st4_homing
         '
         Me.btn_st4_homing.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_homing.Location = New System.Drawing.Point(319, 115)
+        Me.btn_st4_homing.Location = New System.Drawing.Point(258, 61)
         Me.btn_st4_homing.Name = "btn_st4_homing"
         Me.btn_st4_homing.Size = New System.Drawing.Size(128, 50)
         Me.btn_st4_homing.TabIndex = 85
@@ -5685,18 +5416,28 @@ Partial Class frmMain
         'btn_st4_servo_enable
         '
         Me.btn_st4_servo_enable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_servo_enable.Location = New System.Drawing.Point(319, 50)
+        Me.btn_st4_servo_enable.Location = New System.Drawing.Point(258, 10)
         Me.btn_st4_servo_enable.Name = "btn_st4_servo_enable"
         Me.btn_st4_servo_enable.Size = New System.Drawing.Size(128, 50)
         Me.btn_st4_servo_enable.TabIndex = 84
         Me.btn_st4_servo_enable.Text = "Servo Enable"
         Me.btn_st4_servo_enable.UseVisualStyleBackColor = True
         '
+        'Label290
+        '
+        Me.Label290.AutoSize = True
+        Me.Label290.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label290.Location = New System.Drawing.Point(92, 407)
+        Me.Label290.Name = "Label290"
+        Me.Label290.Size = New System.Drawing.Size(120, 20)
+        Me.Label290.TabIndex = 82
+        Me.Label290.Text = "Discrete Motion"
+        '
         'Label234
         '
         Me.Label234.AutoSize = True
         Me.Label234.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label234.Location = New System.Drawing.Point(153, 395)
+        Me.Label234.Location = New System.Drawing.Point(92, 355)
         Me.Label234.Name = "Label234"
         Me.Label234.Size = New System.Drawing.Size(142, 20)
         Me.Label234.TabIndex = 82
@@ -5706,7 +5447,7 @@ Partial Class frmMain
         '
         Me.Label235.AutoSize = True
         Me.Label235.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label235.Location = New System.Drawing.Point(152, 229)
+        Me.Label235.Location = New System.Drawing.Point(91, 189)
         Me.Label235.Name = "Label235"
         Me.Label235.Size = New System.Drawing.Size(89, 20)
         Me.Label235.TabIndex = 83
@@ -5716,7 +5457,7 @@ Partial Class frmMain
         '
         Me.Label259.AutoSize = True
         Me.Label259.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label259.Location = New System.Drawing.Point(152, 285)
+        Me.Label259.Location = New System.Drawing.Point(91, 245)
         Me.Label259.Name = "Label259"
         Me.Label259.Size = New System.Drawing.Size(74, 20)
         Me.Label259.TabIndex = 81
@@ -5726,7 +5467,7 @@ Partial Class frmMain
         '
         Me.Label260.AutoSize = True
         Me.Label260.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label260.Location = New System.Drawing.Point(151, 117)
+        Me.Label260.Location = New System.Drawing.Point(90, 77)
         Me.Label260.Name = "Label260"
         Me.Label260.Size = New System.Drawing.Size(89, 20)
         Me.Label260.TabIndex = 80
@@ -5736,47 +5477,107 @@ Partial Class frmMain
         '
         Me.Label261.AutoSize = True
         Me.Label261.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label261.Location = New System.Drawing.Point(153, 340)
+        Me.Label261.Location = New System.Drawing.Point(92, 300)
         Me.Label261.Name = "Label261"
         Me.Label261.Size = New System.Drawing.Size(73, 20)
         Me.Label261.TabIndex = 79
         Me.Label261.Text = "Stopping"
         '
+        'Label291
+        '
+        Me.Label291.AutoSize = True
+        Me.Label291.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label291.Location = New System.Drawing.Point(560, 271)
+        Me.Label291.Name = "Label291"
+        Me.Label291.Size = New System.Drawing.Size(246, 20)
+        Me.Label291.TabIndex = 78
+        Me.Label291.Text = "Keyence GT2 Sensor Monitoring :"
+        '
+        'Label292
+        '
+        Me.Label292.AutoSize = True
+        Me.Label292.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label292.Location = New System.Drawing.Point(561, 292)
+        Me.Label292.Name = "Label292"
+        Me.Label292.Size = New System.Drawing.Size(59, 40)
+        Me.Label292.TabIndex = 78
+        Me.Label292.Text = "Analog" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Data :"
+        '
+        'label_297
+        '
+        Me.label_297.AutoSize = True
+        Me.label_297.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label_297.Location = New System.Drawing.Point(557, 485)
+        Me.label_297.Name = "label_297"
+        Me.label_297.Size = New System.Drawing.Size(67, 20)
+        Me.label_297.TabIndex = 78
+        Me.label_297.Text = "Diff Str :"
+        '
         'Label262
         '
         Me.Label262.AutoSize = True
         Me.Label262.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label262.Location = New System.Drawing.Point(525, 233)
+        Me.Label262.Location = New System.Drawing.Point(560, 163)
         Me.Label262.Name = "Label262"
         Me.Label262.Size = New System.Drawing.Size(72, 40)
         Me.Label262.TabIndex = 78
         Me.Label262.Text = "Actual" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Velocity :"
         '
+        'Label295
+        '
+        Me.Label295.AutoSize = True
+        Me.Label295.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label295.Location = New System.Drawing.Point(557, 426)
+        Me.Label295.Name = "Label295"
+        Me.Label295.Size = New System.Drawing.Size(77, 40)
+        Me.Label295.TabIndex = 77
+        Me.Label295.Text = "Actuation" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Pos :"
+        '
         'Label263
         '
         Me.Label263.AutoSize = True
         Me.Label263.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label263.Location = New System.Drawing.Point(525, 184)
+        Me.Label263.Location = New System.Drawing.Point(560, 114)
         Me.Label263.Name = "Label263"
         Me.Label263.Size = New System.Drawing.Size(73, 40)
         Me.Label263.TabIndex = 77
         Me.Label263.Text = "Actual" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Position :"
         '
+        'Label294
+        '
+        Me.Label294.AutoSize = True
+        Me.Label294.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label294.Location = New System.Drawing.Point(255, 473)
+        Me.Label294.Name = "Label294"
+        Me.Label294.Size = New System.Drawing.Size(93, 40)
+        Me.Label294.TabIndex = 76
+        Me.Label294.Text = "Calib" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Value GT2 :"
+        '
         'Label264
         '
         Me.Label264.AutoSize = True
         Me.Label264.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label264.Location = New System.Drawing.Point(319, 233)
+        Me.Label264.Location = New System.Drawing.Point(258, 164)
         Me.Label264.Name = "Label264"
         Me.Label264.Size = New System.Drawing.Size(72, 40)
         Me.Label264.TabIndex = 76
         Me.Label264.Text = "Set " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Velocity :"
         '
+        'Label293
+        '
+        Me.Label293.AutoSize = True
+        Me.Label293.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label293.Location = New System.Drawing.Point(255, 427)
+        Me.Label293.Name = "Label293"
+        Me.Label293.Size = New System.Drawing.Size(81, 40)
+        Me.Label293.TabIndex = 75
+        Me.Label293.Text = "Calib" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Value P0 :"
+        '
         'Label265
         '
         Me.Label265.AutoSize = True
         Me.Label265.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label265.Location = New System.Drawing.Point(319, 184)
+        Me.Label265.Location = New System.Drawing.Point(258, 115)
         Me.Label265.Name = "Label265"
         Me.Label265.Size = New System.Drawing.Size(73, 40)
         Me.Label265.TabIndex = 75
@@ -5786,7 +5587,7 @@ Partial Class frmMain
         '
         Me.Label266.AutoSize = True
         Me.Label266.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label266.Location = New System.Drawing.Point(152, 173)
+        Me.Label266.Location = New System.Drawing.Point(91, 133)
         Me.Label266.Name = "Label266"
         Me.Label266.Size = New System.Drawing.Size(91, 20)
         Me.Label266.TabIndex = 74
@@ -5796,16 +5597,25 @@ Partial Class frmMain
         '
         Me.Label267.AutoSize = True
         Me.Label267.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label267.Location = New System.Drawing.Point(151, 61)
+        Me.Label267.Location = New System.Drawing.Point(90, 21)
         Me.Label267.Name = "Label267"
         Me.Label267.Size = New System.Drawing.Size(113, 20)
         Me.Label267.TabIndex = 73
         Me.Label267.Text = "Servo Enabled"
         '
+        'ind_st4_discrete_motion
+        '
+        Me.ind_st4_discrete_motion.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_discrete_motion.Location = New System.Drawing.Point(54, 402)
+        Me.ind_st4_discrete_motion.Name = "ind_st4_discrete_motion"
+        Me.ind_st4_discrete_motion.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_discrete_motion.TabIndex = 71
+        Me.ind_st4_discrete_motion.TabStop = False
+        '
         'ind_st4_continuous_motion
         '
         Me.ind_st4_continuous_motion.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st4_continuous_motion.Location = New System.Drawing.Point(115, 390)
+        Me.ind_st4_continuous_motion.Location = New System.Drawing.Point(54, 350)
         Me.ind_st4_continuous_motion.Name = "ind_st4_continuous_motion"
         Me.ind_st4_continuous_motion.Size = New System.Drawing.Size(30, 30)
         Me.ind_st4_continuous_motion.TabIndex = 71
@@ -5814,7 +5624,7 @@ Partial Class frmMain
         'ind_st4_servo_busy
         '
         Me.ind_st4_servo_busy.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st4_servo_busy.Location = New System.Drawing.Point(114, 224)
+        Me.ind_st4_servo_busy.Location = New System.Drawing.Point(53, 184)
         Me.ind_st4_servo_busy.Name = "ind_st4_servo_busy"
         Me.ind_st4_servo_busy.Size = New System.Drawing.Size(30, 30)
         Me.ind_st4_servo_busy.TabIndex = 70
@@ -5823,7 +5633,7 @@ Partial Class frmMain
         'ind_st4_standstill
         '
         Me.ind_st4_standstill.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st4_standstill.Location = New System.Drawing.Point(114, 280)
+        Me.ind_st4_standstill.Location = New System.Drawing.Point(53, 240)
         Me.ind_st4_standstill.Name = "ind_st4_standstill"
         Me.ind_st4_standstill.Size = New System.Drawing.Size(30, 30)
         Me.ind_st4_standstill.TabIndex = 69
@@ -5832,7 +5642,7 @@ Partial Class frmMain
         'ind_st4_stopping
         '
         Me.ind_st4_stopping.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st4_stopping.Location = New System.Drawing.Point(115, 335)
+        Me.ind_st4_stopping.Location = New System.Drawing.Point(54, 295)
         Me.ind_st4_stopping.Name = "ind_st4_stopping"
         Me.ind_st4_stopping.Size = New System.Drawing.Size(30, 30)
         Me.ind_st4_stopping.TabIndex = 68
@@ -5841,7 +5651,7 @@ Partial Class frmMain
         'ind_st4_servo_error
         '
         Me.ind_st4_servo_error.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st4_servo_error.Location = New System.Drawing.Point(113, 112)
+        Me.ind_st4_servo_error.Location = New System.Drawing.Point(52, 72)
         Me.ind_st4_servo_error.Name = "ind_st4_servo_error"
         Me.ind_st4_servo_error.Size = New System.Drawing.Size(30, 30)
         Me.ind_st4_servo_error.TabIndex = 67
@@ -5850,7 +5660,7 @@ Partial Class frmMain
         'ind_st4_home_busy
         '
         Me.ind_st4_home_busy.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st4_home_busy.Location = New System.Drawing.Point(114, 168)
+        Me.ind_st4_home_busy.Location = New System.Drawing.Point(53, 128)
         Me.ind_st4_home_busy.Name = "ind_st4_home_busy"
         Me.ind_st4_home_busy.Size = New System.Drawing.Size(30, 30)
         Me.ind_st4_home_busy.TabIndex = 72
@@ -5859,7 +5669,7 @@ Partial Class frmMain
         'ind_st4_servo_enabled
         '
         Me.ind_st4_servo_enabled.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st4_servo_enabled.Location = New System.Drawing.Point(113, 56)
+        Me.ind_st4_servo_enabled.Location = New System.Drawing.Point(52, 16)
         Me.ind_st4_servo_enabled.Name = "ind_st4_servo_enabled"
         Me.ind_st4_servo_enabled.Size = New System.Drawing.Size(30, 30)
         Me.ind_st4_servo_enabled.TabIndex = 66
@@ -6375,6 +6185,7 @@ Partial Class frmMain
         Me.TabPage25.Controls.Add(Me.btn_st3_save_data)
         Me.TabPage25.Controls.Add(Me.btn_st3_homing)
         Me.TabPage25.Controls.Add(Me.btn_st3_servo_enable)
+        Me.TabPage25.Controls.Add(Me.Label296)
         Me.TabPage25.Controls.Add(Me.Label268)
         Me.TabPage25.Controls.Add(Me.Label269)
         Me.TabPage25.Controls.Add(Me.Label270)
@@ -6386,6 +6197,7 @@ Partial Class frmMain
         Me.TabPage25.Controls.Add(Me.Label276)
         Me.TabPage25.Controls.Add(Me.Label277)
         Me.TabPage25.Controls.Add(Me.Label278)
+        Me.TabPage25.Controls.Add(Me.ind_st3_discrete_motion)
         Me.TabPage25.Controls.Add(Me.ind_st3_continuous_motion)
         Me.TabPage25.Controls.Add(Me.ind_st3_servo_busy)
         Me.TabPage25.Controls.Add(Me.ind_st3_standstill)
@@ -6402,6 +6214,7 @@ Partial Class frmMain
         '
         'txt_st3_act_vel
         '
+        Me.txt_st3_act_vel.Enabled = False
         Me.txt_st3_act_vel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st3_act_vel.Location = New System.Drawing.Point(604, 238)
         Me.txt_st3_act_vel.Name = "txt_st3_act_vel"
@@ -6410,6 +6223,7 @@ Partial Class frmMain
         '
         'txt_st3_act_pos
         '
+        Me.txt_st3_act_pos.Enabled = False
         Me.txt_st3_act_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st3_act_pos.Location = New System.Drawing.Point(604, 189)
         Me.txt_st3_act_pos.Name = "txt_st3_act_pos"
@@ -6522,6 +6336,16 @@ Partial Class frmMain
         Me.btn_st3_servo_enable.Text = "Servo Enable"
         Me.btn_st3_servo_enable.UseVisualStyleBackColor = True
         '
+        'Label296
+        '
+        Me.Label296.AutoSize = True
+        Me.Label296.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label296.Location = New System.Drawing.Point(153, 448)
+        Me.Label296.Name = "Label296"
+        Me.Label296.Size = New System.Drawing.Size(120, 20)
+        Me.Label296.TabIndex = 82
+        Me.Label296.Text = "Discrete Motion"
+        '
         'Label268
         '
         Me.Label268.AutoSize = True
@@ -6631,6 +6455,15 @@ Partial Class frmMain
         Me.Label278.Size = New System.Drawing.Size(113, 20)
         Me.Label278.TabIndex = 73
         Me.Label278.Text = "Servo Enabled"
+        '
+        'ind_st3_discrete_motion
+        '
+        Me.ind_st3_discrete_motion.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_discrete_motion.Location = New System.Drawing.Point(115, 443)
+        Me.ind_st3_discrete_motion.Name = "ind_st3_discrete_motion"
+        Me.ind_st3_discrete_motion.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_discrete_motion.TabIndex = 71
+        Me.ind_st3_discrete_motion.TabStop = False
         '
         'ind_st3_continuous_motion
         '
@@ -7211,6 +7044,7 @@ Partial Class frmMain
         '
         'txt_st2_cal_val
         '
+        Me.txt_st2_cal_val.Enabled = False
         Me.txt_st2_cal_val.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val.Location = New System.Drawing.Point(397, 102)
         Me.txt_st2_cal_val.Name = "txt_st2_cal_val"
@@ -7219,14 +7053,16 @@ Partial Class frmMain
         '
         'txt_st2_punch_count
         '
+        Me.txt_st2_punch_count.Enabled = False
         Me.txt_st2_punch_count.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st2_punch_count.Location = New System.Drawing.Point(400, 255)
+        Me.txt_st2_punch_count.Location = New System.Drawing.Point(399, 411)
         Me.txt_st2_punch_count.Name = "txt_st2_punch_count"
         Me.txt_st2_punch_count.Size = New System.Drawing.Size(107, 35)
         Me.txt_st2_punch_count.TabIndex = 93
         '
         'txt_st2_act_mea
         '
+        Me.txt_st2_act_mea.Enabled = False
         Me.txt_st2_act_mea.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_act_mea.Location = New System.Drawing.Point(397, 53)
         Me.txt_st2_act_mea.Name = "txt_st2_act_mea"
@@ -7256,7 +7092,7 @@ Partial Class frmMain
         'btn_st2_stop_punch
         '
         Me.btn_st2_stop_punch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st2_stop_punch.Location = New System.Drawing.Point(463, 380)
+        Me.btn_st2_stop_punch.Location = New System.Drawing.Point(462, 348)
         Me.btn_st2_stop_punch.Name = "btn_st2_stop_punch"
         Me.btn_st2_stop_punch.Size = New System.Drawing.Size(128, 50)
         Me.btn_st2_stop_punch.TabIndex = 90
@@ -7266,7 +7102,7 @@ Partial Class frmMain
         'btn_st2_start_punch
         '
         Me.btn_st2_start_punch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st2_start_punch.Location = New System.Drawing.Point(320, 380)
+        Me.btn_st2_start_punch.Location = New System.Drawing.Point(319, 348)
         Me.btn_st2_start_punch.Name = "btn_st2_start_punch"
         Me.btn_st2_start_punch.Size = New System.Drawing.Size(128, 50)
         Me.btn_st2_start_punch.TabIndex = 89
@@ -7287,7 +7123,7 @@ Partial Class frmMain
         '
         Me.Label279.AutoSize = True
         Me.Label279.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label279.Location = New System.Drawing.Point(153, 395)
+        Me.Label279.Location = New System.Drawing.Point(151, 309)
         Me.Label279.Name = "Label279"
         Me.Label279.Size = New System.Drawing.Size(101, 20)
         Me.Label279.TabIndex = 82
@@ -7327,7 +7163,7 @@ Partial Class frmMain
         '
         Me.Label302.AutoSize = True
         Me.Label302.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label302.Location = New System.Drawing.Point(321, 250)
+        Me.Label302.Location = New System.Drawing.Point(320, 406)
         Me.Label302.Name = "Label302"
         Me.Label302.Size = New System.Drawing.Size(74, 40)
         Me.Label302.TabIndex = 75
@@ -7356,7 +7192,7 @@ Partial Class frmMain
         'ind_st2_motor_status
         '
         Me.ind_st2_motor_status.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_st2_motor_status.Location = New System.Drawing.Point(115, 390)
+        Me.ind_st2_motor_status.Location = New System.Drawing.Point(113, 304)
         Me.ind_st2_motor_status.Name = "ind_st2_motor_status"
         Me.ind_st2_motor_status.Size = New System.Drawing.Size(30, 30)
         Me.ind_st2_motor_status.TabIndex = 71
@@ -13504,15 +13340,15 @@ Partial Class frmMain
         Me.lbl_date.TabIndex = 87
         Me.lbl_date.Text = "00-00-0000"
         '
-        'PictureBox3
+        'MC_Status
         '
-        Me.PictureBox3.Image = Global.TESTER.My.Resources.Resources.mark_ok
-        Me.PictureBox3.Location = New System.Drawing.Point(811, 2)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(79, 79)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 116
-        Me.PictureBox3.TabStop = False
+        Me.MC_Status.Image = Global.TESTER.My.Resources.Resources.mark_ok
+        Me.MC_Status.Location = New System.Drawing.Point(811, 2)
+        Me.MC_Status.Name = "MC_Status"
+        Me.MC_Status.Size = New System.Drawing.Size(79, 79)
+        Me.MC_Status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.MC_Status.TabIndex = 116
+        Me.MC_Status.TabStop = False
         '
         'status_bar
         '
@@ -13533,7 +13369,7 @@ Partial Class frmMain
         Me.btn_calib.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_calib.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btn_calib.Image = Global.TESTER.My.Resources.Resources.icons8_check_document_56
-        Me.btn_calib.Location = New System.Drawing.Point(76, 650)
+        Me.btn_calib.Location = New System.Drawing.Point(937, 548)
         Me.btn_calib.Name = "btn_calib"
         Me.btn_calib.Size = New System.Drawing.Size(60, 87)
         Me.btn_calib.TabIndex = 69
@@ -13580,20 +13416,6 @@ Partial Class frmMain
         Me.btn_setting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_setting.UseVisualStyleBackColor = True
         '
-        'btn_log
-        '
-        Me.btn_log.FlatAppearance.BorderSize = 0
-        Me.btn_log.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_log.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_log.Image = Global.TESTER.My.Resources.Resources.icons8_log_56
-        Me.btn_log.Location = New System.Drawing.Point(-5, 567)
-        Me.btn_log.Name = "btn_log"
-        Me.btn_log.Size = New System.Drawing.Size(87, 86)
-        Me.btn_log.TabIndex = 69
-        Me.btn_log.Text = "Log"
-        Me.btn_log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_log.UseVisualStyleBackColor = True
-        '
         'btn_alarm
         '
         Me.btn_alarm.FlatAppearance.BorderSize = 0
@@ -13614,7 +13436,7 @@ Partial Class frmMain
         Me.btn_laser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_laser.Image = Global.TESTER.My.Resources.Resources.icons8_laser_56
-        Me.btn_laser.Location = New System.Drawing.Point(134, 648)
+        Me.btn_laser.Location = New System.Drawing.Point(933, 631)
         Me.btn_laser.Name = "btn_laser"
         Me.btn_laser.Size = New System.Drawing.Size(92, 90)
         Me.btn_laser.TabIndex = 69
@@ -13696,13 +13518,27 @@ Partial Class frmMain
         Me.btn_home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_home.UseVisualStyleBackColor = True
         '
+        'btn_log
+        '
+        Me.btn_log.FlatAppearance.BorderSize = 0
+        Me.btn_log.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_log.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_log.Image = Global.TESTER.My.Resources.Resources.icons8_log_56
+        Me.btn_log.Location = New System.Drawing.Point(-5, 567)
+        Me.btn_log.Name = "btn_log"
+        Me.btn_log.Size = New System.Drawing.Size(87, 86)
+        Me.btn_log.TabIndex = 69
+        Me.btn_log.Text = "Log"
+        Me.btn_log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_log.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(1008, 729)
-        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.MC_Status)
         Me.Controls.Add(Me.Label81)
         Me.Controls.Add(Me.lbl_date)
         Me.Controls.Add(Me.GroupBox87)
@@ -13734,31 +13570,10 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t2)
         Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.btn_laser)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_general)
-        Me.Controls.Add(Me.pnl_man_stn1)
-        Me.Controls.Add(Me.pnl_setting)
-        Me.Controls.Add(Me.pnl_log)
-        Me.Controls.Add(Me.pnl_ref)
-        Me.Controls.Add(Me.pnl_laser)
-        Me.Controls.Add(Me.pnl_calibration)
-        Me.Controls.Add(Me.pnl_multi)
-        Me.Controls.Add(Me.pnl_alarm)
-        Me.Controls.Add(Me.pnl_mon_stn6)
-        Me.Controls.Add(Me.pnl_mon_stn5)
         Me.Controls.Add(Me.lbl_cot_5)
-        Me.Controls.Add(Me.pnl_mon_stn4)
         Me.Controls.Add(Me.lbl_cot_4)
-        Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.lbl_cot_3)
-        Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.lbl_cot_2)
-        Me.Controls.Add(Me.pnl_mon_stn1)
         Me.Controls.Add(Me.lbl_cot_1)
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.lbl_cot)
@@ -13773,6 +13588,27 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.lbl_st4_t1_1)
         Me.Controls.Add(Me.lbl_st4_t1)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_general)
+        Me.Controls.Add(Me.pnl_man_stn1)
+        Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.pnl_log)
+        Me.Controls.Add(Me.pnl_ref)
+        Me.Controls.Add(Me.pnl_laser)
+        Me.Controls.Add(Me.pnl_calibration)
+        Me.Controls.Add(Me.pnl_multi)
+        Me.Controls.Add(Me.pnl_alarm)
+        Me.Controls.Add(Me.pnl_mon_stn6)
+        Me.Controls.Add(Me.pnl_mon_stn5)
+        Me.Controls.Add(Me.pnl_mon_stn4)
+        Me.Controls.Add(Me.pnl_mon_stn3)
+        Me.Controls.Add(Me.pnl_mon_stn2)
+        Me.Controls.Add(Me.pnl_mon_stn1)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -13864,15 +13700,6 @@ Partial Class frmMain
         CType(Me.stn5_cyl1_max, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox60.ResumeLayout(False)
         Me.pnl_man_stn5.ResumeLayout(False)
-        Me.TabPage23.ResumeLayout(False)
-        Me.TabPage23.PerformLayout
-        CType(Me.ind_st5_continuous_motion, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_st5_servo_bussy, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_st5_standstill, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_st5_stopping, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_st5_servo_error, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_st5_home_bussy, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_st5_servo_enabled, System.ComponentModel.ISupportInitialize).EndInit
         Me.pnl_man_stn4.ResumeLayout(False)
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout
@@ -13902,6 +13729,7 @@ Partial Class frmMain
         Me.GroupBox42.ResumeLayout(False)
         Me.TabPage24.ResumeLayout(False)
         Me.TabPage24.PerformLayout
+        CType(Me.ind_st4_discrete_motion, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_st4_continuous_motion, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_st4_servo_busy, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_st4_standstill, System.ComponentModel.ISupportInitialize).EndInit
@@ -13938,6 +13766,7 @@ Partial Class frmMain
         Me.GroupBox36.ResumeLayout(False)
         Me.TabPage25.ResumeLayout(False)
         Me.TabPage25.PerformLayout
+        CType(Me.ind_st3_discrete_motion, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_st3_continuous_motion, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_st3_servo_busy, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_st3_standstill, System.ComponentModel.ISupportInitialize).EndInit
@@ -14353,7 +14182,7 @@ Partial Class frmMain
         CType(Me.ind_safety_st1, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_safety_st3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_altivar_status, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MC_Status, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
@@ -14447,8 +14276,6 @@ Partial Class frmMain
     Friend WithEvents Label66 As Label
     Friend WithEvents ind_software_open As PictureBox
     Friend WithEvents Label65 As Label
-    Friend WithEvents btn_stop As Button
-    Friend WithEvents btn_run As Button
     Friend WithEvents GroupBox80 As GroupBox
     Friend WithEvents Label85 As Label
     Friend WithEvents Label83 As Label
@@ -15283,38 +15110,6 @@ Partial Class frmMain
     Friend WithEvents dgv_calibration As DataGridView
     Friend WithEvents Parameter As DataGridViewTextBoxColumn
     Friend WithEvents Value As DataGridViewTextBoxColumn
-    Friend WithEvents TabPage23 As TabPage
-    Friend WithEvents txt_st5_act_vel As TextBox
-    Friend WithEvents txt_st5_act_pos As TextBox
-    Friend WithEvents txt_st5_set_vel As TextBox
-    Friend WithEvents txt_st5_set_pos As TextBox
-    Friend WithEvents btn_st5_servo_stop As Button
-    Friend WithEvents btn_st5_servo_reset As Button
-    Friend WithEvents btn_st5_jog_ccw As Button
-    Friend WithEvents btn_st5_jog_cw As Button
-    Friend WithEvents btn_st5_move_vel As Button
-    Friend WithEvents btn_st5_move_pos As Button
-    Friend WithEvents btn_st5_save_data As Button
-    Friend WithEvents btn_st5_homing As Button
-    Friend WithEvents btn_st5_servo_enable As Button
-    Friend WithEvents Label290 As Label
-    Friend WithEvents Label291 As Label
-    Friend WithEvents Label292 As Label
-    Friend WithEvents Label293 As Label
-    Friend WithEvents Label294 As Label
-    Friend WithEvents Label295 As Label
-    Friend WithEvents Label296 As Label
-    Friend WithEvents Label297 As Label
-    Friend WithEvents Label298 As Label
-    Friend WithEvents Label299 As Label
-    Friend WithEvents Label300 As Label
-    Friend WithEvents ind_st5_continuous_motion As PictureBox
-    Friend WithEvents ind_st5_servo_bussy As PictureBox
-    Friend WithEvents ind_st5_standstill As PictureBox
-    Friend WithEvents ind_st5_stopping As PictureBox
-    Friend WithEvents ind_st5_servo_error As PictureBox
-    Friend WithEvents ind_st5_home_bussy As PictureBox
-    Friend WithEvents ind_st5_servo_enabled As PictureBox
     Friend WithEvents TabPage24 As TabPage
     Friend WithEvents txt_st4_act_vel As TextBox
     Friend WithEvents txt_st4_act_pos As TextBox
@@ -15404,7 +15199,7 @@ Partial Class frmMain
     Friend WithEvents ind_altivar_status As PictureBox
     Friend WithEvents dgv_ref As DataGridView
     Friend WithEvents lbl_date As Label
-    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents MC_Status As PictureBox
     Friend WithEvents Label301 As Label
     Friend WithEvents Label283 As Label
     Friend WithEvents Label288 As Label
@@ -15428,4 +15223,23 @@ Partial Class frmMain
     Friend WithEvents Label306 As Label
     Friend WithEvents Label305 As Label
     Friend WithEvents Label304 As Label
+    Friend WithEvents btn_run As Button
+    Friend WithEvents btn_stop As Button
+    Friend WithEvents txt_st4_analog_data As TextBox
+    Friend WithEvents txt_st4_diff_str As TextBox
+    Friend WithEvents txt_st4_actu_pos As TextBox
+    Friend WithEvents txt_st4_cal_val_gt2 As TextBox
+    Friend WithEvents txt_st4_cal_val_p0 As TextBox
+    Friend WithEvents btn_st4_man_trig As Button
+    Friend WithEvents btn_st4_cal As Button
+    Friend WithEvents Label290 As Label
+    Friend WithEvents Label291 As Label
+    Friend WithEvents Label292 As Label
+    Friend WithEvents label_297 As Label
+    Friend WithEvents Label295 As Label
+    Friend WithEvents Label294 As Label
+    Friend WithEvents Label293 As Label
+    Friend WithEvents ind_st4_discrete_motion As PictureBox
+    Friend WithEvents Label296 As Label
+    Friend WithEvents ind_st3_discrete_motion As PictureBox
 End Class

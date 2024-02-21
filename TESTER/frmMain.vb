@@ -94,6 +94,7 @@ Public Class frmMain
             End
         End Try
 
+        'init chroma
         ChromaComm.Write("*IDN?" & vbCrLf)
         Thread.Sleep(100)
         If Not strChromaRaw = Config.instrumentName Then
@@ -188,6 +189,7 @@ Public Class frmMain
                 ElseIf i = 14 Then
                     If state = "RUN" Then
                         temp(i) = 1
+                        temp(15) = 1
                         ind_software_run.BackColor = Color.Lime
                     Else
                         temp(i) = 0
@@ -196,6 +198,7 @@ Public Class frmMain
                 ElseIf i = 13 Then
                     If state = "STOP" Then
                         temp(i) = 1
+                        temp(15) = 1
                         ind_software_stop.BackColor = Color.Lime
                     Else
                         temp(i) = 0
@@ -204,6 +207,7 @@ Public Class frmMain
                 ElseIf i = 12 Then
                     If state = "EMPTYING" Then
                         temp(i) = 1
+                        temp(15) = 1
                     Else
                         temp(i) = 0
                     End If

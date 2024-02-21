@@ -495,7 +495,9 @@ Partial Class frmMain
         Me.btn_stn2_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn2_cyl1_bw = New System.Windows.Forms.Button()
         Me.TabPage26 = New System.Windows.Forms.TabPage()
+        Me.txt_st2_punch_cycle = New System.Windows.Forms.TextBox()
         Me.txt_st2_cal_val = New System.Windows.Forms.TextBox()
+        Me.txt_st2_punch_count = New System.Windows.Forms.TextBox()
         Me.txt_st2_act_mea = New System.Windows.Forms.TextBox()
         Me.btn_st2_set_cal_val = New System.Windows.Forms.Button()
         Me.btn_st2_preset_heidenhain = New System.Windows.Forms.Button()
@@ -504,7 +506,9 @@ Partial Class frmMain
         Me.btn_st2_enable_heidenhain = New System.Windows.Forms.Button()
         Me.Label279 = New System.Windows.Forms.Label()
         Me.Label282 = New System.Windows.Forms.Label()
+        Me.Label303 = New System.Windows.Forms.Label()
         Me.Label286 = New System.Windows.Forms.Label()
+        Me.Label302 = New System.Windows.Forms.Label()
         Me.Label287 = New System.Windows.Forms.Label()
         Me.Label289 = New System.Windows.Forms.Label()
         Me.ind_st2_motor_status = New System.Windows.Forms.PictureBox()
@@ -1050,9 +1054,21 @@ Partial Class frmMain
         Me.pnl_man_general = New System.Windows.Forms.TabControl()
         Me.TabPage27 = New System.Windows.Forms.TabPage()
         Me.btn_trig_turn_table = New System.Windows.Forms.Button()
+        Me.Label301 = New System.Windows.Forms.Label()
+        Me.Label283 = New System.Windows.Forms.Label()
+        Me.Label288 = New System.Windows.Forms.Label()
         Me.Label280 = New System.Windows.Forms.Label()
+        Me.Label285 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label284 = New System.Windows.Forms.Label()
         Me.Label281 = New System.Windows.Forms.Label()
+        Me.ind_safety_st6 = New System.Windows.Forms.PictureBox()
+        Me.ind_safety_st2 = New System.Windows.Forms.PictureBox()
+        Me.ind_safety_st4 = New System.Windows.Forms.PictureBox()
         Me.ind_cycle_status = New System.Windows.Forms.PictureBox()
+        Me.ind_safety_st5 = New System.Windows.Forms.PictureBox()
+        Me.ind_safety_st1 = New System.Windows.Forms.PictureBox()
+        Me.ind_safety_st3 = New System.Windows.Forms.PictureBox()
         Me.ind_altivar_status = New System.Windows.Forms.PictureBox()
         Me.lbl_date = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
@@ -1069,22 +1085,6 @@ Partial Class frmMain
         Me.btn_monitoring = New System.Windows.Forms.Button()
         Me.btn_manual = New System.Windows.Forms.Button()
         Me.btn_home = New System.Windows.Forms.Button()
-        Me.ind_safety_st1 = New System.Windows.Forms.PictureBox()
-        Me.ind_safety_st2 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label283 = New System.Windows.Forms.Label()
-        Me.ind_safety_st3 = New System.Windows.Forms.PictureBox()
-        Me.ind_safety_st5 = New System.Windows.Forms.PictureBox()
-        Me.ind_safety_st4 = New System.Windows.Forms.PictureBox()
-        Me.ind_safety_st6 = New System.Windows.Forms.PictureBox()
-        Me.Label284 = New System.Windows.Forms.Label()
-        Me.Label285 = New System.Windows.Forms.Label()
-        Me.Label288 = New System.Windows.Forms.Label()
-        Me.Label301 = New System.Windows.Forms.Label()
-        Me.Label302 = New System.Windows.Forms.Label()
-        Me.Label303 = New System.Windows.Forms.Label()
-        Me.txt_st2_punch_count = New System.Windows.Forms.TextBox()
-        Me.txt_st2_punch_cycle = New System.Windows.Forms.TextBox()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1530,17 +1530,17 @@ Partial Class frmMain
         CType(Me.dgv_calibration, System.ComponentModel.ISupportInitialize).BeginInit
         Me.pnl_man_general.SuspendLayout
         Me.TabPage27.SuspendLayout
+        CType(Me.ind_safety_st6, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_safety_st2, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_safety_st4, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_cycle_status, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_safety_st5, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_safety_st1, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_safety_st3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_altivar_status, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_safety_st1, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_safety_st2, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_safety_st3, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_safety_st5, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_safety_st4, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ind_safety_st6, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'lbl_user
@@ -7111,6 +7111,14 @@ Partial Class frmMain
         Me.TabPage26.Text = "Puncher / Heidenhain"
         Me.TabPage26.UseVisualStyleBackColor = True
         '
+        'txt_st2_punch_cycle
+        '
+        Me.txt_st2_punch_cycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_st2_punch_cycle.Location = New System.Drawing.Point(400, 304)
+        Me.txt_st2_punch_cycle.Name = "txt_st2_punch_cycle"
+        Me.txt_st2_punch_cycle.Size = New System.Drawing.Size(107, 35)
+        Me.txt_st2_punch_cycle.TabIndex = 94
+        '
         'txt_st2_cal_val
         '
         Me.txt_st2_cal_val.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -7118,6 +7126,14 @@ Partial Class frmMain
         Me.txt_st2_cal_val.Name = "txt_st2_cal_val"
         Me.txt_st2_cal_val.Size = New System.Drawing.Size(107, 35)
         Me.txt_st2_cal_val.TabIndex = 94
+        '
+        'txt_st2_punch_count
+        '
+        Me.txt_st2_punch_count.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_st2_punch_count.Location = New System.Drawing.Point(400, 255)
+        Me.txt_st2_punch_count.Name = "txt_st2_punch_count"
+        Me.txt_st2_punch_count.Size = New System.Drawing.Size(107, 35)
+        Me.txt_st2_punch_count.TabIndex = 93
         '
         'txt_st2_act_mea
         '
@@ -7197,6 +7213,16 @@ Partial Class frmMain
         Me.Label282.TabIndex = 80
         Me.Label282.Text = "Heidenhain Error"
         '
+        'Label303
+        '
+        Me.Label303.AutoSize = True
+        Me.Label303.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label303.Location = New System.Drawing.Point(321, 299)
+        Me.Label303.Name = "Label303"
+        Me.Label303.Size = New System.Drawing.Size(55, 40)
+        Me.Label303.TabIndex = 76
+        Me.Label303.Text = "Punch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Cycle :"
+        '
         'Label286
         '
         Me.Label286.AutoSize = True
@@ -7206,6 +7232,16 @@ Partial Class frmMain
         Me.Label286.Size = New System.Drawing.Size(58, 40)
         Me.Label286.TabIndex = 76
         Me.Label286.Text = "Calib" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Value :"
+        '
+        'Label302
+        '
+        Me.Label302.AutoSize = True
+        Me.Label302.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label302.Location = New System.Drawing.Point(321, 250)
+        Me.Label302.Name = "Label302"
+        Me.Label302.Size = New System.Drawing.Size(74, 40)
+        Me.Label302.TabIndex = 75
+        Me.Label302.Text = "Punch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Counter :"
         '
         'Label287
         '
@@ -13213,6 +13249,36 @@ Partial Class frmMain
         Me.btn_trig_turn_table.Text = "Trigger Turn " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Table"
         Me.btn_trig_turn_table.UseVisualStyleBackColor = True
         '
+        'Label301
+        '
+        Me.Label301.AutoSize = True
+        Me.Label301.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label301.Location = New System.Drawing.Point(173, 463)
+        Me.Label301.Name = "Label301"
+        Me.Label301.Size = New System.Drawing.Size(123, 20)
+        Me.Label301.TabIndex = 89
+        Me.Label301.Text = "Safety Station 6"
+        '
+        'Label283
+        '
+        Me.Label283.AutoSize = True
+        Me.Label283.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label283.Location = New System.Drawing.Point(172, 238)
+        Me.Label283.Name = "Label283"
+        Me.Label283.Size = New System.Drawing.Size(123, 20)
+        Me.Label283.TabIndex = 89
+        Me.Label283.Text = "Safety Station 2"
+        '
+        'Label288
+        '
+        Me.Label288.AutoSize = True
+        Me.Label288.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label288.Location = New System.Drawing.Point(173, 351)
+        Me.Label288.Name = "Label288"
+        Me.Label288.Size = New System.Drawing.Size(123, 20)
+        Me.Label288.TabIndex = 89
+        Me.Label288.Text = "Safety Station 4"
+        '
         'Label280
         '
         Me.Label280.AutoSize = True
@@ -13222,6 +13288,36 @@ Partial Class frmMain
         Me.Label280.Size = New System.Drawing.Size(98, 20)
         Me.Label280.TabIndex = 89
         Me.Label280.Text = "Cycle Status"
+        '
+        'Label285
+        '
+        Me.Label285.AutoSize = True
+        Me.Label285.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label285.Location = New System.Drawing.Point(173, 407)
+        Me.Label285.Name = "Label285"
+        Me.Label285.Size = New System.Drawing.Size(123, 20)
+        Me.Label285.TabIndex = 88
+        Me.Label285.Text = "Safety Station 5"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(172, 182)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(123, 20)
+        Me.Label1.TabIndex = 88
+        Me.Label1.Text = "Safety Station 1"
+        '
+        'Label284
+        '
+        Me.Label284.AutoSize = True
+        Me.Label284.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label284.Location = New System.Drawing.Point(173, 295)
+        Me.Label284.Name = "Label284"
+        Me.Label284.Size = New System.Drawing.Size(123, 20)
+        Me.Label284.TabIndex = 88
+        Me.Label284.Text = "Safety Station 3"
         '
         'Label281
         '
@@ -13233,6 +13329,33 @@ Partial Class frmMain
         Me.Label281.TabIndex = 88
         Me.Label281.Text = "Altivar Status"
         '
+        'ind_safety_st6
+        '
+        Me.ind_safety_st6.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st6.Location = New System.Drawing.Point(135, 458)
+        Me.ind_safety_st6.Name = "ind_safety_st6"
+        Me.ind_safety_st6.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st6.TabIndex = 87
+        Me.ind_safety_st6.TabStop = False
+        '
+        'ind_safety_st2
+        '
+        Me.ind_safety_st2.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st2.Location = New System.Drawing.Point(134, 233)
+        Me.ind_safety_st2.Name = "ind_safety_st2"
+        Me.ind_safety_st2.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st2.TabIndex = 87
+        Me.ind_safety_st2.TabStop = False
+        '
+        'ind_safety_st4
+        '
+        Me.ind_safety_st4.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st4.Location = New System.Drawing.Point(135, 346)
+        Me.ind_safety_st4.Name = "ind_safety_st4"
+        Me.ind_safety_st4.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st4.TabIndex = 87
+        Me.ind_safety_st4.TabStop = False
+        '
         'ind_cycle_status
         '
         Me.ind_cycle_status.BackColor = System.Drawing.Color.DarkRed
@@ -13241,6 +13364,33 @@ Partial Class frmMain
         Me.ind_cycle_status.Size = New System.Drawing.Size(30, 30)
         Me.ind_cycle_status.TabIndex = 87
         Me.ind_cycle_status.TabStop = False
+        '
+        'ind_safety_st5
+        '
+        Me.ind_safety_st5.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st5.Location = New System.Drawing.Point(135, 402)
+        Me.ind_safety_st5.Name = "ind_safety_st5"
+        Me.ind_safety_st5.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st5.TabIndex = 86
+        Me.ind_safety_st5.TabStop = False
+        '
+        'ind_safety_st1
+        '
+        Me.ind_safety_st1.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st1.Location = New System.Drawing.Point(134, 177)
+        Me.ind_safety_st1.Name = "ind_safety_st1"
+        Me.ind_safety_st1.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st1.TabIndex = 86
+        Me.ind_safety_st1.TabStop = False
+        '
+        'ind_safety_st3
+        '
+        Me.ind_safety_st3.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st3.Location = New System.Drawing.Point(135, 290)
+        Me.ind_safety_st3.Name = "ind_safety_st3"
+        Me.ind_safety_st3.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st3.TabIndex = 86
+        Me.ind_safety_st3.TabStop = False
         '
         'ind_altivar_status
         '
@@ -13455,156 +13605,6 @@ Partial Class frmMain
         Me.btn_home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_home.UseVisualStyleBackColor = True
         '
-        'ind_safety_st1
-        '
-        Me.ind_safety_st1.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_safety_st1.Location = New System.Drawing.Point(134, 177)
-        Me.ind_safety_st1.Name = "ind_safety_st1"
-        Me.ind_safety_st1.Size = New System.Drawing.Size(30, 30)
-        Me.ind_safety_st1.TabIndex = 86
-        Me.ind_safety_st1.TabStop = False
-        '
-        'ind_safety_st2
-        '
-        Me.ind_safety_st2.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_safety_st2.Location = New System.Drawing.Point(134, 233)
-        Me.ind_safety_st2.Name = "ind_safety_st2"
-        Me.ind_safety_st2.Size = New System.Drawing.Size(30, 30)
-        Me.ind_safety_st2.TabIndex = 87
-        Me.ind_safety_st2.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(172, 182)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(123, 20)
-        Me.Label1.TabIndex = 88
-        Me.Label1.Text = "Safety Station 1"
-        '
-        'Label283
-        '
-        Me.Label283.AutoSize = True
-        Me.Label283.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label283.Location = New System.Drawing.Point(172, 238)
-        Me.Label283.Name = "Label283"
-        Me.Label283.Size = New System.Drawing.Size(123, 20)
-        Me.Label283.TabIndex = 89
-        Me.Label283.Text = "Safety Station 2"
-        '
-        'ind_safety_st3
-        '
-        Me.ind_safety_st3.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_safety_st3.Location = New System.Drawing.Point(135, 290)
-        Me.ind_safety_st3.Name = "ind_safety_st3"
-        Me.ind_safety_st3.Size = New System.Drawing.Size(30, 30)
-        Me.ind_safety_st3.TabIndex = 86
-        Me.ind_safety_st3.TabStop = False
-        '
-        'ind_safety_st5
-        '
-        Me.ind_safety_st5.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_safety_st5.Location = New System.Drawing.Point(135, 402)
-        Me.ind_safety_st5.Name = "ind_safety_st5"
-        Me.ind_safety_st5.Size = New System.Drawing.Size(30, 30)
-        Me.ind_safety_st5.TabIndex = 86
-        Me.ind_safety_st5.TabStop = False
-        '
-        'ind_safety_st4
-        '
-        Me.ind_safety_st4.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_safety_st4.Location = New System.Drawing.Point(135, 346)
-        Me.ind_safety_st4.Name = "ind_safety_st4"
-        Me.ind_safety_st4.Size = New System.Drawing.Size(30, 30)
-        Me.ind_safety_st4.TabIndex = 87
-        Me.ind_safety_st4.TabStop = False
-        '
-        'ind_safety_st6
-        '
-        Me.ind_safety_st6.BackColor = System.Drawing.Color.DarkRed
-        Me.ind_safety_st6.Location = New System.Drawing.Point(135, 458)
-        Me.ind_safety_st6.Name = "ind_safety_st6"
-        Me.ind_safety_st6.Size = New System.Drawing.Size(30, 30)
-        Me.ind_safety_st6.TabIndex = 87
-        Me.ind_safety_st6.TabStop = False
-        '
-        'Label284
-        '
-        Me.Label284.AutoSize = True
-        Me.Label284.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label284.Location = New System.Drawing.Point(173, 295)
-        Me.Label284.Name = "Label284"
-        Me.Label284.Size = New System.Drawing.Size(123, 20)
-        Me.Label284.TabIndex = 88
-        Me.Label284.Text = "Safety Station 3"
-        '
-        'Label285
-        '
-        Me.Label285.AutoSize = True
-        Me.Label285.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label285.Location = New System.Drawing.Point(173, 407)
-        Me.Label285.Name = "Label285"
-        Me.Label285.Size = New System.Drawing.Size(123, 20)
-        Me.Label285.TabIndex = 88
-        Me.Label285.Text = "Safety Station 5"
-        '
-        'Label288
-        '
-        Me.Label288.AutoSize = True
-        Me.Label288.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label288.Location = New System.Drawing.Point(173, 351)
-        Me.Label288.Name = "Label288"
-        Me.Label288.Size = New System.Drawing.Size(123, 20)
-        Me.Label288.TabIndex = 89
-        Me.Label288.Text = "Safety Station 4"
-        '
-        'Label301
-        '
-        Me.Label301.AutoSize = True
-        Me.Label301.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label301.Location = New System.Drawing.Point(173, 463)
-        Me.Label301.Name = "Label301"
-        Me.Label301.Size = New System.Drawing.Size(123, 20)
-        Me.Label301.TabIndex = 89
-        Me.Label301.Text = "Safety Station 6"
-        '
-        'Label302
-        '
-        Me.Label302.AutoSize = True
-        Me.Label302.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label302.Location = New System.Drawing.Point(321, 250)
-        Me.Label302.Name = "Label302"
-        Me.Label302.Size = New System.Drawing.Size(74, 40)
-        Me.Label302.TabIndex = 75
-        Me.Label302.Text = "Punch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Counter :"
-        '
-        'Label303
-        '
-        Me.Label303.AutoSize = True
-        Me.Label303.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label303.Location = New System.Drawing.Point(321, 299)
-        Me.Label303.Name = "Label303"
-        Me.Label303.Size = New System.Drawing.Size(55, 40)
-        Me.Label303.TabIndex = 76
-        Me.Label303.Text = "Punch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Cycle :"
-        '
-        'txt_st2_punch_count
-        '
-        Me.txt_st2_punch_count.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st2_punch_count.Location = New System.Drawing.Point(400, 255)
-        Me.txt_st2_punch_count.Name = "txt_st2_punch_count"
-        Me.txt_st2_punch_count.Size = New System.Drawing.Size(107, 35)
-        Me.txt_st2_punch_count.TabIndex = 93
-        '
-        'txt_st2_punch_cycle
-        '
-        Me.txt_st2_punch_cycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st2_punch_cycle.Location = New System.Drawing.Point(400, 304)
-        Me.txt_st2_punch_cycle.Name = "txt_st2_punch_cycle"
-        Me.txt_st2_punch_cycle.Size = New System.Drawing.Size(107, 35)
-        Me.txt_st2_punch_cycle.TabIndex = 94
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -13632,14 +13632,13 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_user)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btn_setting)
-        Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.btn_laser)
-        Me.Controls.Add(Me.btn_ref)
-        Me.Controls.Add(Me.btn_multimeter)
-        Me.Controls.Add(Me.btn_monitoring)
-        Me.Controls.Add(Me.btn_manual)
-        Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
         Me.Controls.Add(Me.pnl_man_general)
         Me.Controls.Add(Me.pnl_man_stn1)
@@ -13656,11 +13655,12 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.btn_ref)
+        Me.Controls.Add(Me.btn_multimeter)
+        Me.Controls.Add(Me.btn_monitoring)
+        Me.Controls.Add(Me.btn_manual)
+        Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.btn_log)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -14233,17 +14233,17 @@ Partial Class frmMain
         Me.pnl_man_general.ResumeLayout(False)
         Me.TabPage27.ResumeLayout(False)
         Me.TabPage27.PerformLayout
+        CType(Me.ind_safety_st6, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_safety_st2, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_safety_st4, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_cycle_status, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_safety_st5, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_safety_st1, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_safety_st3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_altivar_status, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_safety_st1, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_safety_st2, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_safety_st3, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_safety_st5, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_safety_st4, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ind_safety_st6, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 

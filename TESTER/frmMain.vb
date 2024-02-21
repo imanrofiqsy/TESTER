@@ -1173,7 +1173,6 @@ Public Class frmMain
             btn_stn5_cyl4_fw.Text = "Forward"
         End If
     End Sub
-
     Private Sub btn_stn5_cyl4_bw_Click(sender As Object, e As EventArgs) Handles btn_stn5_cyl4_bw.Click
         If btn_stn5_cyl4_fw.Text = "Is Forward" Then
             btn_stn5_cyl4_fw.PerformClick()
@@ -1187,6 +1186,36 @@ Public Class frmMain
             STN5_CYL4 = IDLE
             btn_stn5_cyl4_bw.Image = My.Resources.button_silver
             btn_stn5_cyl4_bw.Text = "Backward"
+        End If
+    End Sub
+    Private Sub btn_stn5_screw_fw_Click(sender As Object, e As EventArgs) Handles btn_stn5_screw_fw.Click
+        If btn_stn5_screw_bw.Text = "Is Backward" Then
+            btn_stn5_screw_bw.PerformClick()
+        End If
+
+        If btn_stn5_screw_fw.Text = "Forward" Then
+            STN5_SCREW = FORWARD
+            btn_stn5_screw_fw.Image = My.Resources.button_white
+            btn_stn5_screw_fw.Text = "Is Forward"
+        ElseIf btn_stn5_screw_fw.Text = "Is Forward" Then
+            STN5_SCREW = IDLE
+            btn_stn5_screw_fw.Image = My.Resources.button_silver
+            btn_stn5_screw_fw.Text = "Forward"
+        End If
+    End Sub
+    Private Sub btn_stn5_screw_bw_Click(sender As Object, e As EventArgs) Handles btn_stn5_screw_bw.Click
+        If btn_stn5_screw_fw.Text = "Is Forward" Then
+            btn_stn5_screw_fw.PerformClick()
+        End If
+
+        If btn_stn5_screw_bw.Text = "Backward" Then
+            STN5_SCREW = BACKWARD
+            btn_stn5_screw_bw.Image = My.Resources.button_white
+            btn_stn5_screw_bw.Text = "Is Backward"
+        ElseIf btn_stn5_screw_bw.Text = "Is Backward" Then
+            STN5_SCREW = IDLE
+            btn_stn5_screw_bw.Image = My.Resources.button_silver
+            btn_stn5_screw_bw.Text = "Backward"
         End If
     End Sub
 
@@ -2332,6 +2361,11 @@ Public Class frmMain
         If STN5_CYL4 <> LAST_STN5_CYL4 Then
             ModbusWriter(STN5_CYL4, ADDR_STN5_CYL4)
             LAST_STN5_CYL4 = STN5_CYL4
+        End If
+
+        If STN5_SCREW <> LAST_STN5_SCREW Then
+            ModbusWriter(STN5_SCREW, ADDR_STN5_SCREW)
+            LAST_STN5_SCREW = STN5_SCREW
         End If
 
         'STN6

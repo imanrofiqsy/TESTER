@@ -215,15 +215,18 @@
     Public ADDR_STN5_CYL2 As Integer = 45502
     Public ADDR_STN5_CYL3 As Integer = 45503
     Public ADDR_STN5_CYL4 As Integer = 45504
+    Public ADDR_STN5_SCREW As Integer = 45505
 
     Public STN5_CYL1 As Integer = 0
     Public STN5_CYL2 As Integer = 0
     Public STN5_CYL3 As Integer = 0
     Public STN5_CYL4 As Integer = 0
+    Public STN5_SCREW As Integer = 0
     Public LAST_STN5_CYL1 As Integer = 0
     Public LAST_STN5_CYL2 As Integer = 0
     Public LAST_STN5_CYL3 As Integer = 0
     Public LAST_STN5_CYL4 As Integer = 0
+    Public LAST_STN5_SCREW As Integer = 0
 
     Public ADDR_STN6_CYL1 As Integer = 45601
     Public ADDR_STN6_CYL2 As Integer = 45602

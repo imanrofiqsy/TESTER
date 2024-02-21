@@ -3608,7 +3608,9 @@ Public Class frmMain
             btn_st2_preset_heidenhain.Enabled = True
             btn_st2_set_cal_val.Enabled = True
             btn_ref.Enabled = True
-
+            btn_alarm.Enabled = True
+            btn_multimeter.Enabled = True
+            btn_log.Enabled = True
         ElseIf USER_LEVEL = 2 Then
             lbl_user.Text = "ENG"
             btn_setting.Enabled = True
@@ -3617,6 +3619,9 @@ Public Class frmMain
             btn_st2_preset_heidenhain.Enabled = False
             btn_st2_set_cal_val.Enabled = False
             btn_ref.Enabled = True
+            btn_alarm.Enabled = True
+            btn_multimeter.Enabled = True
+            btn_log.Enabled = True
         ElseIf USER_LEVEL = 3 Then
             lbl_user.Text = "OPE"
             btn_setting.Enabled = False
@@ -3625,6 +3630,9 @@ Public Class frmMain
             btn_st2_preset_heidenhain.Enabled = False
             btn_st2_set_cal_val.Enabled = False
             btn_ref.Enabled = False
+            btn_alarm.Enabled = False
+            btn_multimeter.Enabled = False
+            btn_multimeter.Enabled = False
         ElseIf USER_LEVEL = 4 Then
             lbl_user.Text = "QUA"
             btn_setting.Enabled = False
@@ -3632,7 +3640,10 @@ Public Class frmMain
             btn_st4_cal.Enabled = True
             btn_st2_preset_heidenhain.Enabled = True
             btn_st2_set_cal_val.Enabled = True
-            btn_ref.Enabled = True
+            btn_ref.Enabled = False
+            btn_alarm.Enabled = False
+            btn_multimeter.Enabled = False
+            btn_multimeter.Enabled = False
         End If
     End Sub
     Private Sub btn_user_Click(sender As Object, e As EventArgs) Handles btn_user.Click

@@ -57,7 +57,7 @@ Partial Class frmLogin
         '
         Me.cb_username.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_username.FormattingEnabled = True
-        Me.cb_username.Items.AddRange(New Object() {"Admin", "Engineer", "Operator"})
+        Me.cb_username.Items.AddRange(New Object() {"Admin", "Engineer", "Operator", "Quality"})
         Me.cb_username.Location = New System.Drawing.Point(238, 71)
         Me.cb_username.Name = "cb_username"
         Me.cb_username.Size = New System.Drawing.Size(121, 28)

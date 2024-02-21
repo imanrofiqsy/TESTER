@@ -3609,18 +3609,30 @@ Public Class frmMain
             lbl_user.Text = "ADM"
             btn_setting.Enabled = True
             btn_manual.Enabled = True
+            btn_st4_cal.Enabled = False
+            btn_st2_preset_heidenhain.Enabled = False
+            btn_st2_set_cal_val.Enabled = False
         ElseIf USER_LEVEL = 2 Then
             lbl_user.Text = "ENG"
             btn_setting.Enabled = True
             btn_manual.Enabled = True
+            btn_st4_cal.Enabled = False
+            btn_st2_preset_heidenhain.Enabled = False
+            btn_st2_set_cal_val.Enabled = False
         ElseIf USER_LEVEL = 3 Then
             lbl_user.Text = "OPE"
             btn_setting.Enabled = False
             btn_manual.Enabled = False
+            btn_st4_cal.Enabled = False
+            btn_st2_preset_heidenhain.Enabled = False
+            btn_st2_set_cal_val.Enabled = False
         ElseIf USER_LEVEL = 4 Then
             lbl_user.Text = "QUA"
             btn_setting.Enabled = False
             btn_manual.Enabled = False
+            btn_st4_cal.Enabled = True
+            btn_st2_preset_heidenhain.Enabled = True
+            btn_st2_set_cal_val.Enabled = True
         End If
     End Sub
     Private Sub btn_user_Click(sender As Object, e As EventArgs) Handles btn_user.Click

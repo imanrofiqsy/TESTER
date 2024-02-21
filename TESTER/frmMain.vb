@@ -136,7 +136,7 @@ Public Class frmMain
         Status.Enabled = True
         UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
-        'GetPCStatus("OPEN") 'Software is open
+        GetPCStatus("OPEN") 'Software is open
         UpdateLoadingBar(100, "Load App GUI...")
         Thread.Sleep(500)
         CloseLoadForm()

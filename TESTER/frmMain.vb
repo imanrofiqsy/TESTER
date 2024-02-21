@@ -2373,7 +2373,7 @@ Public Class frmMain
     End Sub
 
     'panel home
-    Private Sub btn_run_Click(sender As Object, e As EventArgs)
+    Private Sub btn_run_Click(sender As Object, e As EventArgs) Handles btn_run.Click
         If (txt_ref.Text = "" Or txt_ope_id.Text = "" Or txt_po_num.Text = "") Then
             MsgBox("Please Scan Barcode!")
             Exit Sub
@@ -2396,7 +2396,7 @@ Public Class frmMain
         IS_RUN = True
     End Sub
 
-    Private Sub btn_stop_Click(sender As Object, e As EventArgs)
+    Private Sub btn_stop_Click(sender As Object, e As EventArgs) Handles btn_stop.Click
         GetPCStatus("STOP")
         btn_run.Enabled = True
         btn_stop.Enabled = False
@@ -3172,7 +3172,7 @@ Public Class frmMain
         'Console.WriteLine(rd.Item("[Operator ID]"))
         Return False
     End Function
-    Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click, btn_stop.Click
+    Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click
         SCAN_MODE = 0
         LASER_STATE = 0
         txt_ref.Text = ""
@@ -3765,7 +3765,7 @@ Public Class frmMain
                       txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
                   End Sub)
     End Sub
-    Private Sub btn_empty_Click(sender As Object, e As EventArgs) Handles btn_empty.Click, btn_run.Click
+    Private Sub btn_empty_Click(sender As Object, e As EventArgs) Handles btn_empty.Click
         Dim empty_process As String = Modbus.ReadData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS)
 
         If Val(empty_process) <> 2 And Val(empty_process) <> 4 And Val(empty_process) <> 1 Then

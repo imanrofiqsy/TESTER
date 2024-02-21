@@ -1508,8 +1508,8 @@ Public Class frmMain
             txt_st2_act_mea.Text = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACT_MEA_ST2)
             txt_st2_punch_count.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2)
             txt_st4_analog_data.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ANALOG_DATA_ST2)
-            txt_st4_actu_pos.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_ACTUATION_POS_ST4)
-            txt_st4_diff_str.Text = Modbus.ReadData(REGISTER_TYPE, ADDR_DIFF_STR_ST4)
+            txt_st4_actu_pos.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ACTUATION_POS_ST4)
+            txt_st4_diff_str.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_ST4)
 
             ' STN 1
             If Modbus.ReadData(REGISTER_TYPE, ADDR_STN1_SEN1) = FORWARD Then

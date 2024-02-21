@@ -3632,7 +3632,7 @@ Public Class frmMain
             btn_ref.Enabled = False
             btn_alarm.Enabled = False
             btn_multimeter.Enabled = False
-            btn_multimeter.Enabled = False
+            btn_log.Enabled = False
         ElseIf USER_LEVEL = 4 Then
             lbl_user.Text = "QUA"
             btn_setting.Enabled = False
@@ -3643,7 +3643,7 @@ Public Class frmMain
             btn_ref.Enabled = False
             btn_alarm.Enabled = False
             btn_multimeter.Enabled = False
-            btn_multimeter.Enabled = False
+            btn_log.Enabled = False
         End If
     End Sub
     Private Sub btn_user_Click(sender As Object, e As EventArgs) Handles btn_user.Click

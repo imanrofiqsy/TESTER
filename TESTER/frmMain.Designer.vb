@@ -13472,6 +13472,7 @@ Partial Class frmMain
         Me.btn_multimeter.Text = "Ohm Meter"
         Me.btn_multimeter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_multimeter.UseVisualStyleBackColor = True
+        Me.btn_multimeter.Visible = False
         '
         'btn_monitoring
         '
@@ -13588,15 +13589,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.lbl_st4_t1_1)
         Me.Controls.Add(Me.lbl_st4_t1)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_general)
-        Me.Controls.Add(Me.pnl_man_stn1)
-        Me.Controls.Add(Me.pnl_setting)
-        Me.Controls.Add(Me.pnl_log)
-        Me.Controls.Add(Me.pnl_ref)
-        Me.Controls.Add(Me.pnl_laser)
-        Me.Controls.Add(Me.pnl_calibration)
         Me.Controls.Add(Me.pnl_multi)
         Me.Controls.Add(Me.pnl_alarm)
         Me.Controls.Add(Me.pnl_mon_stn6)
@@ -13609,6 +13601,15 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_man_stn6)
         Me.Controls.Add(Me.pnl_man_stn5)
         Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_general)
+        Me.Controls.Add(Me.pnl_man_stn1)
+        Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.pnl_log)
+        Me.Controls.Add(Me.pnl_ref)
+        Me.Controls.Add(Me.pnl_laser)
+        Me.Controls.Add(Me.pnl_calibration)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

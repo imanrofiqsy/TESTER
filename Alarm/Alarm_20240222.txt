@@ -1,0 +1,20 @@
+2024-02-22 13:59:01 [General] Door Lock 1 Close
+2024-02-22 13:59:01 [General] Door Lock 2 Close
+2024-02-22 13:59:01 [General] Door Lock 3 Close
+2024-02-22 13:59:01 [General] Door Lock 4 Close
+2024-02-22 13:59:01 [General] Door Lock 5 Close
+2024-02-22 13:59:01 [General] Door Lock 6 Close
+2024-02-22 13:59:01 [General] Altivar OK
+2024-02-22 13:59:01 [General] Air Presence NOK
+2024-02-22 13:59:01 [General] Emergency Button Is Released
+2024-02-22 13:59:01 [General] Safety Curtain NOK
+2024-02-22 13:59:01 [ST-2] V201 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-2] V202 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-3] V301 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-3] V302 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-4] V401 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-4] V402 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-5] V501 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-5] V501 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-6] V601 Descrepancy Not Detected
+2024-02-22 13:59:01 [ST-6] V602 Descrepancy Not Detected

@@ -71,20 +71,20 @@ Public Class frmMain
 
         End With
 
-        btn_connect_plc.PerformClick()
+        'btn_connect_plc.PerformClick()
         Hide()
         UpdateLoadingBar(20, "Connecting to PLC...")
         Thread.Sleep(500)
 
-        Try
-            If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
-                MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-                End
-            End If
-        Catch ex As Exception
-            MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-            End
-        End Try
+        'Try
+        '    If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
+        '        MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+        '        End
+        '    End If
+        'Catch ex As Exception
+        '    MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End Try
 
 
         ShowPanelGeneral("home")
@@ -92,42 +92,42 @@ Public Class frmMain
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
-        Try
-            ChromaComm.Open()
-            btn_open_multi.Text = "Close Port"
-            connect_multi_ind.BackColor = Color.Lime
-        Catch ex As Exception
-            MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-            connect_multi_ind.BackColor = Color.Red
-            End
-        End Try
+        'Try
+        '    ChromaComm.Open()
+        '    btn_open_multi.Text = "Close Port"
+        '    connect_multi_ind.BackColor = Color.Lime
+        'Catch ex As Exception
+        '    MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        '    connect_multi_ind.BackColor = Color.Red
+        '    End
+        'End Try
 
         'init chroma
-        ChromaComm.Write("*IDN?" & vbCrLf)
-        Thread.Sleep(100)
-        If Not strChromaRaw = Config.instrumentName Then
-            MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
-            End
-        End If
+        'ChromaComm.Write("*IDN?" & vbCrLf)
+        'Thread.Sleep(100)
+        'If Not strChromaRaw = Config.instrumentName Then
+        '    MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End If
 
         Thread.Sleep(200)
 
         UpdateLoadingBar(60, "Connecting to Laser...")
-        Try
-            If Not Laser.is_connected() Then
-                Laser.Connect()
-                btn_connect_laser.Text = "Disconnect"
-                connect_laser_ind.BackColor = Color.Lime
-            End If
-        Catch ex As Exception
-            MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-            End
-        End Try
+        'Try
+        '    If Not Laser.is_connected() Then
+        '        Laser.Connect()
+        '        btn_connect_laser.Text = "Disconnect"
+        '        connect_laser_ind.BackColor = Color.Lime
+        '    End If
+        'Catch ex As Exception
+        '    MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End Try
 
-        If Not initCyklop() Then
-            MsgBox("Cannot establish connection to Laser! ", MsgBoxStyle.SystemModal, "On Top")
-            End
-        End If
+        'If Not initCyklop() Then
+        '    MsgBox("Cannot establish connection to Laser! ", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End If
 
         Thread.Sleep(200)
 
@@ -143,7 +143,7 @@ Public Class frmMain
         UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
 
-        GetPCStatus("OPEN") 'Software is open
+        'GetPCStatus("OPEN") 'Software is open
 
         UpdateLoadingBar(100, "Load App GUI...")
         Thread.Sleep(500)
@@ -3005,8 +3005,10 @@ Public Class frmMain
     Dim DGV_Temp As New DataGridView
     Public Sub Save_Datalog()
         Try
-            Dim startDate As String = Now.Today.ToString("yyyy-MM-dd 00:00:00")
-            Dim endDate As String = Now.Today.ToString("yyyy-MM-dd 23:59:59")
+            Dim yesterday As DateTime = Now.Today.AddDays(-1)
+
+            Dim startDate As String = yesterday.ToString("yyyy-mm-dd 00:00:00")
+            Dim endDate As String = yesterday.ToString("yyyy-mm-dd 23:59:59")
 
             Call KoneksiDB.koneksi_db()
             ' Try
@@ -3015,84 +3017,51 @@ Public Class frmMain
             Dim ds As New DataSet
 
             adapter.Fill(ds)
-            DGV_Temp.DataSource = ds.Tables(0)
+            DataGridView1.DataSource = ds.Tables(0)
 
-            DGV_Temp.ClearSelection()
-
-            Dim value As String = ""
-            Dim dr As New DataGridViewRow()
+            DataGridView1.ClearSelection()
 
             logFileName = $"Log_{Date.Now.ToString("yyyyMMdd")}.csv"
             Dim strFile As String = projectFolder & "\Log\" & logFileName
             Dim fileExists As Boolean = File.Exists(strFile)
-            If File.Exists(strFile) Then
-                ' If the file exists, append the log entry
-                Using sw As New StreamWriter(strFile, True)
-                    'write header rows to csv
-                    For i As Integer = 0 To DGV_Temp.Columns.Count - 1
+
+            If DataGridView1.RowCount > 0 Then
+                Dim value As String = ""
+                Dim dr As New DataGridViewRow()
+
+                Dim swOut As StreamWriter = File.CreateText(strFile)
+
+                'write header rows to csv
+                For i As Integer = 0 To DataGridView1.Columns.Count - 1
+                    If i > 0 Then
+                        swOut.Write(";")
+                    End If
+                    swOut.Write(DataGridView1.Columns(i).HeaderText)
+                Next
+
+                swOut.WriteLine()
+
+                'write DataGridView rows to csv
+                For j As Integer = 0 To DataGridView1.Rows.Count - 1
+                    If j > 0 Then
+                        swOut.WriteLine()
+                    End If
+
+                    dr = DataGridView1.Rows(j)
+
+                    For i As Integer = 0 To DataGridView1.Columns.Count - 1
                         If i > 0 Then
-                            sw.Write(";")
+                            swOut.Write(";")
                         End If
-                        sw.Write(DGV_Temp.Columns(i).HeaderText)
-                    Next
-
-                    sw.WriteLine()
-
-                    For j As Integer = 0 To DGV_Temp.Rows.Count - 1
-                        If j > 0 Then
-                            sw.WriteLine()
+                        If IsDBNull(dr.Cells(i).Value) Then
+                            value = "0"
+                        Else
+                            value = CStr(dr.Cells(i).Value)
                         End If
-
-                        dr = DGV_Temp.Rows(j)
-
-                        For i As Integer = 0 To DGV_Temp.Columns.Count - 1
-                            If i > 0 Then
-                                sw.Write(";")
-                            End If
-                            If IsDBNull(dr.Cells(i).Value) Then
-                                value = "0"
-                            Else
-                                value = CStr(dr.Cells(i).Value)
-                            End If
-                            sw.Write(value)
-                        Next
+                        swOut.Write(value)
                     Next
-                    sw.Close()
-                End Using
-            Else
-                ' If the file does not exist, create it and write the log entry
-                Using sw As New StreamWriter(strFile)
-                    'write header rows to csv
-                    For i As Integer = 0 To DGV_Temp.Columns.Count - 1
-                        If i > 0 Then
-                            sw.Write(";")
-                        End If
-                        sw.Write(DGV_Temp.Columns(i).HeaderText)
-                    Next
-
-                    sw.WriteLine()
-
-                    For j As Integer = 0 To DGV_Temp.Rows.Count - 1
-                        If j > 0 Then
-                            sw.WriteLine()
-                        End If
-
-                        dr = DGV_Temp.Rows(j)
-
-                        For i As Integer = 0 To DGV_Temp.Columns.Count - 1
-                            If i > 0 Then
-                                sw.Write(";")
-                            End If
-                            If IsDBNull(dr.Cells(i).Value) Then
-                                value = "0"
-                            Else
-                                value = CStr(dr.Cells(i).Value)
-                            End If
-                            sw.Write(value)
-                        Next
-                    Next
-                    sw.Close()
-                End Using
+                Next
+                swOut.Close()
             End If
         Catch ex As Exception
 
@@ -3231,10 +3200,10 @@ Public Class frmMain
 
         Dim currentDay As Integer = Now.Day
 
-        'If currentDay <> previousDay Then
-        Save_Datalog()
-        '    previousDay = currentDay
-        'End If
+        If currentDay <> previousDay Then
+            Save_Datalog()
+            previousDay = currentDay
+        End If
     End Sub
     Private Sub BarcodeComm_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles BarcodeComm.DataReceived
         If SCAN_MODE = 0 Then

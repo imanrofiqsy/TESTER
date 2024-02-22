@@ -2910,6 +2910,12 @@ Public Class frmMain
         Else
             ind_st3_continuous_motion.BackColor = Color.Red
         End If
+
+        If binaryString(0) = "1" Then
+            ind_st3_discrete_motion.BackColor = Color.Lime
+        Else
+            ind_st3_discrete_motion.BackColor = Color.Red
+        End If
     End Sub
     Private Sub ReadHeidenhain(DecimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)

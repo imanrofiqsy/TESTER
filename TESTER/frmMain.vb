@@ -17,17 +17,23 @@ Public Class frmMain
     Dim fullPath As String = System.AppDomain.CurrentDomain.BaseDirectory
     Dim projectFolder As String = fullPath.Replace("\TESTER\bin\Debug\", "").Replace("\TESTER\bin\Release\", "")
     Dim iniPath As String = projectFolder + "\Config\Config.INI"
-    Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.txt"
+    Dim alarmFileName As String = $"Alarm_{Date.Now.ToString("yyyyMMdd")}.txt"
+    Dim logFileName As String = $"Log_{Date.Now.ToString("yyyyMMdd")}.csv"
 
     Dim delay As Integer = 0
     Dim EmgState As Integer = 0
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Dir(projectFolder & "\Log\Log.txt") = "" Then
-            Directory.CreateDirectory(projectFolder & "\Log")
-            File.WriteAllText(projectFolder & "\Log\Log.txt", "")
+        initLoadingBar()
+
+        If Not Directory.Exists(projectFolder + "/Log") Then
+            MsgBox("Log folder not found!", MsgBoxStyle.SystemModal, "On Top")
+            End
         End If
 
-        initLoadingBar()
+        If Not Directory.Exists(projectFolder + "/Alarm") Then
+            MsgBox("Alarm folder not found!", MsgBoxStyle.SystemModal, "On Top")
+            End
+        End If
 
         With Config
             .addressPlc = ReadINI(iniPath, "PLC", "IP")
@@ -136,7 +142,9 @@ Public Class frmMain
         Status.Enabled = True
         UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
+
         GetPCStatus("OPEN") 'Software is open
+
         UpdateLoadingBar(100, "Load App GUI...")
         Thread.Sleep(500)
         CloseLoadForm()
@@ -2527,7 +2535,8 @@ Public Class frmMain
 
         For i As Integer = 0 To alarm_text_general.Length - 1
             If last_alarm_general(i) <> alarm_text_general(i) Then
-                Dim strFile As String = projectFolder & "\Log\" & logFileName
+                alarmFileName = $"Alarm_{Date.Now.ToString("yyyyMMdd")}.txt"
+                Dim strFile As String = projectFolder & "\Alarm\" & alarmFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
                 If File.Exists(strFile) Then
                     ' If the file exists, append the log entry
@@ -2573,7 +2582,8 @@ Public Class frmMain
 
         For i As Integer = 0 To alarm_text_stn2.Length - 1
             If last_alarm_stn2(i) <> alarm_text_stn2(i) Then
-                Dim strFile As String = projectFolder & "\Log\" & logFileName
+                alarmFileName = $"Alarm_{Date.Now.ToString("yyyyMMdd")}.txt"
+                Dim strFile As String = projectFolder & "\Alarm\" & alarmFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
                 If File.Exists(strFile) Then
                     ' If the file exists, append the log entry
@@ -2618,7 +2628,8 @@ Public Class frmMain
 
         For i As Integer = 0 To alarm_text_stn3.Length - 1
             If last_alarm_stn3(i) <> alarm_text_stn3(i) Then
-                Dim strFile As String = projectFolder & "\Log\" & logFileName
+                alarmFileName = $"Alarm_{Date.Now.ToString("yyyyMMdd")}.txt"
+                Dim strFile As String = projectFolder & "\Alarm\" & alarmFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
                 If File.Exists(strFile) Then
                     ' If the file exists, append the log entry
@@ -2663,7 +2674,8 @@ Public Class frmMain
 
         For i As Integer = 0 To alarm_text_stn4.Length - 1
             If last_alarm_stn4(i) <> alarm_text_stn4(i) Then
-                Dim strFile As String = projectFolder & "\Log\" & logFileName
+                alarmFileName = $"Alarm_{Date.Now.ToString("yyyyMMdd")}.txt"
+                Dim strFile As String = projectFolder & "\Alarm\" & alarmFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
                 If File.Exists(strFile) Then
                     ' If the file exists, append the log entry
@@ -2708,7 +2720,8 @@ Public Class frmMain
 
         For i As Integer = 0 To alarm_text_stn5.Length - 1
             If last_alarm_stn5(i) <> alarm_text_stn5(i) Then
-                Dim strFile As String = projectFolder & "\Log\" & logFileName
+                alarmFileName = $"Alarm_{Date.Now.ToString("yyyyMMdd")}.txt"
+                Dim strFile As String = projectFolder & "\Alarm\" & alarmFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
                 If File.Exists(strFile) Then
                     ' If the file exists, append the log entry
@@ -2753,7 +2766,8 @@ Public Class frmMain
 
         For i As Integer = 0 To alarm_text_stn6.Length - 1
             If last_alarm_stn6(i) <> alarm_text_stn6(i) Then
-                Dim strFile As String = projectFolder & "\Log\" & logFileName
+                alarmFileName = $"Alarm_{Date.Now.ToString("yyyyMMdd")}.txt"
+                Dim strFile As String = projectFolder & "\Alarm\" & alarmFileName
                 Dim fileExists As Boolean = File.Exists(strFile)
                 If File.Exists(strFile) Then
                     ' If the file exists, append the log entry
@@ -2987,8 +3001,104 @@ Public Class frmMain
             ind_safety_st6.BackColor = Color.Red
         End If
     End Sub
-
     Dim delayLaser As Integer = 0
+    Dim DGV_Temp As New DataGridView
+    Public Sub Save_Datalog()
+        Try
+            Dim startDate As String = Now.Today.ToString("yyyy-MM-dd 00:00:00")
+            Dim endDate As String = Now.Today.ToString("yyyy-MM-dd 23:59:59")
+
+            Call KoneksiDB.koneksi_db()
+            ' Try
+            Dim sc As New SqlCommand("SELECT * FROM tb_data WHERE [Date Time] BETWEEN '" + startDate + "' AND '" + endDate + "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
+            Dim adapter As New SqlDataAdapter(sc)
+            Dim ds As New DataSet
+
+            adapter.Fill(ds)
+            DGV_Temp.DataSource = ds.Tables(0)
+
+            DGV_Temp.ClearSelection()
+
+            Dim value As String = ""
+            Dim dr As New DataGridViewRow()
+
+            logFileName = $"Log_{Date.Now.ToString("yyyyMMdd")}.csv"
+            Dim strFile As String = projectFolder & "\Log\" & logFileName
+            Dim fileExists As Boolean = File.Exists(strFile)
+            If File.Exists(strFile) Then
+                ' If the file exists, append the log entry
+                Using sw As New StreamWriter(strFile, True)
+                    'write header rows to csv
+                    For i As Integer = 0 To DGV_Temp.Columns.Count - 1
+                        If i > 0 Then
+                            sw.Write(";")
+                        End If
+                        sw.Write(DGV_Temp.Columns(i).HeaderText)
+                    Next
+
+                    sw.WriteLine()
+
+                    For j As Integer = 0 To DGV_Temp.Rows.Count - 1
+                        If j > 0 Then
+                            sw.WriteLine()
+                        End If
+
+                        dr = DGV_Temp.Rows(j)
+
+                        For i As Integer = 0 To DGV_Temp.Columns.Count - 1
+                            If i > 0 Then
+                                sw.Write(";")
+                            End If
+                            If IsDBNull(dr.Cells(i).Value) Then
+                                value = "0"
+                            Else
+                                value = CStr(dr.Cells(i).Value)
+                            End If
+                            sw.Write(value)
+                        Next
+                    Next
+                    sw.Close()
+                End Using
+            Else
+                ' If the file does not exist, create it and write the log entry
+                Using sw As New StreamWriter(strFile)
+                    'write header rows to csv
+                    For i As Integer = 0 To DGV_Temp.Columns.Count - 1
+                        If i > 0 Then
+                            sw.Write(";")
+                        End If
+                        sw.Write(DGV_Temp.Columns(i).HeaderText)
+                    Next
+
+                    sw.WriteLine()
+
+                    For j As Integer = 0 To DGV_Temp.Rows.Count - 1
+                        If j > 0 Then
+                            sw.WriteLine()
+                        End If
+
+                        dr = DGV_Temp.Rows(j)
+
+                        For i As Integer = 0 To DGV_Temp.Columns.Count - 1
+                            If i > 0 Then
+                                sw.Write(";")
+                            End If
+                            If IsDBNull(dr.Cells(i).Value) Then
+                                value = "0"
+                            Else
+                                value = CStr(dr.Cells(i).Value)
+                            End If
+                            sw.Write(value)
+                        Next
+                    Next
+                    sw.Close()
+                End Using
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Dim previousDay As Integer = Now.Day
     Private Sub Status_Tick(sender As Object, e As EventArgs) Handles Status.Tick
         Select Case SCAN_MODE
             Case 0
@@ -3119,6 +3229,12 @@ Public Class frmMain
             ind_plc_status.BackColor = Color.Red
         End If
 
+        Dim currentDay As Integer = Now.Day
+
+        'If currentDay <> previousDay Then
+        Save_Datalog()
+        '    previousDay = currentDay
+        'End If
     End Sub
     Private Sub BarcodeComm_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles BarcodeComm.DataReceived
         If SCAN_MODE = 0 Then
@@ -3746,80 +3862,6 @@ Public Class frmMain
             adapter.SelectCommand.ExecuteNonQuery()
             LoadTbRef()
         End If
-    End Sub
-    ' panel log
-    Private Sub btn_search_other_Click(sender As Object, e As EventArgs) Handles btn_search_other.Click
-        Select Case cb_search_opt.Text
-            Case "References"
-                Me.Invoke(Sub()
-                              txt_log.Text = "Searching Database....." + vbCrLf
-                              Call KoneksiDB.koneksi_db()
-                              Try
-                                  Dim sc As New SqlCommand("SELECT * FROM tb_data where [References] = '" & txt_find_other.Text & "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
-                                  Dim adapter As New SqlDataAdapter(sc)
-                                  Dim ds As New DataSet
-
-                                  adapter.Fill(ds)
-                                  DataGridView1.DataSource = ds.Tables(0)
-                              Catch ex As Exception
-                                  txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
-                              End Try
-                              txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
-                          End Sub)
-            Case "PO Number"
-                Me.Invoke(Sub()
-                              txt_log.Text = "Searching Database....." + vbCrLf
-                              Call KoneksiDB.koneksi_db()
-                              Try
-                                  Dim sc As New SqlCommand("SELECT * FROM tb_data where [Product Order] = '" & txt_find_other.Text & "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
-                                  Dim adapter As New SqlDataAdapter(sc)
-                                  Dim ds As New DataSet
-
-                                  adapter.Fill(ds)
-                                  DataGridView1.DataSource = ds.Tables(0)
-                              Catch ex As Exception
-                                  txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
-                              End Try
-                              txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
-                          End Sub)
-            Case "Operator ID"
-                Me.Invoke(Sub()
-                              txt_log.Text = "Searching Database....." + vbCrLf
-                              Call KoneksiDB.koneksi_db()
-                              Try
-                                  Dim sc As New SqlCommand("SELECT * FROM tb_data where [Operator ID] = '" & txt_find_other.Text & "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
-                                  Dim adapter As New SqlDataAdapter(sc)
-                                  Dim ds As New DataSet
-
-                                  adapter.Fill(ds)
-                                  DataGridView1.DataSource = ds.Tables(0)
-                              Catch ex As Exception
-                                  txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
-                              End Try
-                              txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
-                          End Sub)
-        End Select
-    End Sub
-    Private Sub btn_search_Click(sender As Object, e As EventArgs) Handles btn_search.Click
-        Me.Invoke(Sub()
-                      Try
-                          txt_log.Text = "Searching Database....." + vbCrLf
-                          Dim range1 As String = DateTimePickerStartDate.Value.ToString("yyyy-MM-dd 00:00:00")
-                          Dim range2 As String = DateTimePickerEndDate.Value.ToString("yyyy-MM-dd 23:59:59")
-
-                          Call KoneksiDB.koneksi_db()
-                          ' Try
-                          Dim sc As New SqlCommand("SELECT * FROM tb_data WHERE [Date Time] BETWEEN '" + range1 + "' AND '" + range2 + "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
-                          Dim adapter As New SqlDataAdapter(sc)
-                          Dim ds As New DataSet
-
-                          adapter.Fill(ds)
-                          DataGridView1.DataSource = ds.Tables(0)
-                      Catch ex As Exception
-                          txt_log.Text = txt_log.Text + "Error: Database not found!" + vbCrLf
-                      End Try
-                      txt_log.Text = txt_log.Text + "Done Searching Database....." + vbCrLf
-                  End Sub)
     End Sub
     Private Sub btn_empty_Click(sender As Object, e As EventArgs) Handles btn_empty.Click
         Dim empty_process As String = Modbus.ReadData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS)
@@ -5782,4 +5824,113 @@ Retry:
         End If
     End Sub
 
+    Private Sub btn_search_Click(sender As Object, e As EventArgs) Handles btn_search.Click
+        Cursor = Cursors.WaitCursor
+        If rbBydate.Checked Then
+            Try
+                Dim range1 As String = DateTimePickerStartDate.Value.ToString("yyyy-MM-dd 00:00:00")
+                Dim range2 As String = DateTimePickerEndDate.Value.ToString("yyyy-MM-dd 23:59:59")
+
+                Call KoneksiDB.koneksi_db()
+                ' Try
+                Dim sc As New SqlCommand("SELECT * FROM tb_data WHERE [Date Time] BETWEEN '" + range1 + "' AND '" + range2 + "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
+                Dim adapter As New SqlDataAdapter(sc)
+                Dim ds As New DataSet
+
+                adapter.Fill(ds)
+                DataGridView1.DataSource = ds.Tables(0)
+
+                DataGridView1.ClearSelection()
+                RTB_LOG.SelectionColor = Color.Black
+                RTB_LOG.AppendText(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss ") + "[NOTICE] Data search was successful" + Environment.NewLine)
+                RTB_LOG.ScrollToCaret()
+            Catch ex As Exception
+                RTB_LOG.SelectionColor = Color.Red
+                RTB_LOG.AppendText(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss ") + "[ERROR] Database not found!, " + ex.Message + Environment.NewLine)
+                RTB_LOG.ScrollToCaret()
+            End Try
+        ElseIf rbByREF.Checked Then
+            Try
+                Call KoneksiDB.koneksi_db()
+                ' Try
+                Dim sc As New SqlCommand("SELECT * FROM tb_data WHERE [References] = '" + tbSearchREF.Text + "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
+                Dim adapter As New SqlDataAdapter(sc)
+                Dim ds As New DataSet
+
+                adapter.Fill(ds)
+                DataGridView1.DataSource = ds.Tables(0)
+
+                DataGridView1.ClearSelection()
+                RTB_LOG.SelectionColor = Color.Black
+                RTB_LOG.AppendText(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss ") + "[NOTICE] Data search was successful" + Environment.NewLine)
+                RTB_LOG.ScrollToCaret()
+            Catch ex As Exception
+                RTB_LOG.SelectionColor = Color.Red
+                RTB_LOG.AppendText(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss ") + "[ERROR] Database not found!" + Environment.NewLine)
+                RTB_LOG.ScrollToCaret()
+            End Try
+        End If
+        Cursor = Cursors.Default
+    End Sub
+    Dim _SaveFileDialog As New SaveFileDialog
+    Private Sub btn_fileLocation_Click_1(sender As Object, e As EventArgs) Handles btn_fileLocation.Click
+        _SaveFileDialog.Filter = "CSV Files|*.csv"
+        _SaveFileDialog.Title = "Export-csv"
+        If _SaveFileDialog.ShowDialog = DialogResult.OK Then
+            txtFileLocation.Text = _SaveFileDialog.FileName
+        End If
+    End Sub
+
+    Private Sub btn_export_Click(sender As Object, e As EventArgs) Handles btn_export.Click
+        If txtFileLocation.Text <> "" Then
+            If DataGridView1.RowCount > 0 Then
+                Dim value As String = ""
+                Dim dr As New DataGridViewRow()
+
+                Dim swOut As StreamWriter = File.CreateText(_SaveFileDialog.FileName)
+
+                'write header rows to csv
+                For i As Integer = 0 To DataGridView1.Columns.Count - 1
+                    If i > 0 Then
+                        swOut.Write(";")
+                    End If
+                    swOut.Write(DataGridView1.Columns(i).HeaderText)
+                Next
+
+                swOut.WriteLine()
+
+                'write DataGridView rows to csv
+                ProgressBarExport.Minimum = 0
+                ProgressBarExport.Maximum = DataGridView1.Rows.Count - 1
+                For j As Integer = 0 To DataGridView1.Rows.Count - 1
+                    If j > 0 Then
+                        swOut.WriteLine()
+                    End If
+
+                    dr = DataGridView1.Rows(j)
+
+                    For i As Integer = 0 To DataGridView1.Columns.Count - 1
+                        If i > 0 Then
+                            swOut.Write(";")
+                        End If
+                        If IsDBNull(dr.Cells(i).Value) Then
+                            value = "0"
+                        Else
+                            value = CStr(dr.Cells(i).Value)
+                        End If
+                        swOut.Write(value)
+                    Next
+                    ProgressBarExport.Value = j
+                Next
+
+                If ProgressBarExport.Value >= ProgressBarExport.Maximum Then
+                    RTB_LOG.SelectionColor = Color.Black
+                    RTB_LOG.AppendText(Date.Now.ToString("dd/MM/yyyy - hh:mm:ss ") + "[NOTICE] Data was successfully exported to csv" + Environment.NewLine)
+                    RTB_LOG.ScrollToCaret()
+                End If
+
+                swOut.Close()
+            End If
+        End If
+    End Sub
 End Class

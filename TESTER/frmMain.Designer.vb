@@ -254,6 +254,15 @@ Partial Class frmMain
         Me.btn_stn6_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn6_cyl1_bw = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.GroupBox172 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox173 = New System.Windows.Forms.GroupBox()
+        Me.Label297 = New System.Windows.Forms.Label()
+        Me.Label298 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox180 = New System.Windows.Forms.GroupBox()
+        Me.btn_stn5_screw_fw = New System.Windows.Forms.Button()
+        Me.btn_stn5_screw_bw = New System.Windows.Forms.Button()
         Me.GroupBox49 = New System.Windows.Forms.GroupBox()
         Me.GroupBox50 = New System.Windows.Forms.GroupBox()
         Me.Label43 = New System.Windows.Forms.Label()
@@ -626,19 +635,21 @@ Partial Class frmMain
         Me.Label9 = New System.Windows.Forms.Label()
         Me.pnl_log = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.GroupBox174 = New System.Windows.Forms.GroupBox()
-        Me.txt_log = New System.Windows.Forms.TextBox()
-        Me.TabControl10 = New System.Windows.Forms.TabControl()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
-        Me.btn_search = New System.Windows.Forms.Button()
+        Me.rbByREF = New System.Windows.Forms.RadioButton()
+        Me.rbBydate = New System.Windows.Forms.RadioButton()
+        Me.GroupBox174 = New System.Windows.Forms.GroupBox()
+        Me.tbSearchREF = New System.Windows.Forms.TextBox()
+        Me.GroupBox181 = New System.Windows.Forms.GroupBox()
         Me.Label249 = New System.Windows.Forms.Label()
-        Me.DateTimePickerEndDate = New System.Windows.Forms.DateTimePicker()
         Me.Label250 = New System.Windows.Forms.Label()
+        Me.DateTimePickerEndDate = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePickerStartDate = New System.Windows.Forms.DateTimePicker()
+        Me.btn_search = New System.Windows.Forms.Button()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
-        Me.cb_search_opt = New System.Windows.Forms.ComboBox()
-        Me.btn_search_other = New System.Windows.Forms.Button()
-        Me.txt_find_other = New System.Windows.Forms.TextBox()
+        Me.GroupBox182 = New System.Windows.Forms.GroupBox()
+        Me.RTB_LOG = New System.Windows.Forms.RichTextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.pnl_ref = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -1077,15 +1088,10 @@ Partial Class frmMain
         Me.btn_manual = New System.Windows.Forms.Button()
         Me.btn_home = New System.Windows.Forms.Button()
         Me.btn_log = New System.Windows.Forms.Button()
-        Me.GroupBox172 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox173 = New System.Windows.Forms.GroupBox()
-        Me.Label297 = New System.Windows.Forms.Label()
-        Me.Label298 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.GroupBox180 = New System.Windows.Forms.GroupBox()
-        Me.btn_stn5_screw_fw = New System.Windows.Forms.Button()
-        Me.btn_stn5_screw_bw = New System.Windows.Forms.Button()
+        Me.btn_fileLocation = New System.Windows.Forms.Button()
+        Me.ProgressBarExport = New System.Windows.Forms.ProgressBar()
+        Me.txtFileLocation = New System.Windows.Forms.TextBox()
+        Me.btn_export = New System.Windows.Forms.Button()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1132,6 +1138,11 @@ Partial Class frmMain
         CType(Me.stn6_cyl1_max, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox72.SuspendLayout
         Me.TabPage5.SuspendLayout
+        Me.GroupBox172.SuspendLayout
+        Me.GroupBox173.SuspendLayout
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.GroupBox180.SuspendLayout
         Me.GroupBox49.SuspendLayout
         Me.GroupBox50.SuspendLayout
         CType(Me.stn5_cyl4_min, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1282,10 +1293,12 @@ Partial Class frmMain
         CType(Me.connect_plc_ind, System.ComponentModel.ISupportInitialize).BeginInit
         Me.pnl_log.SuspendLayout
         Me.TabPage1.SuspendLayout
-        Me.GroupBox174.SuspendLayout
-        Me.TabControl10.SuspendLayout
+        Me.TabControl1.SuspendLayout
         Me.TabPage11.SuspendLayout
+        Me.GroupBox174.SuspendLayout
+        Me.GroupBox181.SuspendLayout
         Me.TabPage12.SuspendLayout
+        Me.GroupBox182.SuspendLayout
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit
         Me.pnl_ref.SuspendLayout
         Me.TabPage2.SuspendLayout
@@ -1536,11 +1549,6 @@ Partial Class frmMain
         CType(Me.MC_Status, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBox172.SuspendLayout
-        Me.GroupBox173.SuspendLayout
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBox180.SuspendLayout
         Me.SuspendLayout
         '
         'lbl_user
@@ -4252,6 +4260,119 @@ Partial Class frmMain
         Me.TabPage5.TabIndex = 0
         Me.TabPage5.Text = "Manual Station 5"
         Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'GroupBox172
+        '
+        Me.GroupBox172.AutoSize = True
+        Me.GroupBox172.Controls.Add(Me.GroupBox173)
+        Me.GroupBox172.Controls.Add(Me.GroupBox180)
+        Me.GroupBox172.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox172.Location = New System.Drawing.Point(448, 272)
+        Me.GroupBox172.Name = "GroupBox172"
+        Me.GroupBox172.Size = New System.Drawing.Size(208, 239)
+        Me.GroupBox172.TabIndex = 34
+        Me.GroupBox172.TabStop = False
+        Me.GroupBox172.Text = "Screw Driver"
+        '
+        'GroupBox173
+        '
+        Me.GroupBox173.Controls.Add(Me.Label297)
+        Me.GroupBox173.Controls.Add(Me.Label298)
+        Me.GroupBox173.Controls.Add(Me.PictureBox2)
+        Me.GroupBox173.Controls.Add(Me.PictureBox3)
+        Me.GroupBox173.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox173.Location = New System.Drawing.Point(106, 38)
+        Me.GroupBox173.Name = "GroupBox173"
+        Me.GroupBox173.Size = New System.Drawing.Size(89, 170)
+        Me.GroupBox173.TabIndex = 3
+        Me.GroupBox173.TabStop = False
+        Me.GroupBox173.Text = "Sensor"
+        '
+        'Label297
+        '
+        Me.Label297.AutoSize = True
+        Me.Label297.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label297.Location = New System.Drawing.Point(11, 147)
+        Me.Label297.Name = "Label297"
+        Me.Label297.Size = New System.Drawing.Size(69, 18)
+        Me.Label297.TabIndex = 1
+        Me.Label297.Text = "Minimum"
+        '
+        'Label298
+        '
+        Me.Label298.AutoSize = True
+        Me.Label298.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label298.Location = New System.Drawing.Point(11, 73)
+        Me.Label298.Name = "Label298"
+        Me.Label298.Size = New System.Drawing.Size(73, 18)
+        Me.Label298.TabIndex = 1
+        Me.Label298.Text = "Maximum"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.TESTER.My.Resources.Resources.led_red_off
+        Me.PictureBox2.Location = New System.Drawing.Point(20, 106)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(51, 33)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.TESTER.My.Resources.Resources.led_red_off
+        Me.PictureBox3.Location = New System.Drawing.Point(20, 30)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(51, 33)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 0
+        Me.PictureBox3.TabStop = False
+        '
+        'GroupBox180
+        '
+        Me.GroupBox180.Controls.Add(Me.btn_stn5_screw_fw)
+        Me.GroupBox180.Controls.Add(Me.btn_stn5_screw_bw)
+        Me.GroupBox180.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox180.Location = New System.Drawing.Point(13, 37)
+        Me.GroupBox180.Name = "GroupBox180"
+        Me.GroupBox180.Size = New System.Drawing.Size(81, 170)
+        Me.GroupBox180.TabIndex = 3
+        Me.GroupBox180.TabStop = False
+        Me.GroupBox180.Text = "Button"
+        '
+        'btn_stn5_screw_fw
+        '
+        Me.btn_stn5_screw_fw.BackColor = System.Drawing.Color.Transparent
+        Me.btn_stn5_screw_fw.FlatAppearance.BorderSize = 0
+        Me.btn_stn5_screw_fw.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_stn5_screw_fw.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_stn5_screw_fw.Image = Global.TESTER.My.Resources.Resources.button_silver
+        Me.btn_stn5_screw_fw.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_stn5_screw_fw.Location = New System.Drawing.Point(-11, 19)
+        Me.btn_stn5_screw_fw.Name = "btn_stn5_screw_fw"
+        Me.btn_stn5_screw_fw.Size = New System.Drawing.Size(102, 79)
+        Me.btn_stn5_screw_fw.TabIndex = 2
+        Me.btn_stn5_screw_fw.Text = "Forward"
+        Me.btn_stn5_screw_fw.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_stn5_screw_fw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_stn5_screw_fw.UseVisualStyleBackColor = False
+        '
+        'btn_stn5_screw_bw
+        '
+        Me.btn_stn5_screw_bw.BackColor = System.Drawing.Color.Transparent
+        Me.btn_stn5_screw_bw.FlatAppearance.BorderSize = 0
+        Me.btn_stn5_screw_bw.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_stn5_screw_bw.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_stn5_screw_bw.Image = Global.TESTER.My.Resources.Resources.button_silver
+        Me.btn_stn5_screw_bw.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_stn5_screw_bw.Location = New System.Drawing.Point(-11, 95)
+        Me.btn_stn5_screw_bw.Name = "btn_stn5_screw_bw"
+        Me.btn_stn5_screw_bw.Size = New System.Drawing.Size(102, 79)
+        Me.btn_stn5_screw_bw.TabIndex = 2
+        Me.btn_stn5_screw_bw.Text = "Backward"
+        Me.btn_stn5_screw_bw.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_stn5_screw_bw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_stn5_screw_bw.UseVisualStyleBackColor = False
         '
         'GroupBox49
         '
@@ -8603,7 +8724,8 @@ Partial Class frmMain
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.GroupBox174)
+        Me.TabPage1.Controls.Add(Me.TabControl1)
+        Me.TabPage1.Controls.Add(Me.GroupBox182)
         Me.TabPage1.Controls.Add(Me.DataGridView1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 38)
         Me.TabPage1.Name = "TabPage1"
@@ -8613,141 +8735,179 @@ Partial Class frmMain
         Me.TabPage1.Text = "Data Logger"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'GroupBox174
+        'TabControl1
         '
-        Me.GroupBox174.Controls.Add(Me.txt_log)
-        Me.GroupBox174.Controls.Add(Me.TabControl10)
-        Me.GroupBox174.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox174.Location = New System.Drawing.Point(7, 329)
-        Me.GroupBox174.Name = "GroupBox174"
-        Me.GroupBox174.Size = New System.Drawing.Size(831, 179)
-        Me.GroupBox174.TabIndex = 69
-        Me.GroupBox174.TabStop = False
-        Me.GroupBox174.Text = "Find"
-        '
-        'txt_log
-        '
-        Me.txt_log.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_log.Location = New System.Drawing.Point(559, 68)
-        Me.txt_log.Multiline = True
-        Me.txt_log.Name = "txt_log"
-        Me.txt_log.Size = New System.Drawing.Size(257, 101)
-        Me.txt_log.TabIndex = 65
-        '
-        'TabControl10
-        '
-        Me.TabControl10.Controls.Add(Me.TabPage11)
-        Me.TabControl10.Controls.Add(Me.TabPage12)
-        Me.TabControl10.Location = New System.Drawing.Point(12, 35)
-        Me.TabControl10.Name = "TabControl10"
-        Me.TabControl10.SelectedIndex = 0
-        Me.TabControl10.Size = New System.Drawing.Size(518, 138)
-        Me.TabControl10.TabIndex = 64
+        Me.TabControl1.Controls.Add(Me.TabPage11)
+        Me.TabControl1.Controls.Add(Me.TabPage12)
+        Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabControl1.Location = New System.Drawing.Point(6, 368)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(528, 147)
+        Me.TabControl1.TabIndex = 71
         '
         'TabPage11
         '
+        Me.TabPage11.Controls.Add(Me.rbByREF)
+        Me.TabPage11.Controls.Add(Me.rbBydate)
+        Me.TabPage11.Controls.Add(Me.GroupBox174)
+        Me.TabPage11.Controls.Add(Me.GroupBox181)
         Me.TabPage11.Controls.Add(Me.btn_search)
-        Me.TabPage11.Controls.Add(Me.Label249)
-        Me.TabPage11.Controls.Add(Me.DateTimePickerEndDate)
-        Me.TabPage11.Controls.Add(Me.Label250)
-        Me.TabPage11.Controls.Add(Me.DateTimePickerStartDate)
-        Me.TabPage11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabPage11.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage11.Location = New System.Drawing.Point(4, 29)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(510, 101)
+        Me.TabPage11.Size = New System.Drawing.Size(520, 114)
         Me.TabPage11.TabIndex = 0
-        Me.TabPage11.Text = "Date"
+        Me.TabPage11.Text = "Datalog Finder"
         Me.TabPage11.UseVisualStyleBackColor = True
         '
-        'btn_search
+        'rbByREF
         '
-        Me.btn_search.Location = New System.Drawing.Point(348, 23)
-        Me.btn_search.Name = "btn_search"
-        Me.btn_search.Size = New System.Drawing.Size(150, 58)
-        Me.btn_search.TabIndex = 24
-        Me.btn_search.Text = "Search"
-        Me.btn_search.UseVisualStyleBackColor = True
+        Me.rbByREF.AutoSize = True
+        Me.rbByREF.Location = New System.Drawing.Point(344, 33)
+        Me.rbByREF.Name = "rbByREF"
+        Me.rbByREF.Size = New System.Drawing.Size(145, 24)
+        Me.rbByREF.TabIndex = 13
+        Me.rbByREF.TabStop = True
+        Me.rbByREF.Text = "By References"
+        Me.rbByREF.UseVisualStyleBackColor = True
+        '
+        'rbBydate
+        '
+        Me.rbBydate.AutoSize = True
+        Me.rbBydate.Location = New System.Drawing.Point(344, 7)
+        Me.rbBydate.Name = "rbBydate"
+        Me.rbBydate.Size = New System.Drawing.Size(91, 24)
+        Me.rbBydate.TabIndex = 12
+        Me.rbBydate.TabStop = True
+        Me.rbBydate.Text = "By Date"
+        Me.rbBydate.UseVisualStyleBackColor = True
+        '
+        'GroupBox174
+        '
+        Me.GroupBox174.Controls.Add(Me.tbSearchREF)
+        Me.GroupBox174.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox174.Location = New System.Drawing.Point(2, 72)
+        Me.GroupBox174.Name = "GroupBox174"
+        Me.GroupBox174.Size = New System.Drawing.Size(313, 43)
+        Me.GroupBox174.TabIndex = 11
+        Me.GroupBox174.TabStop = False
+        Me.GroupBox174.Text = "By References"
+        '
+        'tbSearchREF
+        '
+        Me.tbSearchREF.BackColor = System.Drawing.SystemColors.Control
+        Me.tbSearchREF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbSearchREF.ForeColor = System.Drawing.Color.Black
+        Me.tbSearchREF.Location = New System.Drawing.Point(9, 16)
+        Me.tbSearchREF.Name = "tbSearchREF"
+        Me.tbSearchREF.Size = New System.Drawing.Size(298, 22)
+        Me.tbSearchREF.TabIndex = 24
+        '
+        'GroupBox181
+        '
+        Me.GroupBox181.Controls.Add(Me.Label249)
+        Me.GroupBox181.Controls.Add(Me.Label250)
+        Me.GroupBox181.Controls.Add(Me.DateTimePickerEndDate)
+        Me.GroupBox181.Controls.Add(Me.DateTimePickerStartDate)
+        Me.GroupBox181.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox181.Location = New System.Drawing.Point(2, -1)
+        Me.GroupBox181.Name = "GroupBox181"
+        Me.GroupBox181.Size = New System.Drawing.Size(313, 73)
+        Me.GroupBox181.TabIndex = 10
+        Me.GroupBox181.TabStop = False
+        Me.GroupBox181.Text = "By Date"
         '
         'Label249
         '
         Me.Label249.AutoSize = True
-        Me.Label249.Location = New System.Drawing.Point(27, 61)
+        Me.Label249.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label249.Location = New System.Drawing.Point(16, 17)
         Me.Label249.Name = "Label249"
-        Me.Label249.Size = New System.Drawing.Size(77, 20)
-        Me.Label249.TabIndex = 23
-        Me.Label249.Text = "End Date"
-        '
-        'DateTimePickerEndDate
-        '
-        Me.DateTimePickerEndDate.Location = New System.Drawing.Point(128, 56)
-        Me.DateTimePickerEndDate.Name = "DateTimePickerEndDate"
-        Me.DateTimePickerEndDate.Size = New System.Drawing.Size(200, 26)
-        Me.DateTimePickerEndDate.TabIndex = 22
+        Me.Label249.Size = New System.Drawing.Size(71, 15)
+        Me.Label249.TabIndex = 1
+        Me.Label249.Text = "Start Date"
         '
         'Label250
         '
         Me.Label250.AutoSize = True
-        Me.Label250.Location = New System.Drawing.Point(27, 29)
+        Me.Label250.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label250.Location = New System.Drawing.Point(16, 45)
         Me.Label250.Name = "Label250"
-        Me.Label250.Size = New System.Drawing.Size(83, 20)
-        Me.Label250.TabIndex = 21
-        Me.Label250.Text = "Start Date"
+        Me.Label250.Size = New System.Drawing.Size(66, 15)
+        Me.Label250.TabIndex = 3
+        Me.Label250.Text = "End Date"
+        '
+        'DateTimePickerEndDate
+        '
+        Me.DateTimePickerEndDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePickerEndDate.Location = New System.Drawing.Point(107, 41)
+        Me.DateTimePickerEndDate.Name = "DateTimePickerEndDate"
+        Me.DateTimePickerEndDate.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePickerEndDate.TabIndex = 2
         '
         'DateTimePickerStartDate
         '
-        Me.DateTimePickerStartDate.Location = New System.Drawing.Point(128, 24)
+        Me.DateTimePickerStartDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePickerStartDate.Location = New System.Drawing.Point(107, 13)
         Me.DateTimePickerStartDate.Name = "DateTimePickerStartDate"
-        Me.DateTimePickerStartDate.Size = New System.Drawing.Size(200, 26)
-        Me.DateTimePickerStartDate.TabIndex = 20
+        Me.DateTimePickerStartDate.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePickerStartDate.TabIndex = 0
+        '
+        'btn_search
+        '
+        Me.btn_search.Location = New System.Drawing.Point(321, 66)
+        Me.btn_search.Name = "btn_search"
+        Me.btn_search.Size = New System.Drawing.Size(197, 49)
+        Me.btn_search.TabIndex = 9
+        Me.btn_search.Text = "Search"
+        Me.btn_search.UseVisualStyleBackColor = True
         '
         'TabPage12
         '
-        Me.TabPage12.Controls.Add(Me.cb_search_opt)
-        Me.TabPage12.Controls.Add(Me.btn_search_other)
-        Me.TabPage12.Controls.Add(Me.txt_find_other)
-        Me.TabPage12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabPage12.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage12.Controls.Add(Me.btn_fileLocation)
+        Me.TabPage12.Controls.Add(Me.ProgressBarExport)
+        Me.TabPage12.Controls.Add(Me.txtFileLocation)
+        Me.TabPage12.Controls.Add(Me.btn_export)
+        Me.TabPage12.Location = New System.Drawing.Point(4, 29)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(510, 101)
+        Me.TabPage12.Size = New System.Drawing.Size(520, 114)
         Me.TabPage12.TabIndex = 1
-        Me.TabPage12.Text = "Other"
+        Me.TabPage12.Text = "Export"
         Me.TabPage12.UseVisualStyleBackColor = True
         '
-        'cb_search_opt
+        'GroupBox182
         '
-        Me.cb_search_opt.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cb_search_opt.FormattingEnabled = True
-        Me.cb_search_opt.Items.AddRange(New Object() {"References", "PO Number", "Operator ID"})
-        Me.cb_search_opt.Location = New System.Drawing.Point(21, 37)
-        Me.cb_search_opt.Name = "cb_search_opt"
-        Me.cb_search_opt.Size = New System.Drawing.Size(121, 32)
-        Me.cb_search_opt.TabIndex = 6
+        Me.GroupBox182.BackColor = System.Drawing.Color.White
+        Me.GroupBox182.Controls.Add(Me.RTB_LOG)
+        Me.GroupBox182.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox182.ForeColor = System.Drawing.Color.Black
+        Me.GroupBox182.Location = New System.Drawing.Point(542, 367)
+        Me.GroupBox182.Name = "GroupBox182"
+        Me.GroupBox182.Size = New System.Drawing.Size(295, 147)
+        Me.GroupBox182.TabIndex = 70
+        Me.GroupBox182.TabStop = False
+        Me.GroupBox182.Text = "Status"
         '
-        'btn_search_other
+        'RTB_LOG
         '
-        Me.btn_search_other.Location = New System.Drawing.Point(339, 39)
-        Me.btn_search_other.Name = "btn_search_other"
-        Me.btn_search_other.Size = New System.Drawing.Size(107, 30)
-        Me.btn_search_other.TabIndex = 5
-        Me.btn_search_other.Text = "Search"
-        Me.btn_search_other.UseVisualStyleBackColor = True
-        '
-        'txt_find_other
-        '
-        Me.txt_find_other.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_find_other.Location = New System.Drawing.Point(157, 40)
-        Me.txt_find_other.Name = "txt_find_other"
-        Me.txt_find_other.Size = New System.Drawing.Size(171, 29)
-        Me.txt_find_other.TabIndex = 4
+        Me.RTB_LOG.BackColor = System.Drawing.Color.White
+        Me.RTB_LOG.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RTB_LOG.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.RTB_LOG.Location = New System.Drawing.Point(6, 25)
+        Me.RTB_LOG.Name = "RTB_LOG"
+        Me.RTB_LOG.ReadOnly = True
+        Me.RTB_LOG.Size = New System.Drawing.Size(281, 111)
+        Me.RTB_LOG.TabIndex = 0
+        Me.RTB_LOG.Text = ""
         '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(7, 13)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(831, 306)
+        Me.DataGridView1.Size = New System.Drawing.Size(831, 351)
         Me.DataGridView1.TabIndex = 68
         '
         'pnl_ref
@@ -13548,118 +13708,42 @@ Partial Class frmMain
         Me.btn_log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_log.UseVisualStyleBackColor = True
         '
-        'GroupBox172
+        'btn_fileLocation
         '
-        Me.GroupBox172.AutoSize = True
-        Me.GroupBox172.Controls.Add(Me.GroupBox173)
-        Me.GroupBox172.Controls.Add(Me.GroupBox180)
-        Me.GroupBox172.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox172.Location = New System.Drawing.Point(448, 272)
-        Me.GroupBox172.Name = "GroupBox172"
-        Me.GroupBox172.Size = New System.Drawing.Size(208, 239)
-        Me.GroupBox172.TabIndex = 34
-        Me.GroupBox172.TabStop = False
-        Me.GroupBox172.Text = "Screw Driver"
+        Me.btn_fileLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_fileLocation.Location = New System.Drawing.Point(85, 75)
+        Me.btn_fileLocation.Name = "btn_fileLocation"
+        Me.btn_fileLocation.Size = New System.Drawing.Size(155, 35)
+        Me.btn_fileLocation.TabIndex = 14
+        Me.btn_fileLocation.Text = "Select File Location"
+        Me.btn_fileLocation.UseVisualStyleBackColor = True
         '
-        'GroupBox173
+        'ProgressBarExport
         '
-        Me.GroupBox173.Controls.Add(Me.Label297)
-        Me.GroupBox173.Controls.Add(Me.Label298)
-        Me.GroupBox173.Controls.Add(Me.PictureBox2)
-        Me.GroupBox173.Controls.Add(Me.PictureBox3)
-        Me.GroupBox173.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox173.Location = New System.Drawing.Point(106, 38)
-        Me.GroupBox173.Name = "GroupBox173"
-        Me.GroupBox173.Size = New System.Drawing.Size(89, 170)
-        Me.GroupBox173.TabIndex = 3
-        Me.GroupBox173.TabStop = False
-        Me.GroupBox173.Text = "Sensor"
+        Me.ProgressBarExport.Location = New System.Drawing.Point(85, 37)
+        Me.ProgressBarExport.Name = "ProgressBarExport"
+        Me.ProgressBarExport.Size = New System.Drawing.Size(350, 23)
+        Me.ProgressBarExport.TabIndex = 13
         '
-        'Label297
+        'txtFileLocation
         '
-        Me.Label297.AutoSize = True
-        Me.Label297.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label297.Location = New System.Drawing.Point(11, 147)
-        Me.Label297.Name = "Label297"
-        Me.Label297.Size = New System.Drawing.Size(69, 18)
-        Me.Label297.TabIndex = 1
-        Me.Label297.Text = "Minimum"
+        Me.txtFileLocation.BackColor = System.Drawing.SystemColors.Control
+        Me.txtFileLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFileLocation.ForeColor = System.Drawing.Color.Black
+        Me.txtFileLocation.Location = New System.Drawing.Point(85, 5)
+        Me.txtFileLocation.Name = "txtFileLocation"
+        Me.txtFileLocation.Size = New System.Drawing.Size(350, 22)
+        Me.txtFileLocation.TabIndex = 12
         '
-        'Label298
+        'btn_export
         '
-        Me.Label298.AutoSize = True
-        Me.Label298.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label298.Location = New System.Drawing.Point(11, 73)
-        Me.Label298.Name = "Label298"
-        Me.Label298.Size = New System.Drawing.Size(73, 18)
-        Me.Label298.TabIndex = 1
-        Me.Label298.Text = "Maximum"
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.TESTER.My.Resources.Resources.led_red_off
-        Me.PictureBox2.Location = New System.Drawing.Point(20, 106)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(51, 33)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.TESTER.My.Resources.Resources.led_red_off
-        Me.PictureBox3.Location = New System.Drawing.Point(20, 30)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(51, 33)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 0
-        Me.PictureBox3.TabStop = False
-        '
-        'GroupBox180
-        '
-        Me.GroupBox180.Controls.Add(Me.btn_stn5_screw_fw)
-        Me.GroupBox180.Controls.Add(Me.btn_stn5_screw_bw)
-        Me.GroupBox180.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox180.Location = New System.Drawing.Point(13, 37)
-        Me.GroupBox180.Name = "GroupBox180"
-        Me.GroupBox180.Size = New System.Drawing.Size(81, 170)
-        Me.GroupBox180.TabIndex = 3
-        Me.GroupBox180.TabStop = False
-        Me.GroupBox180.Text = "Button"
-        '
-        'btn_stn5_screw_fw
-        '
-        Me.btn_stn5_screw_fw.BackColor = System.Drawing.Color.Transparent
-        Me.btn_stn5_screw_fw.FlatAppearance.BorderSize = 0
-        Me.btn_stn5_screw_fw.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_stn5_screw_fw.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn5_screw_fw.Image = Global.TESTER.My.Resources.Resources.button_silver
-        Me.btn_stn5_screw_fw.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_stn5_screw_fw.Location = New System.Drawing.Point(-11, 19)
-        Me.btn_stn5_screw_fw.Name = "btn_stn5_screw_fw"
-        Me.btn_stn5_screw_fw.Size = New System.Drawing.Size(102, 79)
-        Me.btn_stn5_screw_fw.TabIndex = 2
-        Me.btn_stn5_screw_fw.Text = "Forward"
-        Me.btn_stn5_screw_fw.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_stn5_screw_fw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_stn5_screw_fw.UseVisualStyleBackColor = False
-        '
-        'btn_stn5_screw_bw
-        '
-        Me.btn_stn5_screw_bw.BackColor = System.Drawing.Color.Transparent
-        Me.btn_stn5_screw_bw.FlatAppearance.BorderSize = 0
-        Me.btn_stn5_screw_bw.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_stn5_screw_bw.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn5_screw_bw.Image = Global.TESTER.My.Resources.Resources.button_silver
-        Me.btn_stn5_screw_bw.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_stn5_screw_bw.Location = New System.Drawing.Point(-11, 95)
-        Me.btn_stn5_screw_bw.Name = "btn_stn5_screw_bw"
-        Me.btn_stn5_screw_bw.Size = New System.Drawing.Size(102, 79)
-        Me.btn_stn5_screw_bw.TabIndex = 2
-        Me.btn_stn5_screw_bw.Text = "Backward"
-        Me.btn_stn5_screw_bw.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_stn5_screw_bw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_stn5_screw_bw.UseVisualStyleBackColor = False
+        Me.btn_export.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_export.Location = New System.Drawing.Point(280, 75)
+        Me.btn_export.Name = "btn_export"
+        Me.btn_export.Size = New System.Drawing.Size(155, 35)
+        Me.btn_export.TabIndex = 11
+        Me.btn_export.Text = "Export"
+        Me.btn_export.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -13706,7 +13790,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_cot_1)
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.lbl_cot)
-        Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.lbl_st4_t1_5)
         Me.Controls.Add(Me.btn_monitoring)
         Me.Controls.Add(Me.lbl_st4_t1_4)
@@ -13717,13 +13800,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.lbl_st4_t1_1)
         Me.Controls.Add(Me.lbl_st4_t1)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_general)
-        Me.Controls.Add(Me.pnl_man_stn1)
-        Me.Controls.Add(Me.pnl_setting)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
         Me.Controls.Add(Me.pnl_laser)
@@ -13738,6 +13814,14 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn1)
         Me.Controls.Add(Me.pnl_home)
         Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_general)
+        Me.Controls.Add(Me.pnl_man_stn1)
+        Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.btn_multimeter)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -13804,6 +13888,12 @@ Partial Class frmMain
         Me.GroupBox72.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout
+        Me.GroupBox172.ResumeLayout(False)
+        Me.GroupBox173.ResumeLayout(False)
+        Me.GroupBox173.PerformLayout
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
+        Me.GroupBox180.ResumeLayout(False)
         Me.GroupBox49.ResumeLayout(False)
         Me.GroupBox50.ResumeLayout(False)
         Me.GroupBox50.PerformLayout
@@ -13987,13 +14077,16 @@ Partial Class frmMain
         CType(Me.connect_plc_ind, System.ComponentModel.ISupportInitialize).EndInit
         Me.pnl_log.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.GroupBox174.ResumeLayout(False)
-        Me.GroupBox174.PerformLayout
-        Me.TabControl10.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
         Me.TabPage11.ResumeLayout(False)
         Me.TabPage11.PerformLayout
+        Me.GroupBox174.ResumeLayout(False)
+        Me.GroupBox174.PerformLayout
+        Me.GroupBox181.ResumeLayout(False)
+        Me.GroupBox181.PerformLayout
         Me.TabPage12.ResumeLayout(False)
         Me.TabPage12.PerformLayout
+        Me.GroupBox182.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit
         Me.pnl_ref.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
@@ -14314,12 +14407,6 @@ Partial Class frmMain
         CType(Me.MC_Status, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.status_bar, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
-        Me.GroupBox172.ResumeLayout(False)
-        Me.GroupBox173.ResumeLayout(False)
-        Me.GroupBox173.PerformLayout
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
-        Me.GroupBox180.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -14694,18 +14781,6 @@ Partial Class frmMain
     Friend WithEvents Label9 As Label
     Friend WithEvents pnl_log As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents GroupBox174 As GroupBox
-    Friend WithEvents TabControl10 As TabControl
-    Friend WithEvents TabPage11 As TabPage
-    Friend WithEvents btn_search As Button
-    Friend WithEvents Label249 As Label
-    Friend WithEvents DateTimePickerEndDate As DateTimePicker
-    Friend WithEvents Label250 As Label
-    Friend WithEvents DateTimePickerStartDate As DateTimePicker
-    Friend WithEvents TabPage12 As TabPage
-    Friend WithEvents cb_search_opt As ComboBox
-    Friend WithEvents btn_search_other As Button
-    Friend WithEvents txt_find_other As TextBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents pnl_ref As TabControl
     Friend WithEvents TabPage2 As TabPage
@@ -15146,7 +15221,6 @@ Partial Class frmMain
     Friend WithEvents lbl_item_3 As Label
     Friend WithEvents lbl_item_2 As Label
     Friend WithEvents lbl_item_1 As Label
-    Friend WithEvents txt_log As TextBox
     Friend WithEvents txt_po_num As TextBox
     Friend WithEvents txt_ope_id As TextBox
     Friend WithEvents txt_ref As TextBox
@@ -15386,4 +15460,23 @@ Partial Class frmMain
     Friend WithEvents GroupBox180 As GroupBox
     Friend WithEvents btn_stn5_screw_fw As Button
     Friend WithEvents btn_stn5_screw_bw As Button
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage11 As TabPage
+    Friend WithEvents rbByREF As RadioButton
+    Friend WithEvents rbBydate As RadioButton
+    Friend WithEvents GroupBox174 As GroupBox
+    Friend WithEvents tbSearchREF As TextBox
+    Friend WithEvents GroupBox181 As GroupBox
+    Friend WithEvents Label249 As Label
+    Friend WithEvents Label250 As Label
+    Friend WithEvents DateTimePickerEndDate As DateTimePicker
+    Friend WithEvents DateTimePickerStartDate As DateTimePicker
+    Friend WithEvents btn_search As Button
+    Friend WithEvents TabPage12 As TabPage
+    Friend WithEvents GroupBox182 As GroupBox
+    Friend WithEvents RTB_LOG As RichTextBox
+    Friend WithEvents btn_fileLocation As Button
+    Friend WithEvents ProgressBarExport As ProgressBar
+    Friend WithEvents txtFileLocation As TextBox
+    Friend WithEvents btn_export As Button
 End Class

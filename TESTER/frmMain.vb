@@ -2832,6 +2832,7 @@ Public Class frmMain
 
     Private Sub ReadServoST4(DecimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
+        Dim binaryStringExtend As String = Convert.ToString(MANUAL_OPERATION, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
             ind_st4_servo_enabled.BackColor = Color.Lime
         Else
@@ -2874,7 +2875,7 @@ Public Class frmMain
             ind_st4_continuous_motion.BackColor = Color.Red
         End If
 
-        If binaryString(0) = "1" Then
+        If binaryStringExtend(6) = "1" Then
             ind_st4_discrete_motion.BackColor = Color.Lime
         Else
             ind_st4_discrete_motion.BackColor = Color.Red
@@ -2883,6 +2884,7 @@ Public Class frmMain
 
     Private Sub ReadServoST3(DecimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
+        Dim binaryStringExtend As String = Convert.ToString(MANUAL_OPERATION, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
             ind_st3_servo_enabled.BackColor = Color.Lime
         Else
@@ -2925,7 +2927,7 @@ Public Class frmMain
             ind_st3_continuous_motion.BackColor = Color.Red
         End If
 
-        If binaryString(0) = "1" Then
+        If binaryStringExtend(5) = "1" Then
             ind_st3_discrete_motion.BackColor = Color.Lime
         Else
             ind_st3_discrete_motion.BackColor = Color.Red

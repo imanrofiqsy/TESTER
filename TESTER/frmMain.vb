@@ -1435,6 +1435,7 @@ Public Class frmMain
             .MEASUREMENT = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
             .TRAVEL_P2 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
             .TRAVEL_P3 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
+            .ACTUATION_POS = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ACTUATION_POS_ST4)
             .DIFF_STR = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
             .T1 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T1)
             .T2 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T2)
@@ -3434,6 +3435,7 @@ Public Class frmMain
                                       CNT_ST4 = CNT_ST4 + 1
                                       Dim st4_p2_result As String
                                       Dim st4_p3_result As String
+                                      Dim actuation_pos_result As String
                                       Dim diff_result_result As String
                                       Dim st4_t1_result As String
                                       Dim st4_t2_result As String
@@ -3442,6 +3444,7 @@ Public Class frmMain
                                       With Result
                                           st4_p2_result = .TRAVEL_P2
                                           st4_p3_result = .TRAVEL_P3
+                                          actuation_pos_result = .ACTUATION_POS
                                           diff_result_result = .DIFF_STR
                                           st4_t1_result = .T1
                                           st4_t2_result = .T2
@@ -3453,6 +3456,7 @@ Public Class frmMain
                                           Case 1
                                               lbl_st4_p2.Text = st4_p2_result
                                               lbl_st4_p3.Text = st4_p3_result
+                                              lbl_st4_actu_pos.Text = actuation_pos_result
                                               lbl_diff_result.Text = diff_result_result
                                               lbl_st4_t1.Text = st4_t1_result
                                               lbl_st4_t2.Text = st4_t2_result
@@ -3461,6 +3465,7 @@ Public Class frmMain
                                           Case 2
                                               lbl_st4_p2_1.Text = st4_p2_result
                                               lbl_st4_p3_1.Text = st4_p3_result
+                                              lbl_st4_actu_pos_1.Text = actuation_pos_result
                                               lbl_diff_result_1.Text = diff_result_result
                                               lbl_st4_t1_1.Text = st4_t1_result
                                               lbl_st4_t2_1.Text = st4_t2_result
@@ -3469,6 +3474,7 @@ Public Class frmMain
                                           Case 3
                                               lbl_st4_p2_2.Text = st4_p2_result
                                               lbl_st4_p3_2.Text = st4_p3_result
+                                              lbl_st4_actu_pos_2.Text = actuation_pos_result
                                               lbl_diff_result_2.Text = diff_result_result
                                               lbl_st4_t1_2.Text = st4_t1_result
                                               lbl_st4_t2_2.Text = st4_t2_result
@@ -3477,6 +3483,7 @@ Public Class frmMain
                                           Case 4
                                               lbl_st4_p2_3.Text = st4_p2_result
                                               lbl_st4_p3_3.Text = st4_p3_result
+                                              lbl_st4_actu_pos_3.Text = actuation_pos_result
                                               lbl_diff_result_3.Text = diff_result_result
                                               lbl_st4_t1_3.Text = st4_t1_result
                                               lbl_st4_t2_3.Text = st4_t2_result
@@ -3485,6 +3492,7 @@ Public Class frmMain
                                           Case 5
                                               lbl_st4_p2_4.Text = st4_p2_result
                                               lbl_st4_p3_4.Text = st4_p3_result
+                                              lbl_st4_actu_pos_4.Text = actuation_pos_result
                                               lbl_diff_result_4.Text = diff_result_result
                                               lbl_st4_t1_4.Text = st4_t1_result
                                               lbl_st4_t2_4.Text = st4_t2_result
@@ -3493,6 +3501,7 @@ Public Class frmMain
                                           Case 6
                                               lbl_st4_p2_5.Text = st4_p2_result
                                               lbl_st4_p3_5.Text = st4_p3_result
+                                              lbl_st4_actu_pos_5.Text = actuation_pos_result
                                               lbl_diff_result_5.Text = diff_result_result
                                               lbl_st4_t1_5.Text = st4_t1_result
                                               lbl_st4_t2_5.Text = st4_t2_result
@@ -3501,7 +3510,7 @@ Public Class frmMain
                                       End Select
 
                                       Call KoneksiDB.koneksi_db()
-                                      Dim sc As New SqlCommand("UPDATE tb_data SET [Travel P2] = '" & st4_p2_result & "', [Travel P3] = '" & st4_p3_result & "', [Dif Str] = '" & diff_result_result & "', T1 = '" & st4_t1_result & "', T2 = '" & st4_t2_result & "', COT = '" & cot_result & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                      Dim sc As New SqlCommand("UPDATE tb_data SET [Travel P2] = '" & st4_p2_result & "', [Travel P3] = '" & st4_p3_result & "', [Dif Str] = '" & diff_result_result & "', [Actuation Pos] = '" & actuation_pos_result & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
                                       Dim adapter As New SqlDataAdapter(sc)
                                       adapter.SelectCommand.ExecuteNonQuery()
 

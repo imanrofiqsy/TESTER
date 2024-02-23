@@ -91,6 +91,7 @@
     Public ADDR_ST3_RESISTANCE As Integer = 0
     Public ADDR_ST4_P2_TRAVEL As Integer = 47202
     Public ADDR_ST4_P3_TRAVEL As Integer = 47204
+    Public ADDR_ST4_ACTUATION_POS As Integer = 47215
     Public ADDR_DIFF_STR_RESULT As Integer = 47206
     Public ADDR_ST4_T1 As Integer = 47208
     Public ADDR_ST4_T2 As Integer = 47210
@@ -103,6 +104,7 @@
         Dim RESISTANCE_ON As String
         Dim TRAVEL_P2 As String
         Dim TRAVEL_P3 As String
+        Dim ACTUATION_POS As String
         Dim DIFF_STR As String
         Dim T1 As String
         Dim T2 As String

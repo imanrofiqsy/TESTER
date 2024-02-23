@@ -72,17 +72,17 @@ Partial Class frmMain
         Me.lbl_st4_p2_2 = New System.Windows.Forms.Label()
         Me.lbl_st4_p2_1 = New System.Windows.Forms.Label()
         Me.lbl_st4_p2 = New System.Windows.Forms.Label()
-        Me.Label309 = New System.Windows.Forms.Label()
+        Me.lbl_st4_actu_pos_5 = New System.Windows.Forms.Label()
         Me.lbl_diff_result_5 = New System.Windows.Forms.Label()
-        Me.Label308 = New System.Windows.Forms.Label()
+        Me.lbl_st4_actu_pos_4 = New System.Windows.Forms.Label()
         Me.lbl_diff_result_4 = New System.Windows.Forms.Label()
-        Me.Label307 = New System.Windows.Forms.Label()
+        Me.lbl_st4_actu_pos_3 = New System.Windows.Forms.Label()
         Me.lbl_diff_result_3 = New System.Windows.Forms.Label()
-        Me.Label306 = New System.Windows.Forms.Label()
+        Me.lbl_st4_actu_pos_2 = New System.Windows.Forms.Label()
         Me.lbl_diff_result_2 = New System.Windows.Forms.Label()
-        Me.Label305 = New System.Windows.Forms.Label()
+        Me.lbl_st4_actu_pos_1 = New System.Windows.Forms.Label()
         Me.lbl_diff_result_1 = New System.Windows.Forms.Label()
-        Me.Label304 = New System.Windows.Forms.Label()
+        Me.lbl_st4_actu_pos = New System.Windows.Forms.Label()
         Me.lbl_diff_result = New System.Windows.Forms.Label()
         Me.lbl_st2_meas_5 = New System.Windows.Forms.Label()
         Me.lbl_st2_meas_4 = New System.Windows.Forms.Label()
@@ -648,6 +648,10 @@ Partial Class frmMain
         Me.DateTimePickerStartDate = New System.Windows.Forms.DateTimePicker()
         Me.btn_search = New System.Windows.Forms.Button()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
+        Me.btn_fileLocation = New System.Windows.Forms.Button()
+        Me.ProgressBarExport = New System.Windows.Forms.ProgressBar()
+        Me.txtFileLocation = New System.Windows.Forms.TextBox()
+        Me.btn_export = New System.Windows.Forms.Button()
         Me.GroupBox182 = New System.Windows.Forms.GroupBox()
         Me.RTB_LOG = New System.Windows.Forms.RichTextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -1088,10 +1092,6 @@ Partial Class frmMain
         Me.btn_manual = New System.Windows.Forms.Button()
         Me.btn_home = New System.Windows.Forms.Button()
         Me.btn_log = New System.Windows.Forms.Button()
-        Me.btn_fileLocation = New System.Windows.Forms.Button()
-        Me.ProgressBarExport = New System.Windows.Forms.ProgressBar()
-        Me.txtFileLocation = New System.Windows.Forms.TextBox()
-        Me.btn_export = New System.Windows.Forms.Button()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1850,17 +1850,17 @@ Partial Class frmMain
         Me.GroupBox78.Controls.Add(Me.lbl_st4_p2_2)
         Me.GroupBox78.Controls.Add(Me.lbl_st4_p2_1)
         Me.GroupBox78.Controls.Add(Me.lbl_st4_p2)
-        Me.GroupBox78.Controls.Add(Me.Label309)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_actu_pos_5)
         Me.GroupBox78.Controls.Add(Me.lbl_diff_result_5)
-        Me.GroupBox78.Controls.Add(Me.Label308)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_actu_pos_4)
         Me.GroupBox78.Controls.Add(Me.lbl_diff_result_4)
-        Me.GroupBox78.Controls.Add(Me.Label307)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_actu_pos_3)
         Me.GroupBox78.Controls.Add(Me.lbl_diff_result_3)
-        Me.GroupBox78.Controls.Add(Me.Label306)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_actu_pos_2)
         Me.GroupBox78.Controls.Add(Me.lbl_diff_result_2)
-        Me.GroupBox78.Controls.Add(Me.Label305)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_actu_pos_1)
         Me.GroupBox78.Controls.Add(Me.lbl_diff_result_1)
-        Me.GroupBox78.Controls.Add(Me.Label304)
+        Me.GroupBox78.Controls.Add(Me.lbl_st4_actu_pos)
         Me.GroupBox78.Controls.Add(Me.lbl_diff_result)
         Me.GroupBox78.Controls.Add(Me.lbl_st2_meas_5)
         Me.GroupBox78.Controls.Add(Me.lbl_st2_meas_4)
@@ -1932,9 +1932,9 @@ Partial Class frmMain
         Me.Label310.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label310.Location = New System.Drawing.Point(6, 183)
         Me.Label310.Name = "Label310"
-        Me.Label310.Size = New System.Drawing.Size(58, 18)
+        Me.Label310.Size = New System.Drawing.Size(131, 18)
         Me.Label310.TabIndex = 36
-        Me.Label310.Text = "----------"
+        Me.Label310.Text = "ST4 Actuation Pos"
         '
         'laabel2
         '
@@ -1942,9 +1942,9 @@ Partial Class frmMain
         Me.laabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.laabel2.Location = New System.Drawing.Point(6, 206)
         Me.laabel2.Name = "laabel2"
-        Me.laabel2.Size = New System.Drawing.Size(99, 18)
+        Me.laabel2.Size = New System.Drawing.Size(84, 18)
         Me.laabel2.TabIndex = 36
-        Me.laabel2.Text = "Diff Str Result"
+        Me.laabel2.Text = "ST4 Diff Str"
         '
         'Label116
         '
@@ -2128,16 +2128,16 @@ Partial Class frmMain
         Me.lbl_st4_p2.TabIndex = 37
         Me.lbl_st4_p2.Text = "..."
         '
-        'Label309
+        'lbl_st4_actu_pos_5
         '
-        Me.Label309.BackColor = System.Drawing.Color.White
-        Me.Label309.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label309.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label309.Location = New System.Drawing.Point(426, 181)
-        Me.Label309.Name = "Label309"
-        Me.Label309.Size = New System.Drawing.Size(50, 20)
-        Me.Label309.TabIndex = 37
-        Me.Label309.Text = "..."
+        Me.lbl_st4_actu_pos_5.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_actu_pos_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_actu_pos_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_actu_pos_5.Location = New System.Drawing.Point(426, 181)
+        Me.lbl_st4_actu_pos_5.Name = "lbl_st4_actu_pos_5"
+        Me.lbl_st4_actu_pos_5.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st4_actu_pos_5.TabIndex = 37
+        Me.lbl_st4_actu_pos_5.Text = "..."
         '
         'lbl_diff_result_5
         '
@@ -2150,16 +2150,16 @@ Partial Class frmMain
         Me.lbl_diff_result_5.TabIndex = 37
         Me.lbl_diff_result_5.Text = "..."
         '
-        'Label308
+        'lbl_st4_actu_pos_4
         '
-        Me.Label308.BackColor = System.Drawing.Color.White
-        Me.Label308.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label308.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label308.Location = New System.Drawing.Point(373, 181)
-        Me.Label308.Name = "Label308"
-        Me.Label308.Size = New System.Drawing.Size(50, 20)
-        Me.Label308.TabIndex = 37
-        Me.Label308.Text = "..."
+        Me.lbl_st4_actu_pos_4.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_actu_pos_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_actu_pos_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_actu_pos_4.Location = New System.Drawing.Point(373, 181)
+        Me.lbl_st4_actu_pos_4.Name = "lbl_st4_actu_pos_4"
+        Me.lbl_st4_actu_pos_4.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st4_actu_pos_4.TabIndex = 37
+        Me.lbl_st4_actu_pos_4.Text = "..."
         '
         'lbl_diff_result_4
         '
@@ -2172,16 +2172,16 @@ Partial Class frmMain
         Me.lbl_diff_result_4.TabIndex = 37
         Me.lbl_diff_result_4.Text = "..."
         '
-        'Label307
+        'lbl_st4_actu_pos_3
         '
-        Me.Label307.BackColor = System.Drawing.Color.White
-        Me.Label307.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label307.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label307.Location = New System.Drawing.Point(320, 181)
-        Me.Label307.Name = "Label307"
-        Me.Label307.Size = New System.Drawing.Size(50, 20)
-        Me.Label307.TabIndex = 37
-        Me.Label307.Text = "..."
+        Me.lbl_st4_actu_pos_3.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_actu_pos_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_actu_pos_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_actu_pos_3.Location = New System.Drawing.Point(320, 181)
+        Me.lbl_st4_actu_pos_3.Name = "lbl_st4_actu_pos_3"
+        Me.lbl_st4_actu_pos_3.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st4_actu_pos_3.TabIndex = 37
+        Me.lbl_st4_actu_pos_3.Text = "..."
         '
         'lbl_diff_result_3
         '
@@ -2194,16 +2194,16 @@ Partial Class frmMain
         Me.lbl_diff_result_3.TabIndex = 37
         Me.lbl_diff_result_3.Text = "..."
         '
-        'Label306
+        'lbl_st4_actu_pos_2
         '
-        Me.Label306.BackColor = System.Drawing.Color.White
-        Me.Label306.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label306.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label306.Location = New System.Drawing.Point(267, 181)
-        Me.Label306.Name = "Label306"
-        Me.Label306.Size = New System.Drawing.Size(50, 20)
-        Me.Label306.TabIndex = 37
-        Me.Label306.Text = "..."
+        Me.lbl_st4_actu_pos_2.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_actu_pos_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_actu_pos_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_actu_pos_2.Location = New System.Drawing.Point(267, 181)
+        Me.lbl_st4_actu_pos_2.Name = "lbl_st4_actu_pos_2"
+        Me.lbl_st4_actu_pos_2.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st4_actu_pos_2.TabIndex = 37
+        Me.lbl_st4_actu_pos_2.Text = "..."
         '
         'lbl_diff_result_2
         '
@@ -2216,16 +2216,16 @@ Partial Class frmMain
         Me.lbl_diff_result_2.TabIndex = 37
         Me.lbl_diff_result_2.Text = "..."
         '
-        'Label305
+        'lbl_st4_actu_pos_1
         '
-        Me.Label305.BackColor = System.Drawing.Color.White
-        Me.Label305.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label305.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label305.Location = New System.Drawing.Point(214, 181)
-        Me.Label305.Name = "Label305"
-        Me.Label305.Size = New System.Drawing.Size(50, 20)
-        Me.Label305.TabIndex = 37
-        Me.Label305.Text = "..."
+        Me.lbl_st4_actu_pos_1.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_actu_pos_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_actu_pos_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_actu_pos_1.Location = New System.Drawing.Point(214, 181)
+        Me.lbl_st4_actu_pos_1.Name = "lbl_st4_actu_pos_1"
+        Me.lbl_st4_actu_pos_1.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st4_actu_pos_1.TabIndex = 37
+        Me.lbl_st4_actu_pos_1.Text = "..."
         '
         'lbl_diff_result_1
         '
@@ -2238,16 +2238,16 @@ Partial Class frmMain
         Me.lbl_diff_result_1.TabIndex = 37
         Me.lbl_diff_result_1.Text = "..."
         '
-        'Label304
+        'lbl_st4_actu_pos
         '
-        Me.Label304.BackColor = System.Drawing.Color.White
-        Me.Label304.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label304.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label304.Location = New System.Drawing.Point(161, 181)
-        Me.Label304.Name = "Label304"
-        Me.Label304.Size = New System.Drawing.Size(50, 20)
-        Me.Label304.TabIndex = 37
-        Me.Label304.Text = "..."
+        Me.lbl_st4_actu_pos.BackColor = System.Drawing.Color.White
+        Me.lbl_st4_actu_pos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_st4_actu_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_st4_actu_pos.Location = New System.Drawing.Point(161, 181)
+        Me.lbl_st4_actu_pos.Name = "lbl_st4_actu_pos"
+        Me.lbl_st4_actu_pos.Size = New System.Drawing.Size(50, 20)
+        Me.lbl_st4_actu_pos.TabIndex = 37
+        Me.lbl_st4_actu_pos.Text = "..."
         '
         'lbl_diff_result
         '
@@ -8877,6 +8877,43 @@ Partial Class frmMain
         Me.TabPage12.Text = "Export"
         Me.TabPage12.UseVisualStyleBackColor = True
         '
+        'btn_fileLocation
+        '
+        Me.btn_fileLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_fileLocation.Location = New System.Drawing.Point(85, 75)
+        Me.btn_fileLocation.Name = "btn_fileLocation"
+        Me.btn_fileLocation.Size = New System.Drawing.Size(155, 35)
+        Me.btn_fileLocation.TabIndex = 14
+        Me.btn_fileLocation.Text = "Select File Location"
+        Me.btn_fileLocation.UseVisualStyleBackColor = True
+        '
+        'ProgressBarExport
+        '
+        Me.ProgressBarExport.Location = New System.Drawing.Point(85, 37)
+        Me.ProgressBarExport.Name = "ProgressBarExport"
+        Me.ProgressBarExport.Size = New System.Drawing.Size(350, 23)
+        Me.ProgressBarExport.TabIndex = 13
+        '
+        'txtFileLocation
+        '
+        Me.txtFileLocation.BackColor = System.Drawing.SystemColors.Control
+        Me.txtFileLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFileLocation.ForeColor = System.Drawing.Color.Black
+        Me.txtFileLocation.Location = New System.Drawing.Point(85, 5)
+        Me.txtFileLocation.Name = "txtFileLocation"
+        Me.txtFileLocation.Size = New System.Drawing.Size(350, 22)
+        Me.txtFileLocation.TabIndex = 12
+        '
+        'btn_export
+        '
+        Me.btn_export.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_export.Location = New System.Drawing.Point(280, 75)
+        Me.btn_export.Name = "btn_export"
+        Me.btn_export.Size = New System.Drawing.Size(155, 35)
+        Me.btn_export.TabIndex = 11
+        Me.btn_export.Text = "Export"
+        Me.btn_export.UseVisualStyleBackColor = True
+        '
         'GroupBox182
         '
         Me.GroupBox182.BackColor = System.Drawing.Color.White
@@ -13708,43 +13745,6 @@ Partial Class frmMain
         Me.btn_log.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_log.UseVisualStyleBackColor = True
         '
-        'btn_fileLocation
-        '
-        Me.btn_fileLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_fileLocation.Location = New System.Drawing.Point(85, 75)
-        Me.btn_fileLocation.Name = "btn_fileLocation"
-        Me.btn_fileLocation.Size = New System.Drawing.Size(155, 35)
-        Me.btn_fileLocation.TabIndex = 14
-        Me.btn_fileLocation.Text = "Select File Location"
-        Me.btn_fileLocation.UseVisualStyleBackColor = True
-        '
-        'ProgressBarExport
-        '
-        Me.ProgressBarExport.Location = New System.Drawing.Point(85, 37)
-        Me.ProgressBarExport.Name = "ProgressBarExport"
-        Me.ProgressBarExport.Size = New System.Drawing.Size(350, 23)
-        Me.ProgressBarExport.TabIndex = 13
-        '
-        'txtFileLocation
-        '
-        Me.txtFileLocation.BackColor = System.Drawing.SystemColors.Control
-        Me.txtFileLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFileLocation.ForeColor = System.Drawing.Color.Black
-        Me.txtFileLocation.Location = New System.Drawing.Point(85, 5)
-        Me.txtFileLocation.Name = "txtFileLocation"
-        Me.txtFileLocation.Size = New System.Drawing.Size(350, 22)
-        Me.txtFileLocation.TabIndex = 12
-        '
-        'btn_export
-        '
-        Me.btn_export.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_export.Location = New System.Drawing.Point(280, 75)
-        Me.btn_export.Name = "btn_export"
-        Me.btn_export.Size = New System.Drawing.Size(155, 35)
-        Me.btn_export.TabIndex = 11
-        Me.btn_export.Text = "Export"
-        Me.btn_export.UseVisualStyleBackColor = True
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -13800,13 +13800,16 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.lbl_st4_t1_1)
         Me.Controls.Add(Me.lbl_st4_t1)
+        Me.Controls.Add(Me.btn_multimeter)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
         Me.Controls.Add(Me.pnl_man_stn4)
         Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
         Me.Controls.Add(Me.pnl_man_general)
         Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
-        Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
         Me.Controls.Add(Me.pnl_laser)
@@ -13819,9 +13822,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -15426,12 +15426,12 @@ Partial Class frmMain
     Friend WithEvents Label303 As Label
     Friend WithEvents Label302 As Label
     Friend WithEvents Label310 As Label
-    Friend WithEvents Label309 As Label
-    Friend WithEvents Label308 As Label
-    Friend WithEvents Label307 As Label
-    Friend WithEvents Label306 As Label
-    Friend WithEvents Label305 As Label
-    Friend WithEvents Label304 As Label
+    Friend WithEvents lbl_st4_actu_pos_5 As Label
+    Friend WithEvents lbl_st4_actu_pos_4 As Label
+    Friend WithEvents lbl_st4_actu_pos_3 As Label
+    Friend WithEvents lbl_st4_actu_pos_2 As Label
+    Friend WithEvents lbl_st4_actu_pos_1 As Label
+    Friend WithEvents lbl_st4_actu_pos As Label
     Friend WithEvents btn_run As Button
     Friend WithEvents btn_stop As Button
     Friend WithEvents txt_st4_analog_data As TextBox

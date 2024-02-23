@@ -251,6 +251,25 @@ Public Class frmMain
             MsgBox("Make Sure The Machine Is In Manual Mode", vbCritical)
             Exit Sub
         End If
+
+        With Config
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2, ReadINI(iniPath, "CALIBRATION", "Heidenhain"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, ReadINI(iniPath, "CALIBRATION", "Posst3"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST3, ReadINI(iniPath, "CALIBRATION", "Velst3"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, ReadINI(iniPath, "CALIBRATION", "Posst4"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, ReadINI(iniPath, "CALIBRATION", "Velst4"))
+            Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4, ReadINI(iniPath, "CALIBRATION", "P0st4"))
+            Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4, ReadINI(iniPath, "CALIBRATION", "Gt2st4"))
+
+            txt_st2_cal_val.Text = ReadINI(iniPath, "CALIBRATION", "Heidenhain")
+            txt_st3_set_pos.Text = ReadINI(iniPath, "CALIBRATION", "Posst3")
+            txt_st3_set_vel.Text = ReadINI(iniPath, "CALIBRATION", "Velst3")
+            txt_st4_set_pos.Text = ReadINI(iniPath, "CALIBRATION", "Posst4")
+            txt_st4_set_vel.Text = ReadINI(iniPath, "CALIBRATION", "Velst4")
+            txt_st4_cal_val_p0.Text = ReadINI(iniPath, "CALIBRATION", "P0st4")
+            txt_st4_cal_val_gt2.Text = ReadINI(iniPath, "CALIBRATION", "Gt2st4")
+        End With
+
         ShowPanelGeneral("manual")
         ShowPanelManual("GEN")
         btn_stop.PerformClick()

@@ -1,0 +1,246 @@
+2024-02-23 15:14:03 [General] Door Lock 1 Close
+2024-02-23 15:14:03 [General] Door Lock 2 Close
+2024-02-23 15:14:03 [General] Door Lock 3 Close
+2024-02-23 15:14:03 [General] Door Lock 4 Close
+2024-02-23 15:14:03 [General] Door Lock 5 Close
+2024-02-23 15:14:03 [General] Door Lock 6 Close
+2024-02-23 15:14:03 [General] Altivar OK
+2024-02-23 15:14:03 [General] Air Presence NOK
+2024-02-23 15:14:03 [General] Emergency Button Is Released
+2024-02-23 15:14:03 [General] Safety Curtain NOK
+2024-02-23 15:14:03 [ST-2] V201 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-2] V202 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-3] V301 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-3] V302 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-4] V401 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-4] V402 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-5] V501 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-5] V501 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-6] V601 Descrepancy Not Detected
+2024-02-23 15:14:03 [ST-6] V602 Descrepancy Not Detected
+2024-02-23 15:14:14 [General] Door Lock 1 Close
+2024-02-23 15:14:14 [General] Door Lock 2 Close
+2024-02-23 15:14:14 [General] Door Lock 3 Close
+2024-02-23 15:14:14 [General] Door Lock 4 Close
+2024-02-23 15:14:14 [General] Door Lock 5 Close
+2024-02-23 15:14:14 [General] Door Lock 6 Close
+2024-02-23 15:14:14 [General] Altivar OK
+2024-02-23 15:14:14 [General] Air Presence NOK
+2024-02-23 15:14:14 [General] Emergency Button Is Released
+2024-02-23 15:14:14 [General] Safety Curtain NOK
+2024-02-23 15:14:14 [ST-2] V201 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-2] V202 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-3] V301 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-3] V302 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-4] V401 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-4] V402 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-5] V501 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-5] V501 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-6] V601 Descrepancy Not Detected
+2024-02-23 15:14:14 [ST-6] V602 Descrepancy Not Detected
+2024-02-23 15:14:35 [General] Door Lock 1 Close
+2024-02-23 15:14:35 [General] Door Lock 2 Close
+2024-02-23 15:14:35 [General] Door Lock 3 Close
+2024-02-23 15:14:35 [General] Door Lock 4 Close
+2024-02-23 15:14:35 [General] Door Lock 5 Close
+2024-02-23 15:14:35 [General] Door Lock 6 Close
+2024-02-23 15:14:35 [General] Altivar OK
+2024-02-23 15:14:35 [General] Air Presence NOK
+2024-02-23 15:14:35 [General] Emergency Button Is Released
+2024-02-23 15:14:35 [General] Safety Curtain NOK
+2024-02-23 15:14:35 [ST-2] V201 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-2] V202 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-3] V301 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-3] V302 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-4] V401 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-4] V402 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-5] V501 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-5] V501 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-6] V601 Descrepancy Not Detected
+2024-02-23 15:14:35 [ST-6] V602 Descrepancy Not Detected
+2024-02-23 15:15:39 [General] Safety Curtain OK
+2024-02-23 15:15:39 [General] Safety Curtain NOK
+2024-02-23 15:15:39 [General] Safety Curtain OK
+2024-02-23 15:15:40 [General] Safety Curtain NOK
+2024-02-23 15:15:47 [General] Safety Curtain OK
+2024-02-23 15:15:49 [General] Safety Curtain NOK
+2024-02-23 15:16:07 [General] Safety Curtain OK
+2024-02-23 15:16:09 [General] Safety Curtain NOK
+2024-02-23 15:16:18 [General] Safety Curtain OK
+2024-02-23 15:16:18 [General] Safety Curtain NOK
+2024-02-23 15:16:39 [General] Safety Curtain OK
+2024-02-23 15:16:40 [General] Safety Curtain NOK
+2024-02-23 15:16:41 [General] Safety Curtain OK
+2024-02-23 15:16:42 [General] Safety Curtain NOK
+2024-02-23 15:16:56 [General] Safety Curtain OK
+2024-02-23 15:16:57 [General] Safety Curtain NOK
+2024-02-23 15:16:58 [General] Safety Curtain OK
+2024-02-23 15:17:01 [General] Safety Curtain NOK
+2024-02-23 15:17:16 [General] Safety Curtain OK
+2024-02-23 15:17:18 [General] Safety Curtain NOK
+2024-02-23 15:17:18 [General] Safety Curtain OK
+2024-02-23 15:17:22 [General] Safety Curtain NOK
+2024-02-23 15:17:33 [General] Safety Curtain OK
+2024-02-23 15:17:33 [General] Safety Curtain NOK
+2024-02-23 15:17:44 [General] Safety Curtain OK
+2024-02-23 15:18:00 [General] Safety Curtain NOK
+2024-02-23 15:18:02 [General] Safety Curtain OK
+2024-02-23 15:18:09 [General] Safety Curtain NOK
+2024-02-23 15:18:09 [General] Safety Curtain OK
+2024-02-23 15:18:30 [General] Safety Curtain NOK
+2024-02-23 15:18:33 [General] Safety Curtain OK
+2024-02-23 15:18:38 [General] Safety Curtain NOK
+2024-02-23 15:18:48 [General] Safety Curtain OK
+2024-02-23 15:18:48 [General] Safety Curtain NOK
+2024-02-23 15:18:52 [General] Safety Curtain OK
+2024-02-23 15:18:57 [General] Safety Curtain NOK
+2024-02-23 15:19:04 [General] Safety Curtain OK
+2024-02-23 15:19:05 [General] Safety Curtain NOK
+2024-02-23 15:19:13 [General] Safety Curtain OK
+2024-02-23 15:19:14 [General] Safety Curtain NOK
+2024-02-23 15:19:23 [General] Safety Curtain OK
+2024-02-23 15:19:24 [General] Safety Curtain NOK
+2024-02-23 15:19:31 [General] Safety Curtain OK
+2024-02-23 15:19:32 [General] Safety Curtain NOK
+2024-02-23 15:19:32 [General] Safety Curtain OK
+2024-02-23 15:19:33 [General] Safety Curtain NOK
+2024-02-23 15:19:48 [General] Safety Curtain OK
+2024-02-23 15:19:48 [General] Safety Curtain NOK
+2024-02-23 15:19:50 [General] Safety Curtain OK
+2024-02-23 15:19:51 [General] Safety Curtain NOK
+2024-02-23 15:20:32 [General] Safety Curtain OK
+2024-02-23 15:20:52 [General] Safety Curtain NOK
+2024-02-23 15:20:57 [General] Safety Curtain OK
+2024-02-23 15:20:59 [General] Safety Curtain NOK
+2024-02-23 15:21:00 [General] Safety Curtain OK
+2024-02-23 15:21:13 [General] Safety Curtain NOK
+2024-02-23 15:21:36 [General] Safety Curtain OK
+2024-02-23 15:21:45 [General] Safety Curtain NOK
+2024-02-23 15:21:45 [General] Safety Curtain OK
+2024-02-23 15:21:57 [General] Safety Curtain NOK
+2024-02-23 15:22:02 [General] Safety Curtain OK
+2024-02-23 15:22:05 [General] Safety Curtain NOK
+2024-02-23 15:22:17 [General] Safety Curtain OK
+2024-02-23 15:22:19 [General] Safety Curtain NOK
+2024-02-23 15:22:32 [General] Safety Curtain OK
+2024-02-23 15:22:34 [General] Safety Curtain NOK
+2024-02-23 15:22:43 [General] Safety Curtain OK
+2024-02-23 15:22:45 [General] Safety Curtain NOK
+2024-02-23 15:22:48 [General] Safety Curtain OK
+2024-02-23 15:22:49 [General] Safety Curtain NOK
+2024-02-23 15:22:52 [General] Safety Curtain OK
+2024-02-23 15:22:53 [General] Safety Curtain NOK
+2024-02-23 15:22:54 [General] Safety Curtain OK
+2024-02-23 15:23:01 [General] Safety Curtain NOK
+2024-02-23 15:23:02 [General] Safety Curtain OK
+2024-02-23 15:23:06 [General] Safety Curtain NOK
+2024-02-23 15:23:06 [General] Safety Curtain OK
+2024-02-23 15:24:17 [General] Safety Curtain NOK
+2024-02-23 15:24:18 [General] Safety Curtain OK
+2024-02-23 15:24:18 [General] Safety Curtain NOK
+2024-02-23 15:24:20 [General] Safety Curtain OK
+2024-02-23 15:24:21 [General] Safety Curtain NOK
+2024-02-23 15:24:21 [General] Safety Curtain OK
+2024-02-23 15:24:21 [General] Safety Curtain NOK
+2024-02-23 15:24:22 [General] Safety Curtain OK
+2024-02-23 15:31:10 [General] Safety Curtain NOK
+2024-02-23 15:31:17 [General] Safety Curtain OK
+2024-02-23 15:32:45 [General] Safety Curtain NOK
+2024-02-23 15:32:49 [General] Safety Curtain OK
+2024-02-23 15:32:50 [General] Safety Curtain NOK
+2024-02-23 15:32:51 [General] Safety Curtain OK
+2024-02-23 15:32:51 [General] Safety Curtain NOK
+2024-02-23 15:32:51 [General] Safety Curtain OK
+2024-02-23 15:35:16 [General] Safety Curtain NOK
+2024-02-23 15:35:16 [General] Safety Curtain OK
+2024-02-23 15:38:43 [General] Safety Curtain NOK
+2024-02-23 15:42:48 [General] Safety Curtain OK
+2024-02-23 15:42:49 [General] Safety Curtain NOK
+2024-02-23 15:43:39 [General] Safety Curtain OK
+2024-02-23 15:43:42 [General] Safety Curtain NOK
+2024-02-23 15:43:42 [General] Safety Curtain OK
+2024-02-23 15:43:43 [General] Safety Curtain NOK
+2024-02-23 15:43:44 [General] Safety Curtain OK
+2024-02-23 15:43:45 [General] Safety Curtain NOK
+2024-02-23 15:43:45 [General] Safety Curtain OK
+2024-02-23 15:43:46 [General] Safety Curtain NOK
+2024-02-23 15:43:46 [General] Safety Curtain OK
+2024-02-23 15:43:46 [General] Safety Curtain NOK
+2024-02-23 15:43:47 [General] Safety Curtain OK
+2024-02-23 15:43:55 [General] Safety Curtain NOK
+2024-02-23 15:43:57 [General] Safety Curtain OK
+2024-02-23 15:44:12 [General] Safety Curtain NOK
+2024-02-23 15:44:38 [General] Safety Curtain OK
+2024-02-23 15:44:57 [General] Safety Curtain NOK
+2024-02-23 15:45:00 [General] Safety Curtain OK
+2024-02-23 15:45:01 [General] Safety Curtain NOK
+2024-02-23 15:45:05 [General] Safety Curtain OK
+2024-02-23 15:45:05 [General] Safety Curtain NOK
+2024-02-23 15:45:05 [General] Safety Curtain OK
+2024-02-23 15:45:06 [General] Safety Curtain NOK
+2024-02-23 15:45:12 [General] Safety Curtain OK
+2024-02-23 15:45:13 [General] Safety Curtain NOK
+2024-02-23 15:45:14 [General] Safety Curtain OK
+2024-02-23 15:45:19 [General] Safety Curtain NOK
+2024-02-23 15:45:23 [General] Safety Curtain OK
+2024-02-23 15:45:25 [General] Safety Curtain NOK
+2024-02-23 15:45:30 [General] Safety Curtain OK
+2024-02-23 15:45:30 [General] Safety Curtain NOK
+2024-02-23 15:45:33 [General] Safety Curtain OK
+2024-02-23 15:45:37 [General] Safety Curtain NOK
+2024-02-23 15:45:37 [General] Safety Curtain OK
+2024-02-23 15:45:38 [General] Safety Curtain NOK
+2024-02-23 15:45:38 [General] Safety Curtain OK
+2024-02-23 15:45:39 [General] Safety Curtain NOK
+2024-02-23 15:45:39 [General] Safety Curtain OK
+2024-02-23 15:45:39 [General] Safety Curtain NOK
+2024-02-23 15:45:44 [General] Safety Curtain OK
+2024-02-23 15:46:03 [General] Safety Curtain NOK
+2024-02-23 15:46:06 [General] Safety Curtain OK
+2024-02-23 15:46:23 [General] Safety Curtain NOK
+2024-02-23 15:46:34 [General] Safety Curtain OK
+2024-02-23 15:46:34 [General] Safety Curtain NOK
+2024-02-23 15:59:38 [General] Safety Curtain OK
+2024-02-23 15:59:39 [General] Safety Curtain NOK
+2024-02-23 16:01:00 [General] Safety Curtain OK
+2024-02-23 16:01:03 [General] Safety Curtain NOK
+2024-02-23 16:01:06 [General] Safety Curtain OK
+2024-02-23 16:01:15 [General] Safety Curtain NOK
+2024-02-23 16:01:27 [General] Safety Curtain OK
+2024-02-23 16:01:29 [General] Safety Curtain NOK
+2024-02-23 16:01:37 [General] Safety Curtain OK
+2024-02-23 16:01:38 [General] Safety Curtain NOK
+2024-02-23 16:01:52 [General] Safety Curtain OK
+2024-02-23 16:01:53 [General] Safety Curtain NOK
+2024-02-23 16:02:10 [General] Safety Curtain OK
+2024-02-23 16:02:11 [General] Safety Curtain NOK
+2024-02-23 16:02:14 [General] Safety Curtain OK
+2024-02-23 16:02:15 [General] Safety Curtain NOK
+2024-02-23 16:02:26 [General] Safety Curtain OK
+2024-02-23 16:02:27 [General] Safety Curtain NOK
+2024-02-23 16:02:30 [General] Safety Curtain OK
+2024-02-23 16:02:31 [General] Safety Curtain NOK
+2024-02-23 16:07:37 [General] Safety Curtain OK
+2024-02-23 16:07:39 [General] Safety Curtain NOK
+2024-02-23 16:10:30 [General] Safety Curtain OK
+2024-02-23 16:10:34 [General] Safety Curtain NOK
+2024-02-23 16:10:34 [General] Safety Curtain OK
+2024-02-23 16:10:35 [General] Safety Curtain NOK
+2024-02-23 16:10:48 [General] Safety Curtain OK
+2024-02-23 16:10:48 [General] Safety Curtain NOK
+2024-02-23 16:10:49 [General] Safety Curtain OK
+2024-02-23 16:10:50 [General] Safety Curtain NOK
+2024-02-23 16:10:50 [General] Safety Curtain OK
+2024-02-23 16:10:51 [General] Safety Curtain NOK
+2024-02-23 16:10:51 [General] Safety Curtain OK
+2024-02-23 16:10:53 [General] Safety Curtain NOK
+2024-02-23 16:10:55 [General] Safety Curtain OK
+2024-02-23 16:10:56 [General] Safety Curtain NOK
+2024-02-23 16:10:56 [General] Safety Curtain OK
+2024-02-23 16:10:56 [General] Safety Curtain NOK
+2024-02-23 16:10:58 [General] Safety Curtain OK
+2024-02-23 16:10:59 [General] Safety Curtain NOK
+2024-02-23 16:11:02 [General] Safety Curtain OK
+2024-02-23 16:11:07 [General] Safety Curtain NOK
+2024-02-23 16:12:34 [General] Safety Curtain OK
+2024-02-23 16:12:35 [General] Safety Curtain NOK

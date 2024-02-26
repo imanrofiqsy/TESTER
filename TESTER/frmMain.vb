@@ -92,23 +92,23 @@ Public Class frmMain
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
-        Try
-            ChromaComm.Open()
-            btn_open_multi.Text = "Close Port"
-            connect_multi_ind.BackColor = Color.Lime
-        Catch ex As Exception
-            MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-            connect_multi_ind.BackColor = Color.Red
-            End
-        End Try
+        'Try
+        '    ChromaComm.Open()
+        '    btn_open_multi.Text = "Close Port"
+        '    connect_multi_ind.BackColor = Color.Lime
+        'Catch ex As Exception
+        '    MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        '    connect_multi_ind.BackColor = Color.Red
+        '    End
+        'End Try
 
-        'init chroma
-        ChromaComm.Write("*IDN?" & vbCrLf)
-        Thread.Sleep(100)
-        If Not strChromaRaw = Config.instrumentName Then
-            MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
-            End
-        End If
+        ''init chroma
+        'ChromaComm.Write("*IDN?" & vbCrLf)
+        'Thread.Sleep(100)
+        'If Not strChromaRaw = Config.instrumentName Then
+        '    MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End If
 
         Thread.Sleep(200)
 
@@ -284,7 +284,6 @@ Public Class frmMain
         ShowPanelGeneral("monitoring")
     End Sub
     Private Sub btn_alarm_Click(sender As Object, e As EventArgs) Handles btn_alarm.Click
-
         ShowPanelGeneral("alarm")
     End Sub
     Private Sub btn_multimeter_Click(sender As Object, e As EventArgs) Handles btn_multimeter.Click
@@ -538,13 +537,6 @@ Public Class frmMain
             pnl_mon_stn6.Visible = False
         End If
 
-        If mode = "GEN" Then
-            If ManualState Then
-                pnl_man_general.Visible = True
-            End If
-        Else
-            pnl_man_general.Visible = False
-        End If
     End Sub
 
     'pnl_manual
@@ -2570,6 +2562,7 @@ Public Class frmMain
                     End Using
                 End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_general(i) + vbCrLf
+                txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
                 txt_alarm_copy.Text = txt_alarm.Text
                 txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
@@ -2617,6 +2610,7 @@ Public Class frmMain
                     End Using
                 End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn2(i) + vbCrLf
+                txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
                 txt_alarm_copy.Text = txt_alarm.Text
                 txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
@@ -2663,6 +2657,7 @@ Public Class frmMain
                     End Using
                 End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn3(i) + vbCrLf
+                txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
                 txt_alarm_copy.Text = txt_alarm.Text
                 txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
@@ -2709,6 +2704,7 @@ Public Class frmMain
                     End Using
                 End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn4(i) + vbCrLf
+                txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
                 txt_alarm_copy.Text = txt_alarm.Text
                 txt_alarm_copy.ScrollToCaret()
@@ -2755,6 +2751,7 @@ Public Class frmMain
                     End Using
                 End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn5(i) + vbCrLf
+                txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
                 txt_alarm_copy.Text = txt_alarm.Text
                 txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
@@ -2801,6 +2798,7 @@ Public Class frmMain
                     End Using
                 End If
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn6(i) + vbCrLf
+                txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
                 txt_alarm_copy.Text = txt_alarm.Text
                 txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
@@ -5682,7 +5680,11 @@ Retry:
             Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
         End If
     End Sub
-
+    Private Sub txt_st2_punch_cycle_TextChanged(sender As Object, e As EventArgs) Handles txt_st2_punch_cycle.TextChanged
+        If txt_st2_punch_cycle.Text <> "" And Val(txt_st2_punch_cycle.Text) > 0 Then
+            Modbus.WriteData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2, txt_st2_punch_cycle.Text)
+        End If
+    End Sub
     Private Sub btn_st2_start_punch_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st2_start_punch.MouseDown
         If Status.Enabled = True Then
             Dim temp(16) As Integer
@@ -5700,11 +5702,8 @@ Retry:
                 End If
                 temp_str = temp_str + temp(i).ToString
             Next
-            If txt_st2_punch_cycle.Text <> "" And Val(txt_st2_punch_cycle.Text) > 0 Then
-                Modbus.WriteData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2, txt_st2_punch_cycle.Text)
-                Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
-                Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
-            End If
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
         End If
     End Sub
 
@@ -5932,4 +5931,6 @@ Retry:
             End If
         End If
     End Sub
+
+
 End Class

@@ -92,23 +92,23 @@ Public Class frmMain
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
-        'Try
-        '    ChromaComm.Open()
-        '    btn_open_multi.Text = "Close Port"
-        '    connect_multi_ind.BackColor = Color.Lime
-        'Catch ex As Exception
-        '    MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-        '    connect_multi_ind.BackColor = Color.Red
-        '    End
-        'End Try
+        Try
+            ChromaComm.Open()
+            btn_open_multi.Text = "Close Port"
+            connect_multi_ind.BackColor = Color.Lime
+        Catch ex As Exception
+            MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+            connect_multi_ind.BackColor = Color.Red
+            End
+        End Try
 
         ''init chroma
-        'ChromaComm.Write("*IDN?" & vbCrLf)
-        'Thread.Sleep(100)
-        'If Not strChromaRaw = Config.instrumentName Then
-        '    MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
-        '    End
-        'End If
+        ChromaComm.Write("*IDN?" & vbCrLf)
+        Thread.Sleep(100)
+        If Not strChromaRaw = Config.instrumentName Then
+            MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
+            End
+        End If
 
         Thread.Sleep(200)
 
@@ -271,7 +271,7 @@ Public Class frmMain
         End With
 
         ShowPanelGeneral("manual")
-        ShowPanelManual("GEN")
+        ShowPanelManual("STN1")
         btn_stop.PerformClick()
     End Sub
     Private Sub btn_setting_Click(sender As Object, e As EventArgs) Handles btn_setting.Click
@@ -5682,7 +5682,7 @@ Retry:
     End Sub
     Private Sub txt_st2_punch_cycle_TextChanged(sender As Object, e As EventArgs) Handles txt_st2_punch_cycle.TextChanged
         If txt_st2_punch_cycle.Text <> "" And Val(txt_st2_punch_cycle.Text) > 0 Then
-            Modbus.WriteData(REGISTER_TYPE, ADDR_PUNCH_COUNTER_ST2, txt_st2_punch_cycle.Text)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_PUNCH_CYCLE_ST2, txt_st2_punch_cycle.Text)
         End If
     End Sub
     Private Sub btn_st2_start_punch_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st2_start_punch.MouseDown

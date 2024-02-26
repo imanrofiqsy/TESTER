@@ -648,12 +648,10 @@ Partial Class frmMain
         Me.btn_read_ch_1 = New System.Windows.Forms.Button()
         Me.pnl_alarm = New System.Windows.Forms.TabControl()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
-        Me.GroupBox85 = New System.Windows.Forms.GroupBox()
         Me.ind_v602_descrepancy = New System.Windows.Forms.PictureBox()
         Me.Label94 = New System.Windows.Forms.Label()
         Me.ind_v601_descrepancy = New System.Windows.Forms.PictureBox()
         Me.Label96 = New System.Windows.Forms.Label()
-        Me.GroupBox83 = New System.Windows.Forms.GroupBox()
         Me.ind_v402_descrepancy = New System.Windows.Forms.PictureBox()
         Me.Label89 = New System.Windows.Forms.Label()
         Me.ind_v401_descrepancy = New System.Windows.Forms.PictureBox()
@@ -663,7 +661,6 @@ Partial Class frmMain
         Me.Label92 = New System.Windows.Forms.Label()
         Me.ind_v501_descrepancy = New System.Windows.Forms.PictureBox()
         Me.Label93 = New System.Windows.Forms.Label()
-        Me.GroupBox82 = New System.Windows.Forms.GroupBox()
         Me.ind_v302_descrepancy = New System.Windows.Forms.PictureBox()
         Me.Label87 = New System.Windows.Forms.Label()
         Me.ind_v301_descrepancy = New System.Windows.Forms.PictureBox()
@@ -1091,8 +1088,22 @@ Partial Class frmMain
         Me.pnl_man_stn2 = New System.Windows.Forms.TabControl()
         Me.GroupBox183 = New System.Windows.Forms.GroupBox()
         Me.Label299 = New System.Windows.Forms.Label()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.ind_v101_descrepancy = New System.Windows.Forms.PictureBox()
         Me.txt_alarm = New System.Windows.Forms.TextBox()
+        Me.labelaaa = New System.Windows.Forms.Label()
+        Me.ind_v203_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label304 = New System.Windows.Forms.Label()
+        Me.ind_v503_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label305 = New System.Windows.Forms.Label()
+        Me.ind_v504_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label306 = New System.Windows.Forms.Label()
+        Me.ind_v603_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label307 = New System.Windows.Forms.Label()
+        Me.ind_v604_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label308 = New System.Windows.Forms.Label()
+        Me.ind_v605_descrepancy = New System.Windows.Forms.PictureBox()
+        Me.Label309 = New System.Windows.Forms.Label()
+        Me.ind_v606_descrepancy = New System.Windows.Forms.PictureBox()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1288,16 +1299,13 @@ Partial Class frmMain
         Me.GroupBox170.SuspendLayout
         Me.pnl_alarm.SuspendLayout
         Me.TabPage15.SuspendLayout
-        Me.GroupBox85.SuspendLayout
         CType(Me.ind_v602_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_v601_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBox83.SuspendLayout
         CType(Me.ind_v402_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_v401_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox84.SuspendLayout
         CType(Me.ind_v502_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_v501_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBox82.SuspendLayout
         CType(Me.ind_v302_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ind_v301_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox81.SuspendLayout
@@ -1549,7 +1557,14 @@ Partial Class frmMain
         CType(Me.stn2_cyl4_min, System.ComponentModel.ISupportInitialize).BeginInit
         Me.pnl_man_stn2.SuspendLayout
         Me.GroupBox183.SuspendLayout
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_v101_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_v203_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_v503_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_v504_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_v603_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_v604_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_v605_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_v606_descrepancy, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'lbl_user
@@ -8796,10 +8811,7 @@ Partial Class frmMain
         'TabPage15
         '
         Me.TabPage15.Controls.Add(Me.txt_alarm)
-        Me.TabPage15.Controls.Add(Me.GroupBox85)
-        Me.TabPage15.Controls.Add(Me.GroupBox83)
         Me.TabPage15.Controls.Add(Me.GroupBox84)
-        Me.TabPage15.Controls.Add(Me.GroupBox82)
         Me.TabPage15.Controls.Add(Me.GroupBox81)
         Me.TabPage15.Controls.Add(Me.GroupBox79)
         Me.TabPage15.Location = New System.Drawing.Point(4, 38)
@@ -8810,24 +8822,10 @@ Partial Class frmMain
         Me.TabPage15.Text = "Alarm"
         Me.TabPage15.UseVisualStyleBackColor = True
         '
-        'GroupBox85
-        '
-        Me.GroupBox85.Controls.Add(Me.ind_v602_descrepancy)
-        Me.GroupBox85.Controls.Add(Me.Label94)
-        Me.GroupBox85.Controls.Add(Me.ind_v601_descrepancy)
-        Me.GroupBox85.Controls.Add(Me.Label96)
-        Me.GroupBox85.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox85.Location = New System.Drawing.Point(642, 365)
-        Me.GroupBox85.Name = "GroupBox85"
-        Me.GroupBox85.Size = New System.Drawing.Size(193, 81)
-        Me.GroupBox85.TabIndex = 57
-        Me.GroupBox85.TabStop = False
-        Me.GroupBox85.Text = "Alarm Station 6"
-        '
         'ind_v602_descrepancy
         '
         Me.ind_v602_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v602_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v602_descrepancy.Location = New System.Drawing.Point(14, 117)
         Me.ind_v602_descrepancy.Name = "ind_v602_descrepancy"
         Me.ind_v602_descrepancy.Size = New System.Drawing.Size(15, 15)
         Me.ind_v602_descrepancy.TabIndex = 33
@@ -8837,7 +8835,7 @@ Partial Class frmMain
         '
         Me.Label94.AutoSize = True
         Me.Label94.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label94.Location = New System.Drawing.Point(37, 48)
+        Me.Label94.Location = New System.Drawing.Point(35, 114)
         Me.Label94.Name = "Label94"
         Me.Label94.Size = New System.Drawing.Size(144, 20)
         Me.Label94.TabIndex = 31
@@ -8846,7 +8844,7 @@ Partial Class frmMain
         'ind_v601_descrepancy
         '
         Me.ind_v601_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v601_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v601_descrepancy.Location = New System.Drawing.Point(14, 96)
         Me.ind_v601_descrepancy.Name = "ind_v601_descrepancy"
         Me.ind_v601_descrepancy.Size = New System.Drawing.Size(15, 15)
         Me.ind_v601_descrepancy.TabIndex = 33
@@ -8856,30 +8854,16 @@ Partial Class frmMain
         '
         Me.Label96.AutoSize = True
         Me.Label96.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label96.Location = New System.Drawing.Point(37, 27)
+        Me.Label96.Location = New System.Drawing.Point(35, 93)
         Me.Label96.Name = "Label96"
         Me.Label96.Size = New System.Drawing.Size(144, 20)
         Me.Label96.TabIndex = 31
         Me.Label96.Text = "V601 Descrepancy"
         '
-        'GroupBox83
-        '
-        Me.GroupBox83.Controls.Add(Me.ind_v402_descrepancy)
-        Me.GroupBox83.Controls.Add(Me.Label89)
-        Me.GroupBox83.Controls.Add(Me.ind_v401_descrepancy)
-        Me.GroupBox83.Controls.Add(Me.Label90)
-        Me.GroupBox83.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox83.Location = New System.Drawing.Point(642, 188)
-        Me.GroupBox83.Name = "GroupBox83"
-        Me.GroupBox83.Size = New System.Drawing.Size(196, 81)
-        Me.GroupBox83.TabIndex = 58
-        Me.GroupBox83.TabStop = False
-        Me.GroupBox83.Text = "Alarm Station 4"
-        '
         'ind_v402_descrepancy
         '
         Me.ind_v402_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v402_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v402_descrepancy.Location = New System.Drawing.Point(16, 177)
         Me.ind_v402_descrepancy.Name = "ind_v402_descrepancy"
         Me.ind_v402_descrepancy.Size = New System.Drawing.Size(15, 15)
         Me.ind_v402_descrepancy.TabIndex = 33
@@ -8889,7 +8873,7 @@ Partial Class frmMain
         '
         Me.Label89.AutoSize = True
         Me.Label89.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label89.Location = New System.Drawing.Point(37, 48)
+        Me.Label89.Location = New System.Drawing.Point(37, 174)
         Me.Label89.Name = "Label89"
         Me.Label89.Size = New System.Drawing.Size(144, 20)
         Me.Label89.TabIndex = 31
@@ -8898,7 +8882,7 @@ Partial Class frmMain
         'ind_v401_descrepancy
         '
         Me.ind_v401_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v401_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v401_descrepancy.Location = New System.Drawing.Point(16, 156)
         Me.ind_v401_descrepancy.Name = "ind_v401_descrepancy"
         Me.ind_v401_descrepancy.Size = New System.Drawing.Size(15, 15)
         Me.ind_v401_descrepancy.TabIndex = 33
@@ -8908,7 +8892,7 @@ Partial Class frmMain
         '
         Me.Label90.AutoSize = True
         Me.Label90.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label90.Location = New System.Drawing.Point(37, 27)
+        Me.Label90.Location = New System.Drawing.Point(37, 153)
         Me.Label90.Name = "Label90"
         Me.Label90.Size = New System.Drawing.Size(144, 20)
         Me.Label90.TabIndex = 31
@@ -8916,14 +8900,28 @@ Partial Class frmMain
         '
         'GroupBox84
         '
+        Me.GroupBox84.Controls.Add(Me.ind_v606_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.ind_v604_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.ind_v602_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.ind_v504_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.Label309)
+        Me.GroupBox84.Controls.Add(Me.Label307)
+        Me.GroupBox84.Controls.Add(Me.Label94)
+        Me.GroupBox84.Controls.Add(Me.ind_v503_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.ind_v605_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.ind_v603_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.ind_v601_descrepancy)
         Me.GroupBox84.Controls.Add(Me.ind_v502_descrepancy)
+        Me.GroupBox84.Controls.Add(Me.Label308)
+        Me.GroupBox84.Controls.Add(Me.Label306)
+        Me.GroupBox84.Controls.Add(Me.Label96)
+        Me.GroupBox84.Controls.Add(Me.Label305)
+        Me.GroupBox84.Controls.Add(Me.Label304)
         Me.GroupBox84.Controls.Add(Me.Label92)
-        Me.GroupBox84.Controls.Add(Me.ind_v501_descrepancy)
-        Me.GroupBox84.Controls.Add(Me.Label93)
         Me.GroupBox84.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox84.Location = New System.Drawing.Point(642, 278)
+        Me.GroupBox84.Location = New System.Drawing.Point(646, 12)
         Me.GroupBox84.Name = "GroupBox84"
-        Me.GroupBox84.Size = New System.Drawing.Size(193, 81)
+        Me.GroupBox84.Size = New System.Drawing.Size(193, 254)
         Me.GroupBox84.TabIndex = 59
         Me.GroupBox84.TabStop = False
         Me.GroupBox84.Text = "Alarm Station 5"
@@ -8931,7 +8929,7 @@ Partial Class frmMain
         'ind_v502_descrepancy
         '
         Me.ind_v502_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v502_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v502_descrepancy.Location = New System.Drawing.Point(14, 33)
         Me.ind_v502_descrepancy.Name = "ind_v502_descrepancy"
         Me.ind_v502_descrepancy.Size = New System.Drawing.Size(15, 15)
         Me.ind_v502_descrepancy.TabIndex = 33
@@ -8941,7 +8939,7 @@ Partial Class frmMain
         '
         Me.Label92.AutoSize = True
         Me.Label92.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label92.Location = New System.Drawing.Point(37, 48)
+        Me.Label92.Location = New System.Drawing.Point(35, 30)
         Me.Label92.Name = "Label92"
         Me.Label92.Size = New System.Drawing.Size(144, 20)
         Me.Label92.TabIndex = 31
@@ -8950,7 +8948,7 @@ Partial Class frmMain
         'ind_v501_descrepancy
         '
         Me.ind_v501_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v501_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v501_descrepancy.Location = New System.Drawing.Point(16, 198)
         Me.ind_v501_descrepancy.Name = "ind_v501_descrepancy"
         Me.ind_v501_descrepancy.Size = New System.Drawing.Size(15, 15)
         Me.ind_v501_descrepancy.TabIndex = 33
@@ -8960,30 +8958,16 @@ Partial Class frmMain
         '
         Me.Label93.AutoSize = True
         Me.Label93.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label93.Location = New System.Drawing.Point(37, 27)
+        Me.Label93.Location = New System.Drawing.Point(37, 195)
         Me.Label93.Name = "Label93"
         Me.Label93.Size = New System.Drawing.Size(144, 20)
         Me.Label93.TabIndex = 31
         Me.Label93.Text = "V501 Descrepancy"
         '
-        'GroupBox82
-        '
-        Me.GroupBox82.Controls.Add(Me.ind_v302_descrepancy)
-        Me.GroupBox82.Controls.Add(Me.Label87)
-        Me.GroupBox82.Controls.Add(Me.ind_v301_descrepancy)
-        Me.GroupBox82.Controls.Add(Me.Label88)
-        Me.GroupBox82.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox82.Location = New System.Drawing.Point(642, 99)
-        Me.GroupBox82.Name = "GroupBox82"
-        Me.GroupBox82.Size = New System.Drawing.Size(195, 81)
-        Me.GroupBox82.TabIndex = 60
-        Me.GroupBox82.TabStop = False
-        Me.GroupBox82.Text = "Alarm Station 3"
-        '
         'ind_v302_descrepancy
         '
         Me.ind_v302_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v302_descrepancy.Location = New System.Drawing.Point(16, 51)
+        Me.ind_v302_descrepancy.Location = New System.Drawing.Point(16, 135)
         Me.ind_v302_descrepancy.Name = "ind_v302_descrepancy"
         Me.ind_v302_descrepancy.Size = New System.Drawing.Size(15, 15)
         Me.ind_v302_descrepancy.TabIndex = 33
@@ -8993,7 +8977,7 @@ Partial Class frmMain
         '
         Me.Label87.AutoSize = True
         Me.Label87.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label87.Location = New System.Drawing.Point(37, 48)
+        Me.Label87.Location = New System.Drawing.Point(37, 132)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(144, 20)
         Me.Label87.TabIndex = 31
@@ -9002,7 +8986,7 @@ Partial Class frmMain
         'ind_v301_descrepancy
         '
         Me.ind_v301_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ind_v301_descrepancy.Location = New System.Drawing.Point(16, 30)
+        Me.ind_v301_descrepancy.Location = New System.Drawing.Point(16, 114)
         Me.ind_v301_descrepancy.Name = "ind_v301_descrepancy"
         Me.ind_v301_descrepancy.Size = New System.Drawing.Size(15, 15)
         Me.ind_v301_descrepancy.TabIndex = 33
@@ -9012,7 +8996,7 @@ Partial Class frmMain
         '
         Me.Label88.AutoSize = True
         Me.Label88.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label88.Location = New System.Drawing.Point(37, 27)
+        Me.Label88.Location = New System.Drawing.Point(37, 111)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(144, 20)
         Me.Label88.TabIndex = 31
@@ -9020,9 +9004,21 @@ Partial Class frmMain
         '
         'GroupBox81
         '
+        Me.GroupBox81.Controls.Add(Me.ind_v402_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.ind_v302_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.ind_v501_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.Label89)
+        Me.GroupBox81.Controls.Add(Me.Label93)
+        Me.GroupBox81.Controls.Add(Me.ind_v203_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.ind_v401_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.Label87)
+        Me.GroupBox81.Controls.Add(Me.Label90)
         Me.GroupBox81.Controls.Add(Me.ind_v202_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.ind_v301_descrepancy)
+        Me.GroupBox81.Controls.Add(Me.labelaaa)
+        Me.GroupBox81.Controls.Add(Me.Label88)
         Me.GroupBox81.Controls.Add(Me.Label91)
-        Me.GroupBox81.Controls.Add(Me.PictureBox4)
+        Me.GroupBox81.Controls.Add(Me.ind_v101_descrepancy)
         Me.GroupBox81.Controls.Add(Me.ind_v201_descrepancy)
         Me.GroupBox81.Controls.Add(Me.Label299)
         Me.GroupBox81.Controls.Add(Me.Label95)
@@ -13747,24 +13743,157 @@ Partial Class frmMain
         Me.Label299.TabIndex = 31
         Me.Label299.Text = "V101 Descrepancy"
         '
-        'PictureBox4
+        'ind_v101_descrepancy
         '
-        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox4.Location = New System.Drawing.Point(16, 28)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(15, 15)
-        Me.PictureBox4.TabIndex = 33
-        Me.PictureBox4.TabStop = False
+        Me.ind_v101_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v101_descrepancy.Location = New System.Drawing.Point(16, 28)
+        Me.ind_v101_descrepancy.Name = "ind_v101_descrepancy"
+        Me.ind_v101_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v101_descrepancy.TabIndex = 33
+        Me.ind_v101_descrepancy.TabStop = False
         '
         'txt_alarm
         '
-        Me.txt_alarm.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_alarm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_alarm.Location = New System.Drawing.Point(26, 20)
         Me.txt_alarm.Multiline = True
         Me.txt_alarm.Name = "txt_alarm"
         Me.txt_alarm.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txt_alarm.Size = New System.Drawing.Size(374, 478)
+        Me.txt_alarm.Size = New System.Drawing.Size(393, 478)
         Me.txt_alarm.TabIndex = 63
+        '
+        'labelaaa
+        '
+        Me.labelaaa.AutoSize = True
+        Me.labelaaa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelaaa.Location = New System.Drawing.Point(37, 90)
+        Me.labelaaa.Name = "labelaaa"
+        Me.labelaaa.Size = New System.Drawing.Size(144, 20)
+        Me.labelaaa.TabIndex = 31
+        Me.labelaaa.Text = "V203 Descrepancy"
+        '
+        'ind_v203_descrepancy
+        '
+        Me.ind_v203_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v203_descrepancy.Location = New System.Drawing.Point(16, 93)
+        Me.ind_v203_descrepancy.Name = "ind_v203_descrepancy"
+        Me.ind_v203_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v203_descrepancy.TabIndex = 33
+        Me.ind_v203_descrepancy.TabStop = False
+        '
+        'Label304
+        '
+        Me.Label304.AutoSize = True
+        Me.Label304.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label304.Location = New System.Drawing.Point(35, 51)
+        Me.Label304.Name = "Label304"
+        Me.Label304.Size = New System.Drawing.Size(144, 20)
+        Me.Label304.TabIndex = 31
+        Me.Label304.Text = "V503 Descrepancy"
+        '
+        'ind_v503_descrepancy
+        '
+        Me.ind_v503_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v503_descrepancy.Location = New System.Drawing.Point(14, 54)
+        Me.ind_v503_descrepancy.Name = "ind_v503_descrepancy"
+        Me.ind_v503_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v503_descrepancy.TabIndex = 33
+        Me.ind_v503_descrepancy.TabStop = False
+        '
+        'Label305
+        '
+        Me.Label305.AutoSize = True
+        Me.Label305.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label305.Location = New System.Drawing.Point(35, 72)
+        Me.Label305.Name = "Label305"
+        Me.Label305.Size = New System.Drawing.Size(144, 20)
+        Me.Label305.TabIndex = 31
+        Me.Label305.Text = "V504 Descrepancy"
+        '
+        'ind_v504_descrepancy
+        '
+        Me.ind_v504_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v504_descrepancy.Location = New System.Drawing.Point(14, 75)
+        Me.ind_v504_descrepancy.Name = "ind_v504_descrepancy"
+        Me.ind_v504_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v504_descrepancy.TabIndex = 33
+        Me.ind_v504_descrepancy.TabStop = False
+        '
+        'Label306
+        '
+        Me.Label306.AutoSize = True
+        Me.Label306.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label306.Location = New System.Drawing.Point(35, 135)
+        Me.Label306.Name = "Label306"
+        Me.Label306.Size = New System.Drawing.Size(144, 20)
+        Me.Label306.TabIndex = 31
+        Me.Label306.Text = "V603 Descrepancy"
+        '
+        'ind_v603_descrepancy
+        '
+        Me.ind_v603_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v603_descrepancy.Location = New System.Drawing.Point(14, 138)
+        Me.ind_v603_descrepancy.Name = "ind_v603_descrepancy"
+        Me.ind_v603_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v603_descrepancy.TabIndex = 33
+        Me.ind_v603_descrepancy.TabStop = False
+        '
+        'Label307
+        '
+        Me.Label307.AutoSize = True
+        Me.Label307.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label307.Location = New System.Drawing.Point(35, 156)
+        Me.Label307.Name = "Label307"
+        Me.Label307.Size = New System.Drawing.Size(144, 20)
+        Me.Label307.TabIndex = 31
+        Me.Label307.Text = "V604 Descrepancy"
+        '
+        'ind_v604_descrepancy
+        '
+        Me.ind_v604_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v604_descrepancy.Location = New System.Drawing.Point(14, 159)
+        Me.ind_v604_descrepancy.Name = "ind_v604_descrepancy"
+        Me.ind_v604_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v604_descrepancy.TabIndex = 33
+        Me.ind_v604_descrepancy.TabStop = False
+        '
+        'Label308
+        '
+        Me.Label308.AutoSize = True
+        Me.Label308.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label308.Location = New System.Drawing.Point(35, 176)
+        Me.Label308.Name = "Label308"
+        Me.Label308.Size = New System.Drawing.Size(144, 20)
+        Me.Label308.TabIndex = 31
+        Me.Label308.Text = "V605 Descrepancy"
+        '
+        'ind_v605_descrepancy
+        '
+        Me.ind_v605_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v605_descrepancy.Location = New System.Drawing.Point(14, 179)
+        Me.ind_v605_descrepancy.Name = "ind_v605_descrepancy"
+        Me.ind_v605_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v605_descrepancy.TabIndex = 33
+        Me.ind_v605_descrepancy.TabStop = False
+        '
+        'Label309
+        '
+        Me.Label309.AutoSize = True
+        Me.Label309.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label309.Location = New System.Drawing.Point(35, 197)
+        Me.Label309.Name = "Label309"
+        Me.Label309.Size = New System.Drawing.Size(144, 20)
+        Me.Label309.TabIndex = 31
+        Me.Label309.Text = "V606 Descrepancy"
+        '
+        'ind_v606_descrepancy
+        '
+        Me.ind_v606_descrepancy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_v606_descrepancy.Location = New System.Drawing.Point(14, 200)
+        Me.ind_v606_descrepancy.Name = "ind_v606_descrepancy"
+        Me.ind_v606_descrepancy.Size = New System.Drawing.Size(15, 15)
+        Me.ind_v606_descrepancy.TabIndex = 33
+        Me.ind_v606_descrepancy.TabStop = False
         '
         'frmMain
         '
@@ -13809,19 +13938,14 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_cot_3)
         Me.Controls.Add(Me.lbl_cot_2)
         Me.Controls.Add(Me.lbl_cot_1)
-        Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.lbl_cot)
         Me.Controls.Add(Me.lbl_st4_t1_5)
-        Me.Controls.Add(Me.btn_monitoring)
         Me.Controls.Add(Me.lbl_st4_t1_4)
-        Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.lbl_st4_t1_3)
-        Me.Controls.Add(Me.btn_home)
         Me.Controls.Add(Me.lbl_st4_t1_2)
         Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.lbl_st4_t1_1)
         Me.Controls.Add(Me.lbl_st4_t1)
-        Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.pnl_alarm)
         Me.Controls.Add(Me.pnl_mon_stn6)
         Me.Controls.Add(Me.pnl_mon_stn5)
@@ -13842,6 +13966,11 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_laser)
         Me.Controls.Add(Me.pnl_calibration)
         Me.Controls.Add(Me.pnl_multi)
+        Me.Controls.Add(Me.btn_ref)
+        Me.Controls.Add(Me.btn_multimeter)
+        Me.Controls.Add(Me.btn_monitoring)
+        Me.Controls.Add(Me.btn_manual)
+        Me.Controls.Add(Me.btn_home)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -14094,20 +14223,14 @@ Partial Class frmMain
         Me.pnl_alarm.ResumeLayout(False)
         Me.TabPage15.ResumeLayout(False)
         Me.TabPage15.PerformLayout
-        Me.GroupBox85.ResumeLayout(False)
-        Me.GroupBox85.PerformLayout
         CType(Me.ind_v602_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_v601_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
-        Me.GroupBox83.ResumeLayout(False)
-        Me.GroupBox83.PerformLayout
         CType(Me.ind_v402_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_v401_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox84.ResumeLayout(False)
         Me.GroupBox84.PerformLayout
         CType(Me.ind_v502_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_v501_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
-        Me.GroupBox82.ResumeLayout(False)
-        Me.GroupBox82.PerformLayout
         CType(Me.ind_v302_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ind_v301_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox81.ResumeLayout(False)
@@ -14425,7 +14548,14 @@ Partial Class frmMain
         CType(Me.stn2_cyl4_min, System.ComponentModel.ISupportInitialize).EndInit
         Me.pnl_man_stn2.ResumeLayout(False)
         Me.GroupBox183.ResumeLayout(False)
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_v101_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_v203_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_v503_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_v504_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_v603_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_v604_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_v605_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_v606_descrepancy, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -14802,12 +14932,10 @@ Partial Class frmMain
     Friend WithEvents btn_read_ch_1 As Button
     Friend WithEvents pnl_alarm As TabControl
     Friend WithEvents TabPage15 As TabPage
-    Friend WithEvents GroupBox85 As GroupBox
     Friend WithEvents ind_v602_descrepancy As PictureBox
     Friend WithEvents Label94 As Label
     Friend WithEvents ind_v601_descrepancy As PictureBox
     Friend WithEvents Label96 As Label
-    Friend WithEvents GroupBox83 As GroupBox
     Friend WithEvents ind_v402_descrepancy As PictureBox
     Friend WithEvents Label89 As Label
     Friend WithEvents ind_v401_descrepancy As PictureBox
@@ -14817,7 +14945,6 @@ Partial Class frmMain
     Friend WithEvents Label92 As Label
     Friend WithEvents ind_v501_descrepancy As PictureBox
     Friend WithEvents Label93 As Label
-    Friend WithEvents GroupBox82 As GroupBox
     Friend WithEvents ind_v302_descrepancy As PictureBox
     Friend WithEvents Label87 As Label
     Friend WithEvents ind_v301_descrepancy As PictureBox
@@ -15438,7 +15565,7 @@ Partial Class frmMain
     Friend WithEvents ind_safety_st3 As PictureBox
     Friend WithEvents ind_altivar_status As PictureBox
     Friend WithEvents GroupBox183 As GroupBox
-    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents ind_v101_descrepancy As PictureBox
     Friend WithEvents Label299 As Label
     Friend WithEvents TabPage26 As TabPage
     Friend WithEvents txt_st2_punch_cycle As TextBox
@@ -15499,4 +15626,18 @@ Partial Class frmMain
     Friend WithEvents btn_stn2_cyl1_bw As Button
     Friend WithEvents pnl_man_stn2 As TabControl
     Friend WithEvents txt_alarm As TextBox
+    Friend WithEvents ind_v606_descrepancy As PictureBox
+    Friend WithEvents ind_v604_descrepancy As PictureBox
+    Friend WithEvents ind_v504_descrepancy As PictureBox
+    Friend WithEvents Label309 As Label
+    Friend WithEvents Label307 As Label
+    Friend WithEvents ind_v503_descrepancy As PictureBox
+    Friend WithEvents ind_v605_descrepancy As PictureBox
+    Friend WithEvents ind_v603_descrepancy As PictureBox
+    Friend WithEvents Label308 As Label
+    Friend WithEvents Label306 As Label
+    Friend WithEvents Label305 As Label
+    Friend WithEvents Label304 As Label
+    Friend WithEvents ind_v203_descrepancy As PictureBox
+    Friend WithEvents labelaaa As Label
 End Class

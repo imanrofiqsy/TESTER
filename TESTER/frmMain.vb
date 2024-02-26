@@ -22,6 +22,7 @@ Public Class frmMain
 
     Dim delay As Integer = 0
     Dim EmgState As Integer = 0
+    Dim delayScroll As Integer = 0
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initLoadingBar()
 
@@ -269,7 +270,6 @@ Public Class frmMain
             txt_st4_cal_val_p0.Text = ReadINI(iniPath, "CALIBRATION", "P0st4")
             txt_st4_cal_val_gt2.Text = ReadINI(iniPath, "CALIBRATION", "Gt2st4")
         End With
-
         ShowPanelGeneral("manual")
         ShowPanelManual("STN1")
         btn_stop.PerformClick()
@@ -285,6 +285,7 @@ Public Class frmMain
     End Sub
     Private Sub btn_alarm_Click(sender As Object, e As EventArgs) Handles btn_alarm.Click
         ShowPanelGeneral("alarm")
+        delayScroll = 10
     End Sub
     Private Sub btn_multimeter_Click(sender As Object, e As EventArgs) Handles btn_multimeter.Click
         ShowPanelGeneral("multi")
@@ -1457,6 +1458,8 @@ Public Class frmMain
         'Alarm General
         ALARM_GENERAL = Modbus.ReadData(REGISTER_TYPE, ADDR_ALARM_GENERAL)
         ReadAlarm(ALARM_GENERAL)
+        ALARM_STN1 = Modbus.ReadData(REGISTER_TYPE, ADDR_ALARM_STN1)
+        ReadAlarmStn1(ALARM_STN1)
         ALARM_STN2 = Modbus.ReadData(REGISTER_TYPE, ADDR_ALARM_STN2)
         ReadAlarmStn2(ALARM_STN2)
         ALARM_STN3 = Modbus.ReadData(REGISTER_TYPE, ADDR_ALARM_STN3)
@@ -2572,8 +2575,47 @@ Public Class frmMain
         Next
 
     End Sub
-    Dim alarm_text_stn2(2) As String
-    Dim last_alarm_stn2(2) As String
+    Dim alarm_text_stn1(1) As String
+    Dim last_alarm_stn1(1) As String
+    Private Sub ReadAlarmStn1(decimalNumber As Integer)
+        Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-2] "
+        Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(15) = "1" Then
+            ind_v101_descrepancy.BackColor = Color.Lime
+            alarm_text_stn1(0) = "V101 Descrepancy Detected"
+        Else
+            ind_v101_descrepancy.BackColor = Color.Red
+            alarm_text_stn1(0) = "V101 Descrepancy Not Detected"
+        End If
+
+        For i As Integer = 0 To alarm_text_stn1.Length - 1
+            If last_alarm_stn1(i) <> alarm_text_stn1(i) Then
+                alarmFileName = $"Alarm_{Date.Now.ToString("yyyyMMdd")}.txt"
+                Dim strFile As String = projectFolder & "\Alarm\" & alarmFileName
+                Dim fileExists As Boolean = File.Exists(strFile)
+                If File.Exists(strFile) Then
+                    ' If the file exists, append the log entry
+                    Using sw As New StreamWriter(strFile, True)
+                        sw.WriteLine(timestamp + alarm_text_stn1(i))
+                    End Using
+                Else
+                    ' If the file does not exist, create it and write the log entry
+                    Using sw As New StreamWriter(strFile)
+                        sw.WriteLine(timestamp + alarm_text_stn1(i))
+                    End Using
+                End If
+                txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn1(i) + vbCrLf
+                txt_alarm.SelectionStart = txt_alarm.Text.Length
+                txt_alarm.ScrollToCaret()
+                txt_alarm_copy.Text = txt_alarm.Text
+                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
+                txt_alarm_copy.ScrollToCaret()
+                last_alarm_stn1(i) = alarm_text_stn1(i)
+            End If
+        Next
+    End Sub
+    Dim alarm_text_stn2(3) As String
+    Dim last_alarm_stn2(3) As String
     Private Sub ReadAlarmStn2(decimalNumber As Integer)
         Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-2] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
@@ -2591,6 +2633,14 @@ Public Class frmMain
         Else
             ind_v202_descrepancy.BackColor = Color.Red
             alarm_text_stn2(1) = "V202 Descrepancy Not Detected"
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_v203_descrepancy.BackColor = Color.Lime
+            alarm_text_stn2(2) = "V203 Descrepancy Detected"
+        Else
+            ind_v203_descrepancy.BackColor = Color.Red
+            alarm_text_stn2(2) = "V203 Descrepancy Not Detected"
         End If
 
         For i As Integer = 0 To alarm_text_stn2.Length - 1
@@ -2713,8 +2763,8 @@ Public Class frmMain
             End If
         Next
     End Sub
-    Dim alarm_text_stn5(2) As String
-    Dim last_alarm_stn5(2) As String
+    Dim alarm_text_stn5(4) As String
+    Dim last_alarm_stn5(4) As String
     Private Sub ReadAlarmStn5(decimalNumber As Integer)
         Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-5] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
@@ -2732,6 +2782,22 @@ Public Class frmMain
         Else
             ind_v502_descrepancy.BackColor = Color.Red
             alarm_text_stn5(1) = "V501 Descrepancy Not Detected"
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_v503_descrepancy.BackColor = Color.Lime
+            alarm_text_stn5(2) = "V503 Descrepancy Detected"
+        Else
+            ind_v503_descrepancy.BackColor = Color.Red
+            alarm_text_stn5(2) = "V503 Descrepancy Not Detected"
+        End If
+
+        If binaryString(12) = "1" Then
+            ind_v504_descrepancy.BackColor = Color.Lime
+            alarm_text_stn5(3) = "V504 Descrepancy Detected"
+        Else
+            ind_v504_descrepancy.BackColor = Color.Red
+            alarm_text_stn5(3) = "V504 Descrepancy Not Detected"
         End If
 
         For i As Integer = 0 To alarm_text_stn5.Length - 1
@@ -2760,8 +2826,8 @@ Public Class frmMain
             End If
         Next
     End Sub
-    Dim alarm_text_stn6(2) As String
-    Dim last_alarm_stn6(2) As String
+    Dim alarm_text_stn6(6) As String
+    Dim last_alarm_stn6(6) As String
     Private Sub ReadAlarmStn6(decimalNumber As Integer)
         Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-6] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
@@ -2779,6 +2845,38 @@ Public Class frmMain
         Else
             ind_v602_descrepancy.BackColor = Color.Red
             alarm_text_stn6(1) = "V602 Descrepancy Not Detected"
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_v603_descrepancy.BackColor = Color.Lime
+            alarm_text_stn6(2) = "V603 Descrepancy Detected"
+        Else
+            ind_v603_descrepancy.BackColor = Color.Red
+            alarm_text_stn6(2) = "V603 Descrepancy Not Detected"
+        End If
+
+        If binaryString(12) = "1" Then
+            ind_v604_descrepancy.BackColor = Color.Lime
+            alarm_text_stn6(3) = "V604 Descrepancy Detected"
+        Else
+            ind_v604_descrepancy.BackColor = Color.Red
+            alarm_text_stn6(3) = "V604 Descrepancy Not Detected"
+        End If
+
+        If binaryString(11) = "1" Then
+            ind_v605_descrepancy.BackColor = Color.Lime
+            alarm_text_stn6(4) = "V605 Descrepancy Detected"
+        Else
+            ind_v605_descrepancy.BackColor = Color.Red
+            alarm_text_stn6(4) = "V605 Descrepancy Not Detected"
+        End If
+
+        If binaryString(10) = "1" Then
+            ind_v606_descrepancy.BackColor = Color.Lime
+            alarm_text_stn6(5) = "V606 Descrepancy Detected"
+        Else
+            ind_v606_descrepancy.BackColor = Color.Red
+            alarm_text_stn6(5) = "V606 Descrepancy Not Detected"
         End If
 
         For i As Integer = 0 To alarm_text_stn6.Length - 1
@@ -3223,6 +3321,12 @@ Public Class frmMain
         If currentDay <> previousDay Then
             Save_Datalog()
             previousDay = currentDay
+        End If
+
+        If delayScroll > 0 Then
+            delayScroll -= 1
+            txt_alarm.SelectionStart = txt_alarm.Text.Length
+            txt_alarm.ScrollToCaret()
         End If
     End Sub
     Private Sub BarcodeComm_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles BarcodeComm.DataReceived

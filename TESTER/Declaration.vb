@@ -139,6 +139,8 @@
 
     Public ADDR_ALARM_GENERAL As Integer = 40005
     Public ALARM_GENERAL As Integer
+    Public ADDR_ALARM_STN1 As Integer = 40104
+    Public ALARM_STN1 As Integer
     Public ADDR_ALARM_STN2 As Integer = 40204
     Public ALARM_STN2 As Integer
     Public ADDR_ALARM_STN3 As Integer = 40304

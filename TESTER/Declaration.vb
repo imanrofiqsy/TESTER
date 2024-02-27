@@ -17,6 +17,8 @@
         Dim instrumentPort As String
         Dim sequenceCounter As String
     End Structure
+    Public ADDR_LASER_ST6 As Integer = 40089
+    Public LASER_ST6 As Integer
 
     Public STATION_STATUS As Integer
     Public SERVO_ST5 As Integer

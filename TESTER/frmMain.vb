@@ -1515,6 +1515,8 @@ Public Class frmMain
         PC_STATUS = Modbus.ReadData(REGISTER_TYPE, ADDR_PC_STATUS)
 
         If pnl_home.Visible = False And pnl_setting.Visible = False And pnl_alarm.Visible = False And pnl_multi.Visible = False Then
+            LASER_ST6 = Modbus.ReadData(REGISTER_TYPE, ADDR_LASER_ST6)
+            ReadLaserST6(LASER_ST6)
             ' Servo
             SERVO_ST4 = Modbus.ReadData(REGISTER_TYPE, ADDR_SERVO_ST4)
             ReadServoST4(SERVO_ST4)
@@ -2945,7 +2947,26 @@ Public Class frmMain
             ind_stn_6.BackColor = Color.Lime
         End If
     End Sub
+    Private Sub ReadLaserST6(DecimalNumber As Integer)
+        Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
+        If binaryString(14) = "1" Then
+            stn6_laser_ready.BackColor = Color.Lime
+        Else
+            stn6_laser_ready.BackColor = Color.Red
+        End If
 
+        If binaryString(13) = "1" Then
+            stn6_laser_finish.BackColor = Color.Lime
+        Else
+            stn6_laser_finish.BackColor = Color.Red
+        End If
+
+        If binaryString(12) = "1" Then
+            stn6_laser_interlock.BackColor = Color.Lime
+        Else
+            stn6_laser_interlock.BackColor = Color.Red
+        End If
+    End Sub
     Private Sub ReadServoST4(DecimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
         Dim binaryStringExtend As String = Convert.ToString(MANUAL_OPERATION, 2).PadLeft(16, "0"c)
@@ -5925,7 +5946,51 @@ Retry:
             Modbus.WriteData(REGISTER_TYPE, ADDR_MANUAL_OPERATION, integerValue_)
         End If
     End Sub
+    Private Sub btn_stn6_laser_start_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_stn6_laser_start.MouseDown
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(LASER_ST6, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 15 Then
+                    temp(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
 
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_LASER_ST6, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_stn6_laser_start_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_stn6_laser_start.MouseUp
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(LASER_ST6, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 15 Then
+                    temp(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_LASER_ST6, integerValue_)
+        End If
+    End Sub
     Private Sub btn_search_Click(sender As Object, e As EventArgs) Handles btn_search.Click
         Cursor = Cursors.WaitCursor
         If rbBydate.Checked Then

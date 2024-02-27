@@ -3011,51 +3011,51 @@ Public Class frmMain
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
         Dim binaryStringExtend As String = Convert.ToString(MANUAL_OPERATION, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_st4_servo_enabled.BackColor = Color.Lime
+            ind_st4_servo_enabled.Image = My.Resources.led_green_on
         Else
-            ind_st4_servo_enabled.BackColor = Color.Red
+            ind_st4_servo_enabled.Image = My.Resources.led_green_on
         End If
 
         If binaryString(14) = "1" Then
-            ind_st4_servo_error.BackColor = Color.Lime
+            ind_st4_servo_error.Image = My.Resources.led_green_on
         Else
-            ind_st4_servo_error.BackColor = Color.Red
+            ind_st4_servo_error.Image = My.Resources.led_green_on
         End If
 
         If binaryString(13) = "1" Then
-            ind_st4_home_busy.BackColor = Color.Lime
+            ind_st4_home_busy.Image = My.Resources.led_green_on
         Else
-            ind_st4_home_busy.BackColor = Color.Red
+            ind_st4_home_busy.Image = My.Resources.led_green_on
         End If
 
         If binaryString(12) = "1" Then
-            ind_st4_servo_busy.BackColor = Color.Lime
+            ind_st4_servo_busy.Image = My.Resources.led_green_on
         Else
-            ind_st4_servo_busy.BackColor = Color.Red
+            ind_st4_servo_busy.Image = My.Resources.led_green_on
         End If
 
         If binaryString(11) = "1" Then
-            ind_st4_standstill.BackColor = Color.Lime
+            ind_st4_standstill.Image = My.Resources.led_green_on
         Else
-            ind_st4_standstill.BackColor = Color.Red
+            ind_st4_standstill.Image = My.Resources.led_green_on
         End If
 
         If binaryString(10) = "1" Then
-            ind_st4_stopping.BackColor = Color.Lime
+            ind_st4_stopping.Image = My.Resources.led_green_on
         Else
-            ind_st4_stopping.BackColor = Color.Red
+            ind_st4_stopping.Image = My.Resources.led_green_on
         End If
 
         If binaryString(9) = "1" Then
-            ind_st4_continuous_motion.BackColor = Color.Lime
+            ind_st4_continuous_motion.Image = My.Resources.led_green_on
         Else
-            ind_st4_continuous_motion.BackColor = Color.Red
+            ind_st4_continuous_motion.Image = My.Resources.led_green_on
         End If
 
         If binaryStringExtend(6) = "1" Then
-            ind_st4_discrete_motion.BackColor = Color.Lime
+            ind_st4_discrete_motion.Image = My.Resources.led_green_on
         Else
-            ind_st4_discrete_motion.BackColor = Color.Red
+            ind_st4_discrete_motion.Image = My.Resources.led_green_on
         End If
     End Sub
 
@@ -3063,121 +3063,121 @@ Public Class frmMain
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
         Dim binaryStringExtend As String = Convert.ToString(MANUAL_OPERATION, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_st3_servo_enabled.BackColor = Color.Lime
+            ind_st3_servo_enabled.Image = My.Resources.led_green_on
         Else
-            ind_st3_servo_enabled.BackColor = Color.Red
+            ind_st3_servo_enabled.Image = My.Resources.led_red_on
         End If
 
         If binaryString(14) = "1" Then
-            ind_st3_servo_error.BackColor = Color.Lime
+            ind_st3_servo_error.Image = My.Resources.led_green_on
         Else
-            ind_st3_servo_error.BackColor = Color.Red
+            ind_st3_servo_error.Image = My.Resources.led_red_on
         End If
 
         If binaryString(13) = "1" Then
-            ind_st3_home_busy.BackColor = Color.Lime
+            ind_st3_home_busy.Image = My.Resources.led_green_on
         Else
-            ind_st3_home_busy.BackColor = Color.Red
+            ind_st3_home_busy.Image = My.Resources.led_red_on
         End If
 
         If binaryString(12) = "1" Then
-            ind_st3_servo_busy.BackColor = Color.Lime
+            ind_st3_servo_busy.Image = My.Resources.led_green_on
         Else
-            ind_st3_servo_busy.BackColor = Color.Red
+            ind_st3_servo_busy.Image = My.Resources.led_red_on
         End If
 
         If binaryString(11) = "1" Then
-            ind_st3_standstill.BackColor = Color.Lime
+            ind_st3_standstill.Image = My.Resources.led_green_on
         Else
-            ind_st3_standstill.BackColor = Color.Red
+            ind_st3_standstill.Image = My.Resources.led_red_on
         End If
 
         If binaryString(10) = "1" Then
-            ind_st3_stopping.BackColor = Color.Lime
+            ind_st3_stopping.Image = My.Resources.led_green_on
         Else
-            ind_st3_stopping.BackColor = Color.Red
+            ind_st3_stopping.Image = My.Resources.led_red_on
         End If
 
         If binaryString(9) = "1" Then
-            ind_st3_continuous_motion.BackColor = Color.Lime
+            ind_st3_continuous_motion.Image = My.Resources.led_green_on
         Else
-            ind_st3_continuous_motion.BackColor = Color.Red
+            ind_st3_continuous_motion.Image = My.Resources.led_red_on
         End If
 
         If binaryStringExtend(5) = "1" Then
-            ind_st3_discrete_motion.BackColor = Color.Lime
+            ind_st3_discrete_motion.Image = My.Resources.led_green_on
         Else
-            ind_st3_discrete_motion.BackColor = Color.Red
+            ind_st3_discrete_motion.Image = My.Resources.led_red_on
         End If
     End Sub
     Private Sub ReadHeidenhain(DecimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_st2_heidenhain_valid.BackColor = Color.Lime
+            ind_st2_heidenhain_valid.Image = My.Resources.led_green_on
         Else
-            ind_st2_heidenhain_valid.BackColor = Color.Red
+            ind_st2_heidenhain_valid.Image = My.Resources.led_red_on
         End If
 
         If binaryString(14) = "1" Then
-            ind_st2_heidenhain_error.BackColor = Color.Lime
+            ind_st2_heidenhain_error.Image = My.Resources.led_green_on
         Else
-            ind_st2_heidenhain_error.BackColor = Color.Red
+            ind_st2_heidenhain_error.Image = My.Resources.led_red_on
         End If
 
         If binaryString(13) = "1" Then
-            ind_st2_motor_status.BackColor = Color.Lime
+            ind_st2_motor_status.Image = My.Resources.led_green_on
         Else
-            ind_st2_motor_status.BackColor = Color.Red
+            ind_st2_motor_status.Image = My.Resources.led_red_on
         End If
     End Sub
     Private Sub ReadManualOperation(DecimalNumber As Integer)
         Dim binaryString As String = Convert.ToString(DecimalNumber, 2).PadLeft(16, "0"c)
         If binaryString(15) = "1" Then
-            ind_altivar_status.BackColor = Color.Lime
+            ind_altivar_status.Image = My.Resources.led_green_on
         Else
-            ind_altivar_status.BackColor = Color.Red
+            ind_altivar_status.Image = My.Resources.led_red_on
         End If
 
         If binaryString(14) = "1" Then
-            ind_cycle_status.BackColor = Color.Lime
+            ind_cycle_status.Image = My.Resources.led_green_on
         Else
-            ind_cycle_status.BackColor = Color.Red
+            ind_cycle_status.Image = My.Resources.led_red_on
         End If
 
         If binaryString(12) = "1" Then
-            ind_safety_st1.BackColor = Color.Lime
+            ind_safety_st1.Image = My.Resources.led_green_on
         Else
-            ind_safety_st1.BackColor = Color.Red
+            ind_safety_st1.Image = My.Resources.led_red_on
         End If
 
         If binaryString(11) = "1" Then
-            ind_safety_st2.BackColor = Color.Lime
+            ind_safety_st2.Image = My.Resources.led_green_on
         Else
-            ind_safety_st2.BackColor = Color.Red
+            ind_safety_st2.Image = My.Resources.led_red_on
         End If
 
         If binaryString(10) = "1" Then
-            ind_safety_st3.BackColor = Color.Lime
+            ind_safety_st3.Image = My.Resources.led_green_on
         Else
-            ind_safety_st3.BackColor = Color.Red
+            ind_safety_st3.Image = My.Resources.led_red_on
         End If
 
         If binaryString(9) = "1" Then
-            ind_safety_st4.BackColor = Color.Lime
+            ind_safety_st4.Image = My.Resources.led_green_on
         Else
-            ind_safety_st4.BackColor = Color.Red
+            ind_safety_st4.Image = My.Resources.led_red_on
         End If
 
         If binaryString(8) = "1" Then
-            ind_safety_st5.BackColor = Color.Lime
+            ind_safety_st5.Image = My.Resources.led_green_on
         Else
-            ind_safety_st5.BackColor = Color.Red
+            ind_safety_st5.Image = My.Resources.led_red_on
         End If
 
         If binaryString(7) = "1" Then
-            ind_safety_st6.BackColor = Color.Lime
+            ind_safety_st6.Image = My.Resources.led_green_on
         Else
-            ind_safety_st6.BackColor = Color.Red
+            ind_safety_st6.Image = My.Resources.led_red_on
         End If
     End Sub
     Dim delayLaser As Integer = 0

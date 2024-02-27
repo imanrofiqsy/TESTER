@@ -72,20 +72,20 @@ Public Class frmMain
 
         End With
 
-        btn_connect_plc.PerformClick()
+        'btn_connect_plc.PerformClick()
         Hide()
         UpdateLoadingBar(20, "Connecting to PLC...")
         Thread.Sleep(500)
 
-        Try
-            If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
-                MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-                End
-            End If
-        Catch ex As Exception
-            MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
-            End
-        End Try
+        'Try
+        '    If Not Modbus.ReadData(REGISTER_TYPE, 100200) = 2 Then
+        '        MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+        '        End
+        '    End If
+        'Catch ex As Exception
+        '    MsgBox("Cannot establish connection to PLC!", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End Try
 
 
         ShowPanelGeneral("home")
@@ -93,42 +93,42 @@ Public Class frmMain
         ShowPanelManual("None")
         UpdateLoadingBar(40, "Connecting to Chroma...")
 
-        Try
-            ChromaComm.Open()
-            btn_open_multi.Text = "Close Port"
-            connect_multi_ind.BackColor = Color.Lime
-        Catch ex As Exception
-            MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-            connect_multi_ind.BackColor = Color.Red
-            End
-        End Try
+        'Try
+        '    ChromaComm.Open()
+        '    btn_open_multi.Text = "Close Port"
+        '    connect_multi_ind.BackColor = Color.Lime
+        'Catch ex As Exception
+        '    MsgBox("Error. " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        '    connect_multi_ind.BackColor = Color.Red
+        '    End
+        'End Try
 
         ''init chroma
-        ChromaComm.Write("*IDN?" & vbCrLf)
-        Thread.Sleep(100)
-        If Not strChromaRaw = Config.instrumentName Then
-            MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
-            End
-        End If
+        'ChromaComm.Write("*IDN?" & vbCrLf)
+        'Thread.Sleep(100)
+        'If Not strChromaRaw = Config.instrumentName Then
+        '    MsgBox("Cannot establish connection to chroma!", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End If
 
         Thread.Sleep(200)
 
         UpdateLoadingBar(60, "Connecting to Laser...")
-        Try
-            If Not Laser.is_connected() Then
-                Laser.Connect()
-                btn_connect_laser.Text = "Disconnect"
-                connect_laser_ind.BackColor = Color.Lime
-            End If
-        Catch ex As Exception
-            MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
-            End
-        End Try
+        'Try
+        '    If Not Laser.is_connected() Then
+        '        Laser.Connect()
+        '        btn_connect_laser.Text = "Disconnect"
+        '        connect_laser_ind.BackColor = Color.Lime
+        '    End If
+        'Catch ex As Exception
+        '    MsgBox("Cannot establish connection to Laser! " + ex.Message, MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End Try
 
-        If Not initCyklop() Then
-            MsgBox("Cannot establish connection to Laser! ", MsgBoxStyle.SystemModal, "On Top")
-            End
-        End If
+        'If Not initCyklop() Then
+        '    MsgBox("Cannot establish connection to Laser! ", MsgBoxStyle.SystemModal, "On Top")
+        '    End
+        'End If
 
         Thread.Sleep(200)
 
@@ -144,7 +144,7 @@ Public Class frmMain
         UpdateLoadingBar(80, "Creating Multithreading...")
         Thread.Sleep(500)
 
-        GetPCStatus("OPEN") 'Software is open
+        'GetPCStatus("OPEN") 'Software is open
 
         UpdateLoadingBar(100, "Load App GUI...")
         Thread.Sleep(500)

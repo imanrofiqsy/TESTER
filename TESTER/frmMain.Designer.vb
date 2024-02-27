@@ -5908,73 +5908,81 @@ Partial Class frmMain
         '
         'ind_st4_discrete_motion
         '
-        Me.ind_st4_discrete_motion.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_discrete_motion.BackColor = System.Drawing.Color.Transparent
         Me.ind_st4_discrete_motion.Location = New System.Drawing.Point(54, 402)
         Me.ind_st4_discrete_motion.Name = "ind_st4_discrete_motion"
         Me.ind_st4_discrete_motion.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_discrete_motion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st4_discrete_motion.TabIndex = 71
         Me.ind_st4_discrete_motion.TabStop = False
         '
         'ind_st4_continuous_motion
         '
-        Me.ind_st4_continuous_motion.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_continuous_motion.BackColor = System.Drawing.Color.Transparent
         Me.ind_st4_continuous_motion.Location = New System.Drawing.Point(54, 350)
         Me.ind_st4_continuous_motion.Name = "ind_st4_continuous_motion"
         Me.ind_st4_continuous_motion.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_continuous_motion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st4_continuous_motion.TabIndex = 71
         Me.ind_st4_continuous_motion.TabStop = False
         '
         'ind_st4_servo_busy
         '
-        Me.ind_st4_servo_busy.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_servo_busy.BackColor = System.Drawing.Color.Transparent
         Me.ind_st4_servo_busy.Location = New System.Drawing.Point(53, 184)
         Me.ind_st4_servo_busy.Name = "ind_st4_servo_busy"
         Me.ind_st4_servo_busy.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_servo_busy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st4_servo_busy.TabIndex = 70
         Me.ind_st4_servo_busy.TabStop = False
         '
         'ind_st4_standstill
         '
-        Me.ind_st4_standstill.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_standstill.BackColor = System.Drawing.Color.Transparent
         Me.ind_st4_standstill.Location = New System.Drawing.Point(53, 240)
         Me.ind_st4_standstill.Name = "ind_st4_standstill"
         Me.ind_st4_standstill.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_standstill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st4_standstill.TabIndex = 69
         Me.ind_st4_standstill.TabStop = False
         '
         'ind_st4_stopping
         '
-        Me.ind_st4_stopping.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_stopping.BackColor = System.Drawing.Color.Transparent
         Me.ind_st4_stopping.Location = New System.Drawing.Point(54, 295)
         Me.ind_st4_stopping.Name = "ind_st4_stopping"
         Me.ind_st4_stopping.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_stopping.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st4_stopping.TabIndex = 68
         Me.ind_st4_stopping.TabStop = False
         '
         'ind_st4_servo_error
         '
-        Me.ind_st4_servo_error.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_servo_error.BackColor = System.Drawing.Color.Transparent
         Me.ind_st4_servo_error.Location = New System.Drawing.Point(52, 72)
         Me.ind_st4_servo_error.Name = "ind_st4_servo_error"
         Me.ind_st4_servo_error.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_servo_error.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st4_servo_error.TabIndex = 67
         Me.ind_st4_servo_error.TabStop = False
         '
         'ind_st4_home_busy
         '
-        Me.ind_st4_home_busy.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_home_busy.BackColor = System.Drawing.Color.Transparent
         Me.ind_st4_home_busy.Location = New System.Drawing.Point(53, 128)
         Me.ind_st4_home_busy.Name = "ind_st4_home_busy"
         Me.ind_st4_home_busy.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_home_busy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st4_home_busy.TabIndex = 72
         Me.ind_st4_home_busy.TabStop = False
         '
         'ind_st4_servo_enabled
         '
-        Me.ind_st4_servo_enabled.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st4_servo_enabled.BackColor = System.Drawing.Color.Transparent
         Me.ind_st4_servo_enabled.Location = New System.Drawing.Point(52, 16)
         Me.ind_st4_servo_enabled.Name = "ind_st4_servo_enabled"
         Me.ind_st4_servo_enabled.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st4_servo_enabled.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st4_servo_enabled.TabIndex = 66
         Me.ind_st4_servo_enabled.TabStop = False
         '
@@ -6761,73 +6769,81 @@ Partial Class frmMain
         '
         'ind_st3_discrete_motion
         '
-        Me.ind_st3_discrete_motion.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_discrete_motion.BackColor = System.Drawing.Color.Transparent
         Me.ind_st3_discrete_motion.Location = New System.Drawing.Point(115, 443)
         Me.ind_st3_discrete_motion.Name = "ind_st3_discrete_motion"
         Me.ind_st3_discrete_motion.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_discrete_motion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st3_discrete_motion.TabIndex = 71
         Me.ind_st3_discrete_motion.TabStop = False
         '
         'ind_st3_continuous_motion
         '
-        Me.ind_st3_continuous_motion.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_continuous_motion.BackColor = System.Drawing.Color.Transparent
         Me.ind_st3_continuous_motion.Location = New System.Drawing.Point(115, 390)
         Me.ind_st3_continuous_motion.Name = "ind_st3_continuous_motion"
         Me.ind_st3_continuous_motion.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_continuous_motion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st3_continuous_motion.TabIndex = 71
         Me.ind_st3_continuous_motion.TabStop = False
         '
         'ind_st3_servo_busy
         '
-        Me.ind_st3_servo_busy.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_servo_busy.BackColor = System.Drawing.Color.Transparent
         Me.ind_st3_servo_busy.Location = New System.Drawing.Point(114, 224)
         Me.ind_st3_servo_busy.Name = "ind_st3_servo_busy"
         Me.ind_st3_servo_busy.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_servo_busy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st3_servo_busy.TabIndex = 70
         Me.ind_st3_servo_busy.TabStop = False
         '
         'ind_st3_standstill
         '
-        Me.ind_st3_standstill.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_standstill.BackColor = System.Drawing.Color.Transparent
         Me.ind_st3_standstill.Location = New System.Drawing.Point(114, 280)
         Me.ind_st3_standstill.Name = "ind_st3_standstill"
         Me.ind_st3_standstill.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_standstill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st3_standstill.TabIndex = 69
         Me.ind_st3_standstill.TabStop = False
         '
         'ind_st3_stopping
         '
-        Me.ind_st3_stopping.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_stopping.BackColor = System.Drawing.Color.Transparent
         Me.ind_st3_stopping.Location = New System.Drawing.Point(115, 335)
         Me.ind_st3_stopping.Name = "ind_st3_stopping"
         Me.ind_st3_stopping.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_stopping.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st3_stopping.TabIndex = 68
         Me.ind_st3_stopping.TabStop = False
         '
         'ind_st3_servo_error
         '
-        Me.ind_st3_servo_error.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_servo_error.BackColor = System.Drawing.Color.Transparent
         Me.ind_st3_servo_error.Location = New System.Drawing.Point(113, 112)
         Me.ind_st3_servo_error.Name = "ind_st3_servo_error"
         Me.ind_st3_servo_error.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_servo_error.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st3_servo_error.TabIndex = 67
         Me.ind_st3_servo_error.TabStop = False
         '
         'ind_st3_home_busy
         '
-        Me.ind_st3_home_busy.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_home_busy.BackColor = System.Drawing.Color.Transparent
         Me.ind_st3_home_busy.Location = New System.Drawing.Point(114, 168)
         Me.ind_st3_home_busy.Name = "ind_st3_home_busy"
         Me.ind_st3_home_busy.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_home_busy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st3_home_busy.TabIndex = 72
         Me.ind_st3_home_busy.TabStop = False
         '
         'ind_st3_servo_enabled
         '
-        Me.ind_st3_servo_enabled.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st3_servo_enabled.BackColor = System.Drawing.Color.Transparent
         Me.ind_st3_servo_enabled.Location = New System.Drawing.Point(113, 56)
         Me.ind_st3_servo_enabled.Name = "ind_st3_servo_enabled"
         Me.ind_st3_servo_enabled.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st3_servo_enabled.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st3_servo_enabled.TabIndex = 66
         Me.ind_st3_servo_enabled.TabStop = False
         '
@@ -6975,81 +6991,89 @@ Partial Class frmMain
         '
         'ind_safety_st6
         '
-        Me.ind_safety_st6.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st6.BackColor = System.Drawing.Color.Transparent
         Me.ind_safety_st6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_safety_st6.Location = New System.Drawing.Point(131, 438)
         Me.ind_safety_st6.Name = "ind_safety_st6"
         Me.ind_safety_st6.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_safety_st6.TabIndex = 98
         Me.ind_safety_st6.TabStop = False
         '
         'ind_safety_st2
         '
-        Me.ind_safety_st2.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st2.BackColor = System.Drawing.Color.Transparent
         Me.ind_safety_st2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_safety_st2.Location = New System.Drawing.Point(130, 213)
         Me.ind_safety_st2.Name = "ind_safety_st2"
         Me.ind_safety_st2.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_safety_st2.TabIndex = 97
         Me.ind_safety_st2.TabStop = False
         '
         'ind_safety_st4
         '
-        Me.ind_safety_st4.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st4.BackColor = System.Drawing.Color.Transparent
         Me.ind_safety_st4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_safety_st4.Location = New System.Drawing.Point(131, 326)
         Me.ind_safety_st4.Name = "ind_safety_st4"
         Me.ind_safety_st4.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_safety_st4.TabIndex = 96
         Me.ind_safety_st4.TabStop = False
         '
         'ind_cycle_status
         '
-        Me.ind_cycle_status.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_cycle_status.BackColor = System.Drawing.Color.Transparent
         Me.ind_cycle_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_cycle_status.Location = New System.Drawing.Point(130, 101)
         Me.ind_cycle_status.Name = "ind_cycle_status"
         Me.ind_cycle_status.Size = New System.Drawing.Size(30, 30)
+        Me.ind_cycle_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_cycle_status.TabIndex = 95
         Me.ind_cycle_status.TabStop = False
         '
         'ind_safety_st5
         '
-        Me.ind_safety_st5.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st5.BackColor = System.Drawing.Color.Transparent
         Me.ind_safety_st5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_safety_st5.Location = New System.Drawing.Point(131, 382)
         Me.ind_safety_st5.Name = "ind_safety_st5"
         Me.ind_safety_st5.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_safety_st5.TabIndex = 93
         Me.ind_safety_st5.TabStop = False
         '
         'ind_safety_st1
         '
-        Me.ind_safety_st1.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st1.BackColor = System.Drawing.Color.Transparent
         Me.ind_safety_st1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_safety_st1.Location = New System.Drawing.Point(130, 157)
         Me.ind_safety_st1.Name = "ind_safety_st1"
         Me.ind_safety_st1.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_safety_st1.TabIndex = 92
         Me.ind_safety_st1.TabStop = False
         '
         'ind_safety_st3
         '
-        Me.ind_safety_st3.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_safety_st3.BackColor = System.Drawing.Color.Transparent
         Me.ind_safety_st3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_safety_st3.Location = New System.Drawing.Point(131, 270)
         Me.ind_safety_st3.Name = "ind_safety_st3"
         Me.ind_safety_st3.Size = New System.Drawing.Size(30, 30)
+        Me.ind_safety_st3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_safety_st3.TabIndex = 94
         Me.ind_safety_st3.TabStop = False
         '
         'ind_altivar_status
         '
-        Me.ind_altivar_status.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_altivar_status.BackColor = System.Drawing.Color.Transparent
         Me.ind_altivar_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_altivar_status.Location = New System.Drawing.Point(130, 45)
         Me.ind_altivar_status.Name = "ind_altivar_status"
         Me.ind_altivar_status.Size = New System.Drawing.Size(30, 30)
+        Me.ind_altivar_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_altivar_status.TabIndex = 91
         Me.ind_altivar_status.TabStop = False
         '
@@ -13541,31 +13565,34 @@ Partial Class frmMain
         '
         'ind_st2_motor_status
         '
-        Me.ind_st2_motor_status.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st2_motor_status.BackColor = System.Drawing.Color.Transparent
         Me.ind_st2_motor_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_st2_motor_status.Location = New System.Drawing.Point(113, 304)
         Me.ind_st2_motor_status.Name = "ind_st2_motor_status"
         Me.ind_st2_motor_status.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st2_motor_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st2_motor_status.TabIndex = 71
         Me.ind_st2_motor_status.TabStop = False
         '
         'ind_st2_heidenhain_error
         '
-        Me.ind_st2_heidenhain_error.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st2_heidenhain_error.BackColor = System.Drawing.Color.Transparent
         Me.ind_st2_heidenhain_error.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_st2_heidenhain_error.Location = New System.Drawing.Point(113, 112)
         Me.ind_st2_heidenhain_error.Name = "ind_st2_heidenhain_error"
         Me.ind_st2_heidenhain_error.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st2_heidenhain_error.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st2_heidenhain_error.TabIndex = 67
         Me.ind_st2_heidenhain_error.TabStop = False
         '
         'ind_st2_heidenhain_valid
         '
-        Me.ind_st2_heidenhain_valid.BackColor = System.Drawing.Color.DarkRed
+        Me.ind_st2_heidenhain_valid.BackColor = System.Drawing.Color.Transparent
         Me.ind_st2_heidenhain_valid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ind_st2_heidenhain_valid.Location = New System.Drawing.Point(113, 56)
         Me.ind_st2_heidenhain_valid.Name = "ind_st2_heidenhain_valid"
         Me.ind_st2_heidenhain_valid.Size = New System.Drawing.Size(30, 30)
+        Me.ind_st2_heidenhain_valid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ind_st2_heidenhain_valid.TabIndex = 66
         Me.ind_st2_heidenhain_valid.TabStop = False
         '
@@ -14212,6 +14239,19 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t1)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_monitoring)
+        Me.Controls.Add(Me.btn_setting)
+        Me.Controls.Add(Me.btn_log)
+        Me.Controls.Add(Me.btn_alarm)
+        Me.Controls.Add(Me.btn_ref)
+        Me.Controls.Add(Me.btn_manual)
+        Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.pnl_man_stn1)
+        Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.pnl_log)
+        Me.Controls.Add(Me.pnl_ref)
+        Me.Controls.Add(Me.pnl_laser)
+        Me.Controls.Add(Me.pnl_calibration)
+        Me.Controls.Add(Me.pnl_multi)
         Me.Controls.Add(Me.pnl_alarm)
         Me.Controls.Add(Me.pnl_mon_stn6)
         Me.Controls.Add(Me.pnl_mon_stn5)
@@ -14225,19 +14265,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_man_stn4)
         Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_stn1)
-        Me.Controls.Add(Me.pnl_setting)
-        Me.Controls.Add(Me.pnl_log)
-        Me.Controls.Add(Me.pnl_ref)
-        Me.Controls.Add(Me.pnl_laser)
-        Me.Controls.Add(Me.pnl_calibration)
-        Me.Controls.Add(Me.pnl_multi)
-        Me.Controls.Add(Me.btn_setting)
-        Me.Controls.Add(Me.btn_log)
-        Me.Controls.Add(Me.btn_alarm)
-        Me.Controls.Add(Me.btn_ref)
-        Me.Controls.Add(Me.btn_manual)
-        Me.Controls.Add(Me.btn_home)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -2757,18 +2757,18 @@ Public Class frmMain
 
         If binaryString(13) = "1" Then
             ind_conn_servo_st4.BackColor = Color.Lime
-            alarm_text_stn3(2) = "Servo Not Online Communication Invalid"
+            alarm_text_stn4(2) = "Servo Not Online Communication Invalid"
         Else
             ind_conn_servo_st4.BackColor = Color.Red
-            alarm_text_stn3(2) = "Servo Online Communication Valid"
+            alarm_text_stn4(2) = "Servo Online Communication Valid"
         End If
 
         If binaryString(12) = "1" Then
             ind_pos_servo_st4.BackColor = Color.Lime
-            alarm_text_stn3(3) = "Servo Error Please Reset & Homing the Servo"
+            alarm_text_stn4(3) = "Servo Error Please Reset & Homing the Servo"
         Else
             ind_pos_servo_st4.BackColor = Color.Red
-            alarm_text_stn3(3) = "Servo Position OK"
+            alarm_text_stn4(3) = "Servo Position OK"
         End If
 
         For i As Integer = 0 To alarm_text_stn4.Length - 1

@@ -13230,7 +13230,7 @@ Partial Class frmMain
         Me.btn_setting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_setting.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btn_setting.Image = Global.TESTER.My.Resources.Resources.icons8_setting_56
-        Me.btn_setting.Location = New System.Drawing.Point(5, 650)
+        Me.btn_setting.Location = New System.Drawing.Point(10, 504)
         Me.btn_setting.Name = "btn_setting"
         Me.btn_setting.Size = New System.Drawing.Size(60, 87)
         Me.btn_setting.TabIndex = 69
@@ -13244,7 +13244,7 @@ Partial Class frmMain
         Me.btn_alarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_alarm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_alarm.Image = Global.TESTER.My.Resources.Resources.icons8_siren_56
-        Me.btn_alarm.Location = New System.Drawing.Point(3, 404)
+        Me.btn_alarm.Location = New System.Drawing.Point(1, 338)
         Me.btn_alarm.Name = "btn_alarm"
         Me.btn_alarm.Size = New System.Drawing.Size(75, 90)
         Me.btn_alarm.TabIndex = 69
@@ -13258,7 +13258,7 @@ Partial Class frmMain
         Me.btn_laser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_laser.Image = Global.TESTER.My.Resources.Resources.icons8_laser_56
-        Me.btn_laser.Location = New System.Drawing.Point(933, 631)
+        Me.btn_laser.Location = New System.Drawing.Point(922, 645)
         Me.btn_laser.Name = "btn_laser"
         Me.btn_laser.Size = New System.Drawing.Size(92, 90)
         Me.btn_laser.TabIndex = 69
@@ -13273,7 +13273,7 @@ Partial Class frmMain
         Me.btn_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_ref.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_ref.Image = Global.TESTER.My.Resources.Resources.icons8_open_book_56
-        Me.btn_ref.Location = New System.Drawing.Point(-9, 323)
+        Me.btn_ref.Location = New System.Drawing.Point(-8, 256)
         Me.btn_ref.Name = "btn_ref"
         Me.btn_ref.Size = New System.Drawing.Size(95, 90)
         Me.btn_ref.TabIndex = 69
@@ -13287,7 +13287,7 @@ Partial Class frmMain
         Me.btn_multimeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_multimeter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_multimeter.Image = Global.TESTER.My.Resources.Resources.icons8_multimeter_56
-        Me.btn_multimeter.Location = New System.Drawing.Point(-3, 490)
+        Me.btn_multimeter.Location = New System.Drawing.Point(776, 649)
         Me.btn_multimeter.Name = "btn_multimeter"
         Me.btn_multimeter.Size = New System.Drawing.Size(87, 79)
         Me.btn_multimeter.TabIndex = 69
@@ -13303,7 +13303,7 @@ Partial Class frmMain
         Me.btn_monitoring.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_monitoring.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btn_monitoring.Image = Global.TESTER.My.Resources.Resources.icons8_monitor_56
-        Me.btn_monitoring.Location = New System.Drawing.Point(-2, 247)
+        Me.btn_monitoring.Location = New System.Drawing.Point(851, 646)
         Me.btn_monitoring.Name = "btn_monitoring"
         Me.btn_monitoring.Size = New System.Drawing.Size(80, 90)
         Me.btn_monitoring.TabIndex = 68
@@ -13348,7 +13348,7 @@ Partial Class frmMain
         Me.btn_log.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_log.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_log.Image = Global.TESTER.My.Resources.Resources.icons8_log_56
-        Me.btn_log.Location = New System.Drawing.Point(-5, 567)
+        Me.btn_log.Location = New System.Drawing.Point(-4, 421)
         Me.btn_log.Name = "btn_log"
         Me.btn_log.Size = New System.Drawing.Size(87, 86)
         Me.btn_log.TabIndex = 69
@@ -14196,9 +14196,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t2_2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lbl_st4_t2_1)
-        Me.Controls.Add(Me.btn_setting)
         Me.Controls.Add(Me.lbl_st4_t2)
-        Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.btn_laser)
         Me.Controls.Add(Me.lbl_cot_5)
         Me.Controls.Add(Me.lbl_cot_4)
@@ -14210,14 +14208,10 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t1_4)
         Me.Controls.Add(Me.lbl_st4_t1_3)
         Me.Controls.Add(Me.lbl_st4_t1_2)
-        Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.lbl_st4_t1_1)
         Me.Controls.Add(Me.lbl_st4_t1)
-        Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_monitoring)
-        Me.Controls.Add(Me.btn_manual)
-        Me.Controls.Add(Me.btn_home)
         Me.Controls.Add(Me.pnl_alarm)
         Me.Controls.Add(Me.pnl_mon_stn6)
         Me.Controls.Add(Me.pnl_mon_stn5)
@@ -14238,6 +14232,12 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_laser)
         Me.Controls.Add(Me.pnl_calibration)
         Me.Controls.Add(Me.pnl_multi)
+        Me.Controls.Add(Me.btn_setting)
+        Me.Controls.Add(Me.btn_log)
+        Me.Controls.Add(Me.btn_alarm)
+        Me.Controls.Add(Me.btn_ref)
+        Me.Controls.Add(Me.btn_manual)
+        Me.Controls.Add(Me.btn_home)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

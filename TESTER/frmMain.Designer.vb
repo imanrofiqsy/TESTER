@@ -226,6 +226,16 @@ Partial Class frmMain
         Me.GroupBox69 = New System.Windows.Forms.GroupBox()
         Me.btn_stn6_cyl4_fw = New System.Windows.Forms.Button()
         Me.btn_stn6_cyl4_bw = New System.Windows.Forms.Button()
+        Me.GroupBox82 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox83 = New System.Windows.Forms.GroupBox()
+        Me.Label312 = New System.Windows.Forms.Label()
+        Me.Label300 = New System.Windows.Forms.Label()
+        Me.Label311 = New System.Windows.Forms.Label()
+        Me.stn6_laser_interlock = New System.Windows.Forms.PictureBox()
+        Me.stn6_laser_finish = New System.Windows.Forms.PictureBox()
+        Me.stn6_laser_ready = New System.Windows.Forms.PictureBox()
+        Me.GroupBox85 = New System.Windows.Forms.GroupBox()
+        Me.btn_stn6_laser_start = New System.Windows.Forms.Button()
         Me.GroupBox64 = New System.Windows.Forms.GroupBox()
         Me.GroupBox65 = New System.Windows.Forms.GroupBox()
         Me.Label54 = New System.Windows.Forms.Label()
@@ -1104,16 +1114,6 @@ Partial Class frmMain
         Me.btn_stn2_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn2_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_man_stn2 = New System.Windows.Forms.TabControl()
-        Me.GroupBox82 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox83 = New System.Windows.Forms.GroupBox()
-        Me.Label312 = New System.Windows.Forms.Label()
-        Me.Label300 = New System.Windows.Forms.Label()
-        Me.Label311 = New System.Windows.Forms.Label()
-        Me.stn6_laser_interlock = New System.Windows.Forms.PictureBox()
-        Me.stn6_laser_finish = New System.Windows.Forms.PictureBox()
-        Me.stn6_laser_ready = New System.Windows.Forms.PictureBox()
-        Me.GroupBox85 = New System.Windows.Forms.GroupBox()
-        Me.btn_stn6_laser_start = New System.Windows.Forms.Button()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1144,6 +1144,12 @@ Partial Class frmMain
         CType(Me.stn6_cyl4_min, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.stn6_cyl4_max, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox69.SuspendLayout
+        Me.GroupBox82.SuspendLayout
+        Me.GroupBox83.SuspendLayout
+        CType(Me.stn6_laser_interlock, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.stn6_laser_finish, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.stn6_laser_ready, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.GroupBox85.SuspendLayout
         Me.GroupBox64.SuspendLayout
         Me.GroupBox65.SuspendLayout
         CType(Me.stn6_cyl3_min, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1575,12 +1581,6 @@ Partial Class frmMain
         CType(Me.stn2_cyl1_max, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox24.SuspendLayout
         Me.pnl_man_stn2.SuspendLayout
-        Me.GroupBox82.SuspendLayout
-        Me.GroupBox83.SuspendLayout
-        CType(Me.stn6_laser_interlock, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.stn6_laser_finish, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.stn6_laser_ready, System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBox85.SuspendLayout
         Me.SuspendLayout
         '
         'lbl_user
@@ -3939,6 +3939,123 @@ Partial Class frmMain
         Me.btn_stn6_cyl4_bw.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_stn6_cyl4_bw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_stn6_cyl4_bw.UseVisualStyleBackColor = False
+        '
+        'GroupBox82
+        '
+        Me.GroupBox82.AutoSize = True
+        Me.GroupBox82.Controls.Add(Me.GroupBox83)
+        Me.GroupBox82.Controls.Add(Me.GroupBox85)
+        Me.GroupBox82.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox82.Location = New System.Drawing.Point(689, 25)
+        Me.GroupBox82.Name = "GroupBox82"
+        Me.GroupBox82.Size = New System.Drawing.Size(140, 481)
+        Me.GroupBox82.TabIndex = 42
+        Me.GroupBox82.TabStop = False
+        Me.GroupBox82.Text = "Laser"
+        '
+        'GroupBox83
+        '
+        Me.GroupBox83.Controls.Add(Me.Label312)
+        Me.GroupBox83.Controls.Add(Me.Label300)
+        Me.GroupBox83.Controls.Add(Me.Label311)
+        Me.GroupBox83.Controls.Add(Me.stn6_laser_interlock)
+        Me.GroupBox83.Controls.Add(Me.stn6_laser_finish)
+        Me.GroupBox83.Controls.Add(Me.stn6_laser_ready)
+        Me.GroupBox83.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox83.Location = New System.Drawing.Point(25, 155)
+        Me.GroupBox83.Name = "GroupBox83"
+        Me.GroupBox83.Size = New System.Drawing.Size(90, 292)
+        Me.GroupBox83.TabIndex = 4
+        Me.GroupBox83.TabStop = False
+        Me.GroupBox83.Text = "Sensor"
+        '
+        'Label312
+        '
+        Me.Label312.AutoSize = True
+        Me.Label312.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label312.Location = New System.Drawing.Point(16, 268)
+        Me.Label312.Name = "Label312"
+        Me.Label312.Size = New System.Drawing.Size(64, 18)
+        Me.Label312.TabIndex = 1
+        Me.Label312.Text = "Interlock"
+        '
+        'Label300
+        '
+        Me.Label300.AutoSize = True
+        Me.Label300.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label300.Location = New System.Drawing.Point(21, 170)
+        Me.Label300.Name = "Label300"
+        Me.Label300.Size = New System.Drawing.Size(47, 18)
+        Me.Label300.TabIndex = 1
+        Me.Label300.Text = "Finish"
+        '
+        'Label311
+        '
+        Me.Label311.AutoSize = True
+        Me.Label311.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label311.Location = New System.Drawing.Point(21, 73)
+        Me.Label311.Name = "Label311"
+        Me.Label311.Size = New System.Drawing.Size(50, 18)
+        Me.Label311.TabIndex = 1
+        Me.Label311.Text = "Ready"
+        '
+        'stn6_laser_interlock
+        '
+        Me.stn6_laser_interlock.Image = Global.TESTER.My.Resources.Resources.led_red_off
+        Me.stn6_laser_interlock.Location = New System.Drawing.Point(6, 226)
+        Me.stn6_laser_interlock.Name = "stn6_laser_interlock"
+        Me.stn6_laser_interlock.Size = New System.Drawing.Size(80, 33)
+        Me.stn6_laser_interlock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.stn6_laser_interlock.TabIndex = 0
+        Me.stn6_laser_interlock.TabStop = False
+        '
+        'stn6_laser_finish
+        '
+        Me.stn6_laser_finish.Image = Global.TESTER.My.Resources.Resources.led_red_off
+        Me.stn6_laser_finish.Location = New System.Drawing.Point(6, 128)
+        Me.stn6_laser_finish.Name = "stn6_laser_finish"
+        Me.stn6_laser_finish.Size = New System.Drawing.Size(80, 33)
+        Me.stn6_laser_finish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.stn6_laser_finish.TabIndex = 0
+        Me.stn6_laser_finish.TabStop = False
+        '
+        'stn6_laser_ready
+        '
+        Me.stn6_laser_ready.Image = Global.TESTER.My.Resources.Resources.led_red_off
+        Me.stn6_laser_ready.Location = New System.Drawing.Point(6, 30)
+        Me.stn6_laser_ready.Name = "stn6_laser_ready"
+        Me.stn6_laser_ready.Size = New System.Drawing.Size(80, 33)
+        Me.stn6_laser_ready.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.stn6_laser_ready.TabIndex = 0
+        Me.stn6_laser_ready.TabStop = False
+        '
+        'GroupBox85
+        '
+        Me.GroupBox85.Controls.Add(Me.btn_stn6_laser_start)
+        Me.GroupBox85.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox85.Location = New System.Drawing.Point(25, 33)
+        Me.GroupBox85.Name = "GroupBox85"
+        Me.GroupBox85.Size = New System.Drawing.Size(88, 103)
+        Me.GroupBox85.TabIndex = 5
+        Me.GroupBox85.TabStop = False
+        Me.GroupBox85.Text = "Button"
+        '
+        'btn_stn6_laser_start
+        '
+        Me.btn_stn6_laser_start.BackColor = System.Drawing.Color.Transparent
+        Me.btn_stn6_laser_start.FlatAppearance.BorderSize = 0
+        Me.btn_stn6_laser_start.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_stn6_laser_start.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_stn6_laser_start.Image = Global.TESTER.My.Resources.Resources.button_silver
+        Me.btn_stn6_laser_start.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_stn6_laser_start.Location = New System.Drawing.Point(-8, 19)
+        Me.btn_stn6_laser_start.Name = "btn_stn6_laser_start"
+        Me.btn_stn6_laser_start.Size = New System.Drawing.Size(102, 80)
+        Me.btn_stn6_laser_start.TabIndex = 2
+        Me.btn_stn6_laser_start.Text = "Start"
+        Me.btn_stn6_laser_start.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_stn6_laser_start.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_stn6_laser_start.UseVisualStyleBackColor = False
         '
         'GroupBox64
         '
@@ -9053,10 +9170,10 @@ Partial Class frmMain
         Me.GroupBox84.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox84.Location = New System.Drawing.Point(646, 12)
         Me.GroupBox84.Name = "GroupBox84"
-        Me.GroupBox84.Size = New System.Drawing.Size(193, 254)
+        Me.GroupBox84.Size = New System.Drawing.Size(193, 257)
         Me.GroupBox84.TabIndex = 59
         Me.GroupBox84.TabStop = False
-        Me.GroupBox84.Text = "Alarm Station 5"
+        Me.GroupBox84.Text = "Alarm Cylinder"
         '
         'ind_v606_descrepancy
         '
@@ -9255,7 +9372,7 @@ Partial Class frmMain
         Me.GroupBox81.Size = New System.Drawing.Size(205, 222)
         Me.GroupBox81.TabIndex = 61
         Me.GroupBox81.TabStop = False
-        Me.GroupBox81.Text = "Alarm Station"
+        Me.GroupBox81.Text = "Alarm Cylinder"
         '
         'ind_v402_descrepancy
         '
@@ -13912,123 +14029,6 @@ Partial Class frmMain
         Me.pnl_man_stn2.Size = New System.Drawing.Size(853, 563)
         Me.pnl_man_stn2.TabIndex = 100
         '
-        'GroupBox82
-        '
-        Me.GroupBox82.AutoSize = True
-        Me.GroupBox82.Controls.Add(Me.GroupBox83)
-        Me.GroupBox82.Controls.Add(Me.GroupBox85)
-        Me.GroupBox82.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox82.Location = New System.Drawing.Point(689, 25)
-        Me.GroupBox82.Name = "GroupBox82"
-        Me.GroupBox82.Size = New System.Drawing.Size(140, 481)
-        Me.GroupBox82.TabIndex = 42
-        Me.GroupBox82.TabStop = False
-        Me.GroupBox82.Text = "Laser"
-        '
-        'GroupBox83
-        '
-        Me.GroupBox83.Controls.Add(Me.Label312)
-        Me.GroupBox83.Controls.Add(Me.Label300)
-        Me.GroupBox83.Controls.Add(Me.Label311)
-        Me.GroupBox83.Controls.Add(Me.stn6_laser_interlock)
-        Me.GroupBox83.Controls.Add(Me.stn6_laser_finish)
-        Me.GroupBox83.Controls.Add(Me.stn6_laser_ready)
-        Me.GroupBox83.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox83.Location = New System.Drawing.Point(25, 155)
-        Me.GroupBox83.Name = "GroupBox83"
-        Me.GroupBox83.Size = New System.Drawing.Size(90, 292)
-        Me.GroupBox83.TabIndex = 4
-        Me.GroupBox83.TabStop = False
-        Me.GroupBox83.Text = "Sensor"
-        '
-        'Label312
-        '
-        Me.Label312.AutoSize = True
-        Me.Label312.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label312.Location = New System.Drawing.Point(16, 268)
-        Me.Label312.Name = "Label312"
-        Me.Label312.Size = New System.Drawing.Size(64, 18)
-        Me.Label312.TabIndex = 1
-        Me.Label312.Text = "Interlock"
-        '
-        'Label300
-        '
-        Me.Label300.AutoSize = True
-        Me.Label300.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label300.Location = New System.Drawing.Point(21, 170)
-        Me.Label300.Name = "Label300"
-        Me.Label300.Size = New System.Drawing.Size(47, 18)
-        Me.Label300.TabIndex = 1
-        Me.Label300.Text = "Finish"
-        '
-        'Label311
-        '
-        Me.Label311.AutoSize = True
-        Me.Label311.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label311.Location = New System.Drawing.Point(21, 73)
-        Me.Label311.Name = "Label311"
-        Me.Label311.Size = New System.Drawing.Size(50, 18)
-        Me.Label311.TabIndex = 1
-        Me.Label311.Text = "Ready"
-        '
-        'stn6_laser_interlock
-        '
-        Me.stn6_laser_interlock.Image = Global.TESTER.My.Resources.Resources.led_red_off
-        Me.stn6_laser_interlock.Location = New System.Drawing.Point(6, 226)
-        Me.stn6_laser_interlock.Name = "stn6_laser_interlock"
-        Me.stn6_laser_interlock.Size = New System.Drawing.Size(80, 33)
-        Me.stn6_laser_interlock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.stn6_laser_interlock.TabIndex = 0
-        Me.stn6_laser_interlock.TabStop = False
-        '
-        'stn6_laser_finish
-        '
-        Me.stn6_laser_finish.Image = Global.TESTER.My.Resources.Resources.led_red_off
-        Me.stn6_laser_finish.Location = New System.Drawing.Point(6, 128)
-        Me.stn6_laser_finish.Name = "stn6_laser_finish"
-        Me.stn6_laser_finish.Size = New System.Drawing.Size(80, 33)
-        Me.stn6_laser_finish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.stn6_laser_finish.TabIndex = 0
-        Me.stn6_laser_finish.TabStop = False
-        '
-        'stn6_laser_ready
-        '
-        Me.stn6_laser_ready.Image = Global.TESTER.My.Resources.Resources.led_red_off
-        Me.stn6_laser_ready.Location = New System.Drawing.Point(6, 30)
-        Me.stn6_laser_ready.Name = "stn6_laser_ready"
-        Me.stn6_laser_ready.Size = New System.Drawing.Size(80, 33)
-        Me.stn6_laser_ready.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.stn6_laser_ready.TabIndex = 0
-        Me.stn6_laser_ready.TabStop = False
-        '
-        'GroupBox85
-        '
-        Me.GroupBox85.Controls.Add(Me.btn_stn6_laser_start)
-        Me.GroupBox85.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox85.Location = New System.Drawing.Point(25, 33)
-        Me.GroupBox85.Name = "GroupBox85"
-        Me.GroupBox85.Size = New System.Drawing.Size(88, 103)
-        Me.GroupBox85.TabIndex = 5
-        Me.GroupBox85.TabStop = False
-        Me.GroupBox85.Text = "Button"
-        '
-        'btn_stn6_laser_start
-        '
-        Me.btn_stn6_laser_start.BackColor = System.Drawing.Color.Transparent
-        Me.btn_stn6_laser_start.FlatAppearance.BorderSize = 0
-        Me.btn_stn6_laser_start.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_stn6_laser_start.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_stn6_laser_start.Image = Global.TESTER.My.Resources.Resources.button_silver
-        Me.btn_stn6_laser_start.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_stn6_laser_start.Location = New System.Drawing.Point(-8, 19)
-        Me.btn_stn6_laser_start.Name = "btn_stn6_laser_start"
-        Me.btn_stn6_laser_start.Size = New System.Drawing.Size(102, 80)
-        Me.btn_stn6_laser_start.TabIndex = 2
-        Me.btn_stn6_laser_start.Text = "Start"
-        Me.btn_stn6_laser_start.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_stn6_laser_start.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btn_stn6_laser_start.UseVisualStyleBackColor = False
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -14080,18 +14080,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.lbl_st4_t1_1)
         Me.Controls.Add(Me.lbl_st4_t1)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_stn1)
-        Me.Controls.Add(Me.pnl_setting)
-        Me.Controls.Add(Me.pnl_log)
-        Me.Controls.Add(Me.pnl_ref)
-        Me.Controls.Add(Me.pnl_laser)
-        Me.Controls.Add(Me.pnl_calibration)
-        Me.Controls.Add(Me.pnl_multi)
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_monitoring)
@@ -14105,6 +14093,18 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
         Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_stn1)
+        Me.Controls.Add(Me.pnl_setting)
+        Me.Controls.Add(Me.pnl_log)
+        Me.Controls.Add(Me.pnl_ref)
+        Me.Controls.Add(Me.pnl_laser)
+        Me.Controls.Add(Me.pnl_calibration)
+        Me.Controls.Add(Me.pnl_multi)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -14151,6 +14151,13 @@ Partial Class frmMain
         CType(Me.stn6_cyl4_min, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.stn6_cyl4_max, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox69.ResumeLayout(False)
+        Me.GroupBox82.ResumeLayout(False)
+        Me.GroupBox83.ResumeLayout(False)
+        Me.GroupBox83.PerformLayout
+        CType(Me.stn6_laser_interlock, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.stn6_laser_finish, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.stn6_laser_ready, System.ComponentModel.ISupportInitialize).EndInit
+        Me.GroupBox85.ResumeLayout(False)
         Me.GroupBox64.ResumeLayout(False)
         Me.GroupBox65.ResumeLayout(False)
         Me.GroupBox65.PerformLayout
@@ -14690,13 +14697,6 @@ Partial Class frmMain
         CType(Me.stn2_cyl1_max, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox24.ResumeLayout(False)
         Me.pnl_man_stn2.ResumeLayout(False)
-        Me.GroupBox82.ResumeLayout(False)
-        Me.GroupBox83.ResumeLayout(False)
-        Me.GroupBox83.PerformLayout
-        CType(Me.stn6_laser_interlock, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.stn6_laser_finish, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.stn6_laser_ready, System.ComponentModel.ISupportInitialize).EndInit
-        Me.GroupBox85.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout
 

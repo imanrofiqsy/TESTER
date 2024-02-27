@@ -2671,8 +2671,8 @@ Public Class frmMain
             End If
         Next
     End Sub
-    Dim alarm_text_stn3(2) As String
-    Dim last_alarm_stn3(2) As String
+    Dim alarm_text_stn3(4) As String
+    Dim last_alarm_stn3(4) As String
     Private Sub ReadAlarmStn3(decimalNumber As Integer)
         Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-3] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
@@ -2690,6 +2690,22 @@ Public Class frmMain
         Else
             ind_v302_descrepancy.BackColor = Color.Red
             alarm_text_stn3(1) = "V302 Descrepancy Not Detected"
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_conn_servo_st3.BackColor = Color.Lime
+            alarm_text_stn3(2) = "Servo Not Online Communication Invalid"
+        Else
+            ind_conn_servo_st3.BackColor = Color.Red
+            alarm_text_stn3(2) = "Servo Online Communication Valid"
+        End If
+
+        If binaryString(12) = "1" Then
+            ind_pos_servo_st3.BackColor = Color.Lime
+            alarm_text_stn3(3) = "Servo Error Please Reset & Homing the Servo"
+        Else
+            ind_pos_servo_st3.BackColor = Color.Red
+            alarm_text_stn3(3) = "Servo Position OK"
         End If
 
         For i As Integer = 0 To alarm_text_stn3.Length - 1
@@ -2718,8 +2734,8 @@ Public Class frmMain
             End If
         Next
     End Sub
-    Dim alarm_text_stn4(2) As String
-    Dim last_alarm_stn4(2) As String
+    Dim alarm_text_stn4(4) As String
+    Dim last_alarm_stn4(4) As String
     Private Sub ReadAlarmStn4(decimalNumber As Integer)
         Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-4] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
@@ -2737,6 +2753,22 @@ Public Class frmMain
         Else
             ind_v402_descrepancy.BackColor = Color.Red
             alarm_text_stn4(1) = "V402 Descrepancy Not Detected"
+        End If
+
+        If binaryString(13) = "1" Then
+            ind_conn_servo_st4.BackColor = Color.Lime
+            alarm_text_stn3(2) = "Servo Not Online Communication Invalid"
+        Else
+            ind_conn_servo_st4.BackColor = Color.Red
+            alarm_text_stn3(2) = "Servo Online Communication Valid"
+        End If
+
+        If binaryString(12) = "1" Then
+            ind_pos_servo_st4.BackColor = Color.Lime
+            alarm_text_stn3(3) = "Servo Error Please Reset & Homing the Servo"
+        Else
+            ind_pos_servo_st4.BackColor = Color.Red
+            alarm_text_stn3(3) = "Servo Position OK"
         End If
 
         For i As Integer = 0 To alarm_text_stn4.Length - 1
@@ -2828,8 +2860,8 @@ Public Class frmMain
             End If
         Next
     End Sub
-    Dim alarm_text_stn6(6) As String
-    Dim last_alarm_stn6(6) As String
+    Dim alarm_text_stn6(7) As String
+    Dim last_alarm_stn6(7) As String
     Private Sub ReadAlarmStn6(decimalNumber As Integer)
         Dim timestamp As String = Now.ToString("yyyy-MM-dd HH:mm:ss") + " [ST-6] "
         Dim binaryString As String = Convert.ToString(decimalNumber, 2).PadLeft(16, "0"c)
@@ -2879,6 +2911,14 @@ Public Class frmMain
         Else
             ind_v606_descrepancy.BackColor = Color.Red
             alarm_text_stn6(5) = "V606 Descrepancy Not Detected"
+        End If
+
+        If binaryString(9) = "1" Then
+            ind_laser_err_emg.BackColor = Color.Lime
+            alarm_text_stn6(6) = "ST6 Laser Error / Emergency Please Check Laser Communication"
+        Else
+            ind_laser_err_emg.BackColor = Color.Red
+            alarm_text_stn6(6) = "ST6 Laser OK"
         End If
 
         For i As Integer = 0 To alarm_text_stn6.Length - 1

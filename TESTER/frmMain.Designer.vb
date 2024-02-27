@@ -1114,6 +1114,17 @@ Partial Class frmMain
         Me.btn_stn2_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn2_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_man_stn2 = New System.Windows.Forms.TabControl()
+        Me.GroupBox184 = New System.Windows.Forms.GroupBox()
+        Me.ind_pos_servo_st3 = New System.Windows.Forms.PictureBox()
+        Me.ind_conn_servo_st3 = New System.Windows.Forms.PictureBox()
+        Me.Label320 = New System.Windows.Forms.Label()
+        Me.Label321 = New System.Windows.Forms.Label()
+        Me.Label313 = New System.Windows.Forms.Label()
+        Me.Label314 = New System.Windows.Forms.Label()
+        Me.ind_conn_servo_st4 = New System.Windows.Forms.PictureBox()
+        Me.ind_pos_servo_st4 = New System.Windows.Forms.PictureBox()
+        Me.Label315 = New System.Windows.Forms.Label()
+        Me.ind_laser_err_emg = New System.Windows.Forms.PictureBox()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1581,6 +1592,12 @@ Partial Class frmMain
         CType(Me.stn2_cyl1_max, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupBox24.SuspendLayout
         Me.pnl_man_stn2.SuspendLayout
+        Me.GroupBox184.SuspendLayout
+        CType(Me.ind_pos_servo_st3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_conn_servo_st3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_conn_servo_st4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_pos_servo_st4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ind_laser_err_emg, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'lbl_user
@@ -9126,6 +9143,7 @@ Partial Class frmMain
         'TabPage15
         '
         Me.TabPage15.Controls.Add(Me.txt_alarm)
+        Me.TabPage15.Controls.Add(Me.GroupBox184)
         Me.TabPage15.Controls.Add(Me.GroupBox84)
         Me.TabPage15.Controls.Add(Me.GroupBox81)
         Me.TabPage15.Controls.Add(Me.GroupBox79)
@@ -14029,6 +14047,121 @@ Partial Class frmMain
         Me.pnl_man_stn2.Size = New System.Drawing.Size(853, 563)
         Me.pnl_man_stn2.TabIndex = 100
         '
+        'GroupBox184
+        '
+        Me.GroupBox184.Controls.Add(Me.ind_laser_err_emg)
+        Me.GroupBox184.Controls.Add(Me.ind_pos_servo_st4)
+        Me.GroupBox184.Controls.Add(Me.ind_pos_servo_st3)
+        Me.GroupBox184.Controls.Add(Me.ind_conn_servo_st4)
+        Me.GroupBox184.Controls.Add(Me.Label315)
+        Me.GroupBox184.Controls.Add(Me.ind_conn_servo_st3)
+        Me.GroupBox184.Controls.Add(Me.Label314)
+        Me.GroupBox184.Controls.Add(Me.Label320)
+        Me.GroupBox184.Controls.Add(Me.Label313)
+        Me.GroupBox184.Controls.Add(Me.Label321)
+        Me.GroupBox184.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox184.Location = New System.Drawing.Point(646, 276)
+        Me.GroupBox184.Name = "GroupBox184"
+        Me.GroupBox184.Size = New System.Drawing.Size(193, 222)
+        Me.GroupBox184.TabIndex = 59
+        Me.GroupBox184.TabStop = False
+        Me.GroupBox184.Text = "Other"
+        '
+        'ind_pos_servo_st3
+        '
+        Me.ind_pos_servo_st3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_pos_servo_st3.Location = New System.Drawing.Point(14, 54)
+        Me.ind_pos_servo_st3.Name = "ind_pos_servo_st3"
+        Me.ind_pos_servo_st3.Size = New System.Drawing.Size(15, 15)
+        Me.ind_pos_servo_st3.TabIndex = 33
+        Me.ind_pos_servo_st3.TabStop = False
+        '
+        'ind_conn_servo_st3
+        '
+        Me.ind_conn_servo_st3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_conn_servo_st3.Location = New System.Drawing.Point(14, 33)
+        Me.ind_conn_servo_st3.Name = "ind_conn_servo_st3"
+        Me.ind_conn_servo_st3.Size = New System.Drawing.Size(15, 15)
+        Me.ind_conn_servo_st3.TabIndex = 33
+        Me.ind_conn_servo_st3.TabStop = False
+        '
+        'Label320
+        '
+        Me.Label320.AutoSize = True
+        Me.Label320.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label320.Location = New System.Drawing.Point(35, 51)
+        Me.Label320.Name = "Label320"
+        Me.Label320.Size = New System.Drawing.Size(98, 20)
+        Me.Label320.TabIndex = 31
+        Me.Label320.Text = "Position ST3"
+        '
+        'Label321
+        '
+        Me.Label321.AutoSize = True
+        Me.Label321.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label321.Location = New System.Drawing.Point(35, 30)
+        Me.Label321.Name = "Label321"
+        Me.Label321.Size = New System.Drawing.Size(123, 20)
+        Me.Label321.TabIndex = 31
+        Me.Label321.Text = "Connection ST3"
+        '
+        'Label313
+        '
+        Me.Label313.AutoSize = True
+        Me.Label313.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label313.Location = New System.Drawing.Point(35, 72)
+        Me.Label313.Name = "Label313"
+        Me.Label313.Size = New System.Drawing.Size(123, 20)
+        Me.Label313.TabIndex = 31
+        Me.Label313.Text = "Connection ST4"
+        '
+        'Label314
+        '
+        Me.Label314.AutoSize = True
+        Me.Label314.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label314.Location = New System.Drawing.Point(35, 93)
+        Me.Label314.Name = "Label314"
+        Me.Label314.Size = New System.Drawing.Size(98, 20)
+        Me.Label314.TabIndex = 31
+        Me.Label314.Text = "Position ST4"
+        '
+        'ind_conn_servo_st4
+        '
+        Me.ind_conn_servo_st4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_conn_servo_st4.Location = New System.Drawing.Point(14, 75)
+        Me.ind_conn_servo_st4.Name = "ind_conn_servo_st4"
+        Me.ind_conn_servo_st4.Size = New System.Drawing.Size(15, 15)
+        Me.ind_conn_servo_st4.TabIndex = 33
+        Me.ind_conn_servo_st4.TabStop = False
+        '
+        'ind_pos_servo_st4
+        '
+        Me.ind_pos_servo_st4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_pos_servo_st4.Location = New System.Drawing.Point(14, 96)
+        Me.ind_pos_servo_st4.Name = "ind_pos_servo_st4"
+        Me.ind_pos_servo_st4.Size = New System.Drawing.Size(15, 15)
+        Me.ind_pos_servo_st4.TabIndex = 33
+        Me.ind_pos_servo_st4.TabStop = False
+        '
+        'Label315
+        '
+        Me.Label315.AutoSize = True
+        Me.Label315.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label315.Location = New System.Drawing.Point(35, 114)
+        Me.Label315.Name = "Label315"
+        Me.Label315.Size = New System.Drawing.Size(111, 20)
+        Me.Label315.TabIndex = 31
+        Me.Label315.Text = "Laser Err/Emg"
+        '
+        'ind_laser_err_emg
+        '
+        Me.ind_laser_err_emg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ind_laser_err_emg.Location = New System.Drawing.Point(14, 117)
+        Me.ind_laser_err_emg.Name = "ind_laser_err_emg"
+        Me.ind_laser_err_emg.Size = New System.Drawing.Size(15, 15)
+        Me.ind_laser_err_emg.TabIndex = 33
+        Me.ind_laser_err_emg.TabStop = False
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -14697,6 +14830,13 @@ Partial Class frmMain
         CType(Me.stn2_cyl1_max, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox24.ResumeLayout(False)
         Me.pnl_man_stn2.ResumeLayout(False)
+        Me.GroupBox184.ResumeLayout(False)
+        Me.GroupBox184.PerformLayout
+        CType(Me.ind_pos_servo_st3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_conn_servo_st3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_conn_servo_st4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_pos_servo_st4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ind_laser_err_emg, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -15791,4 +15931,15 @@ Partial Class frmMain
     Friend WithEvents stn6_laser_ready As PictureBox
     Friend WithEvents GroupBox85 As GroupBox
     Friend WithEvents btn_stn6_laser_start As Button
+    Friend WithEvents GroupBox184 As GroupBox
+    Friend WithEvents ind_pos_servo_st3 As PictureBox
+    Friend WithEvents ind_conn_servo_st3 As PictureBox
+    Friend WithEvents Label320 As Label
+    Friend WithEvents Label321 As Label
+    Friend WithEvents ind_laser_err_emg As PictureBox
+    Friend WithEvents ind_pos_servo_st4 As PictureBox
+    Friend WithEvents ind_conn_servo_st4 As PictureBox
+    Friend WithEvents Label315 As Label
+    Friend WithEvents Label314 As Label
+    Friend WithEvents Label313 As Label
 End Class

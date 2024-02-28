@@ -3013,49 +3013,49 @@ Public Class frmMain
         If binaryString(15) = "1" Then
             ind_st4_servo_enabled.Image = My.Resources.led_green_on
         Else
-            ind_st4_servo_enabled.Image = My.Resources.led_green_on
+            ind_st4_servo_enabled.Image = My.Resources.led_red_on
         End If
 
         If binaryString(14) = "1" Then
             ind_st4_servo_error.Image = My.Resources.led_green_on
         Else
-            ind_st4_servo_error.Image = My.Resources.led_green_on
+            ind_st4_servo_error.Image = My.Resources.led_red_on
         End If
 
         If binaryString(13) = "1" Then
             ind_st4_home_busy.Image = My.Resources.led_green_on
         Else
-            ind_st4_home_busy.Image = My.Resources.led_green_on
+            ind_st4_home_busy.Image = My.Resources.led_red_on
         End If
 
         If binaryString(12) = "1" Then
             ind_st4_servo_busy.Image = My.Resources.led_green_on
         Else
-            ind_st4_servo_busy.Image = My.Resources.led_green_on
+            ind_st4_servo_busy.Image = My.Resources.led_red_on
         End If
 
         If binaryString(11) = "1" Then
             ind_st4_standstill.Image = My.Resources.led_green_on
         Else
-            ind_st4_standstill.Image = My.Resources.led_green_on
+            ind_st4_standstill.Image = My.Resources.led_red_on
         End If
 
         If binaryString(10) = "1" Then
             ind_st4_stopping.Image = My.Resources.led_green_on
         Else
-            ind_st4_stopping.Image = My.Resources.led_green_on
+            ind_st4_stopping.Image = My.Resources.led_red_on
         End If
 
         If binaryString(9) = "1" Then
             ind_st4_continuous_motion.Image = My.Resources.led_green_on
         Else
-            ind_st4_continuous_motion.Image = My.Resources.led_green_on
+            ind_st4_continuous_motion.Image = My.Resources.led_red_on
         End If
 
         If binaryStringExtend(6) = "1" Then
             ind_st4_discrete_motion.Image = My.Resources.led_green_on
         Else
-            ind_st4_discrete_motion.Image = My.Resources.led_green_on
+            ind_st4_discrete_motion.Image = My.Resources.led_red_on
         End If
     End Sub
 

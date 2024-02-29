@@ -1447,7 +1447,7 @@ Public Class frmMain
             .MEASUREMENT = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
             .TRAVEL_P2 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
             .TRAVEL_P3 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
-            .ACTUATION_POS = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ACTUATION_POS_ST4)
+            .ACTUATION_POS = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACTUATION_POS_ST4)
             .DIFF_STR = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
             .T1 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T1)
             .T2 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T2)

@@ -135,7 +135,8 @@ Public Class frmMain
         'BarcodeComm.Open()
         ThreadST2 = New Thread(AddressOf ST2_Thread)
         ThreadST2.Start()
-        'ThreadST3 = New Thread(AddressOf ST3_Thread)
+        ThreadST3 = New Thread(AddressOf ST3_Thread)
+        ThreadST3.Start()
         ThreadST4 = New Thread(AddressOf ST4_Thread)
         ThreadST4.Start()
         ThreadST5 = New Thread(AddressOf ST5_Thread)
@@ -1447,7 +1448,7 @@ Public Class frmMain
             .MEASUREMENT = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST2_MEASUREMENT)
             .TRAVEL_P2 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P2_TRAVEL)
             .TRAVEL_P3 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_P3_TRAVEL)
-            .ACTUATION_POS = Modbus.ReadDataDword(REGISTER_TYPE, ADDR_ACTUATION_POS_ST4)
+            .ACTUATION_POS = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_ACTUATION_POS)
             .DIFF_STR = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_RESULT)
             .T1 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T1)
             .T2 = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ST4_T2)
@@ -2471,6 +2472,7 @@ Public Class frmMain
         If binaryString(15) = "1" Then
             alarm_text_general(0) = "Door Lock 1 Open"
             ind_door_lock_1.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(0)
         Else
             alarm_text_general(0) = "Door Lock 1 Close"
             ind_door_lock_1.BackColor = Color.Red
@@ -2479,6 +2481,7 @@ Public Class frmMain
         If binaryString(14) = "1" Then
             alarm_text_general(1) = "Door Lock 2 Open"
             ind_door_lock_2.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(1)
         Else
             alarm_text_general(1) = "Door Lock 2 Close"
             ind_door_lock_2.BackColor = Color.Red
@@ -2487,6 +2490,7 @@ Public Class frmMain
         If binaryString(13) = "1" Then
             alarm_text_general(2) = "Door Lock 3 Open"
             ind_door_lock_3.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(2)
         Else
             alarm_text_general(2) = "Door Lock 3 Close"
             ind_door_lock_3.BackColor = Color.Red
@@ -2495,6 +2499,7 @@ Public Class frmMain
         If binaryString(12) = "1" Then
             alarm_text_general(3) = "Door Lock 4 Open"
             ind_door_lock_4.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(3)
         Else
             alarm_text_general(3) = "Door Lock 4 Close"
             ind_door_lock_4.BackColor = Color.Red
@@ -2503,6 +2508,7 @@ Public Class frmMain
         If binaryString(11) = "1" Then
             alarm_text_general(4) = "Door Lock 5 Open"
             ind_door_lock_5.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(4)
         Else
             alarm_text_general(4) = "Door Lock 5 Close"
             ind_door_lock_5.BackColor = Color.Red
@@ -2511,6 +2517,7 @@ Public Class frmMain
         If binaryString(10) = "1" Then
             alarm_text_general(5) = "Door Lock 6 Open"
             ind_door_lock_6.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(5)
         Else
             alarm_text_general(5) = "Door Lock 6 Close"
             ind_door_lock_6.BackColor = Color.Red
@@ -2519,6 +2526,7 @@ Public Class frmMain
         If binaryString(9) = "1" Then
             alarm_text_general(6) = "Altivar NOK"
             ind_altivar_fault.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(6)
         Else
             alarm_text_general(6) = "Altivar OK"
             ind_altivar_fault.BackColor = Color.Red
@@ -2527,6 +2535,7 @@ Public Class frmMain
         If binaryString(8) = "1" Then
             alarm_text_general(7) = "Air Presence OK"
             ind_air_presence.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(7)
         Else
             alarm_text_general(7) = "Air Presence NOK"
             ind_air_presence.BackColor = Color.Red
@@ -2535,6 +2544,7 @@ Public Class frmMain
         If binaryString(7) = "1" Then
             alarm_text_general(8) = "Emergency Button Is Pressed"
             ind_emg_button.BackColor = Color.Lime
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_general(8)
         Else
             alarm_text_general(8) = "Emergency Button Is Released"
             ind_emg_button.BackColor = Color.Red
@@ -2542,11 +2552,12 @@ Public Class frmMain
 
         If binaryString(6) = "1" Then
             CURTAIN = True
-            alarm_text_general(9) = "Safety Curtain OK"
+            alarm_text_general(9) = "Safety Curtain NOK"
             ind_safety_curtain.BackColor = Color.Lime
+            'txt_alarm_copy.Text = "Alarm : " + alarm_text_general(9)
         Else
             CURTAIN = False
-            alarm_text_general(9) = "Safety Curtain NOK"
+            alarm_text_general(9) = "Safety Curtain OK"
             ind_safety_curtain.BackColor = Color.Red
         End If
 
@@ -2569,9 +2580,6 @@ Public Class frmMain
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_general(i) + vbCrLf
                 txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
-                txt_alarm_copy.Text = txt_alarm.Text
-                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
-                txt_alarm_copy.ScrollToCaret()
                 last_alarm_general(i) = alarm_text_general(i)
             End If
         Next
@@ -2585,6 +2593,7 @@ Public Class frmMain
         If binaryString(15) = "1" Then
             ind_v101_descrepancy.BackColor = Color.Lime
             alarm_text_stn1(0) = "V101 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn1(0)
         Else
             ind_v101_descrepancy.BackColor = Color.Red
             alarm_text_stn1(0) = "V101 Descrepancy Not Detected"
@@ -2609,9 +2618,6 @@ Public Class frmMain
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn1(i) + vbCrLf
                 txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
-                txt_alarm_copy.Text = txt_alarm.Text
-                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
-                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn1(i) = alarm_text_stn1(i)
             End If
         Next
@@ -2624,6 +2630,7 @@ Public Class frmMain
         If binaryString(15) = "1" Then
             ind_v201_descrepancy.BackColor = Color.Lime
             alarm_text_stn2(0) = "V201 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn2(0)
         Else
             ind_v201_descrepancy.BackColor = Color.Red
             alarm_text_stn2(0) = "V201 Descrepancy Not Detected"
@@ -2632,6 +2639,7 @@ Public Class frmMain
         If binaryString(14) = "1" Then
             ind_v202_descrepancy.BackColor = Color.Lime
             alarm_text_stn2(1) = "V202 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn2(1)
         Else
             ind_v202_descrepancy.BackColor = Color.Red
             alarm_text_stn2(1) = "V202 Descrepancy Not Detected"
@@ -2640,6 +2648,7 @@ Public Class frmMain
         If binaryString(13) = "1" Then
             ind_v203_descrepancy.BackColor = Color.Lime
             alarm_text_stn2(2) = "V203 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn2(2)
         Else
             ind_v203_descrepancy.BackColor = Color.Red
             alarm_text_stn2(2) = "V203 Descrepancy Not Detected"
@@ -2664,9 +2673,6 @@ Public Class frmMain
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn2(i) + vbCrLf
                 txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
-                txt_alarm_copy.Text = txt_alarm.Text
-                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
-                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn2(i) = alarm_text_stn2(i)
             End If
         Next
@@ -2679,6 +2685,7 @@ Public Class frmMain
         If binaryString(15) = "1" Then
             ind_v301_descrepancy.BackColor = Color.Lime
             alarm_text_stn3(0) = "V301 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn3(0)
         Else
             ind_v301_descrepancy.BackColor = Color.Red
             alarm_text_stn3(0) = "V301 Descrepancy Not Detected"
@@ -2687,6 +2694,7 @@ Public Class frmMain
         If binaryString(14) = "1" Then
             ind_v302_descrepancy.BackColor = Color.Lime
             alarm_text_stn3(1) = "V302 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn3(1)
         Else
             ind_v302_descrepancy.BackColor = Color.Red
             alarm_text_stn3(1) = "V302 Descrepancy Not Detected"
@@ -2695,6 +2703,7 @@ Public Class frmMain
         If binaryString(13) = "1" Then
             ind_conn_servo_st3.BackColor = Color.Lime
             alarm_text_stn3(2) = "Servo Not Online Communication Invalid"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn3(2)
         Else
             ind_conn_servo_st3.BackColor = Color.Red
             alarm_text_stn3(2) = "Servo Online Communication Valid"
@@ -2703,6 +2712,7 @@ Public Class frmMain
         If binaryString(12) = "1" Then
             ind_pos_servo_st3.BackColor = Color.Lime
             alarm_text_stn3(3) = "Servo Error Please Reset & Homing the Servo"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn3(3)
         Else
             ind_pos_servo_st3.BackColor = Color.Red
             alarm_text_stn3(3) = "Servo Position OK"
@@ -2727,9 +2737,6 @@ Public Class frmMain
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn3(i) + vbCrLf
                 txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
-                txt_alarm_copy.Text = txt_alarm.Text
-                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
-                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn3(i) = alarm_text_stn3(i)
             End If
         Next
@@ -2742,6 +2749,7 @@ Public Class frmMain
         If binaryString(15) = "1" Then
             ind_v401_descrepancy.BackColor = Color.Lime
             alarm_text_stn4(0) = "V401 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn4(0)
         Else
             ind_v401_descrepancy.BackColor = Color.Red
             alarm_text_stn4(0) = "V401 Descrepancy Not Detected"
@@ -2750,6 +2758,7 @@ Public Class frmMain
         If binaryString(14) = "1" Then
             ind_v402_descrepancy.BackColor = Color.Lime
             alarm_text_stn4(1) = "V402 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn4(1)
         Else
             ind_v402_descrepancy.BackColor = Color.Red
             alarm_text_stn4(1) = "V402 Descrepancy Not Detected"
@@ -2758,6 +2767,7 @@ Public Class frmMain
         If binaryString(13) = "1" Then
             ind_conn_servo_st4.BackColor = Color.Lime
             alarm_text_stn4(2) = "Servo Not Online Communication Invalid"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn4(2)
         Else
             ind_conn_servo_st4.BackColor = Color.Red
             alarm_text_stn4(2) = "Servo Online Communication Valid"
@@ -2766,6 +2776,7 @@ Public Class frmMain
         If binaryString(12) = "1" Then
             ind_pos_servo_st4.BackColor = Color.Lime
             alarm_text_stn4(3) = "Servo Error Please Reset & Homing the Servo"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn4(3)
         Else
             ind_pos_servo_st4.BackColor = Color.Red
             alarm_text_stn4(3) = "Servo Position OK"
@@ -2790,9 +2801,6 @@ Public Class frmMain
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn4(i) + vbCrLf
                 txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
-                txt_alarm_copy.Text = txt_alarm.Text
-                txt_alarm_copy.ScrollToCaret()
-                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
                 last_alarm_stn4(i) = alarm_text_stn4(i)
             End If
         Next
@@ -2805,6 +2813,7 @@ Public Class frmMain
         If binaryString(15) = "1" Then
             ind_v501_descrepancy.BackColor = Color.Lime
             alarm_text_stn5(0) = "V501 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn5(0)
         Else
             ind_v501_descrepancy.BackColor = Color.Red
             alarm_text_stn5(0) = "V501 Descrepancy Not Detected"
@@ -2813,6 +2822,7 @@ Public Class frmMain
         If binaryString(14) = "1" Then
             ind_v502_descrepancy.BackColor = Color.Lime
             alarm_text_stn5(1) = "V502 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn5(1)
         Else
             ind_v502_descrepancy.BackColor = Color.Red
             alarm_text_stn5(1) = "V501 Descrepancy Not Detected"
@@ -2821,6 +2831,7 @@ Public Class frmMain
         If binaryString(13) = "1" Then
             ind_v503_descrepancy.BackColor = Color.Lime
             alarm_text_stn5(2) = "V503 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn5(2)
         Else
             ind_v503_descrepancy.BackColor = Color.Red
             alarm_text_stn5(2) = "V503 Descrepancy Not Detected"
@@ -2829,6 +2840,7 @@ Public Class frmMain
         If binaryString(12) = "1" Then
             ind_v504_descrepancy.BackColor = Color.Lime
             alarm_text_stn5(3) = "V504 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn5(3)
         Else
             ind_v504_descrepancy.BackColor = Color.Red
             alarm_text_stn5(3) = "V504 Descrepancy Not Detected"
@@ -2853,9 +2865,6 @@ Public Class frmMain
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn5(i) + vbCrLf
                 txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
-                txt_alarm_copy.Text = txt_alarm.Text
-                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
-                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn5(i) = alarm_text_stn5(i)
             End If
         Next
@@ -2868,6 +2877,7 @@ Public Class frmMain
         If binaryString(15) = "1" Then
             ind_v601_descrepancy.BackColor = Color.Lime
             alarm_text_stn6(0) = "V601 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn6(0)
         Else
             ind_v601_descrepancy.BackColor = Color.Red
             alarm_text_stn6(0) = "V601 Descrepancy Not Detected"
@@ -2876,6 +2886,7 @@ Public Class frmMain
         If binaryString(14) = "1" Then
             ind_v602_descrepancy.BackColor = Color.Lime
             alarm_text_stn6(1) = "V602 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn6(1)
         Else
             ind_v602_descrepancy.BackColor = Color.Red
             alarm_text_stn6(1) = "V602 Descrepancy Not Detected"
@@ -2884,6 +2895,7 @@ Public Class frmMain
         If binaryString(13) = "1" Then
             ind_v603_descrepancy.BackColor = Color.Lime
             alarm_text_stn6(2) = "V603 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn6(2)
         Else
             ind_v603_descrepancy.BackColor = Color.Red
             alarm_text_stn6(2) = "V603 Descrepancy Not Detected"
@@ -2892,6 +2904,7 @@ Public Class frmMain
         If binaryString(12) = "1" Then
             ind_v604_descrepancy.BackColor = Color.Lime
             alarm_text_stn6(3) = "V604 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn6(3)
         Else
             ind_v604_descrepancy.BackColor = Color.Red
             alarm_text_stn6(3) = "V604 Descrepancy Not Detected"
@@ -2900,6 +2913,7 @@ Public Class frmMain
         If binaryString(11) = "1" Then
             ind_v605_descrepancy.BackColor = Color.Lime
             alarm_text_stn6(4) = "V605 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn6(4)
         Else
             ind_v605_descrepancy.BackColor = Color.Red
             alarm_text_stn6(4) = "V605 Descrepancy Not Detected"
@@ -2908,6 +2922,7 @@ Public Class frmMain
         If binaryString(10) = "1" Then
             ind_v606_descrepancy.BackColor = Color.Lime
             alarm_text_stn6(5) = "V606 Descrepancy Detected"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn6(5)
         Else
             ind_v606_descrepancy.BackColor = Color.Red
             alarm_text_stn6(5) = "V606 Descrepancy Not Detected"
@@ -2916,6 +2931,7 @@ Public Class frmMain
         If binaryString(9) = "1" Then
             ind_laser_err_emg.BackColor = Color.Lime
             alarm_text_stn6(6) = "ST6 Laser Error / Emergency Please Check Laser Communication"
+            txt_alarm_copy.Text = "Alarm : " + alarm_text_stn6(6)
         Else
             ind_laser_err_emg.BackColor = Color.Red
             alarm_text_stn6(6) = "ST6 Laser OK"
@@ -2940,9 +2956,6 @@ Public Class frmMain
                 txt_alarm.Text = txt_alarm.Text + timestamp + alarm_text_stn6(i) + vbCrLf
                 txt_alarm.SelectionStart = txt_alarm.Text.Length
                 txt_alarm.ScrollToCaret()
-                txt_alarm_copy.Text = txt_alarm.Text
-                txt_alarm_copy.SelectionStart = txt_alarm_copy.Text.Length
-                txt_alarm_copy.ScrollToCaret()
                 last_alarm_stn6(i) = alarm_text_stn6(i)
             End If
         Next
@@ -3365,10 +3378,16 @@ Public Class frmMain
                     lbl_op_ins.Text = "You're All Set!" + vbCrLf
                     If RUNNING_STATE = 1 Then
                         lbl_op_ins.Text = lbl_op_ins.Text + "Trigger to start process"
+                        txt_alarm_copy.Text = "Alarm : . . ."
                     ElseIf RUNNING_STATE = 2 Then
                         lbl_op_ins.Text = lbl_op_ins.Text + "Machine in stop mode"
+
                     ElseIf RUNNING_STATE = 3 Then
-                        lbl_op_ins.Text = lbl_op_ins.Text + "Machine in emergency mode"
+                        If lbl_run_state.Text = "EMERGENCY" Then
+                            lbl_op_ins.Text = lbl_op_ins.Text + "Machine in emergency mode"
+                        Else
+                            lbl_op_ins.Text = lbl_op_ins.Text + "Machine in initialize mode"
+                        End If
                     End If
                 End If
             End If
@@ -3490,6 +3509,7 @@ Public Class frmMain
         txt_po_num.Text = ""
     End Sub
     Dim Action_ST2 As Integer = 1
+    Dim Finish6Product As Boolean = False
     Private Sub ST2_Thread()
         Do
             If SCAN_MODE = 3 Or CALIBRATION Then
@@ -3505,26 +3525,87 @@ Public Class frmMain
                                           Case 1
                                               'lbl_item_1.Text = CNT_ST2
                                               lbl_st2_meas.Text = st2_result
+                                              If Finish6Product Then
+                                                  lbl_st4NC_res.Text = ""
+                                                  lbl_st4NO_res.Text = ""
+                                                  lbl_st4_actu_pos.Text = ""
+                                                  lbl_st4_p2.Text = ""
+                                                  lbl_st4_p3.Text = ""
+                                                  lbl_diff_result.Text = ""
+                                                  lbl_status.Text = ""
+                                                  lbl_unscrew_status.Text = ""
+                                              End If
                                               Action_ST2 += 1
                                           Case 2
                                               'lbl_item_2.Text = CNT_ST2
                                               lbl_st2_meas_1.Text = st2_result
+                                              If Finish6Product Then
+                                                  lbl_st4NC_res_1.Text = ""
+                                                  lbl_st4NO_res_1.Text = ""
+                                                  lbl_st4_actu_pos_1.Text = ""
+                                                  lbl_st4_p2_1.Text = ""
+                                                  lbl_st4_p3_1.Text = ""
+                                                  lbl_diff_result_1.Text = ""
+                                                  lbl_status_1.Text = ""
+                                                  lbl_unscrew_status_1.Text = ""
+                                              End If
                                               Action_ST2 += 1
                                           Case 3
                                               'lbl_item_3.Text = CNT_ST2
                                               lbl_st2_meas_2.Text = st2_result
+                                              If Finish6Product Then
+                                                  lbl_st4NC_res_2.Text = ""
+                                                  lbl_st4NO_res_2.Text = ""
+                                                  lbl_st4_actu_pos_2.Text = ""
+                                                  lbl_st4_p2_2.Text = ""
+                                                  lbl_st4_p3_2.Text = ""
+                                                  lbl_diff_result_2.Text = ""
+                                                  lbl_status_2.Text = ""
+                                                  lbl_unscrew_status_2.Text = ""
+                                              End If
                                               Action_ST2 += 1
                                           Case 4
                                               'lbl_item_4.Text = CNT_ST2
                                               lbl_st2_meas_3.Text = st2_result
+                                              If Finish6Product Then
+                                                  lbl_st4NC_res_3.Text = ""
+                                                  lbl_st4NO_res_3.Text = ""
+                                                  lbl_st4_actu_pos_3.Text = ""
+                                                  lbl_st4_p2_3.Text = ""
+                                                  lbl_st4_p3_3.Text = ""
+                                                  lbl_diff_result_3.Text = ""
+                                                  lbl_status_3.Text = ""
+                                                  lbl_unscrew_status_3.Text = ""
+                                              End If
                                               Action_ST2 += 1
                                           Case 5
                                               'lbl_item_5.Text = CNT_ST2
                                               lbl_st2_meas_4.Text = st2_result
+                                              If Finish6Product Then
+                                                  lbl_st4NC_res_4.Text = ""
+                                                  lbl_st4NO_res_4.Text = ""
+                                                  lbl_st4_actu_pos_4.Text = ""
+                                                  lbl_st4_p2_4.Text = ""
+                                                  lbl_st4_p3_4.Text = ""
+                                                  lbl_diff_result_4.Text = ""
+                                                  lbl_status_4.Text = ""
+                                                  lbl_unscrew_status_4.Text = ""
+                                              End If
                                               Action_ST2 += 1
                                           Case 6
                                               'lbl_item_6.Text = CNT_ST2
                                               lbl_st2_meas_5.Text = st2_result
+                                              If Finish6Product Then
+                                                  lbl_st4NC_res_5.Text = ""
+                                                  lbl_st4NO_res_5.Text = ""
+                                                  lbl_st4_actu_pos_5.Text = ""
+                                                  lbl_st4_p2_5.Text = ""
+                                                  lbl_st4_p3_5.Text = ""
+                                                  lbl_diff_result_5.Text = ""
+                                                  lbl_status_5.Text = ""
+                                                  lbl_unscrew_status_5.Text = ""
+                                              End If
+                                              Finish6Product = True
                                               Action_ST2 = 1
                                       End Select
 
@@ -3535,70 +3616,171 @@ Public Class frmMain
                                       WriteINI(iniPath, "STATUS", "SequenceCounter", CNT_ST2)
 
                                       txt_msg.Text = txt_msg.Text + "Finish recording ST2 Result = " + st2_result & vbCrLf
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, 3)
+                                      Dim temp(16) As Integer
+                                      Dim temp_str As String
+                                      Dim binaryString_ As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
+                                      For i As Integer = 0 To binaryString_.Length - 1
+                                          If i = 15 Then
+                                              temp(i) = 0
+                                          ElseIf i = 14 Then
+                                              temp(i) = 1
+                                          Else
+                                              If binaryString_(i) = "1" Then
+                                                  temp(i) = 1
+                                              Else
+                                                  temp(i) = 0
+                                              End If
+                                          End If
+                                          temp_str = temp_str + temp(i).ToString
+                                      Next
+
+                                      Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, integerValue_)
                                       lbl_cnt_st2.Text = CNT_ST2
                                   End Sub)
-                    Else
-                        Me.Invoke(Sub()
-                                      Dim st2_result As String = Result.MEASUREMENT
-                                      dgv_calibration.Rows.Add("Measurement", st2_result)
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, 3)
-                                  End Sub)
+
                     End If
                 End If
             End If
-            Thread.Sleep(100)
+            Thread.Sleep(500)
         Loop
 
     End Sub
     Dim Action_ST3 As Integer = 1
     Private Sub ST3_Thread()
-        'Do
-        '    If SCAN_MODE = 3 Then
-        '        ST_COMM3 = Modbus.ReadData(REGISTER_TYPE, ADDR_ST_COMM3)
-        '        Dim binaryString As String = Convert.ToString(ST_COMM3, 2).PadLeft(16, "0"c)
-        '        If binaryString(15) = "1" And binaryString(14) = "0" Then
-        '            Me.Invoke(Sub()
-        '                          txt_msg.Text = txt_msg.Text + "Start recording ST3 (Resistance)..." & vbCrLf
-        '                          CNT_ST3 = CNT_ST3 + 1
-        '                          '======================== program baca resistant ========================
-        '                          Dim Value As Decimal = Rnd()
-        '                          Dim st3_result As String = Value.ToString
+        Do
+            If SCAN_MODE = 3 Or CALIBRATION Then
+                Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
 
-        '                          Select Case Action_ST3
-        '                              Case 1
-        '                                  lbl_st3_res.Text = st3_result
-        '                                  Action_ST3 += 1
-        '                              Case 2
-        '                                  lbl_st3_res_1.Text = st3_result
-        '                                  Action_ST3 += 1
-        '                              Case 3
-        '                                  lbl_st3_res_2.Text = st3_result
-        '                                  Action_ST3 += 1
-        '                              Case 4
-        '                                  lbl_st3_res_3.Text = st3_result
-        '                                  Action_ST3 += 1
-        '                              Case 5
-        '                                  lbl_st3_res_4.Text = st3_result
-        '                                  Action_ST3 += 1
-        '                              Case 6
-        '                                  lbl_st3_res_5.Text = st3_result
-        '                                  Action_ST3 = 1
-        '                          End Select
+                If binaryString(14) = "0" And binaryString(15) = "1" Then
+                    'Console.WriteLine("0001")
+                    If Not CALIBRATION Then
 
-        '                          Call KoneksiDB.koneksi_db()
-        '                          Dim sc As New SqlCommand("UPDATE tb_data SET Resistance = '" & st3_result & "' WHERE [Sequence Number] = '" & CNT_ST3.ToString & "'", KoneksiDB.koneksi)
-        '                          Dim adapter As New SqlDataAdapter(sc)
-        '                          adapter.SelectCommand.ExecuteNonQuery()
+                    Else
 
-        '                          txt_msg.Text = txt_msg.Text + "Finish recording ST3 Result = " + st3_result & vbCrLf
-        '                          Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM3, 7) ' dummy
-        '                          lbl_cnt_st3.Text = CNT_ST3
-        '                      End Sub)
-        '        End If
-        '    End If
-        '    Thread.Sleep(100)
-        'Loop
+                    End If
+                ElseIf binaryString(6) = "0" And binaryString(7) = "1" Then
+                    If Not CALIBRATION Then
+                        Me.Invoke(Sub()
+                                      If is_measuring_nc = False Then
+                                          Reset_resistance()
+                                          is_measuring_nc = True
+                                      Else
+                                          Dim resistance_state_off As String = Chroma_resistance()
+                                          If resistance_state_off <> "waiting" Then
+                                              Dim numericValue As Double = Double.Parse(resistance_state_off)
+                                              Select Case Action_ST3
+                                                  Case 1
+                                                      lbl_st4NC_res.Text = numericValue.ToString
+                                                  Case 2
+                                                      lbl_st4NC_res_1.Text = numericValue.ToString
+                                                  Case 3
+                                                      lbl_st4NC_res_2.Text = numericValue.ToString
+                                                  Case 4
+                                                      lbl_st4NC_res_3.Text = numericValue.ToString
+                                                  Case 5
+                                                      lbl_st4NC_res_4.Text = numericValue.ToString
+                                                  Case 6
+                                                      lbl_st4NC_res_5.Text = numericValue.ToString
+                                              End Select
+
+                                              Call KoneksiDB.koneksi_db()
+                                              Dim sc As New SqlCommand("UPDATE tb_data SET [State Off Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                              Dim adapter As New SqlDataAdapter(sc)
+                                              adapter.SelectCommand.ExecuteNonQuery()
+                                              Dim temp(16) As Integer
+                                              Dim temp_str As String
+                                              Dim binaryString_ As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
+                                              For i As Integer = 0 To binaryString_.Length - 1
+                                                  If i = 6 Then
+                                                      temp(i) = 1
+                                                  Else
+                                                      If binaryString_(i) = "1" Then
+                                                          temp(i) = 1
+                                                      Else
+                                                          temp(i) = 0
+                                                      End If
+                                                  End If
+                                                  temp_str = temp_str + temp(i).ToString
+                                              Next
+
+                                              Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
+                                              is_measuring_nc = False
+                                              txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
+                                          End If
+                                      End If
+                                  End Sub)
+
+                    End If
+                ElseIf binaryString(4) = "0" And binaryString(5) = "1" Then
+                    If Not CALIBRATION Then
+                        Me.Invoke(Sub()
+                                      If is_measuring_no = False Then
+                                          Reset_resistance()
+                                          is_measuring_no = True
+                                      Else
+                                          Dim resistance_state_on As String = Chroma_resistance()
+
+                                          If resistance_state_on <> "waiting" Then
+                                              Dim numericValue As Double = Double.Parse(resistance_state_on)
+                                              Select Case Action_ST3
+                                                  Case 1
+                                                      lbl_st4NO_res.Text = numericValue.ToString
+                                                      Action_ST3 += 1
+                                                  Case 2
+                                                      lbl_st4NO_res_1.Text = numericValue.ToString
+                                                      Action_ST3 += 1
+                                                  Case 3
+                                                      lbl_st4NO_res_2.Text = numericValue.ToString
+                                                      Action_ST3 += 1
+                                                  Case 4
+                                                      lbl_st4NO_res_3.Text = numericValue.ToString
+                                                      Action_ST3 += 1
+                                                  Case 5
+                                                      lbl_st4NO_res_4.Text = numericValue.ToString
+                                                      Action_ST3 += 1
+                                                  Case 6
+                                                      lbl_st4NO_res_5.Text = numericValue.ToString
+                                                      Action_ST3 = 1
+                                              End Select
+
+                                              Call KoneksiDB.koneksi_db()
+                                              Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_on & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
+                                              Dim adapter As New SqlDataAdapter(sc)
+                                              adapter.SelectCommand.ExecuteNonQuery()
+                                              Dim temp(16) As Integer
+                                              Dim temp_str As String
+                                              Dim binaryString_ As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
+                                              For i As Integer = 0 To binaryString_.Length - 1
+                                                  If i = 4 Then
+                                                      temp(i) = 1
+                                                  Else
+                                                      If binaryString_(i) = "1" Then
+                                                          temp(i) = 1
+                                                      Else
+                                                          temp(i) = 0
+                                                      End If
+                                                  End If
+                                                  temp_str = temp_str + temp(i).ToString
+                                              Next
+
+                                              Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
+                                              is_measuring_no = False
+                                              txt_msg.Text = txt_msg.Text + "Resistance ON = " + resistance_state_on & vbCrLf
+                                          End If
+                                      End If
+
+                                  End Sub)
+                    End If
+                End If
+            End If
+            Thread.Sleep(500)
+        Loop
 
     End Sub
     Dim Action_ST4 As Integer = 1
@@ -3643,7 +3825,7 @@ Public Class frmMain
                                               lbl_st4_t1.Text = st4_t1_result
                                               lbl_st4_t2.Text = st4_t2_result
                                               lbl_cot.Text = cot_result
-                                              'Action_ST4 += 1
+                                              Action_ST4 += 1
                                           Case 2
                                               lbl_st4_p2_1.Text = st4_p2_result
                                               lbl_st4_p3_1.Text = st4_p3_result
@@ -3652,7 +3834,7 @@ Public Class frmMain
                                               lbl_st4_t1_1.Text = st4_t1_result
                                               lbl_st4_t2_1.Text = st4_t2_result
                                               lbl_cot_1.Text = cot_result
-                                              'Action_ST4 += 1
+                                              Action_ST4 += 1
                                           Case 3
                                               lbl_st4_p2_2.Text = st4_p2_result
                                               lbl_st4_p3_2.Text = st4_p3_result
@@ -3661,7 +3843,7 @@ Public Class frmMain
                                               lbl_st4_t1_2.Text = st4_t1_result
                                               lbl_st4_t2_2.Text = st4_t2_result
                                               lbl_cot_2.Text = cot_result
-                                              'Action_ST4 += 1
+                                              Action_ST4 += 1
                                           Case 4
                                               lbl_st4_p2_3.Text = st4_p2_result
                                               lbl_st4_p3_3.Text = st4_p3_result
@@ -3670,7 +3852,7 @@ Public Class frmMain
                                               lbl_st4_t1_3.Text = st4_t1_result
                                               lbl_st4_t2_3.Text = st4_t2_result
                                               lbl_cot_3.Text = cot_result
-                                              'Action_ST4 += 1
+                                              Action_ST4 += 1
                                           Case 5
                                               lbl_st4_p2_4.Text = st4_p2_result
                                               lbl_st4_p3_4.Text = st4_p3_result
@@ -3679,7 +3861,7 @@ Public Class frmMain
                                               lbl_st4_t1_4.Text = st4_t1_result
                                               lbl_st4_t2_4.Text = st4_t2_result
                                               lbl_cot_4.Text = cot_result
-                                              'Action_ST4 += 1
+                                              Action_ST4 += 1
                                           Case 6
                                               lbl_st4_p2_5.Text = st4_p2_result
                                               lbl_st4_p3_5.Text = st4_p3_result
@@ -3688,7 +3870,7 @@ Public Class frmMain
                                               lbl_st4_t1_5.Text = st4_t1_result
                                               lbl_st4_t2_5.Text = st4_t2_result
                                               lbl_cot_5.Text = cot_result
-                                              'Action_ST4 = 1
+                                              Action_ST4 = 1
                                       End Select
 
                                       Call KoneksiDB.koneksi_db()
@@ -3703,147 +3885,42 @@ Public Class frmMain
                                       txt_msg.Text = txt_msg.Text + "T1 = " + st4_t1_result & vbCrLf
                                       txt_msg.Text = txt_msg.Text + "T2 = " + st4_t2_result & vbCrLf
                                       txt_msg.Text = txt_msg.Text + "COT = " + cot_result & vbCrLf
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
+                                      Dim temp(16) As Integer
+                                      Dim temp_str As String
+                                      Dim binaryString_ As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
+                                      For i As Integer = 0 To binaryString_.Length - 1
+                                          If i = 14 Then
+                                              temp(i) = 1
+                                          Else
+                                              If binaryString_(i) = "1" Then
+                                                  temp(i) = 1
+                                              Else
+                                                  temp(i) = 0
+                                              End If
+                                          End If
+                                          temp_str = temp_str + temp(i).ToString
+                                      Next
+
+                                      Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
                                       lbl_cnt_st4.Text = CNT_ST4
                                   End Sub)
-                    Else
-                        Me.Invoke(Sub()
-                                      Dim st4_p2_result As String
-                                      Dim st4_p3_result As String
-                                      Dim diff_result_result As String
-                                      Dim st4_t1_result As String
-                                      Dim st4_t2_result As String
-                                      Dim cot_result As String
 
-                                      With Result
-                                          st4_p2_result = .TRAVEL_P2
-                                          st4_p3_result = .TRAVEL_P3
-                                          diff_result_result = .DIFF_STR
-                                          st4_t1_result = .T1
-                                          st4_t2_result = .T2
-                                          cot_result = .COT
-                                      End With
-
-                                      dgv_calibration.Rows.Add("P2", st4_p2_result)
-                                      dgv_calibration.Rows.Add("P3", st4_p2_result)
-                                      dgv_calibration.Rows.Add("Diff", diff_result_result)
-                                      dgv_calibration.Rows.Add("T1", st4_t1_result)
-                                      dgv_calibration.Rows.Add("T2", st4_t2_result)
-                                      dgv_calibration.Rows.Add("COT", cot_result)
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3)
-                                  End Sub)
                     End If
                 ElseIf binaryString(6) = "0" And binaryString(7) = "1" Then
                     If Not CALIBRATION Then
-                        Me.Invoke(Sub()
-                                      If is_measuring_nc = False Then
-                                          Reset_resistance()
-                                          is_measuring_nc = True
-                                      Else
-                                          Dim resistance_state_off As String = Chroma_resistance()
-                                          If resistance_state_off <> "waiting" Then
-                                              Dim numericValue As Double = Double.Parse(resistance_state_off)
-                                              Select Case Action_ST4
-                                                  Case 1
-                                                      lbl_st4NC_res.Text = numericValue.ToString
-                                                  Case 2
-                                                      lbl_st4NC_res_1.Text = numericValue.ToString
-                                                  Case 3
-                                                      lbl_st4NC_res_2.Text = numericValue.ToString
-                                                  Case 4
-                                                      lbl_st4NC_res_3.Text = numericValue.ToString
-                                                  Case 5
-                                                      lbl_st4NC_res_4.Text = numericValue.ToString
-                                                  Case 6
-                                                      lbl_st4NC_res_5.Text = numericValue.ToString
-                                              End Select
 
-                                              Call KoneksiDB.koneksi_db()
-                                              Dim sc As New SqlCommand("UPDATE tb_data SET [State Off Resistance] = '" & resistance_state_off & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
-                                              Dim adapter As New SqlDataAdapter(sc)
-                                              adapter.SelectCommand.ExecuteNonQuery()
-                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)
-                                              is_measuring_nc = False
-                                              txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
-                                          End If
-                                      End If
-                                  End Sub)
-                    Else
-                        Me.Invoke(Sub()
-                                      If is_measuring_nc = False Then
-                                          Reset_resistance()
-                                          is_measuring_nc = True
-                                      Else
-                                          Dim resistance_state_off As String = Chroma_resistance()
-                                          If resistance_state_off <> "waiting" Then
-                                              Dim numericValue As Double = Double.Parse(resistance_state_off)
-                                              dgv_calibration.Rows.Add("Resistance NC", numericValue.ToString)
-                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 768)
-                                          End If
-                                      End If
-                                  End Sub)
+
                     End If
                 ElseIf binaryString(4) = "0" And binaryString(5) = "1" Then
                     If Not CALIBRATION Then
-                        Me.Invoke(Sub()
-                                      If is_measuring_no = False Then
-                                          Reset_resistance()
-                                          is_measuring_no = True
-                                      Else
-                                          Dim resistance_state_on As String = Chroma_resistance()
 
-                                          If resistance_state_on <> "waiting" Then
-                                              Dim numericValue As Double = Double.Parse(resistance_state_on)
-                                              Select Case Action_ST4
-                                                  Case 1
-                                                      lbl_st4NO_res.Text = numericValue.ToString
-                                                      Action_ST4 += 1
-                                                  Case 2
-                                                      lbl_st4NO_res_1.Text = numericValue.ToString
-                                                      Action_ST4 += 1
-                                                  Case 3
-                                                      lbl_st4NO_res_2.Text = numericValue.ToString
-                                                      Action_ST4 += 1
-                                                  Case 4
-                                                      lbl_st4NO_res_3.Text = numericValue.ToString
-                                                      Action_ST4 += 1
-                                                  Case 5
-                                                      lbl_st4NO_res_4.Text = numericValue.ToString
-                                                      Action_ST4 += 1
-                                                  Case 6
-                                                      lbl_st4NO_res_5.Text = numericValue.ToString
-                                                      Action_ST4 = 1
-                                              End Select
 
-                                              Call KoneksiDB.koneksi_db()
-                                              Dim sc As New SqlCommand("UPDATE tb_data SET [State On Resistance] = '" & resistance_state_on & "' WHERE [Sequence Number] = '" & CNT_ST4.ToString & "'", KoneksiDB.koneksi)
-                                              Dim adapter As New SqlDataAdapter(sc)
-                                              adapter.SelectCommand.ExecuteNonQuery()
-                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3072)
-                                              is_measuring_no = False
-                                              txt_msg.Text = txt_msg.Text + "Resistance ON = " + resistance_state_on & vbCrLf
-                                          End If
-                                      End If
-
-                                  End Sub)
-                    Else
-                        Me.Invoke(Sub()
-                                      If is_measuring_no = False Then
-                                          Reset_resistance()
-                                          is_measuring_no = True
-                                      Else
-                                          Dim resistance_state_on As String = Chroma_resistance()
-                                          If resistance_state_on <> "waiting" Then
-                                              Dim numericValue As Double = Double.Parse(resistance_state_on)
-                                              dgv_calibration.Rows.Add("Resistance NO", numericValue.ToString)
-                                              Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, 3072)
-                                          End If
-                                      End If
-                                  End Sub)
                     End If
                 End If
             End If
-            Thread.Sleep(100)
+            Thread.Sleep(500)
         Loop
 
     End Sub
@@ -3890,7 +3967,7 @@ Public Class frmMain
                               End Sub)
                 End If
             End If
-            Thread.Sleep(100)
+            Thread.Sleep(500)
         Loop
 
     End Sub
@@ -4257,9 +4334,9 @@ Retry:
             If ThreadST2.IsAlive Then
                 ThreadST2.Abort()
             End If
-            'If ThreadST3.IsAlive Then
-            '    ThreadST3.Abort()
-            'End If
+            If ThreadST3.IsAlive Then
+                ThreadST3.Abort()
+            End If
             If ThreadST4.IsAlive Then
                 ThreadST4.Abort()
             End If

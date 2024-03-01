@@ -1,0 +1,236 @@
+2024-03-01 10:42:29 [General] Door Lock 1 Close
+2024-03-01 10:42:29 [General] Door Lock 2 Close
+2024-03-01 10:42:29 [General] Door Lock 3 Close
+2024-03-01 10:42:29 [General] Door Lock 4 Close
+2024-03-01 10:42:29 [General] Door Lock 5 Close
+2024-03-01 10:42:29 [General] Door Lock 6 Close
+2024-03-01 10:42:29 [General] Altivar OK
+2024-03-01 10:42:29 [General] Air Presence NOK
+2024-03-01 10:42:29 [General] Emergency Button Is Released
+2024-03-01 10:42:29 [General] Safety Curtain OK
+2024-03-01 10:42:29 [ST-2] V101 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-2] V201 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-2] V202 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-2] V203 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-3] V301 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-3] V302 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-3] Servo Online Communication Valid
+2024-03-01 10:42:29 [ST-3] Servo Position OK
+2024-03-01 10:42:29 [ST-4] V401 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-4] V402 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-4] Servo Online Communication Valid
+2024-03-01 10:42:29 [ST-4] Servo Position OK
+2024-03-01 10:42:29 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-5] V503 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-5] V504 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-6] V601 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-6] V602 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-6] V603 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-6] V604 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-6] V605 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-6] V606 Descrepancy Not Detected
+2024-03-01 10:42:29 [ST-6] ST6 Laser OK
+2024-03-01 10:42:56 [General] Safety Curtain NOK
+2024-03-01 10:43:08 [General] Safety Curtain OK
+2024-03-01 10:44:24 [General] Safety Curtain NOK
+2024-03-01 10:44:27 [General] Safety Curtain OK
+2024-03-01 10:49:40 [ST-6] V604 Descrepancy Detected
+2024-03-01 10:49:45 [General] Safety Curtain NOK
+2024-03-01 10:49:49 [ST-6] V604 Descrepancy Not Detected
+2024-03-01 10:49:50 [General] Safety Curtain OK
+2024-03-01 10:50:07 [General] Safety Curtain NOK
+2024-03-01 10:50:09 [General] Safety Curtain OK
+2024-03-01 10:50:12 [General] Safety Curtain NOK
+2024-03-01 10:50:12 [ST-6] V604 Descrepancy Detected
+2024-03-01 10:50:14 [ST-6] V604 Descrepancy Not Detected
+2024-03-01 10:50:14 [General] Safety Curtain OK
+2024-03-01 10:50:21 [ST-6] V602 Descrepancy Detected
+2024-03-01 10:51:49 [General] Safety Curtain NOK
+2024-03-01 10:52:52 [General] Safety Curtain OK
+2024-03-01 10:52:54 [ST-6] V602 Descrepancy Not Detected
+2024-03-01 10:53:23 [ST-6] V602 Descrepancy Detected
+2024-03-01 10:53:24 [ST-4] V401 Descrepancy Detected
+2024-03-01 10:53:24 [ST-5] V502 Descrepancy Detected
+2024-03-01 10:54:05 [ST-4] V401 Descrepancy Not Detected
+2024-03-01 10:54:05 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 10:54:06 [ST-6] V602 Descrepancy Not Detected
+2024-03-01 11:53:56 [General] Safety Curtain NOK
+2024-03-01 11:53:57 [General] Safety Curtain OK
+2024-03-01 13:09:41 [General] Safety Curtain NOK
+2024-03-01 13:09:48 [General] Safety Curtain OK
+2024-03-01 13:09:49 [General] Safety Curtain NOK
+2024-03-01 13:09:49 [General] Safety Curtain OK
+2024-03-01 13:09:50 [General] Safety Curtain NOK
+2024-03-01 13:09:50 [General] Safety Curtain OK
+2024-03-01 13:09:55 [General] Safety Curtain NOK
+2024-03-01 13:09:56 [General] Safety Curtain OK
+2024-03-01 13:20:24 [ST-4] V401 Descrepancy Detected
+2024-03-01 13:27:52 [ST-4] V401 Descrepancy Not Detected
+2024-03-01 14:08:24 [General] Door Lock 1 Close
+2024-03-01 14:08:24 [General] Door Lock 2 Close
+2024-03-01 14:08:24 [General] Door Lock 3 Close
+2024-03-01 14:08:24 [General] Door Lock 4 Close
+2024-03-01 14:08:24 [General] Door Lock 5 Close
+2024-03-01 14:08:24 [General] Door Lock 6 Close
+2024-03-01 14:08:24 [General] Altivar OK
+2024-03-01 14:08:24 [General] Air Presence NOK
+2024-03-01 14:08:24 [General] Emergency Button Is Released
+2024-03-01 14:08:24 [General] Safety Curtain OK
+2024-03-01 14:08:24 [ST-2] V101 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-2] V201 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-2] V202 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-2] V203 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-3] V301 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-3] V302 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-3] Servo Online Communication Valid
+2024-03-01 14:08:24 [ST-3] Servo Position OK
+2024-03-01 14:08:24 [ST-4] V401 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-4] V402 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-4] Servo Online Communication Valid
+2024-03-01 14:08:24 [ST-4] Servo Position OK
+2024-03-01 14:08:24 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-5] V503 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-5] V504 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-6] V601 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-6] V602 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-6] V603 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-6] V604 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-6] V605 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-6] V606 Descrepancy Not Detected
+2024-03-01 14:08:24 [ST-6] ST6 Laser Error / Emergency Please Check Laser Communication
+2024-03-01 14:08:43 [General] Door Lock 1 Close
+2024-03-01 14:08:43 [General] Door Lock 2 Close
+2024-03-01 14:08:43 [General] Door Lock 3 Close
+2024-03-01 14:08:43 [General] Door Lock 4 Close
+2024-03-01 14:08:43 [General] Door Lock 5 Close
+2024-03-01 14:08:43 [General] Door Lock 6 Close
+2024-03-01 14:08:43 [General] Altivar OK
+2024-03-01 14:08:43 [General] Air Presence NOK
+2024-03-01 14:08:43 [General] Emergency Button Is Released
+2024-03-01 14:08:43 [General] Safety Curtain OK
+2024-03-01 14:08:43 [ST-2] V101 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-2] V201 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-2] V202 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-2] V203 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-3] V301 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-3] V302 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-3] Servo Online Communication Valid
+2024-03-01 14:08:43 [ST-3] Servo Position OK
+2024-03-01 14:08:43 [ST-4] V401 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-4] V402 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-4] Servo Online Communication Valid
+2024-03-01 14:08:43 [ST-4] Servo Position OK
+2024-03-01 14:08:43 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-5] V503 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-5] V504 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-6] V601 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-6] V602 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-6] V603 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-6] V604 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-6] V605 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-6] V606 Descrepancy Not Detected
+2024-03-01 14:08:43 [ST-6] ST6 Laser OK
+2024-03-01 14:09:07 [General] Door Lock 1 Close
+2024-03-01 14:09:07 [General] Door Lock 2 Close
+2024-03-01 14:09:07 [General] Door Lock 3 Close
+2024-03-01 14:09:07 [General] Door Lock 4 Close
+2024-03-01 14:09:07 [General] Door Lock 5 Close
+2024-03-01 14:09:07 [General] Door Lock 6 Close
+2024-03-01 14:09:07 [General] Altivar OK
+2024-03-01 14:09:07 [General] Air Presence NOK
+2024-03-01 14:09:07 [General] Emergency Button Is Released
+2024-03-01 14:09:07 [General] Safety Curtain OK
+2024-03-01 14:09:07 [ST-2] V101 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-2] V201 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-2] V202 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-2] V203 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-3] V301 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-3] V302 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-3] Servo Online Communication Valid
+2024-03-01 14:09:07 [ST-3] Servo Position OK
+2024-03-01 14:09:07 [ST-4] V401 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-4] V402 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-4] Servo Online Communication Valid
+2024-03-01 14:09:07 [ST-4] Servo Position OK
+2024-03-01 14:09:07 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-5] V503 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-5] V504 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-6] V601 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-6] V602 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-6] V603 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-6] V604 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-6] V605 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-6] V606 Descrepancy Not Detected
+2024-03-01 14:09:07 [ST-6] ST6 Laser OK
+2024-03-01 14:09:16 [General] Door Lock 1 Close
+2024-03-01 14:09:16 [General] Door Lock 2 Close
+2024-03-01 14:09:16 [General] Door Lock 3 Close
+2024-03-01 14:09:16 [General] Door Lock 4 Close
+2024-03-01 14:09:16 [General] Door Lock 5 Close
+2024-03-01 14:09:16 [General] Door Lock 6 Close
+2024-03-01 14:09:16 [General] Altivar OK
+2024-03-01 14:09:16 [General] Air Presence NOK
+2024-03-01 14:09:16 [General] Emergency Button Is Released
+2024-03-01 14:09:16 [General] Safety Curtain OK
+2024-03-01 14:09:16 [ST-2] V101 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-2] V201 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-2] V202 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-2] V203 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-3] V301 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-3] V302 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-3] Servo Online Communication Valid
+2024-03-01 14:09:16 [ST-3] Servo Position OK
+2024-03-01 14:09:16 [ST-4] V401 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-4] V402 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-4] Servo Online Communication Valid
+2024-03-01 14:09:16 [ST-4] Servo Position OK
+2024-03-01 14:09:16 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-5] V503 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-5] V504 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-6] V601 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-6] V602 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-6] V603 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-6] V604 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-6] V605 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-6] V606 Descrepancy Not Detected
+2024-03-01 14:09:16 [ST-6] ST6 Laser OK
+2024-03-01 14:09:50 [General] Safety Curtain NOK
+2024-03-01 14:09:51 [General] Safety Curtain OK
+2024-03-01 14:19:54 [General] Door Lock 1 Close
+2024-03-01 14:19:54 [General] Door Lock 2 Close
+2024-03-01 14:19:54 [General] Door Lock 3 Close
+2024-03-01 14:19:54 [General] Door Lock 4 Close
+2024-03-01 14:19:54 [General] Door Lock 5 Close
+2024-03-01 14:19:54 [General] Door Lock 6 Close
+2024-03-01 14:19:54 [General] Altivar OK
+2024-03-01 14:19:54 [General] Air Presence NOK
+2024-03-01 14:19:54 [General] Emergency Button Is Released
+2024-03-01 14:19:54 [General] Safety Curtain OK
+2024-03-01 14:19:54 [ST-2] V101 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-2] V201 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-2] V202 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-2] V203 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-3] V301 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-3] V302 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-3] Servo Online Communication Valid
+2024-03-01 14:19:54 [ST-3] Servo Position OK
+2024-03-01 14:19:54 [ST-4] V401 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-4] V402 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-4] Servo Online Communication Valid
+2024-03-01 14:19:54 [ST-4] Servo Position OK
+2024-03-01 14:19:54 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-5] V501 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-5] V503 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-5] V504 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-6] V601 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-6] V602 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-6] V603 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-6] V604 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-6] V605 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-6] V606 Descrepancy Not Detected
+2024-03-01 14:19:54 [ST-6] ST6 Laser OK

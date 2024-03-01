@@ -3197,14 +3197,14 @@ Public Class frmMain
     Dim DGV_Temp As New DataGridView
     Public Sub Save_Datalog()
         Try
-            Dim yesterday As DateTime = Now.Today.AddDays(-1)
-
-            Dim startDate As String = yesterday.ToString("yyyy-mm-dd 00:00:00")
-            Dim endDate As String = yesterday.ToString("yyyy-mm-dd 23:59:59")
+            DateTimePickerStartDate.Value = Now.Today
+            DateTimePickerEndDate.Value = Now.Today
+            Dim range1 As String = DateTimePickerStartDate.Value.ToString("yyyy-MM-dd 00:00:00")
+            Dim range2 As String = DateTimePickerEndDate.Value.ToString("yyyy-MM-dd 23:59:59")
 
             Call KoneksiDB.koneksi_db()
             ' Try
-            Dim sc As New SqlCommand("SELECT * FROM tb_data WHERE [Date Time] BETWEEN '" + startDate + "' AND '" + endDate + "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
+            Dim sc As New SqlCommand("SELECT * FROM tb_data WHERE [Date Time] BETWEEN '" + range1 + "' AND '" + range2 + "' ORDER BY [Sequence Number] ASC", KoneksiDB.koneksi)
             Dim adapter As New SqlDataAdapter(sc)
             Dim ds As New DataSet
 
@@ -3396,12 +3396,12 @@ Public Class frmMain
             ind_plc_status.BackColor = Color.Red
         End If
 
-        Dim currentDay As Integer = Now.Day
+        'Dim currentDay As Integer = Now.Day
 
-        If currentDay <> previousDay Then
-            Save_Datalog()
-            previousDay = currentDay
-        End If
+        'If currentDay <> previousDay Then
+        '    Save_Datalog()
+        '    previousDay = currentDay
+        'End If
 
         If delayScroll > 0 Then
             delayScroll -= 1
@@ -3638,6 +3638,7 @@ Public Class frmMain
 
                                       Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, integerValue_)
                                       lbl_cnt_st2.Text = CNT_ST2
+                                      Save_Datalog()
                                   End Sub)
 
                     End If
@@ -3710,6 +3711,7 @@ Public Class frmMain
                                               Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
                                               is_measuring_nc = False
                                               txt_msg.Text = txt_msg.Text + "Resistance OFF = " + resistance_state_off & vbCrLf
+                                              Save_Datalog()
                                           End If
                                       End If
                                   End Sub)
@@ -3772,6 +3774,7 @@ Public Class frmMain
                                               Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
                                               is_measuring_no = False
                                               txt_msg.Text = txt_msg.Text + "Resistance ON = " + resistance_state_on & vbCrLf
+                                              Save_Datalog()
                                           End If
                                       End If
 
@@ -3905,6 +3908,7 @@ Public Class frmMain
 
                                       Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
                                       lbl_cnt_st4.Text = CNT_ST4
+                                      Save_Datalog()
                                   End Sub)
 
                     End If
@@ -3964,6 +3968,7 @@ Public Class frmMain
                                   txt_msg.Text = txt_msg.Text + "Finish recording ST5 Result = " + unscrew_status_result & vbCrLf
                                   Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM5, 3)
                                   lbl_cnt_st5.Text = CNT_ST5
+                                  Save_Datalog()
                               End Sub)
                 End If
             End If

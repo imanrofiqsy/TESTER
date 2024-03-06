@@ -3644,7 +3644,7 @@ Public Class frmMain
                     End If
                 End If
             End If
-            Thread.Sleep(500)
+            Thread.Sleep(150)
         Loop
 
     End Sub
@@ -3782,7 +3782,7 @@ Public Class frmMain
                     End If
                 End If
             End If
-            Thread.Sleep(500)
+            Thread.Sleep(150)
         Loop
 
     End Sub
@@ -3924,7 +3924,7 @@ Public Class frmMain
                     End If
                 End If
             End If
-            Thread.Sleep(500)
+            Thread.Sleep(150)
         Loop
 
     End Sub
@@ -3972,7 +3972,7 @@ Public Class frmMain
                               End Sub)
                 End If
             End If
-            Thread.Sleep(500)
+            Thread.Sleep(150)
         Loop
 
     End Sub

@@ -1,0 +1,124 @@
+2024-03-06 10:39:09 [General] Door Lock 1 Close
+2024-03-06 10:39:09 [General] Door Lock 2 Close
+2024-03-06 10:39:09 [General] Door Lock 3 Close
+2024-03-06 10:39:09 [General] Door Lock 4 Close
+2024-03-06 10:39:09 [General] Door Lock 5 Close
+2024-03-06 10:39:09 [General] Door Lock 6 Close
+2024-03-06 10:39:09 [General] Altivar OK
+2024-03-06 10:39:09 [General] Air Presence NOK
+2024-03-06 10:39:09 [General] Emergency Button Is Released
+2024-03-06 10:39:09 [General] Safety Curtain OK
+2024-03-06 10:39:09 [ST-2] V101 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-2] V201 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-2] V202 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-2] V203 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-3] V301 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-3] V302 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-3] Servo Online Communication Valid
+2024-03-06 10:39:09 [ST-3] Servo Position OK
+2024-03-06 10:39:09 [ST-4] V401 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-4] V402 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-4] Servo Online Communication Valid
+2024-03-06 10:39:09 [ST-4] Servo Position OK
+2024-03-06 10:39:09 [ST-5] V501 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-5] V501 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-5] V503 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-5] V504 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-6] V601 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-6] V602 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-6] V603 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-6] V604 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-6] V605 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-6] V606 Descrepancy Not Detected
+2024-03-06 10:39:09 [ST-6] ST6 Laser OK
+2024-03-06 10:41:30 [General] Door Lock 1 Close
+2024-03-06 10:41:30 [General] Door Lock 2 Close
+2024-03-06 10:41:30 [General] Door Lock 3 Close
+2024-03-06 10:41:30 [General] Door Lock 4 Close
+2024-03-06 10:41:30 [General] Door Lock 5 Close
+2024-03-06 10:41:30 [General] Door Lock 6 Close
+2024-03-06 10:41:30 [General] Altivar OK
+2024-03-06 10:41:30 [General] Air Presence NOK
+2024-03-06 10:41:30 [General] Emergency Button Is Released
+2024-03-06 10:41:30 [General] Safety Curtain OK
+2024-03-06 10:41:30 [ST-2] V101 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-2] V201 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-2] V202 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-2] V203 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-3] V301 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-3] V302 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-3] Servo Online Communication Valid
+2024-03-06 10:41:30 [ST-3] Servo Position OK
+2024-03-06 10:41:30 [ST-4] V401 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-4] V402 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-4] Servo Online Communication Valid
+2024-03-06 10:41:30 [ST-4] Servo Position OK
+2024-03-06 10:41:30 [ST-5] V501 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-5] V501 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-5] V503 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-5] V504 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-6] V601 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-6] V602 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-6] V603 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-6] V604 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-6] V605 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-6] V606 Descrepancy Not Detected
+2024-03-06 10:41:30 [ST-6] ST6 Laser OK
+2024-03-06 11:01:06 [General] Safety Curtain NOK
+2024-03-06 11:01:08 [General] Safety Curtain OK
+2024-03-06 11:12:54 [General] Safety Curtain NOK
+2024-03-06 11:13:04 [General] Safety Curtain OK
+2024-03-06 11:20:27 [General] Safety Curtain NOK
+2024-03-06 11:20:29 [General] Safety Curtain OK
+2024-03-06 11:21:53 [General] Safety Curtain NOK
+2024-03-06 11:21:55 [General] Safety Curtain OK
+2024-03-06 11:22:42 [General] Safety Curtain NOK
+2024-03-06 11:22:42 [General] Safety Curtain OK
+2024-03-06 11:26:15 [General] Safety Curtain NOK
+2024-03-06 11:26:21 [General] Safety Curtain OK
+2024-03-06 11:26:42 [General] Safety Curtain NOK
+2024-03-06 11:26:43 [General] Safety Curtain OK
+2024-03-06 11:26:44 [General] Safety Curtain NOK
+2024-03-06 11:26:47 [General] Safety Curtain OK
+2024-03-06 11:26:53 [General] Safety Curtain NOK
+2024-03-06 11:26:55 [General] Safety Curtain OK
+2024-03-06 11:27:05 [General] Safety Curtain NOK
+2024-03-06 11:27:07 [General] Safety Curtain OK
+2024-03-06 11:51:57 [General] Safety Curtain NOK
+2024-03-06 11:51:57 [General] Safety Curtain OK
+2024-03-06 11:51:59 [General] Safety Curtain NOK
+2024-03-06 11:52:00 [General] Safety Curtain OK
+2024-03-06 11:52:06 [General] Safety Curtain NOK
+2024-03-06 11:52:07 [General] Safety Curtain OK
+2024-03-06 12:50:59 [ST-2] V101 Descrepancy Detected
+2024-03-06 12:51:37 [ST-5] V502 Descrepancy Detected
+2024-03-06 12:52:38 [General] Safety Curtain NOK
+2024-03-06 12:52:39 [General] Safety Curtain OK
+2024-03-06 12:53:21 [General] Safety Curtain NOK
+2024-03-06 12:53:21 [General] Safety Curtain OK
+2024-03-06 12:57:01 [General] Safety Curtain NOK
+2024-03-06 12:57:02 [General] Safety Curtain OK
+2024-03-06 12:57:52 [General] Safety Curtain NOK
+2024-03-06 12:57:52 [General] Safety Curtain OK
+2024-03-06 12:58:02 [General] Safety Curtain NOK
+2024-03-06 12:58:02 [General] Safety Curtain OK
+2024-03-06 12:58:27 [General] Safety Curtain NOK
+2024-03-06 12:58:28 [General] Safety Curtain OK
+2024-03-06 13:01:03 [General] Safety Curtain NOK
+2024-03-06 13:01:09 [General] Safety Curtain OK
+2024-03-06 13:02:06 [General] Safety Curtain NOK
+2024-03-06 13:05:04 [General] Safety Curtain OK
+2024-03-06 13:12:01 [General] Safety Curtain NOK
+2024-03-06 13:12:01 [General] Safety Curtain OK
+2024-03-06 13:12:07 [General] Safety Curtain NOK
+2024-03-06 13:12:08 [General] Safety Curtain OK
+2024-03-06 13:12:15 [General] Safety Curtain NOK
+2024-03-06 13:12:15 [General] Safety Curtain OK
+2024-03-06 13:13:04 [General] Safety Curtain NOK
+2024-03-06 13:13:04 [General] Safety Curtain OK
+2024-03-06 13:18:52 [General] Safety Curtain NOK
+2024-03-06 13:18:52 [General] Safety Curtain OK
+2024-03-06 13:18:53 [General] Safety Curtain NOK
+2024-03-06 13:21:46 [General] Safety Curtain OK
+2024-03-06 13:29:48 [General] Safety Curtain NOK
+2024-03-06 13:30:05 [General] Safety Curtain OK

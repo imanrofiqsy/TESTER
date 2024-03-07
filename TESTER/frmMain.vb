@@ -65,6 +65,7 @@ Public Class frmMain
             txt_name_multi.Text = .instrumentName
             txt_port_multi.Text = .instrumentPort
             txt_baud_multi.Text = .instrumentBaud
+            txt_offset_multi.Text = .ResistanceOffset
 
             CNT_ST2 = CInt(.sequenceCounter)
             CNT_ST4 = CInt(.sequenceCounter)

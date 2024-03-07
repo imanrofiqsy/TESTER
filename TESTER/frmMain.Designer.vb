@@ -40,6 +40,7 @@ Partial Class frmMain
         Me.lbl_auto_man = New System.Windows.Forms.Label()
         Me.pnl_home = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.txt_alarm_copy = New System.Windows.Forms.Label()
         Me.GroupBox175 = New System.Windows.Forms.GroupBox()
         Me.Label124 = New System.Windows.Forms.Label()
         Me.Label63 = New System.Windows.Forms.Label()
@@ -1124,7 +1125,8 @@ Partial Class frmMain
         Me.btn_stn2_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn2_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_man_stn2 = New System.Windows.Forms.TabControl()
-        Me.txt_alarm_copy = New System.Windows.Forms.Label()
+        Me.txt_offset_multi = New System.Windows.Forms.TextBox()
+        Me.Label316 = New System.Windows.Forms.Label()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -1759,6 +1761,19 @@ Partial Class frmMain
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Home"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'txt_alarm_copy
+        '
+        Me.txt_alarm_copy.BackColor = System.Drawing.Color.DarkRed
+        Me.txt_alarm_copy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_alarm_copy.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_alarm_copy.ForeColor = System.Drawing.SystemColors.Control
+        Me.txt_alarm_copy.Location = New System.Drawing.Point(288, 461)
+        Me.txt_alarm_copy.Name = "txt_alarm_copy"
+        Me.txt_alarm_copy.Size = New System.Drawing.Size(487, 47)
+        Me.txt_alarm_copy.TabIndex = 58
+        Me.txt_alarm_copy.Text = "Alarm : . . . . "
+        Me.txt_alarm_copy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GroupBox175
         '
@@ -7635,9 +7650,9 @@ Partial Class frmMain
         'RTB_CFG
         '
         Me.RTB_CFG.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RTB_CFG.Location = New System.Drawing.Point(316, 453)
+        Me.RTB_CFG.Location = New System.Drawing.Point(279, 445)
         Me.RTB_CFG.Name = "RTB_CFG"
-        Me.RTB_CFG.Size = New System.Drawing.Size(494, 53)
+        Me.RTB_CFG.Size = New System.Drawing.Size(530, 53)
         Me.RTB_CFG.TabIndex = 63
         Me.RTB_CFG.Text = ""
         '
@@ -8126,10 +8141,12 @@ Partial Class frmMain
         'GroupBox169
         '
         Me.GroupBox169.Controls.Add(Me.Label255)
+        Me.GroupBox169.Controls.Add(Me.Label316)
         Me.GroupBox169.Controls.Add(Me.Label2)
         Me.GroupBox169.Controls.Add(Me.connect_multi_ind)
         Me.GroupBox169.Controls.Add(Me.Label226)
         Me.GroupBox169.Controls.Add(Me.txt_name_multi)
+        Me.GroupBox169.Controls.Add(Me.txt_offset_multi)
         Me.GroupBox169.Controls.Add(Me.txt_port_multi)
         Me.GroupBox169.Controls.Add(Me.btn_apply_multi)
         Me.GroupBox169.Controls.Add(Me.btn_open_multi)
@@ -8146,7 +8163,7 @@ Partial Class frmMain
         '
         Me.Label255.AutoSize = True
         Me.Label255.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label255.Location = New System.Drawing.Point(32, 33)
+        Me.Label255.Location = New System.Drawing.Point(17, 34)
         Me.Label255.Name = "Label255"
         Me.Label255.Size = New System.Drawing.Size(59, 20)
         Me.Label255.TabIndex = 1
@@ -8156,7 +8173,7 @@ Partial Class frmMain
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(45, 66)
+        Me.Label2.Location = New System.Drawing.Point(30, 66)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 20)
         Me.Label2.TabIndex = 1
@@ -8177,26 +8194,26 @@ Partial Class frmMain
         '
         Me.Label226.AutoSize = True
         Me.Label226.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label226.Location = New System.Drawing.Point(8, 99)
+        Me.Label226.Location = New System.Drawing.Point(143, 66)
         Me.Label226.Name = "Label226"
-        Me.Label226.Size = New System.Drawing.Size(83, 20)
+        Me.Label226.Size = New System.Drawing.Size(55, 20)
         Me.Label226.TabIndex = 1
-        Me.Label226.Text = "Baudrate :"
+        Me.Label226.Text = "Baud :"
         '
         'txt_name_multi
         '
         Me.txt_name_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_name_multi.Location = New System.Drawing.Point(92, 31)
+        Me.txt_name_multi.Location = New System.Drawing.Point(82, 31)
         Me.txt_name_multi.Name = "txt_name_multi"
-        Me.txt_name_multi.Size = New System.Drawing.Size(167, 26)
+        Me.txt_name_multi.Size = New System.Drawing.Size(177, 26)
         Me.txt_name_multi.TabIndex = 2
         '
         'txt_port_multi
         '
         Me.txt_port_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_port_multi.Location = New System.Drawing.Point(92, 63)
+        Me.txt_port_multi.Location = New System.Drawing.Point(82, 63)
         Me.txt_port_multi.Name = "txt_port_multi"
-        Me.txt_port_multi.Size = New System.Drawing.Size(167, 26)
+        Me.txt_port_multi.Size = New System.Drawing.Size(60, 26)
         Me.txt_port_multi.TabIndex = 2
         '
         'btn_apply_multi
@@ -8224,9 +8241,9 @@ Partial Class frmMain
         'txt_baud_multi
         '
         Me.txt_baud_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_baud_multi.Location = New System.Drawing.Point(92, 96)
+        Me.txt_baud_multi.Location = New System.Drawing.Point(199, 63)
         Me.txt_baud_multi.Name = "txt_baud_multi"
-        Me.txt_baud_multi.Size = New System.Drawing.Size(167, 26)
+        Me.txt_baud_multi.Size = New System.Drawing.Size(60, 26)
         Me.txt_baud_multi.TabIndex = 3
         '
         'grp_plc
@@ -14179,18 +14196,23 @@ Partial Class frmMain
         Me.pnl_man_stn2.Size = New System.Drawing.Size(853, 563)
         Me.pnl_man_stn2.TabIndex = 100
         '
-        'txt_alarm_copy
+        'txt_offset_multi
         '
-        Me.txt_alarm_copy.BackColor = System.Drawing.Color.DarkRed
-        Me.txt_alarm_copy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txt_alarm_copy.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_alarm_copy.ForeColor = System.Drawing.SystemColors.Control
-        Me.txt_alarm_copy.Location = New System.Drawing.Point(288, 461)
-        Me.txt_alarm_copy.Name = "txt_alarm_copy"
-        Me.txt_alarm_copy.Size = New System.Drawing.Size(487, 47)
-        Me.txt_alarm_copy.TabIndex = 58
-        Me.txt_alarm_copy.Text = "Alarm : . . . . "
-        Me.txt_alarm_copy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.txt_offset_multi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_offset_multi.Location = New System.Drawing.Point(82, 95)
+        Me.txt_offset_multi.Name = "txt_offset_multi"
+        Me.txt_offset_multi.Size = New System.Drawing.Size(60, 26)
+        Me.txt_offset_multi.TabIndex = 2
+        '
+        'Label316
+        '
+        Me.Label316.AutoSize = True
+        Me.Label316.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label316.Location = New System.Drawing.Point(15, 98)
+        Me.Label316.Name = "Label316"
+        Me.Label316.Size = New System.Drawing.Size(65, 20)
+        Me.Label316.TabIndex = 1
+        Me.Label316.Text = "Offset : "
         '
         'frmMain
         '
@@ -14242,19 +14264,12 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t1)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_monitoring)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
         Me.Controls.Add(Me.btn_setting)
         Me.Controls.Add(Me.btn_log)
         Me.Controls.Add(Me.btn_alarm)
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
-        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
@@ -14268,6 +14283,13 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -15972,4 +15994,6 @@ Partial Class frmMain
     Friend WithEvents Label314 As Label
     Friend WithEvents Label313 As Label
     Friend WithEvents txt_alarm_copy As Label
+    Friend WithEvents Label316 As Label
+    Friend WithEvents txt_offset_multi As TextBox
 End Class

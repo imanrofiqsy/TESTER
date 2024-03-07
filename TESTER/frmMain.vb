@@ -48,6 +48,7 @@ Public Class frmMain
             .instrumentBaud = ReadINI(iniPath, "INSTRUMENT", "Baudrate")
             .instrumentName = ReadINI(iniPath, "INSTRUMENT", "Name")
             .instrumentPort = ReadINI(iniPath, "INSTRUMENT", "Port")
+            .ResistanceOffset = Double.Parse(ReadINI(iniPath, "INSTRUMENT", "Offset"))
             .sequenceCounter = ReadINI(iniPath, "STATUS", "SequenceCounter")
 
             ChromaComm.BaudRate = .instrumentBaud
@@ -3670,7 +3671,7 @@ Public Class frmMain
                                       Else
                                           Dim resistance_state_off As String = Chroma_resistance()
                                           If resistance_state_off <> "waiting" Then
-                                              Dim numericValue As Double = Double.Parse(resistance_state_off)
+                                              Dim numericValue As Double = Double.Parse(resistance_state_off) + Config.ResistanceOffset
                                               Select Case Action_ST3
                                                   Case 1
                                                       lbl_st4NC_res.Text = numericValue.ToString
@@ -3727,7 +3728,7 @@ Public Class frmMain
                                           Dim resistance_state_on As String = Chroma_resistance()
 
                                           If resistance_state_on <> "waiting" Then
-                                              Dim numericValue As Double = Double.Parse(resistance_state_on)
+                                              Dim numericValue As Double = Double.Parse(resistance_state_on) + Config.ResistanceOffset
                                               Select Case Action_ST3
                                                   Case 1
                                                       lbl_st4NO_res.Text = numericValue.ToString
@@ -4304,6 +4305,7 @@ Retry:
         WriteINI(iniPath, "INSTRUMENT", "Name", txt_name_multi.Text)
         WriteINI(iniPath, "INSTRUMENT", "Port", txt_port_multi.Text)
         WriteINI(iniPath, "INSTRUMENT", "Baudrate", txt_baud_multi.Text)
+        WriteINI(iniPath, "INSTRUMENT", "Offset", txt_offset_multi.Text)
         RTB_CFG.AppendText(Now.ToString("yyyy-MM-dd HH:mm:ss ") + "Save Instrument Configuration Success" + Environment.NewLine)
         RTB_CFG.ScrollToCaret()
     End Sub

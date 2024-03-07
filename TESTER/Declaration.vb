@@ -16,6 +16,7 @@
         Dim instrumentBaud As String
         Dim instrumentPort As String
         Dim sequenceCounter As String
+        Dim ResistanceOffset As Double
     End Structure
     Public ADDR_LASER_ST6 As Integer = 40089
     Public LASER_ST6 As Integer

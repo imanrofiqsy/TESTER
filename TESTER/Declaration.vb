@@ -28,8 +28,18 @@
     Public HEIDENHAIN As Integer
     Public MANUAL_OPERATION As Integer
 
-    Public ADDR_CALIB_VALUE_P0_ST4 As Integer = 40082
-    Public ADDR_CALIB_VALUE_GT2_ST4 As Integer = 40084
+    Public ADDR_CALIB_VALUE_P0_ST4_1 As Integer = 48200
+    Public ADDR_CALIB_VALUE_P0_ST4_2 As Integer = 48202
+    Public ADDR_CALIB_VALUE_P0_ST4_3 As Integer = 48204
+    Public ADDR_CALIB_VALUE_P0_ST4_4 As Integer = 48206
+    Public ADDR_CALIB_VALUE_P0_ST4_5 As Integer = 48208
+    Public ADDR_CALIB_VALUE_P0_ST4_6 As Integer = 48210
+    Public ADDR_CALIB_VALUE_GT2_ST4_1 As Integer = 48212
+    Public ADDR_CALIB_VALUE_GT2_ST4_2 As Integer = 48214
+    Public ADDR_CALIB_VALUE_GT2_ST4_3 As Integer = 48216
+    Public ADDR_CALIB_VALUE_GT2_ST4_4 As Integer = 48218
+    Public ADDR_CALIB_VALUE_GT2_ST4_5 As Integer = 48220
+    Public ADDR_CALIB_VALUE_GT2_ST4_6 As Integer = 48222
     Public ADDR_ANALOG_DATA_ST2 As Integer = 40080
     Public ADDR_ACTUATION_POS_ST4 As Integer = 40086
     Public ADDR_DIFF_STR_ST4 As Integer = 40088
@@ -53,7 +63,12 @@
     Public ADDR_ACT_POS_ST3 As Integer = 40068
 
     Public ADDR_HEIDENHAIN As Integer = 40032
-    Public ADDR_CAL_VAL_ST2 As Integer = 40074
+    Public ADDR_CAL_VAL_ST2_1 As Integer = 40074
+    Public ADDR_CAL_VAL_ST2_2 As Integer = 40074
+    Public ADDR_CAL_VAL_ST2_3 As Integer = 40074
+    Public ADDR_CAL_VAL_ST2_4 As Integer = 40074
+    Public ADDR_CAL_VAL_ST2_5 As Integer = 40074
+    Public ADDR_CAL_VAL_ST2_6 As Integer = 40074
     Public ADDR_ACT_MEA_ST2 As Integer = 40076
     Public ADDR_PUNCH_COUNTER_ST2 As Integer = 40078
     Public ADDR_PUNCH_CYCLE_ST2 As Integer = 40079

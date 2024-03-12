@@ -3848,28 +3848,11 @@ Public Class frmMain
                     ' save
                     Me.Invoke(Sub()
                                   If txt_st4_analog_data.Text <> "" Then
-                                      txt_st4_cal_val_gt2_1.Text = txt_st4_analog_data.Text
-                                      txt_st4_cal_val_gt2_2.Text = txt_st4_analog_data.Text
-                                      txt_st4_cal_val_gt2_3.Text = txt_st4_analog_data.Text
-                                      txt_st4_cal_val_gt2_4.Text = txt_st4_analog_data.Text
-                                      txt_st4_cal_val_gt2_5.Text = txt_st4_analog_data.Text
-                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav1", txt_st4_cal_val_p0_1.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav2", txt_st4_cal_val_p0_2.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav3", txt_st4_cal_val_p0_3.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav4", txt_st4_cal_val_p0_4.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav5", txt_st4_cal_val_p0_5.Text)
-                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_1, txt_st4_cal_val_p0_1.Text)
-                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_2, txt_st4_cal_val_p0_2.Text)
-                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_3, txt_st4_cal_val_p0_3.Text)
-                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_4, txt_st4_cal_val_p0_4.Text)
-                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_5, txt_st4_cal_val_p0_5.Text)
-                                  End If
-                                  If txt_st4_act_pos.Text <> "" Then
-                                      txt_st4_cal_val_p0_1.Text = txt_st4_act_pos.Text
-                                      txt_st4_cal_val_p0_2.Text = txt_st4_act_pos.Text
-                                      txt_st4_cal_val_p0_3.Text = txt_st4_act_pos.Text
-                                      txt_st4_cal_val_p0_4.Text = txt_st4_act_pos.Text
-                                      txt_st4_cal_val_p0_5.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_gt2_1.Text = Val(txt_st4_analog_data.Text) + Val(txt_offset_gt.Text)
+                                      txt_st4_cal_val_gt2_2.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
+                                      txt_st4_cal_val_gt2_3.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
+                                      txt_st4_cal_val_gt2_4.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
+                                      txt_st4_cal_val_gt2_5.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
                                       WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav1", txt_st4_cal_val_gt2_1.Text)
                                       WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav2", txt_st4_cal_val_gt2_2.Text)
                                       WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav3", txt_st4_cal_val_gt2_3.Text)
@@ -3880,6 +3863,25 @@ Public Class frmMain
                                       Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_3, txt_st4_cal_val_gt2_3.Text)
                                       Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_4, txt_st4_cal_val_gt2_4.Text)
                                       Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_5, txt_st4_cal_val_gt2_5.Text)
+
+                                  End If
+                                  If txt_st4_act_pos.Text <> "" Then
+                                      txt_st4_cal_val_p0_1.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_p0_2.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_p0_3.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_p0_4.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_p0_5.Text = txt_st4_act_pos.Text
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav1", txt_st4_cal_val_p0_1.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav2", txt_st4_cal_val_p0_2.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav3", txt_st4_cal_val_p0_3.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav4", txt_st4_cal_val_p0_4.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav5", txt_st4_cal_val_p0_5.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_1, txt_st4_cal_val_p0_1.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_2, txt_st4_cal_val_p0_2.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_3, txt_st4_cal_val_p0_3.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_4, txt_st4_cal_val_p0_4.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_5, txt_st4_cal_val_p0_5.Text)
+
                                   End If
                               End Sub)
                 End If

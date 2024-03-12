@@ -3844,22 +3844,44 @@ Public Class frmMain
             If SCAN_MODE = 3 Or CALIBRATION Then
                 Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
 
-                If binaryString(12) = "1" Then
+                If binaryString(11) = "1" Then
                     ' save
-                    If txt_st4_analog_data.Text <> "" Then
-                        txt_st4_cal_val_gt2_1.Text = txt_st4_analog_data.Text
-                        txt_st4_cal_val_gt2_2.Text = txt_st4_analog_data.Text
-                        txt_st4_cal_val_gt2_3.Text = txt_st4_analog_data.Text
-                        txt_st4_cal_val_gt2_4.Text = txt_st4_analog_data.Text
-                        txt_st4_cal_val_gt2_5.Text = txt_st4_analog_data.Text
-                    End If
-                    If txt_st4_act_pos.Text <> "" Then
-                        txt_st4_cal_val_p0_1.Text = txt_st4_act_pos.Text
-                        txt_st4_cal_val_p0_2.Text = txt_st4_act_pos.Text
-                        txt_st4_cal_val_p0_3.Text = txt_st4_act_pos.Text
-                        txt_st4_cal_val_p0_4.Text = txt_st4_act_pos.Text
-                        txt_st4_cal_val_p0_5.Text = txt_st4_act_pos.Text
-                    End If
+                    Me.Invoke(Sub()
+                                  If txt_st4_analog_data.Text <> "" Then
+                                      txt_st4_cal_val_gt2_1.Text = txt_st4_analog_data.Text
+                                      txt_st4_cal_val_gt2_2.Text = txt_st4_analog_data.Text
+                                      txt_st4_cal_val_gt2_3.Text = txt_st4_analog_data.Text
+                                      txt_st4_cal_val_gt2_4.Text = txt_st4_analog_data.Text
+                                      txt_st4_cal_val_gt2_5.Text = txt_st4_analog_data.Text
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav1", txt_st4_cal_val_p0_1.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav2", txt_st4_cal_val_p0_2.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav3", txt_st4_cal_val_p0_3.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav4", txt_st4_cal_val_p0_4.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "P0st4Cav5", txt_st4_cal_val_p0_5.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_1, txt_st4_cal_val_p0_1.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_2, txt_st4_cal_val_p0_2.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_3, txt_st4_cal_val_p0_3.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_4, txt_st4_cal_val_p0_4.Text)
+                                      Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CALIB_VALUE_P0_ST4_5, txt_st4_cal_val_p0_5.Text)
+                                  End If
+                                  If txt_st4_act_pos.Text <> "" Then
+                                      txt_st4_cal_val_p0_1.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_p0_2.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_p0_3.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_p0_4.Text = txt_st4_act_pos.Text
+                                      txt_st4_cal_val_p0_5.Text = txt_st4_act_pos.Text
+                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav1", txt_st4_cal_val_gt2_1.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav2", txt_st4_cal_val_gt2_2.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav3", txt_st4_cal_val_gt2_3.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav4", txt_st4_cal_val_gt2_4.Text)
+                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav5", txt_st4_cal_val_gt2_5.Text)
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_1, txt_st4_cal_val_gt2_1.Text)
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_2, txt_st4_cal_val_gt2_2.Text)
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_3, txt_st4_cal_val_gt2_3.Text)
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_4, txt_st4_cal_val_gt2_4.Text)
+                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_5, txt_st4_cal_val_gt2_5.Text)
+                                  End If
+                              End Sub)
                 End If
 
                 If binaryString(14) = "0" And binaryString(15) = "1" Then
@@ -5380,9 +5402,8 @@ Retry:
                 temp_str = temp_str + temp(i).ToString
             Next
 
-
-            'Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
-            'Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_HEIDENHAIN, integerValue_)
         End If
     End Sub
 
@@ -6402,4 +6423,49 @@ Retry:
         End If
     End Sub
 
+    Private Sub btn_st4_auto_calibration_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_auto_calibration.MouseDown
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 10 Then
+                    temp(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ST_COMM4, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st4_auto_calibration_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st4_auto_calibration.MouseUp
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 10 Then
+                    temp(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ST_COMM4, integerValue_)
+        End If
+    End Sub
 End Class

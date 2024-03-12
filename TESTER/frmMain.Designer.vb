@@ -1156,6 +1156,7 @@ Partial Class frmMain
         Me.btn_stn2_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn2_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_man_stn2 = New System.Windows.Forms.TabControl()
+        Me.btn_st4_auto_calibration = New System.Windows.Forms.Button()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -5549,6 +5550,7 @@ Partial Class frmMain
         Me.TabPage24.Controls.Add(Me.btn_st4_servo_stop)
         Me.TabPage24.Controls.Add(Me.btn_st4_servo_reset)
         Me.TabPage24.Controls.Add(Me.btn_st4_jog_ccw)
+        Me.TabPage24.Controls.Add(Me.btn_st4_auto_calibration)
         Me.TabPage24.Controls.Add(Me.btn_st4_man_trig)
         Me.TabPage24.Controls.Add(Me.btn_st4_cal)
         Me.TabPage24.Controls.Add(Me.btn_st4_jog_cw)
@@ -5767,7 +5769,6 @@ Partial Class frmMain
         '
         'txt_offset_gt
         '
-        Me.txt_offset_gt.Enabled = False
         Me.txt_offset_gt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_offset_gt.Location = New System.Drawing.Point(371, 335)
         Me.txt_offset_gt.Name = "txt_offset_gt"
@@ -14530,6 +14531,16 @@ Partial Class frmMain
         Me.pnl_man_stn2.Size = New System.Drawing.Size(853, 563)
         Me.pnl_man_stn2.TabIndex = 100
         '
+        'btn_st4_auto_calibration
+        '
+        Me.btn_st4_auto_calibration.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_st4_auto_calibration.Location = New System.Drawing.Point(403, 370)
+        Me.btn_st4_auto_calibration.Name = "btn_st4_auto_calibration"
+        Me.btn_st4_auto_calibration.Size = New System.Drawing.Size(100, 40)
+        Me.btn_st4_auto_calibration.TabIndex = 89
+        Me.btn_st4_auto_calibration.Text = "Auto Calibration"
+        Me.btn_st4_auto_calibration.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -14580,9 +14591,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t1)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_monitoring)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
         Me.Controls.Add(Me.pnl_man_stn4)
         Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
@@ -14606,6 +14614,9 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -16341,4 +16352,5 @@ Partial Class frmMain
     Friend WithEvents Label325 As Label
     Friend WithEvents txt_offset_gt As TextBox
     Friend WithEvents Label331 As Label
+    Friend WithEvents btn_st4_auto_calibration As Button
 End Class

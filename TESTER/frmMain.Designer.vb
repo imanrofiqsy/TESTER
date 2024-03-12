@@ -5587,7 +5587,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_gt2_6
         '
-        Me.txt_st4_cal_val_gt2_6.Enabled = False
         Me.txt_st4_cal_val_gt2_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_6.Location = New System.Drawing.Point(422, 230)
         Me.txt_st4_cal_val_gt2_6.Name = "txt_st4_cal_val_gt2_6"
@@ -5596,7 +5595,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_gt2_5
         '
-        Me.txt_st4_cal_val_gt2_5.Enabled = False
         Me.txt_st4_cal_val_gt2_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_5.Location = New System.Drawing.Point(422, 202)
         Me.txt_st4_cal_val_gt2_5.Name = "txt_st4_cal_val_gt2_5"
@@ -5605,7 +5603,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_p0_6
         '
-        Me.txt_st4_cal_val_p0_6.Enabled = False
         Me.txt_st4_cal_val_p0_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_6.Location = New System.Drawing.Point(279, 231)
         Me.txt_st4_cal_val_p0_6.Name = "txt_st4_cal_val_p0_6"
@@ -5614,7 +5611,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_gt2_4
         '
-        Me.txt_st4_cal_val_gt2_4.Enabled = False
         Me.txt_st4_cal_val_gt2_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_4.Location = New System.Drawing.Point(422, 174)
         Me.txt_st4_cal_val_gt2_4.Name = "txt_st4_cal_val_gt2_4"
@@ -5623,7 +5619,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_p0_5
         '
-        Me.txt_st4_cal_val_p0_5.Enabled = False
         Me.txt_st4_cal_val_p0_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_5.Location = New System.Drawing.Point(279, 203)
         Me.txt_st4_cal_val_p0_5.Name = "txt_st4_cal_val_p0_5"
@@ -5632,7 +5627,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_gt2_3
         '
-        Me.txt_st4_cal_val_gt2_3.Enabled = False
         Me.txt_st4_cal_val_gt2_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_3.Location = New System.Drawing.Point(422, 146)
         Me.txt_st4_cal_val_gt2_3.Name = "txt_st4_cal_val_gt2_3"
@@ -5641,7 +5635,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_p0_4
         '
-        Me.txt_st4_cal_val_p0_4.Enabled = False
         Me.txt_st4_cal_val_p0_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_4.Location = New System.Drawing.Point(279, 175)
         Me.txt_st4_cal_val_p0_4.Name = "txt_st4_cal_val_p0_4"
@@ -5650,7 +5643,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_gt2_2
         '
-        Me.txt_st4_cal_val_gt2_2.Enabled = False
         Me.txt_st4_cal_val_gt2_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_2.Location = New System.Drawing.Point(422, 118)
         Me.txt_st4_cal_val_gt2_2.Name = "txt_st4_cal_val_gt2_2"
@@ -5659,7 +5651,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_p0_3
         '
-        Me.txt_st4_cal_val_p0_3.Enabled = False
         Me.txt_st4_cal_val_p0_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_3.Location = New System.Drawing.Point(279, 147)
         Me.txt_st4_cal_val_p0_3.Name = "txt_st4_cal_val_p0_3"
@@ -5668,7 +5659,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_gt2_1
         '
-        Me.txt_st4_cal_val_gt2_1.Enabled = False
         Me.txt_st4_cal_val_gt2_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_1.Location = New System.Drawing.Point(422, 90)
         Me.txt_st4_cal_val_gt2_1.Name = "txt_st4_cal_val_gt2_1"
@@ -5677,7 +5667,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_p0_2
         '
-        Me.txt_st4_cal_val_p0_2.Enabled = False
         Me.txt_st4_cal_val_p0_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_2.Location = New System.Drawing.Point(279, 119)
         Me.txt_st4_cal_val_p0_2.Name = "txt_st4_cal_val_p0_2"
@@ -5686,7 +5675,6 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_p0_1
         '
-        Me.txt_st4_cal_val_p0_1.Enabled = False
         Me.txt_st4_cal_val_p0_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_1.Location = New System.Drawing.Point(279, 91)
         Me.txt_st4_cal_val_p0_1.Name = "txt_st4_cal_val_p0_1"
@@ -13763,7 +13751,6 @@ Partial Class frmMain
         '
         'txt_st2_cal_val_6
         '
-        Me.txt_st2_cal_val_6.Enabled = False
         Me.txt_st2_cal_val_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_6.Location = New System.Drawing.Point(344, 282)
         Me.txt_st2_cal_val_6.Name = "txt_st2_cal_val_6"
@@ -13772,7 +13759,6 @@ Partial Class frmMain
         '
         'txt_st2_cal_val_5
         '
-        Me.txt_st2_cal_val_5.Enabled = False
         Me.txt_st2_cal_val_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_5.Location = New System.Drawing.Point(344, 250)
         Me.txt_st2_cal_val_5.Name = "txt_st2_cal_val_5"
@@ -13781,7 +13767,6 @@ Partial Class frmMain
         '
         'txt_st2_cal_val_4
         '
-        Me.txt_st2_cal_val_4.Enabled = False
         Me.txt_st2_cal_val_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_4.Location = New System.Drawing.Point(344, 218)
         Me.txt_st2_cal_val_4.Name = "txt_st2_cal_val_4"
@@ -13790,7 +13775,6 @@ Partial Class frmMain
         '
         'txt_st2_cal_val_3
         '
-        Me.txt_st2_cal_val_3.Enabled = False
         Me.txt_st2_cal_val_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_3.Location = New System.Drawing.Point(344, 186)
         Me.txt_st2_cal_val_3.Name = "txt_st2_cal_val_3"
@@ -13799,7 +13783,6 @@ Partial Class frmMain
         '
         'txt_st2_cal_val_2
         '
-        Me.txt_st2_cal_val_2.Enabled = False
         Me.txt_st2_cal_val_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_2.Location = New System.Drawing.Point(344, 154)
         Me.txt_st2_cal_val_2.Name = "txt_st2_cal_val_2"
@@ -13808,7 +13791,6 @@ Partial Class frmMain
         '
         'txt_st2_cal_val_1
         '
-        Me.txt_st2_cal_val_1.Enabled = False
         Me.txt_st2_cal_val_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_1.Location = New System.Drawing.Point(344, 122)
         Me.txt_st2_cal_val_1.Name = "txt_st2_cal_val_1"
@@ -14580,6 +14562,8 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
         Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
@@ -14598,8 +14582,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_home)
         Me.Controls.Add(Me.pnl_man_stn6)
         Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

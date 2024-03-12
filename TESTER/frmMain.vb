@@ -280,7 +280,12 @@ Public Class frmMain
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_5, ReadINI(iniPath, "CALIBRATION", "Gt2st4Cav5"))
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_6, ReadINI(iniPath, "CALIBRATION", "Gt2st4Cav6"))
 
-            txt_st2_cal_val_1.Text = ReadINI(iniPath, "CALIBRATION", "Heidenhain")
+            txt_st2_cal_val_1.Text = ReadINI(iniPath, "CALIBRATION", "HeidenhainCav1")
+            txt_st2_cal_val_2.Text = ReadINI(iniPath, "CALIBRATION", "HeidenhainCav2")
+            txt_st2_cal_val_3.Text = ReadINI(iniPath, "CALIBRATION", "HeidenhainCav3")
+            txt_st2_cal_val_4.Text = ReadINI(iniPath, "CALIBRATION", "HeidenhainCav4")
+            txt_st2_cal_val_5.Text = ReadINI(iniPath, "CALIBRATION", "HeidenhainCav5")
+            txt_st2_cal_val_6.Text = ReadINI(iniPath, "CALIBRATION", "HeidenhainCav6")
             txt_st3_set_pos.Text = ReadINI(iniPath, "CALIBRATION", "Posst3")
             txt_st3_set_vel.Text = ReadINI(iniPath, "CALIBRATION", "Velst3")
             txt_st4_set_pos.Text = ReadINI(iniPath, "CALIBRATION", "Posst4")
@@ -4877,13 +4882,13 @@ Retry:
         End If
     End Sub
 
-    Private Sub txt_st4_set_pos_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_set_pos.TextChanged
+    Private Sub txt_st4_set_pos_Click(sender As Object, e As EventArgs) Handles txt_st4_set_pos.Click
         If txt_st4_set_pos.Text <> "" And IsNumeric(txt_st4_set_pos.Text) Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST4, txt_st4_set_pos.Text)
         End If
     End Sub
 
-    Private Sub txt_st4_set_vel_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_set_vel.TextChanged
+    Private Sub txt_st4_set_vel_Click(sender As Object, e As EventArgs) Handles txt_st4_set_vel.Click
         If txt_st4_set_vel.Text <> "" And IsNumeric(txt_st4_set_vel.Text) Then
             Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST4, txt_st4_set_vel.Text)
         End If
@@ -5393,13 +5398,13 @@ Retry:
         End If
     End Sub
 
-    Private Sub txt_st3_set_pos_TextChanged(sender As Object, e As EventArgs) Handles txt_st3_set_pos.TextChanged
+    Private Sub txt_st3_set_pos_Click(sender As Object, e As EventArgs) Handles txt_st3_set_pos.Click
         If txt_st3_set_pos.Text <> "" And IsNumeric(txt_st3_set_pos.Text) Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_SET_POS_ST3, txt_st3_set_pos.Text)
         End If
     End Sub
 
-    Private Sub txt_st3_set_vel_TextChanged(sender As Object, e As EventArgs) Handles txt_st3_set_vel.TextChanged
+    Private Sub txt_st3_set_vel_Click(sender As Object, e As EventArgs) Handles txt_st3_set_vel.Click
         If txt_st3_set_vel.Text <> "" And IsNumeric(txt_st3_set_vel.Text) Then
             Modbus.WriteData(REGISTER_TYPE, ADDR_SET_VEL_ST3, txt_st3_set_vel.Text)
         End If
@@ -6291,84 +6296,84 @@ Retry:
         End If
     End Sub
 
-    Private Sub txt_st4_cal_val_gt2_1_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_1.TextChanged
+    Private Sub txt_st4_cal_val_gt2_1_Click(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_1.Click
         txt_st4_cal_val_gt2_1.Text = txt_st4_analog_data.Text
         If txt_st4_cal_val_gt2_1.Text <> "" Then
             WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav1", txt_st4_cal_val_gt2_1.Text)
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_1, txt_st4_cal_val_gt2_1.Text)
         End If
     End Sub
-    Private Sub txt_st4_cal_val_gt2_2_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_2.TextChanged
+    Private Sub txt_st4_cal_val_gt2_2_Click(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_2.Click
         txt_st4_cal_val_gt2_2.Text = txt_st4_analog_data.Text
         If txt_st4_cal_val_gt2_2.Text <> "" Then
             WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav2", txt_st4_cal_val_gt2_2.Text)
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_2, txt_st4_cal_val_gt2_2.Text)
         End If
     End Sub
-    Private Sub txt_st4_cal_val_gt2_3_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_3.TextChanged
+    Private Sub txt_st4_cal_val_gt2_3_Click(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_3.Click
         txt_st4_cal_val_gt2_3.Text = txt_st4_analog_data.Text
         If txt_st4_cal_val_gt2_3.Text <> "" Then
             WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav3", txt_st4_cal_val_gt2_3.Text)
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_3, txt_st4_cal_val_gt2_3.Text)
         End If
     End Sub
-    Private Sub txt_st4_cal_val_gt2_4_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_4.TextChanged
+    Private Sub txt_st4_cal_val_gt2_4_Click(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_4.Click
         txt_st4_cal_val_gt2_4.Text = txt_st4_analog_data.Text
         If txt_st4_cal_val_gt2_4.Text <> "" Then
             WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav4", txt_st4_cal_val_gt2_4.Text)
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_4, txt_st4_cal_val_gt2_4.Text)
         End If
     End Sub
-    Private Sub txt_st4_cal_val_gt2_5_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_5.TextChanged
+    Private Sub txt_st4_cal_val_gt2_5_Click(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_5.Click
         txt_st4_cal_val_gt2_5.Text = txt_st4_analog_data.Text
         If txt_st4_cal_val_gt2_5.Text <> "" Then
             WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav5", txt_st4_cal_val_gt2_5.Text)
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_5, txt_st4_cal_val_gt2_5.Text)
         End If
     End Sub
-    Private Sub txt_st4_cal_val_gt2_6_TextChanged(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_6.TextChanged
+    Private Sub txt_st4_cal_val_gt2_6_Click(sender As Object, e As EventArgs) Handles txt_st4_cal_val_gt2_6.Click
         txt_st4_cal_val_gt2_6.Text = txt_st4_analog_data.Text
         If txt_st4_cal_val_gt2_6.Text <> "" Then
             WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav6", txt_st4_cal_val_gt2_6.Text)
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_6, txt_st4_cal_val_gt2_6.Text)
         End If
     End Sub
-    Private Sub txt_st2_cal_val_1_TextChanged(sender As Object, e As EventArgs) Handles txt_st2_cal_val_1.TextChanged
+    Private Sub txt_st2_cal_val_1_Click(sender As Object, e As EventArgs) Handles txt_st2_cal_val_1.Click
         txt_st2_cal_val_1.Text = txt_st2_act_mea.Text
         If txt_st2_cal_val_1.Text <> "" Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2_1, txt_st2_cal_val_1.Text)
             WriteINI(iniPath, "CALIBRATION", "HeidenhainCav1", txt_st2_cal_val_1.Text)
         End If
     End Sub
-    Private Sub txt_st2_cal_val_2_TextChanged(sender As Object, e As EventArgs) Handles txt_st2_cal_val_2.TextChanged
+    Private Sub txt_st2_cal_val_2_Click(sender As Object, e As EventArgs) Handles txt_st2_cal_val_2.Click
         txt_st2_cal_val_2.Text = txt_st2_act_mea.Text
         If txt_st2_cal_val_2.Text <> "" Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2_1, txt_st2_cal_val_2.Text)
             WriteINI(iniPath, "CALIBRATION", "HeidenhainCav2", txt_st2_cal_val_2.Text)
         End If
     End Sub
-    Private Sub txt_st2_cal_val_3_TextChanged(sender As Object, e As EventArgs) Handles txt_st2_cal_val_3.TextChanged
+    Private Sub txt_st2_cal_val_3_Click(sender As Object, e As EventArgs) Handles txt_st2_cal_val_3.Click
         txt_st2_cal_val_3.Text = txt_st2_act_mea.Text
         If txt_st2_cal_val_3.Text <> "" Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2_1, txt_st2_cal_val_3.Text)
             WriteINI(iniPath, "CALIBRATION", "HeidenhainCav3", txt_st2_cal_val_3.Text)
         End If
     End Sub
-    Private Sub txt_st2_cal_val_4_TextChanged(sender As Object, e As EventArgs) Handles txt_st2_cal_val_4.TextChanged
+    Private Sub txt_st2_cal_val_4_Click(sender As Object, e As EventArgs) Handles txt_st2_cal_val_4.Click
         txt_st2_cal_val_4.Text = txt_st2_act_mea.Text
         If txt_st2_cal_val_4.Text <> "" Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2_1, txt_st2_cal_val_4.Text)
             WriteINI(iniPath, "CALIBRATION", "HeidenhainCav4", txt_st2_cal_val_4.Text)
         End If
     End Sub
-    Private Sub txt_st2_cal_val_5_TextChanged(sender As Object, e As EventArgs) Handles txt_st2_cal_val_5.TextChanged
+    Private Sub txt_st2_cal_val_5_Click(sender As Object, e As EventArgs) Handles txt_st2_cal_val_5.Click
         txt_st2_cal_val_5.Text = txt_st2_act_mea.Text
         If txt_st2_cal_val_5.Text <> "" Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2_1, txt_st2_cal_val_5.Text)
             WriteINI(iniPath, "CALIBRATION", "HeidenhainCav5", txt_st2_cal_val_5.Text)
         End If
     End Sub
-    Private Sub txt_st2_cal_val_6_TextChanged(sender As Object, e As EventArgs) Handles txt_st2_cal_val_6.TextChanged
+    Private Sub txt_st2_cal_val_6_Click(sender As Object, e As EventArgs) Handles txt_st2_cal_val_6.Click
         txt_st2_cal_val_6.Text = txt_st2_act_mea.Text
         If txt_st2_cal_val_6.Text <> "" Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2_1, txt_st2_cal_val_6.Text)

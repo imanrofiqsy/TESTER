@@ -369,6 +369,7 @@ Partial Class frmMain
         Me.Label319 = New System.Windows.Forms.Label()
         Me.Label318 = New System.Windows.Forms.Label()
         Me.Label317 = New System.Windows.Forms.Label()
+        Me.txt_offset_gt = New System.Windows.Forms.TextBox()
         Me.txt_st4_analog_data = New System.Windows.Forms.TextBox()
         Me.txt_st4_diff_str = New System.Windows.Forms.TextBox()
         Me.txt_st4_act_vel = New System.Windows.Forms.TextBox()
@@ -394,6 +395,7 @@ Partial Class frmMain
         Me.Label260 = New System.Windows.Forms.Label()
         Me.Label261 = New System.Windows.Forms.Label()
         Me.Label291 = New System.Windows.Forms.Label()
+        Me.Label331 = New System.Windows.Forms.Label()
         Me.Label292 = New System.Windows.Forms.Label()
         Me.label_297 = New System.Windows.Forms.Label()
         Me.Label262 = New System.Windows.Forms.Label()
@@ -5536,6 +5538,7 @@ Partial Class frmMain
         Me.TabPage24.Controls.Add(Me.Label319)
         Me.TabPage24.Controls.Add(Me.Label318)
         Me.TabPage24.Controls.Add(Me.Label317)
+        Me.TabPage24.Controls.Add(Me.txt_offset_gt)
         Me.TabPage24.Controls.Add(Me.txt_st4_analog_data)
         Me.TabPage24.Controls.Add(Me.txt_st4_diff_str)
         Me.TabPage24.Controls.Add(Me.txt_st4_act_vel)
@@ -5561,6 +5564,7 @@ Partial Class frmMain
         Me.TabPage24.Controls.Add(Me.Label260)
         Me.TabPage24.Controls.Add(Me.Label261)
         Me.TabPage24.Controls.Add(Me.Label291)
+        Me.TabPage24.Controls.Add(Me.Label331)
         Me.TabPage24.Controls.Add(Me.Label292)
         Me.TabPage24.Controls.Add(Me.label_297)
         Me.TabPage24.Controls.Add(Me.Label262)
@@ -5761,11 +5765,21 @@ Partial Class frmMain
         Me.Label317.TabIndex = 97
         Me.Label317.Text = "1"
         '
+        'txt_offset_gt
+        '
+        Me.txt_offset_gt.Enabled = False
+        Me.txt_offset_gt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_offset_gt.Location = New System.Drawing.Point(371, 335)
+        Me.txt_offset_gt.Name = "txt_offset_gt"
+        Me.txt_offset_gt.Size = New System.Drawing.Size(124, 22)
+        Me.txt_offset_gt.TabIndex = 96
+        Me.txt_offset_gt.Text = "0"
+        '
         'txt_st4_analog_data
         '
         Me.txt_st4_analog_data.Enabled = False
         Me.txt_st4_analog_data.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st4_analog_data.Location = New System.Drawing.Point(371, 308)
+        Me.txt_st4_analog_data.Location = New System.Drawing.Point(371, 298)
         Me.txt_st4_analog_data.Name = "txt_st4_analog_data"
         Me.txt_st4_analog_data.Size = New System.Drawing.Size(124, 22)
         Me.txt_st4_analog_data.TabIndex = 96
@@ -5774,7 +5788,7 @@ Partial Class frmMain
         '
         Me.txt_st4_diff_str.Enabled = False
         Me.txt_st4_diff_str.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st4_diff_str.Location = New System.Drawing.Point(367, 417)
+        Me.txt_st4_diff_str.Location = New System.Drawing.Point(367, 451)
         Me.txt_st4_diff_str.Name = "txt_st4_diff_str"
         Me.txt_st4_diff_str.Size = New System.Drawing.Size(124, 22)
         Me.txt_st4_diff_str.TabIndex = 96
@@ -5792,7 +5806,7 @@ Partial Class frmMain
         '
         Me.txt_st4_actu_pos.Enabled = False
         Me.txt_st4_actu_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_st4_actu_pos.Location = New System.Drawing.Point(367, 389)
+        Me.txt_st4_actu_pos.Location = New System.Drawing.Point(367, 423)
         Me.txt_st4_actu_pos.Name = "txt_st4_actu_pos"
         Me.txt_st4_actu_pos.Size = New System.Drawing.Size(124, 22)
         Me.txt_st4_actu_pos.TabIndex = 95
@@ -5855,7 +5869,7 @@ Partial Class frmMain
         'btn_st4_man_trig
         '
         Me.btn_st4_man_trig.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_man_trig.Location = New System.Drawing.Point(292, 336)
+        Me.btn_st4_man_trig.Location = New System.Drawing.Point(292, 370)
         Me.btn_st4_man_trig.Name = "btn_st4_man_trig"
         Me.btn_st4_man_trig.Size = New System.Drawing.Size(100, 40)
         Me.btn_st4_man_trig.TabIndex = 89
@@ -5997,17 +6011,27 @@ Partial Class frmMain
         '
         Me.Label291.AutoSize = True
         Me.Label291.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label291.Location = New System.Drawing.Point(291, 282)
+        Me.Label291.Location = New System.Drawing.Point(291, 272)
         Me.Label291.Name = "Label291"
         Me.Label291.Size = New System.Drawing.Size(207, 16)
         Me.Label291.TabIndex = 78
         Me.Label291.Text = "Keyence GT2 Sensor Monitoring :"
         '
+        'Label331
+        '
+        Me.Label331.AutoSize = True
+        Me.Label331.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label331.Location = New System.Drawing.Point(292, 328)
+        Me.Label331.Name = "Label331"
+        Me.Label331.Size = New System.Drawing.Size(49, 32)
+        Me.Label331.TabIndex = 78
+        Me.Label331.Text = "Offset" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Value :"
+        '
         'Label292
         '
         Me.Label292.AutoSize = True
         Me.Label292.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label292.Location = New System.Drawing.Point(292, 303)
+        Me.Label292.Location = New System.Drawing.Point(292, 293)
         Me.Label292.Name = "Label292"
         Me.Label292.Size = New System.Drawing.Size(51, 32)
         Me.Label292.TabIndex = 78
@@ -6017,7 +6041,7 @@ Partial Class frmMain
         '
         Me.label_297.AutoSize = True
         Me.label_297.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label_297.Location = New System.Drawing.Point(288, 425)
+        Me.label_297.Location = New System.Drawing.Point(288, 459)
         Me.label_297.Name = "label_297"
         Me.label_297.Size = New System.Drawing.Size(52, 16)
         Me.label_297.TabIndex = 78
@@ -6037,7 +6061,7 @@ Partial Class frmMain
         '
         Me.Label295.AutoSize = True
         Me.Label295.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label295.Location = New System.Drawing.Point(288, 384)
+        Me.Label295.Location = New System.Drawing.Point(288, 418)
         Me.Label295.Name = "Label295"
         Me.Label295.Size = New System.Drawing.Size(63, 32)
         Me.Label295.TabIndex = 77
@@ -14556,12 +14580,9 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t1)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_monitoring)
-        Me.Controls.Add(Me.btn_setting)
-        Me.Controls.Add(Me.btn_log)
-        Me.Controls.Add(Me.btn_alarm)
-        Me.Controls.Add(Me.btn_ref)
-        Me.Controls.Add(Me.btn_manual)
-        Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
         Me.Controls.Add(Me.pnl_man_stn4)
         Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
@@ -14579,9 +14600,12 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnl_mon_stn3)
         Me.Controls.Add(Me.pnl_mon_stn2)
         Me.Controls.Add(Me.pnl_mon_stn1)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.btn_setting)
+        Me.Controls.Add(Me.btn_log)
+        Me.Controls.Add(Me.btn_alarm)
+        Me.Controls.Add(Me.btn_ref)
+        Me.Controls.Add(Me.btn_manual)
+        Me.Controls.Add(Me.btn_home)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -16315,4 +16339,6 @@ Partial Class frmMain
     Friend WithEvents Label327 As Label
     Friend WithEvents Label326 As Label
     Friend WithEvents Label325 As Label
+    Friend WithEvents txt_offset_gt As TextBox
+    Friend WithEvents Label331 As Label
 End Class

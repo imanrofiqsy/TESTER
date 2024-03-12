@@ -1569,6 +1569,7 @@ Public Class frmMain
             txt_st4_actu_pos.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_ACTUATION_POS_ST4)
             txt_st4_diff_str.Text = Modbus.ReadDataFloat(REGISTER_TYPE, ADDR_DIFF_STR_ST4)
 
+
             ' STN 1
             If Modbus.ReadData(REGISTER_TYPE, ADDR_STN1_SEN1) = FORWARD Then
                 stn1_cyl1_max.Image = My.Resources.led_green_on
@@ -3117,6 +3118,8 @@ Public Class frmMain
         Else
             ind_st4_discrete_motion.Image = My.Resources.led_red_on
         End If
+
+
     End Sub
 
     Private Sub ReadServoST3(DecimalNumber As Integer)
@@ -3840,6 +3843,24 @@ Public Class frmMain
         Do
             If SCAN_MODE = 3 Or CALIBRATION Then
                 Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)
+
+                If binaryString(12) = "1" Then
+                    ' save
+                    If txt_st4_analog_data.Text <> "" Then
+                        txt_st4_cal_val_gt2_1.Text = txt_st4_analog_data.Text
+                        txt_st4_cal_val_gt2_2.Text = txt_st4_analog_data.Text
+                        txt_st4_cal_val_gt2_3.Text = txt_st4_analog_data.Text
+                        txt_st4_cal_val_gt2_4.Text = txt_st4_analog_data.Text
+                        txt_st4_cal_val_gt2_5.Text = txt_st4_analog_data.Text
+                    End If
+                    If txt_st4_act_pos.Text <> "" Then
+                        txt_st4_cal_val_p0_1.Text = txt_st4_act_pos.Text
+                        txt_st4_cal_val_p0_2.Text = txt_st4_act_pos.Text
+                        txt_st4_cal_val_p0_3.Text = txt_st4_act_pos.Text
+                        txt_st4_cal_val_p0_4.Text = txt_st4_act_pos.Text
+                        txt_st4_cal_val_p0_5.Text = txt_st4_act_pos.Text
+                    End If
+                End If
 
                 If binaryString(14) = "0" And binaryString(15) = "1" Then
                     'Console.WriteLine("0001")
@@ -6380,4 +6401,5 @@ Retry:
             WriteINI(iniPath, "CALIBRATION", "HeidenhainCav6", txt_st2_cal_val_6.Text)
         End If
     End Sub
+
 End Class

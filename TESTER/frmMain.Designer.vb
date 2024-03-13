@@ -1994,7 +1994,7 @@ Partial Class frmMain
         '
         Me.Label68.AutoSize = True
         Me.Label68.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label68.Location = New System.Drawing.Point(6, 229)
+        Me.Label68.Location = New System.Drawing.Point(6, 207)
         Me.Label68.Name = "Label68"
         Me.Label68.Size = New System.Drawing.Size(144, 18)
         Me.Label68.TabIndex = 36
@@ -2006,25 +2006,26 @@ Partial Class frmMain
         Me.Label84.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label84.Location = New System.Drawing.Point(6, 139)
         Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(105, 18)
+        Me.Label84.Size = New System.Drawing.Size(150, 18)
         Me.Label84.TabIndex = 36
-        Me.Label84.Text = "ST4 P2 Travel "
+        Me.Label84.Text = "ST4 Actuation Point 1"
         '
         'Label310
         '
         Me.Label310.AutoSize = True
         Me.Label310.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label310.Location = New System.Drawing.Point(6, 183)
+        Me.Label310.Location = New System.Drawing.Point(6, 292)
         Me.Label310.Name = "Label310"
-        Me.Label310.Size = New System.Drawing.Size(131, 18)
+        Me.Label310.Size = New System.Drawing.Size(150, 18)
         Me.Label310.TabIndex = 36
-        Me.Label310.Text = "ST4 Actuation Pos"
+        Me.Label310.Text = "ST4 Actuation Point 1"
+        Me.Label310.Visible = False
         '
         'laabel2
         '
         Me.laabel2.AutoSize = True
         Me.laabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.laabel2.Location = New System.Drawing.Point(6, 206)
+        Me.laabel2.Location = New System.Drawing.Point(6, 184)
         Me.laabel2.Name = "laabel2"
         Me.laabel2.Size = New System.Drawing.Size(84, 18)
         Me.laabel2.TabIndex = 36
@@ -2066,9 +2067,9 @@ Partial Class frmMain
         Me.laabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.laabel1.Location = New System.Drawing.Point(6, 161)
         Me.laabel1.Name = "laabel1"
-        Me.laabel1.Size = New System.Drawing.Size(101, 18)
+        Me.laabel1.Size = New System.Drawing.Size(150, 18)
         Me.laabel1.TabIndex = 36
-        Me.laabel1.Text = "ST4 P3 Travel"
+        Me.laabel1.Text = "ST4 Actuation Point 2"
         '
         'Label121
         '
@@ -2085,7 +2086,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_5.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_5.Location = New System.Drawing.Point(426, 227)
+        Me.lbl_unscrew_status_5.Location = New System.Drawing.Point(426, 205)
         Me.lbl_unscrew_status_5.Name = "lbl_unscrew_status_5"
         Me.lbl_unscrew_status_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_5.TabIndex = 37
@@ -2096,7 +2097,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_4.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_4.Location = New System.Drawing.Point(373, 227)
+        Me.lbl_unscrew_status_4.Location = New System.Drawing.Point(373, 205)
         Me.lbl_unscrew_status_4.Name = "lbl_unscrew_status_4"
         Me.lbl_unscrew_status_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_4.TabIndex = 37
@@ -2107,7 +2108,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_3.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_3.Location = New System.Drawing.Point(320, 227)
+        Me.lbl_unscrew_status_3.Location = New System.Drawing.Point(320, 205)
         Me.lbl_unscrew_status_3.Name = "lbl_unscrew_status_3"
         Me.lbl_unscrew_status_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_3.TabIndex = 37
@@ -2118,7 +2119,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_2.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_2.Location = New System.Drawing.Point(267, 227)
+        Me.lbl_unscrew_status_2.Location = New System.Drawing.Point(267, 205)
         Me.lbl_unscrew_status_2.Name = "lbl_unscrew_status_2"
         Me.lbl_unscrew_status_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_2.TabIndex = 37
@@ -2129,7 +2130,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status_1.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status_1.Location = New System.Drawing.Point(214, 227)
+        Me.lbl_unscrew_status_1.Location = New System.Drawing.Point(214, 205)
         Me.lbl_unscrew_status_1.Name = "lbl_unscrew_status_1"
         Me.lbl_unscrew_status_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status_1.TabIndex = 37
@@ -2140,7 +2141,7 @@ Partial Class frmMain
         Me.lbl_unscrew_status.BackColor = System.Drawing.Color.White
         Me.lbl_unscrew_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_unscrew_status.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_unscrew_status.Location = New System.Drawing.Point(161, 227)
+        Me.lbl_unscrew_status.Location = New System.Drawing.Point(161, 205)
         Me.lbl_unscrew_status.Name = "lbl_unscrew_status"
         Me.lbl_unscrew_status.Size = New System.Drawing.Size(50, 20)
         Me.lbl_unscrew_status.TabIndex = 37
@@ -2217,18 +2218,19 @@ Partial Class frmMain
         Me.lbl_st4_actu_pos_5.BackColor = System.Drawing.Color.White
         Me.lbl_st4_actu_pos_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_actu_pos_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_actu_pos_5.Location = New System.Drawing.Point(426, 181)
+        Me.lbl_st4_actu_pos_5.Location = New System.Drawing.Point(426, 290)
         Me.lbl_st4_actu_pos_5.Name = "lbl_st4_actu_pos_5"
         Me.lbl_st4_actu_pos_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_actu_pos_5.TabIndex = 37
         Me.lbl_st4_actu_pos_5.Text = "..."
+        Me.lbl_st4_actu_pos_5.Visible = False
         '
         'lbl_diff_result_5
         '
         Me.lbl_diff_result_5.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_5.Location = New System.Drawing.Point(426, 204)
+        Me.lbl_diff_result_5.Location = New System.Drawing.Point(426, 182)
         Me.lbl_diff_result_5.Name = "lbl_diff_result_5"
         Me.lbl_diff_result_5.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_5.TabIndex = 37
@@ -2239,18 +2241,19 @@ Partial Class frmMain
         Me.lbl_st4_actu_pos_4.BackColor = System.Drawing.Color.White
         Me.lbl_st4_actu_pos_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_actu_pos_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_actu_pos_4.Location = New System.Drawing.Point(373, 181)
+        Me.lbl_st4_actu_pos_4.Location = New System.Drawing.Point(373, 290)
         Me.lbl_st4_actu_pos_4.Name = "lbl_st4_actu_pos_4"
         Me.lbl_st4_actu_pos_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_actu_pos_4.TabIndex = 37
         Me.lbl_st4_actu_pos_4.Text = "..."
+        Me.lbl_st4_actu_pos_4.Visible = False
         '
         'lbl_diff_result_4
         '
         Me.lbl_diff_result_4.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_4.Location = New System.Drawing.Point(373, 204)
+        Me.lbl_diff_result_4.Location = New System.Drawing.Point(373, 182)
         Me.lbl_diff_result_4.Name = "lbl_diff_result_4"
         Me.lbl_diff_result_4.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_4.TabIndex = 37
@@ -2261,18 +2264,19 @@ Partial Class frmMain
         Me.lbl_st4_actu_pos_3.BackColor = System.Drawing.Color.White
         Me.lbl_st4_actu_pos_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_actu_pos_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_actu_pos_3.Location = New System.Drawing.Point(320, 181)
+        Me.lbl_st4_actu_pos_3.Location = New System.Drawing.Point(320, 290)
         Me.lbl_st4_actu_pos_3.Name = "lbl_st4_actu_pos_3"
         Me.lbl_st4_actu_pos_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_actu_pos_3.TabIndex = 37
         Me.lbl_st4_actu_pos_3.Text = "..."
+        Me.lbl_st4_actu_pos_3.Visible = False
         '
         'lbl_diff_result_3
         '
         Me.lbl_diff_result_3.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_3.Location = New System.Drawing.Point(320, 204)
+        Me.lbl_diff_result_3.Location = New System.Drawing.Point(320, 182)
         Me.lbl_diff_result_3.Name = "lbl_diff_result_3"
         Me.lbl_diff_result_3.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_3.TabIndex = 37
@@ -2283,18 +2287,19 @@ Partial Class frmMain
         Me.lbl_st4_actu_pos_2.BackColor = System.Drawing.Color.White
         Me.lbl_st4_actu_pos_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_actu_pos_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_actu_pos_2.Location = New System.Drawing.Point(267, 181)
+        Me.lbl_st4_actu_pos_2.Location = New System.Drawing.Point(267, 290)
         Me.lbl_st4_actu_pos_2.Name = "lbl_st4_actu_pos_2"
         Me.lbl_st4_actu_pos_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_actu_pos_2.TabIndex = 37
         Me.lbl_st4_actu_pos_2.Text = "..."
+        Me.lbl_st4_actu_pos_2.Visible = False
         '
         'lbl_diff_result_2
         '
         Me.lbl_diff_result_2.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_2.Location = New System.Drawing.Point(267, 204)
+        Me.lbl_diff_result_2.Location = New System.Drawing.Point(267, 182)
         Me.lbl_diff_result_2.Name = "lbl_diff_result_2"
         Me.lbl_diff_result_2.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_2.TabIndex = 37
@@ -2305,18 +2310,19 @@ Partial Class frmMain
         Me.lbl_st4_actu_pos_1.BackColor = System.Drawing.Color.White
         Me.lbl_st4_actu_pos_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_actu_pos_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_actu_pos_1.Location = New System.Drawing.Point(214, 181)
+        Me.lbl_st4_actu_pos_1.Location = New System.Drawing.Point(214, 290)
         Me.lbl_st4_actu_pos_1.Name = "lbl_st4_actu_pos_1"
         Me.lbl_st4_actu_pos_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_actu_pos_1.TabIndex = 37
         Me.lbl_st4_actu_pos_1.Text = "..."
+        Me.lbl_st4_actu_pos_1.Visible = False
         '
         'lbl_diff_result_1
         '
         Me.lbl_diff_result_1.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result_1.Location = New System.Drawing.Point(214, 204)
+        Me.lbl_diff_result_1.Location = New System.Drawing.Point(214, 182)
         Me.lbl_diff_result_1.Name = "lbl_diff_result_1"
         Me.lbl_diff_result_1.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result_1.TabIndex = 37
@@ -2327,18 +2333,19 @@ Partial Class frmMain
         Me.lbl_st4_actu_pos.BackColor = System.Drawing.Color.White
         Me.lbl_st4_actu_pos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_st4_actu_pos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_st4_actu_pos.Location = New System.Drawing.Point(161, 181)
+        Me.lbl_st4_actu_pos.Location = New System.Drawing.Point(161, 290)
         Me.lbl_st4_actu_pos.Name = "lbl_st4_actu_pos"
         Me.lbl_st4_actu_pos.Size = New System.Drawing.Size(50, 20)
         Me.lbl_st4_actu_pos.TabIndex = 37
         Me.lbl_st4_actu_pos.Text = "..."
+        Me.lbl_st4_actu_pos.Visible = False
         '
         'lbl_diff_result
         '
         Me.lbl_diff_result.BackColor = System.Drawing.Color.White
         Me.lbl_diff_result.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_diff_result.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_diff_result.Location = New System.Drawing.Point(161, 204)
+        Me.lbl_diff_result.Location = New System.Drawing.Point(161, 182)
         Me.lbl_diff_result.Name = "lbl_diff_result"
         Me.lbl_diff_result.Size = New System.Drawing.Size(50, 20)
         Me.lbl_diff_result.TabIndex = 37

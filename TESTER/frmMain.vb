@@ -4203,17 +4203,6 @@ Public Class frmMain
             LoadTbRef()
         End If
     End Sub
-    Private Sub btn_empty_Click(sender As Object, e As EventArgs) Handles btn_empty.Click
-        Dim empty_process As String = Modbus.ReadData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS)
-
-        If Val(empty_process) <> 2 And Val(empty_process) <> 4 And Val(empty_process) <> 1 Then
-            Modbus.WriteData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS, 1)
-        ElseIf Val(empty_process) = 2 Then
-            MsgBox("Please Wait Until Emptying Process Is Finish")
-        ElseIf Val(empty_process) = 1 Then
-            MsgBox("Emptying In Process")
-        End If
-    End Sub
     Dim bin_val(6) As Integer
     Dim bin_val_(6) As Integer
     Dim bin_str As String
@@ -6473,5 +6462,13 @@ Retry:
             Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
             Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
         End If
+    End Sub
+
+    Private Sub btn_empty_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_empty.MouseDown
+        Modbus.WriteData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS, 1)
+    End Sub
+
+    Private Sub btn_empty_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_empty.MouseUp
+        Modbus.WriteData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS, 0)
     End Sub
 End Class

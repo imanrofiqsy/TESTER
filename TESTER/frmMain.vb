@@ -6448,7 +6448,7 @@ Retry:
             Next
 
             Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
-            Modbus.WriteData(REGISTER_TYPE, ST_COMM4, integerValue_)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
         End If
     End Sub
 
@@ -6471,7 +6471,7 @@ Retry:
             Next
 
             Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
-            Modbus.WriteData(REGISTER_TYPE, ST_COMM4, integerValue_)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM4, integerValue_)
         End If
     End Sub
 End Class

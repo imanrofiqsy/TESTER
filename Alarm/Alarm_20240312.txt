@@ -1,0 +1,47 @@
+2024-03-12 14:45:00 [General] Door Lock 1 Close
+2024-03-12 14:45:00 [General] Door Lock 2 Close
+2024-03-12 14:45:00 [General] Door Lock 3 Close
+2024-03-12 14:45:00 [General] Door Lock 4 Close
+2024-03-12 14:45:00 [General] Door Lock 5 Close
+2024-03-12 14:45:00 [General] Door Lock 6 Close
+2024-03-12 14:45:00 [General] Altivar OK
+2024-03-12 14:45:00 [General] Air Presence NOK
+2024-03-12 14:45:00 [General] Emergency Button Is Released
+2024-03-12 14:45:00 [General] Safety Curtain OK
+2024-03-12 14:45:00 [ST-2] V101 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-2] V201 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-2] V202 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-2] V203 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-3] V301 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-3] V302 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-3] Servo Online Communication Valid
+2024-03-12 14:45:00 [ST-3] Servo Position OK
+2024-03-12 14:45:00 [ST-4] V401 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-4] V402 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-4] Servo Online Communication Valid
+2024-03-12 14:45:00 [ST-4] Servo Position OK
+2024-03-12 14:45:00 [ST-5] V501 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-5] V501 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-5] V503 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-5] V504 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-6] V601 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-6] V602 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-6] V603 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-6] V604 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-6] V605 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-6] V606 Descrepancy Not Detected
+2024-03-12 14:45:00 [ST-6] ST6 Laser OK
+2024-03-12 15:18:05 [General] Safety Curtain NOK
+2024-03-12 15:18:10 [General] Safety Curtain OK
+2024-03-12 21:38:14 [General] Emergency Button Is Pressed
+2024-03-12 21:38:14 [ST-2] V201 Descrepancy Detected
+2024-03-12 21:38:14 [ST-2] V202 Descrepancy Detected
+2024-03-12 21:38:14 [ST-2] V203 Descrepancy Detected
+2024-03-12 21:38:14 [ST-4] V401 Descrepancy Detected
+2024-03-12 21:38:14 [ST-4] V402 Descrepancy Detected
+2024-03-12 21:38:14 [ST-4] Servo Not Online Communication Invalid
+2024-03-12 21:38:14 [ST-4] Servo Error Please Reset & Homing the Servo
+2024-03-12 21:38:14 [ST-5] V501 Descrepancy Detected
+2024-03-12 21:38:14 [ST-5] V502 Descrepancy Detected
+2024-03-12 21:38:14 [ST-5] V503 Descrepancy Detected
+2024-03-12 21:38:14 [ST-5] V504 Descrepancy Detected

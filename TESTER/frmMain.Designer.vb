@@ -380,6 +380,7 @@ Partial Class frmMain
         Me.btn_st4_servo_stop = New System.Windows.Forms.Button()
         Me.btn_st4_servo_reset = New System.Windows.Forms.Button()
         Me.btn_st4_jog_ccw = New System.Windows.Forms.Button()
+        Me.btn_st4_auto_calibration = New System.Windows.Forms.Button()
         Me.btn_st4_man_trig = New System.Windows.Forms.Button()
         Me.btn_st4_cal = New System.Windows.Forms.Button()
         Me.btn_st4_jog_cw = New System.Windows.Forms.Button()
@@ -1156,7 +1157,6 @@ Partial Class frmMain
         Me.btn_stn2_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn2_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_man_stn2 = New System.Windows.Forms.TabControl()
-        Me.btn_st4_auto_calibration = New System.Windows.Forms.Button()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -5598,6 +5598,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_gt2_6.Name = "txt_st4_cal_val_gt2_6"
         Me.txt_st4_cal_val_gt2_6.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_6.TabIndex = 116
+        Me.txt_st4_cal_val_gt2_6.Visible = False
         '
         'txt_st4_cal_val_gt2_5
         '
@@ -5606,6 +5607,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_gt2_5.Name = "txt_st4_cal_val_gt2_5"
         Me.txt_st4_cal_val_gt2_5.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_5.TabIndex = 114
+        Me.txt_st4_cal_val_gt2_5.Visible = False
         '
         'txt_st4_cal_val_p0_6
         '
@@ -5614,6 +5616,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_p0_6.Name = "txt_st4_cal_val_p0_6"
         Me.txt_st4_cal_val_p0_6.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_6.TabIndex = 105
+        Me.txt_st4_cal_val_p0_6.Visible = False
         '
         'txt_st4_cal_val_gt2_4
         '
@@ -5622,6 +5625,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_gt2_4.Name = "txt_st4_cal_val_gt2_4"
         Me.txt_st4_cal_val_gt2_4.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_4.TabIndex = 113
+        Me.txt_st4_cal_val_gt2_4.Visible = False
         '
         'txt_st4_cal_val_p0_5
         '
@@ -5630,6 +5634,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_p0_5.Name = "txt_st4_cal_val_p0_5"
         Me.txt_st4_cal_val_p0_5.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_5.TabIndex = 106
+        Me.txt_st4_cal_val_p0_5.Visible = False
         '
         'txt_st4_cal_val_gt2_3
         '
@@ -5638,6 +5643,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_gt2_3.Name = "txt_st4_cal_val_gt2_3"
         Me.txt_st4_cal_val_gt2_3.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_3.TabIndex = 112
+        Me.txt_st4_cal_val_gt2_3.Visible = False
         '
         'txt_st4_cal_val_p0_4
         '
@@ -5646,6 +5652,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_p0_4.Name = "txt_st4_cal_val_p0_4"
         Me.txt_st4_cal_val_p0_4.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_4.TabIndex = 107
+        Me.txt_st4_cal_val_p0_4.Visible = False
         '
         'txt_st4_cal_val_gt2_2
         '
@@ -5654,6 +5661,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_gt2_2.Name = "txt_st4_cal_val_gt2_2"
         Me.txt_st4_cal_val_gt2_2.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_2.TabIndex = 115
+        Me.txt_st4_cal_val_gt2_2.Visible = False
         '
         'txt_st4_cal_val_p0_3
         '
@@ -5662,6 +5670,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_p0_3.Name = "txt_st4_cal_val_p0_3"
         Me.txt_st4_cal_val_p0_3.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_3.TabIndex = 108
+        Me.txt_st4_cal_val_p0_3.Visible = False
         '
         'txt_st4_cal_val_gt2_1
         '
@@ -5678,6 +5687,7 @@ Partial Class frmMain
         Me.txt_st4_cal_val_p0_2.Name = "txt_st4_cal_val_p0_2"
         Me.txt_st4_cal_val_p0_2.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_2.TabIndex = 109
+        Me.txt_st4_cal_val_p0_2.Visible = False
         '
         'txt_st4_cal_val_p0_1
         '
@@ -5696,6 +5706,7 @@ Partial Class frmMain
         Me.Label324.Size = New System.Drawing.Size(15, 16)
         Me.Label324.TabIndex = 102
         Me.Label324.Text = "6"
+        Me.Label324.Visible = False
         '
         'Label294
         '
@@ -5716,6 +5727,7 @@ Partial Class frmMain
         Me.Label323.Size = New System.Drawing.Size(15, 16)
         Me.Label323.TabIndex = 100
         Me.Label323.Text = "5"
+        Me.Label323.Visible = False
         '
         'Label322
         '
@@ -5726,6 +5738,7 @@ Partial Class frmMain
         Me.Label322.Size = New System.Drawing.Size(15, 16)
         Me.Label322.TabIndex = 99
         Me.Label322.Text = "4"
+        Me.Label322.Visible = False
         '
         'Label293
         '
@@ -5746,6 +5759,7 @@ Partial Class frmMain
         Me.Label319.Size = New System.Drawing.Size(15, 16)
         Me.Label319.TabIndex = 98
         Me.Label319.Text = "3"
+        Me.Label319.Visible = False
         '
         'Label318
         '
@@ -5756,6 +5770,7 @@ Partial Class frmMain
         Me.Label318.Size = New System.Drawing.Size(15, 16)
         Me.Label318.TabIndex = 101
         Me.Label318.Text = "2"
+        Me.Label318.Visible = False
         '
         'Label317
         '
@@ -5866,6 +5881,16 @@ Partial Class frmMain
         Me.btn_st4_jog_ccw.TabIndex = 90
         Me.btn_st4_jog_ccw.Text = "JOG CCW"
         Me.btn_st4_jog_ccw.UseVisualStyleBackColor = True
+        '
+        'btn_st4_auto_calibration
+        '
+        Me.btn_st4_auto_calibration.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_st4_auto_calibration.Location = New System.Drawing.Point(403, 370)
+        Me.btn_st4_auto_calibration.Name = "btn_st4_auto_calibration"
+        Me.btn_st4_auto_calibration.Size = New System.Drawing.Size(100, 40)
+        Me.btn_st4_auto_calibration.TabIndex = 89
+        Me.btn_st4_auto_calibration.Text = "Auto Calibration"
+        Me.btn_st4_auto_calibration.UseVisualStyleBackColor = True
         '
         'btn_st4_man_trig
         '
@@ -13781,6 +13806,7 @@ Partial Class frmMain
         Me.txt_st2_cal_val_6.Name = "txt_st2_cal_val_6"
         Me.txt_st2_cal_val_6.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_6.TabIndex = 94
+        Me.txt_st2_cal_val_6.Visible = False
         '
         'txt_st2_cal_val_5
         '
@@ -13789,6 +13815,7 @@ Partial Class frmMain
         Me.txt_st2_cal_val_5.Name = "txt_st2_cal_val_5"
         Me.txt_st2_cal_val_5.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_5.TabIndex = 94
+        Me.txt_st2_cal_val_5.Visible = False
         '
         'txt_st2_cal_val_4
         '
@@ -13797,6 +13824,7 @@ Partial Class frmMain
         Me.txt_st2_cal_val_4.Name = "txt_st2_cal_val_4"
         Me.txt_st2_cal_val_4.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_4.TabIndex = 94
+        Me.txt_st2_cal_val_4.Visible = False
         '
         'txt_st2_cal_val_3
         '
@@ -13805,6 +13833,7 @@ Partial Class frmMain
         Me.txt_st2_cal_val_3.Name = "txt_st2_cal_val_3"
         Me.txt_st2_cal_val_3.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_3.TabIndex = 94
+        Me.txt_st2_cal_val_3.Visible = False
         '
         'txt_st2_cal_val_2
         '
@@ -13813,6 +13842,7 @@ Partial Class frmMain
         Me.txt_st2_cal_val_2.Name = "txt_st2_cal_val_2"
         Me.txt_st2_cal_val_2.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_2.TabIndex = 94
+        Me.txt_st2_cal_val_2.Visible = False
         '
         'txt_st2_cal_val_1
         '
@@ -13879,6 +13909,7 @@ Partial Class frmMain
         Me.Label330.Size = New System.Drawing.Size(18, 20)
         Me.Label330.TabIndex = 76
         Me.Label330.Text = "6"
+        Me.Label330.Visible = False
         '
         'btn_st2_start_punch
         '
@@ -13899,6 +13930,7 @@ Partial Class frmMain
         Me.Label329.Size = New System.Drawing.Size(18, 20)
         Me.Label329.TabIndex = 76
         Me.Label329.Text = "5"
+        Me.Label329.Visible = False
         '
         'btn_st2_enable_heidenhain
         '
@@ -13919,6 +13951,7 @@ Partial Class frmMain
         Me.Label328.Size = New System.Drawing.Size(18, 20)
         Me.Label328.TabIndex = 76
         Me.Label328.Text = "4"
+        Me.Label328.Visible = False
         '
         'Label279
         '
@@ -13939,6 +13972,7 @@ Partial Class frmMain
         Me.Label327.Size = New System.Drawing.Size(18, 20)
         Me.Label327.TabIndex = 76
         Me.Label327.Text = "3"
+        Me.Label327.Visible = False
         '
         'Label282
         '
@@ -13959,6 +13993,7 @@ Partial Class frmMain
         Me.Label326.Size = New System.Drawing.Size(18, 20)
         Me.Label326.TabIndex = 76
         Me.Label326.Text = "2"
+        Me.Label326.Visible = False
         '
         'Label303
         '
@@ -14531,16 +14566,6 @@ Partial Class frmMain
         Me.pnl_man_stn2.Size = New System.Drawing.Size(853, 563)
         Me.pnl_man_stn2.TabIndex = 100
         '
-        'btn_st4_auto_calibration
-        '
-        Me.btn_st4_auto_calibration.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_st4_auto_calibration.Location = New System.Drawing.Point(403, 370)
-        Me.btn_st4_auto_calibration.Name = "btn_st4_auto_calibration"
-        Me.btn_st4_auto_calibration.Size = New System.Drawing.Size(100, 40)
-        Me.btn_st4_auto_calibration.TabIndex = 89
-        Me.btn_st4_auto_calibration.Text = "Auto Calibration"
-        Me.btn_st4_auto_calibration.UseVisualStyleBackColor = True
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -14591,11 +14616,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t1)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_monitoring)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
         Me.Controls.Add(Me.pnl_man_stn2)
         Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
@@ -14617,6 +14637,11 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

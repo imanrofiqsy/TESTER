@@ -1158,6 +1158,7 @@ Partial Class frmMain
         Me.btn_stn2_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_man_stn2 = New System.Windows.Forms.TabControl()
         Me.btn_st2_auto_caib = New System.Windows.Forms.Button()
+        Me.st6_laser = New System.Windows.Forms.CheckBox()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -8151,6 +8152,7 @@ Partial Class frmMain
         '
         'GroupBox176
         '
+        Me.GroupBox176.Controls.Add(Me.st6_laser)
         Me.GroupBox176.Controls.Add(Me.st4_resistance)
         Me.GroupBox176.Controls.Add(Me.CheckBox2)
         Me.GroupBox176.Controls.Add(Me.st2_beating)
@@ -8182,7 +8184,7 @@ Partial Class frmMain
         '
         Me.st4_resistance.AutoSize = True
         Me.st4_resistance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.st4_resistance.Location = New System.Drawing.Point(73, 268)
+        Me.st4_resistance.Location = New System.Drawing.Point(73, 194)
         Me.st4_resistance.Name = "st4_resistance"
         Me.st4_resistance.Size = New System.Drawing.Size(95, 20)
         Me.st4_resistance.TabIndex = 5
@@ -8193,7 +8195,7 @@ Partial Class frmMain
         '
         Me.CheckBox2.AutoSize = True
         Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.Location = New System.Drawing.Point(73, 193)
+        Me.CheckBox2.Location = New System.Drawing.Point(73, 268)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(64, 20)
         Me.CheckBox2.TabIndex = 5
@@ -8301,7 +8303,7 @@ Partial Class frmMain
         '
         Me.btn_apply_station.AutoSize = True
         Me.btn_apply_station.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_apply_station.Location = New System.Drawing.Point(94, 368)
+        Me.btn_apply_station.Location = New System.Drawing.Point(94, 378)
         Me.btn_apply_station.Name = "btn_apply_station"
         Me.btn_apply_station.Size = New System.Drawing.Size(102, 36)
         Me.btn_apply_station.TabIndex = 4
@@ -14589,6 +14591,17 @@ Partial Class frmMain
         Me.btn_st2_auto_caib.Text = "Auto" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Calibration"
         Me.btn_st2_auto_caib.UseVisualStyleBackColor = True
         '
+        'st6_laser
+        '
+        Me.st6_laser.AutoSize = True
+        Me.st6_laser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.st6_laser.Location = New System.Drawing.Point(73, 358)
+        Me.st6_laser.Name = "st6_laser"
+        Me.st6_laser.Size = New System.Drawing.Size(61, 20)
+        Me.st6_laser.TabIndex = 5
+        Me.st6_laser.Text = "Laser"
+        Me.st6_laser.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -14639,13 +14652,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbl_st4_t1)
         Me.Controls.Add(Me.btn_multimeter)
         Me.Controls.Add(Me.btn_monitoring)
-        Me.Controls.Add(Me.pnl_home)
-        Me.Controls.Add(Me.pnl_man_stn6)
-        Me.Controls.Add(Me.pnl_man_stn5)
-        Me.Controls.Add(Me.pnl_man_stn4)
-        Me.Controls.Add(Me.pnl_man_stn3)
-        Me.Controls.Add(Me.pnl_man_stn2)
-        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Controls.Add(Me.pnl_setting)
         Me.Controls.Add(Me.pnl_log)
         Me.Controls.Add(Me.pnl_ref)
@@ -14665,6 +14671,13 @@ Partial Class frmMain
         Me.Controls.Add(Me.btn_ref)
         Me.Controls.Add(Me.btn_manual)
         Me.Controls.Add(Me.btn_home)
+        Me.Controls.Add(Me.pnl_home)
+        Me.Controls.Add(Me.pnl_man_stn6)
+        Me.Controls.Add(Me.pnl_man_stn5)
+        Me.Controls.Add(Me.pnl_man_stn4)
+        Me.Controls.Add(Me.pnl_man_stn3)
+        Me.Controls.Add(Me.pnl_man_stn2)
+        Me.Controls.Add(Me.pnl_man_stn1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -16402,4 +16415,5 @@ Partial Class frmMain
     Friend WithEvents Label331 As Label
     Friend WithEvents btn_st4_auto_calibration As Button
     Friend WithEvents btn_st2_auto_caib As Button
+    Friend WithEvents st6_laser As CheckBox
 End Class

@@ -3378,7 +3378,6 @@ Public Class frmMain
                         Case 2
                             SCAN_MODE = 3
                     End Select
-
                     'SCAN_MODE = 3
                 End If
         End Select
@@ -4256,7 +4255,7 @@ Public Class frmMain
         End If
     End Sub
     Dim bin_val(6) As Integer
-    Dim bin_val_(6) As Integer
+    Dim bin_val_(7) As Integer
     Dim bin_str As String
     Dim bin_str_ As String
     Private Sub btn_apply_Click(sender As Object, e As EventArgs) Handles btn_apply_station.Click
@@ -4332,8 +4331,14 @@ Public Class frmMain
             bin_val_(5) = 0
         End If
 
+        If st6_laser.Checked = False Then
+            bin_val_(6) = 1
+        Else
+            bin_val_(6) = 0
+        End If
+
         bin_str = bin_val(5).ToString + bin_val(4).ToString + bin_val(3).ToString + bin_val(2).ToString + bin_val(1).ToString + bin_val(0).ToString
-        bin_str_ = bin_val_(5).ToString + bin_val_(4).ToString + bin_val_(3).ToString + bin_val_(2).ToString + bin_val_(1).ToString + bin_val_(0).ToString
+        bin_str_ = bin_val_(6).ToString + bin_val_(5).ToString + bin_val_(4).ToString + bin_val_(3).ToString + bin_val_(2).ToString + bin_val_(1).ToString + bin_val_(0).ToString
 
         Dim integerValue As Integer = Convert.ToInt32(bin_str, 2)
         Dim integerValue_ As Integer = Convert.ToInt32(bin_str_, 2)

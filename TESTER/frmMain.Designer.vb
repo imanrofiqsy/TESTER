@@ -1157,6 +1157,7 @@ Partial Class frmMain
         Me.btn_stn2_cyl1_fw = New System.Windows.Forms.Button()
         Me.btn_stn2_cyl1_bw = New System.Windows.Forms.Button()
         Me.pnl_man_stn2 = New System.Windows.Forms.TabControl()
+        Me.btn_st2_auto_caib = New System.Windows.Forms.Button()
         Me.pnl_home.SuspendLayout
         Me.TabPage3.SuspendLayout
         Me.GroupBox175.SuspendLayout
@@ -5600,87 +5601,88 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_gt2_6
         '
+        Me.txt_st4_cal_val_gt2_6.Enabled = False
         Me.txt_st4_cal_val_gt2_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_6.Location = New System.Drawing.Point(422, 230)
         Me.txt_st4_cal_val_gt2_6.Name = "txt_st4_cal_val_gt2_6"
         Me.txt_st4_cal_val_gt2_6.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_6.TabIndex = 116
-        Me.txt_st4_cal_val_gt2_6.Visible = False
         '
         'txt_st4_cal_val_gt2_5
         '
+        Me.txt_st4_cal_val_gt2_5.Enabled = False
         Me.txt_st4_cal_val_gt2_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_5.Location = New System.Drawing.Point(422, 202)
         Me.txt_st4_cal_val_gt2_5.Name = "txt_st4_cal_val_gt2_5"
         Me.txt_st4_cal_val_gt2_5.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_5.TabIndex = 114
-        Me.txt_st4_cal_val_gt2_5.Visible = False
         '
         'txt_st4_cal_val_p0_6
         '
+        Me.txt_st4_cal_val_p0_6.Enabled = False
         Me.txt_st4_cal_val_p0_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_6.Location = New System.Drawing.Point(279, 231)
         Me.txt_st4_cal_val_p0_6.Name = "txt_st4_cal_val_p0_6"
         Me.txt_st4_cal_val_p0_6.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_6.TabIndex = 105
-        Me.txt_st4_cal_val_p0_6.Visible = False
         '
         'txt_st4_cal_val_gt2_4
         '
+        Me.txt_st4_cal_val_gt2_4.Enabled = False
         Me.txt_st4_cal_val_gt2_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_4.Location = New System.Drawing.Point(422, 174)
         Me.txt_st4_cal_val_gt2_4.Name = "txt_st4_cal_val_gt2_4"
         Me.txt_st4_cal_val_gt2_4.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_4.TabIndex = 113
-        Me.txt_st4_cal_val_gt2_4.Visible = False
         '
         'txt_st4_cal_val_p0_5
         '
+        Me.txt_st4_cal_val_p0_5.Enabled = False
         Me.txt_st4_cal_val_p0_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_5.Location = New System.Drawing.Point(279, 203)
         Me.txt_st4_cal_val_p0_5.Name = "txt_st4_cal_val_p0_5"
         Me.txt_st4_cal_val_p0_5.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_5.TabIndex = 106
-        Me.txt_st4_cal_val_p0_5.Visible = False
         '
         'txt_st4_cal_val_gt2_3
         '
+        Me.txt_st4_cal_val_gt2_3.Enabled = False
         Me.txt_st4_cal_val_gt2_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_3.Location = New System.Drawing.Point(422, 146)
         Me.txt_st4_cal_val_gt2_3.Name = "txt_st4_cal_val_gt2_3"
         Me.txt_st4_cal_val_gt2_3.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_3.TabIndex = 112
-        Me.txt_st4_cal_val_gt2_3.Visible = False
         '
         'txt_st4_cal_val_p0_4
         '
+        Me.txt_st4_cal_val_p0_4.Enabled = False
         Me.txt_st4_cal_val_p0_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_4.Location = New System.Drawing.Point(279, 175)
         Me.txt_st4_cal_val_p0_4.Name = "txt_st4_cal_val_p0_4"
         Me.txt_st4_cal_val_p0_4.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_4.TabIndex = 107
-        Me.txt_st4_cal_val_p0_4.Visible = False
         '
         'txt_st4_cal_val_gt2_2
         '
+        Me.txt_st4_cal_val_gt2_2.Enabled = False
         Me.txt_st4_cal_val_gt2_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_2.Location = New System.Drawing.Point(422, 118)
         Me.txt_st4_cal_val_gt2_2.Name = "txt_st4_cal_val_gt2_2"
         Me.txt_st4_cal_val_gt2_2.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_gt2_2.TabIndex = 115
-        Me.txt_st4_cal_val_gt2_2.Visible = False
         '
         'txt_st4_cal_val_p0_3
         '
+        Me.txt_st4_cal_val_p0_3.Enabled = False
         Me.txt_st4_cal_val_p0_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_3.Location = New System.Drawing.Point(279, 147)
         Me.txt_st4_cal_val_p0_3.Name = "txt_st4_cal_val_p0_3"
         Me.txt_st4_cal_val_p0_3.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_3.TabIndex = 108
-        Me.txt_st4_cal_val_p0_3.Visible = False
         '
         'txt_st4_cal_val_gt2_1
         '
+        Me.txt_st4_cal_val_gt2_1.Enabled = False
         Me.txt_st4_cal_val_gt2_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_gt2_1.Location = New System.Drawing.Point(422, 90)
         Me.txt_st4_cal_val_gt2_1.Name = "txt_st4_cal_val_gt2_1"
@@ -5689,15 +5691,16 @@ Partial Class frmMain
         '
         'txt_st4_cal_val_p0_2
         '
+        Me.txt_st4_cal_val_p0_2.Enabled = False
         Me.txt_st4_cal_val_p0_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_2.Location = New System.Drawing.Point(279, 119)
         Me.txt_st4_cal_val_p0_2.Name = "txt_st4_cal_val_p0_2"
         Me.txt_st4_cal_val_p0_2.Size = New System.Drawing.Size(107, 22)
         Me.txt_st4_cal_val_p0_2.TabIndex = 109
-        Me.txt_st4_cal_val_p0_2.Visible = False
         '
         'txt_st4_cal_val_p0_1
         '
+        Me.txt_st4_cal_val_p0_1.Enabled = False
         Me.txt_st4_cal_val_p0_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st4_cal_val_p0_1.Location = New System.Drawing.Point(279, 91)
         Me.txt_st4_cal_val_p0_1.Name = "txt_st4_cal_val_p0_1"
@@ -5707,13 +5710,13 @@ Partial Class frmMain
         'Label324
         '
         Me.Label324.AutoSize = True
+        Me.Label324.Enabled = False
         Me.Label324.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label324.Location = New System.Drawing.Point(259, 236)
         Me.Label324.Name = "Label324"
         Me.Label324.Size = New System.Drawing.Size(15, 16)
         Me.Label324.TabIndex = 102
         Me.Label324.Text = "6"
-        Me.Label324.Visible = False
         '
         'Label294
         '
@@ -5728,24 +5731,24 @@ Partial Class frmMain
         'Label323
         '
         Me.Label323.AutoSize = True
+        Me.Label323.Enabled = False
         Me.Label323.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label323.Location = New System.Drawing.Point(259, 208)
         Me.Label323.Name = "Label323"
         Me.Label323.Size = New System.Drawing.Size(15, 16)
         Me.Label323.TabIndex = 100
         Me.Label323.Text = "5"
-        Me.Label323.Visible = False
         '
         'Label322
         '
         Me.Label322.AutoSize = True
+        Me.Label322.Enabled = False
         Me.Label322.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label322.Location = New System.Drawing.Point(259, 180)
         Me.Label322.Name = "Label322"
         Me.Label322.Size = New System.Drawing.Size(15, 16)
         Me.Label322.TabIndex = 99
         Me.Label322.Text = "4"
-        Me.Label322.Visible = False
         '
         'Label293
         '
@@ -5760,28 +5763,29 @@ Partial Class frmMain
         'Label319
         '
         Me.Label319.AutoSize = True
+        Me.Label319.Enabled = False
         Me.Label319.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label319.Location = New System.Drawing.Point(259, 152)
         Me.Label319.Name = "Label319"
         Me.Label319.Size = New System.Drawing.Size(15, 16)
         Me.Label319.TabIndex = 98
         Me.Label319.Text = "3"
-        Me.Label319.Visible = False
         '
         'Label318
         '
         Me.Label318.AutoSize = True
+        Me.Label318.Enabled = False
         Me.Label318.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label318.Location = New System.Drawing.Point(259, 124)
         Me.Label318.Name = "Label318"
         Me.Label318.Size = New System.Drawing.Size(15, 16)
         Me.Label318.TabIndex = 101
         Me.Label318.Text = "2"
-        Me.Label318.Visible = False
         '
         'Label317
         '
         Me.Label317.AutoSize = True
+        Me.Label317.Enabled = False
         Me.Label317.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label317.Location = New System.Drawing.Point(259, 96)
         Me.Label317.Name = "Label317"
@@ -13770,6 +13774,7 @@ Partial Class frmMain
         Me.TabPage26.Controls.Add(Me.txt_st2_cal_val_1)
         Me.TabPage26.Controls.Add(Me.txt_st2_punch_count)
         Me.TabPage26.Controls.Add(Me.txt_st2_act_mea)
+        Me.TabPage26.Controls.Add(Me.btn_st2_auto_caib)
         Me.TabPage26.Controls.Add(Me.btn_st2_set_cal_val)
         Me.TabPage26.Controls.Add(Me.btn_st2_preset_heidenhain)
         Me.TabPage26.Controls.Add(Me.btn_st2_stop_punch)
@@ -13808,51 +13813,52 @@ Partial Class frmMain
         '
         'txt_st2_cal_val_6
         '
+        Me.txt_st2_cal_val_6.Enabled = False
         Me.txt_st2_cal_val_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_6.Location = New System.Drawing.Point(344, 282)
         Me.txt_st2_cal_val_6.Name = "txt_st2_cal_val_6"
         Me.txt_st2_cal_val_6.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_6.TabIndex = 94
-        Me.txt_st2_cal_val_6.Visible = False
         '
         'txt_st2_cal_val_5
         '
+        Me.txt_st2_cal_val_5.Enabled = False
         Me.txt_st2_cal_val_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_5.Location = New System.Drawing.Point(344, 250)
         Me.txt_st2_cal_val_5.Name = "txt_st2_cal_val_5"
         Me.txt_st2_cal_val_5.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_5.TabIndex = 94
-        Me.txt_st2_cal_val_5.Visible = False
         '
         'txt_st2_cal_val_4
         '
+        Me.txt_st2_cal_val_4.Enabled = False
         Me.txt_st2_cal_val_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_4.Location = New System.Drawing.Point(344, 218)
         Me.txt_st2_cal_val_4.Name = "txt_st2_cal_val_4"
         Me.txt_st2_cal_val_4.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_4.TabIndex = 94
-        Me.txt_st2_cal_val_4.Visible = False
         '
         'txt_st2_cal_val_3
         '
+        Me.txt_st2_cal_val_3.Enabled = False
         Me.txt_st2_cal_val_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_3.Location = New System.Drawing.Point(344, 186)
         Me.txt_st2_cal_val_3.Name = "txt_st2_cal_val_3"
         Me.txt_st2_cal_val_3.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_3.TabIndex = 94
-        Me.txt_st2_cal_val_3.Visible = False
         '
         'txt_st2_cal_val_2
         '
+        Me.txt_st2_cal_val_2.Enabled = False
         Me.txt_st2_cal_val_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_2.Location = New System.Drawing.Point(344, 154)
         Me.txt_st2_cal_val_2.Name = "txt_st2_cal_val_2"
         Me.txt_st2_cal_val_2.Size = New System.Drawing.Size(107, 26)
         Me.txt_st2_cal_val_2.TabIndex = 94
-        Me.txt_st2_cal_val_2.Visible = False
         '
         'txt_st2_cal_val_1
         '
+        Me.txt_st2_cal_val_1.Enabled = False
         Me.txt_st2_cal_val_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_st2_cal_val_1.Location = New System.Drawing.Point(344, 122)
         Me.txt_st2_cal_val_1.Name = "txt_st2_cal_val_1"
@@ -13910,13 +13916,13 @@ Partial Class frmMain
         'Label330
         '
         Me.Label330.AutoSize = True
+        Me.Label330.Enabled = False
         Me.Label330.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label330.Location = New System.Drawing.Point(317, 285)
         Me.Label330.Name = "Label330"
         Me.Label330.Size = New System.Drawing.Size(18, 20)
         Me.Label330.TabIndex = 76
         Me.Label330.Text = "6"
-        Me.Label330.Visible = False
         '
         'btn_st2_start_punch
         '
@@ -13931,13 +13937,13 @@ Partial Class frmMain
         'Label329
         '
         Me.Label329.AutoSize = True
+        Me.Label329.Enabled = False
         Me.Label329.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label329.Location = New System.Drawing.Point(317, 253)
         Me.Label329.Name = "Label329"
         Me.Label329.Size = New System.Drawing.Size(18, 20)
         Me.Label329.TabIndex = 76
         Me.Label329.Text = "5"
-        Me.Label329.Visible = False
         '
         'btn_st2_enable_heidenhain
         '
@@ -13952,13 +13958,13 @@ Partial Class frmMain
         'Label328
         '
         Me.Label328.AutoSize = True
+        Me.Label328.Enabled = False
         Me.Label328.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label328.Location = New System.Drawing.Point(317, 221)
         Me.Label328.Name = "Label328"
         Me.Label328.Size = New System.Drawing.Size(18, 20)
         Me.Label328.TabIndex = 76
         Me.Label328.Text = "4"
-        Me.Label328.Visible = False
         '
         'Label279
         '
@@ -13973,13 +13979,13 @@ Partial Class frmMain
         'Label327
         '
         Me.Label327.AutoSize = True
+        Me.Label327.Enabled = False
         Me.Label327.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label327.Location = New System.Drawing.Point(317, 189)
         Me.Label327.Name = "Label327"
         Me.Label327.Size = New System.Drawing.Size(18, 20)
         Me.Label327.TabIndex = 76
         Me.Label327.Text = "3"
-        Me.Label327.Visible = False
         '
         'Label282
         '
@@ -13994,13 +14000,13 @@ Partial Class frmMain
         'Label326
         '
         Me.Label326.AutoSize = True
+        Me.Label326.Enabled = False
         Me.Label326.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label326.Location = New System.Drawing.Point(317, 157)
         Me.Label326.Name = "Label326"
         Me.Label326.Size = New System.Drawing.Size(18, 20)
         Me.Label326.TabIndex = 76
         Me.Label326.Text = "2"
-        Me.Label326.Visible = False
         '
         'Label303
         '
@@ -14572,6 +14578,16 @@ Partial Class frmMain
         Me.pnl_man_stn2.SelectedIndex = 0
         Me.pnl_man_stn2.Size = New System.Drawing.Size(853, 563)
         Me.pnl_man_stn2.TabIndex = 100
+        '
+        'btn_st2_auto_caib
+        '
+        Me.btn_st2_auto_caib.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_st2_auto_caib.Location = New System.Drawing.Point(632, 183)
+        Me.btn_st2_auto_caib.Name = "btn_st2_auto_caib"
+        Me.btn_st2_auto_caib.Size = New System.Drawing.Size(100, 50)
+        Me.btn_st2_auto_caib.TabIndex = 92
+        Me.btn_st2_auto_caib.Text = "Auto" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Calibration"
+        Me.btn_st2_auto_caib.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -16385,4 +16401,5 @@ Partial Class frmMain
     Friend WithEvents txt_offset_gt As TextBox
     Friend WithEvents Label331 As Label
     Friend WithEvents btn_st4_auto_calibration As Button
+    Friend WithEvents btn_st2_auto_caib As Button
 End Class

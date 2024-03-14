@@ -3564,137 +3564,180 @@ Public Class frmMain
         Do
             If SCAN_MODE = 3 Or CALIBRATION Then
                 Dim binaryString As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
+                If binaryString(13) = "1" Then
+                    Me.Invoke(Sub()
+                                  Dim CurrentCavity As Integer = Modbus.ReadData(REGISTER_TYPE, 40091)
+                                  Select Case CurrentCavity
+                                      Case 1
+                                          If txt_st2_act_mea.Text <> "" Then
+                                              txt_st2_cal_val_1.Text = txt_st2_act_mea.Text
+                                              WriteINI(iniPath, "CALIBRATION", "P0st4Cav1", txt_st2_cal_val_1.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2_1, txt_st2_cal_val_1.Text)
+                                          End If
+                                      Case 2
+                                          If txt_st2_act_mea.Text <> "" Then
+                                              txt_st2_cal_val_2.Text = txt_st2_act_mea.Text
+                                              WriteINI(iniPath, "CALIBRATION", "P0st4Cav2", txt_st2_cal_val_2.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2_2, txt_st2_cal_val_2.Text)
+                                          End If
+                                      Case 3
+                                          If txt_st2_act_mea.Text <> "" Then
+                                              txt_st2_cal_val_3.Text = txt_st2_act_mea.Text
+                                              WriteINI(iniPath, "CALIBRATION", "P0st4Cav3", txt_st2_cal_val_3.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2_3, txt_st2_cal_val_3.Text)
+                                          End If
+                                      Case 4
+                                          If txt_st2_act_mea.Text <> "" Then
+                                              txt_st2_cal_val_4.Text = txt_st2_act_mea.Text
+                                              WriteINI(iniPath, "CALIBRATION", "P0st4Cav4", txt_st2_cal_val_4.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2_4, txt_st2_cal_val_4.Text)
+                                          End If
+                                      Case 5
+                                          If txt_st2_act_mea.Text <> "" Then
+                                              txt_st2_cal_val_5.Text = txt_st2_act_mea.Text
+                                              WriteINI(iniPath, "CALIBRATION", "P0st4Cav5", txt_st2_cal_val_5.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2_5, txt_st2_cal_val_5.Text)
+                                          End If
+                                      Case 6
+                                          If txt_st2_act_mea.Text <> "" Then
+                                              txt_st2_cal_val_6.Text = txt_st2_act_mea.Text
+                                              WriteINI(iniPath, "CALIBRATION", "P0st4Cav6", txt_st2_cal_val_6.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CAL_VAL_ST2_6, txt_st2_cal_val_6.Text)
+                                          End If
+                                  End Select
+                              End Sub)
+                End If
                 If binaryString(14) = "0" And binaryString(15) = "1" Then
-                    If Not CALIBRATION Then
-                        Me.Invoke(Sub()
-                                      txt_msg.Text = txt_msg.Text + "Start recording ST2 (Measuring)..." & vbCrLf
-                                      CNT_ST2 = CNT_ST2 + 1
-                                      Dim st2_result As String = Result.MEASUREMENT
+                        If Not CALIBRATION Then
+                            Me.Invoke(Sub()
+                                          txt_msg.Text = txt_msg.Text + "Start recording ST2 (Measuring)..." & vbCrLf
+                                          CNT_ST2 = CNT_ST2 + 1
+                                          Dim st2_result As String = Result.MEASUREMENT
 
-                                      Select Case Action_ST2
-                                          Case 1
-                                              'lbl_item_1.Text = CNT_ST2
-                                              lbl_st2_meas.Text = st2_result
-                                              If Finish6Product Then
-                                                  lbl_st4NC_res.Text = ""
-                                                  lbl_st4NO_res.Text = ""
-                                                  lbl_st4_actu_pos.Text = ""
-                                                  lbl_st4_p2.Text = ""
-                                                  lbl_st4_p3.Text = ""
-                                                  lbl_diff_result.Text = ""
-                                                  lbl_status.Text = ""
-                                                  lbl_unscrew_status.Text = ""
-                                              End If
-                                              Action_ST2 += 1
-                                          Case 2
-                                              'lbl_item_2.Text = CNT_ST2
-                                              lbl_st2_meas_1.Text = st2_result
-                                              If Finish6Product Then
-                                                  lbl_st4NC_res_1.Text = ""
-                                                  lbl_st4NO_res_1.Text = ""
-                                                  lbl_st4_actu_pos_1.Text = ""
-                                                  lbl_st4_p2_1.Text = ""
-                                                  lbl_st4_p3_1.Text = ""
-                                                  lbl_diff_result_1.Text = ""
-                                                  lbl_status_1.Text = ""
-                                                  lbl_unscrew_status_1.Text = ""
-                                              End If
-                                              Action_ST2 += 1
-                                          Case 3
-                                              'lbl_item_3.Text = CNT_ST2
-                                              lbl_st2_meas_2.Text = st2_result
-                                              If Finish6Product Then
-                                                  lbl_st4NC_res_2.Text = ""
-                                                  lbl_st4NO_res_2.Text = ""
-                                                  lbl_st4_actu_pos_2.Text = ""
-                                                  lbl_st4_p2_2.Text = ""
-                                                  lbl_st4_p3_2.Text = ""
-                                                  lbl_diff_result_2.Text = ""
-                                                  lbl_status_2.Text = ""
-                                                  lbl_unscrew_status_2.Text = ""
-                                              End If
-                                              Action_ST2 += 1
-                                          Case 4
-                                              'lbl_item_4.Text = CNT_ST2
-                                              lbl_st2_meas_3.Text = st2_result
-                                              If Finish6Product Then
-                                                  lbl_st4NC_res_3.Text = ""
-                                                  lbl_st4NO_res_3.Text = ""
-                                                  lbl_st4_actu_pos_3.Text = ""
-                                                  lbl_st4_p2_3.Text = ""
-                                                  lbl_st4_p3_3.Text = ""
-                                                  lbl_diff_result_3.Text = ""
-                                                  lbl_status_3.Text = ""
-                                                  lbl_unscrew_status_3.Text = ""
-                                              End If
-                                              Action_ST2 += 1
-                                          Case 5
-                                              'lbl_item_5.Text = CNT_ST2
-                                              lbl_st2_meas_4.Text = st2_result
-                                              If Finish6Product Then
-                                                  lbl_st4NC_res_4.Text = ""
-                                                  lbl_st4NO_res_4.Text = ""
-                                                  lbl_st4_actu_pos_4.Text = ""
-                                                  lbl_st4_p2_4.Text = ""
-                                                  lbl_st4_p3_4.Text = ""
-                                                  lbl_diff_result_4.Text = ""
-                                                  lbl_status_4.Text = ""
-                                                  lbl_unscrew_status_4.Text = ""
-                                              End If
-                                              Action_ST2 += 1
-                                          Case 6
-                                              'lbl_item_6.Text = CNT_ST2
-                                              lbl_st2_meas_5.Text = st2_result
-                                              If Finish6Product Then
-                                                  lbl_st4NC_res_5.Text = ""
-                                                  lbl_st4NO_res_5.Text = ""
-                                                  lbl_st4_actu_pos_5.Text = ""
-                                                  lbl_st4_p2_5.Text = ""
-                                                  lbl_st4_p3_5.Text = ""
-                                                  lbl_diff_result_5.Text = ""
-                                                  lbl_status_5.Text = ""
-                                                  lbl_unscrew_status_5.Text = ""
-                                              End If
-                                              Finish6Product = True
-                                              Action_ST2 = 1
-                                      End Select
+                                          Select Case Action_ST2
+                                              Case 1
+                                                  'lbl_item_1.Text = CNT_ST2
+                                                  lbl_st2_meas.Text = st2_result
+                                                  If Finish6Product Then
+                                                      lbl_st4NC_res.Text = ""
+                                                      lbl_st4NO_res.Text = ""
+                                                      lbl_st4_actu_pos.Text = ""
+                                                      lbl_st4_p2.Text = ""
+                                                      lbl_st4_p3.Text = ""
+                                                      lbl_diff_result.Text = ""
+                                                      lbl_status.Text = ""
+                                                      lbl_unscrew_status.Text = ""
+                                                  End If
+                                                  Action_ST2 += 1
+                                              Case 2
+                                                  'lbl_item_2.Text = CNT_ST2
+                                                  lbl_st2_meas_1.Text = st2_result
+                                                  If Finish6Product Then
+                                                      lbl_st4NC_res_1.Text = ""
+                                                      lbl_st4NO_res_1.Text = ""
+                                                      lbl_st4_actu_pos_1.Text = ""
+                                                      lbl_st4_p2_1.Text = ""
+                                                      lbl_st4_p3_1.Text = ""
+                                                      lbl_diff_result_1.Text = ""
+                                                      lbl_status_1.Text = ""
+                                                      lbl_unscrew_status_1.Text = ""
+                                                  End If
+                                                  Action_ST2 += 1
+                                              Case 3
+                                                  'lbl_item_3.Text = CNT_ST2
+                                                  lbl_st2_meas_2.Text = st2_result
+                                                  If Finish6Product Then
+                                                      lbl_st4NC_res_2.Text = ""
+                                                      lbl_st4NO_res_2.Text = ""
+                                                      lbl_st4_actu_pos_2.Text = ""
+                                                      lbl_st4_p2_2.Text = ""
+                                                      lbl_st4_p3_2.Text = ""
+                                                      lbl_diff_result_2.Text = ""
+                                                      lbl_status_2.Text = ""
+                                                      lbl_unscrew_status_2.Text = ""
+                                                  End If
+                                                  Action_ST2 += 1
+                                              Case 4
+                                                  'lbl_item_4.Text = CNT_ST2
+                                                  lbl_st2_meas_3.Text = st2_result
+                                                  If Finish6Product Then
+                                                      lbl_st4NC_res_3.Text = ""
+                                                      lbl_st4NO_res_3.Text = ""
+                                                      lbl_st4_actu_pos_3.Text = ""
+                                                      lbl_st4_p2_3.Text = ""
+                                                      lbl_st4_p3_3.Text = ""
+                                                      lbl_diff_result_3.Text = ""
+                                                      lbl_status_3.Text = ""
+                                                      lbl_unscrew_status_3.Text = ""
+                                                  End If
+                                                  Action_ST2 += 1
+                                              Case 5
+                                                  'lbl_item_5.Text = CNT_ST2
+                                                  lbl_st2_meas_4.Text = st2_result
+                                                  If Finish6Product Then
+                                                      lbl_st4NC_res_4.Text = ""
+                                                      lbl_st4NO_res_4.Text = ""
+                                                      lbl_st4_actu_pos_4.Text = ""
+                                                      lbl_st4_p2_4.Text = ""
+                                                      lbl_st4_p3_4.Text = ""
+                                                      lbl_diff_result_4.Text = ""
+                                                      lbl_status_4.Text = ""
+                                                      lbl_unscrew_status_4.Text = ""
+                                                  End If
+                                                  Action_ST2 += 1
+                                              Case 6
+                                                  'lbl_item_6.Text = CNT_ST2
+                                                  lbl_st2_meas_5.Text = st2_result
+                                                  If Finish6Product Then
+                                                      lbl_st4NC_res_5.Text = ""
+                                                      lbl_st4NO_res_5.Text = ""
+                                                      lbl_st4_actu_pos_5.Text = ""
+                                                      lbl_st4_p2_5.Text = ""
+                                                      lbl_st4_p3_5.Text = ""
+                                                      lbl_diff_result_5.Text = ""
+                                                      lbl_status_5.Text = ""
+                                                      lbl_unscrew_status_5.Text = ""
+                                                  End If
+                                                  Finish6Product = True
+                                                  Action_ST2 = 1
+                                          End Select
 
-                                      Call KoneksiDB.koneksi_db()
-                                      Dim sc As New SqlCommand("INSERT INTO tb_data ([Sequence Number], [References], [Operator ID], [Product Order], Measurement, [Date Time]) VALUES('" & CNT_ST2.ToString & "', '" & txt_ref.Text & "', '" & txt_ope_id.Text & "', '" & txt_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
-                                      Dim adapter As New SqlDataAdapter(sc)
-                                      adapter.SelectCommand.ExecuteNonQuery()
-                                      WriteINI(iniPath, "STATUS", "SequenceCounter", CNT_ST2)
+                                          Call KoneksiDB.koneksi_db()
+                                          Dim sc As New SqlCommand("INSERT INTO tb_data ([Sequence Number], [References], [Operator ID], [Product Order], Measurement, [Date Time]) VALUES('" & CNT_ST2.ToString & "', '" & txt_ref.Text & "', '" & txt_ope_id.Text & "', '" & txt_po_num.Text & "', '" & st2_result & "', '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "')", KoneksiDB.koneksi)
+                                          Dim adapter As New SqlDataAdapter(sc)
+                                          adapter.SelectCommand.ExecuteNonQuery()
+                                          WriteINI(iniPath, "STATUS", "SequenceCounter", CNT_ST2)
 
-                                      txt_msg.Text = txt_msg.Text + "Finish recording ST2 Result = " + st2_result & vbCrLf
-                                      Dim temp(16) As Integer
-                                      Dim temp_str As String
-                                      Dim binaryString_ As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
-                                      For i As Integer = 0 To binaryString_.Length - 1
-                                          If i = 15 Then
-                                              temp(i) = 0
-                                          ElseIf i = 14 Then
-                                              temp(i) = 1
-                                          Else
-                                              If binaryString_(i) = "1" Then
+                                          txt_msg.Text = txt_msg.Text + "Finish recording ST2 Result = " + st2_result & vbCrLf
+                                          Dim temp(16) As Integer
+                                          Dim temp_str As String
+                                          Dim binaryString_ As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
+                                          For i As Integer = 0 To binaryString_.Length - 1
+                                              If i = 15 Then
+                                                  temp(i) = 0
+                                              ElseIf i = 14 Then
                                                   temp(i) = 1
                                               Else
-                                                  temp(i) = 0
+                                                  If binaryString_(i) = "1" Then
+                                                      temp(i) = 1
+                                                  Else
+                                                      temp(i) = 0
+                                                  End If
                                               End If
-                                          End If
-                                          temp_str = temp_str + temp(i).ToString
-                                      Next
+                                              temp_str = temp_str + temp(i).ToString
+                                          Next
 
-                                      Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+                                          Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
 
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, integerValue_)
-                                      lbl_cnt_st2.Text = CNT_ST2
-                                      Save_Datalog()
-                                  End Sub)
+                                          Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, integerValue_)
+                                          lbl_cnt_st2.Text = CNT_ST2
+                                          Save_Datalog()
+                                      End Sub)
 
+                        End If
                     End If
                 End If
-            End If
-            Thread.Sleep(150)
+                Thread.Sleep(150)
         Loop
 
     End Sub
@@ -3848,24 +3891,33 @@ Public Class frmMain
                     ' save
                     Me.Invoke(Sub()
                                   If txt_st4_analog_data.Text <> "" Then
-                                      txt_st4_cal_val_gt2_1.Text = Val(txt_st4_analog_data.Text) + Val(txt_offset_gt.Text)
-                                      txt_st4_cal_val_gt2_2.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
-                                      txt_st4_cal_val_gt2_3.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
-                                      txt_st4_cal_val_gt2_4.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
-                                      txt_st4_cal_val_gt2_5.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
-                                      txt_st4_cal_val_gt2_6.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav1", txt_st4_cal_val_gt2_1.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav2", txt_st4_cal_val_gt2_2.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav3", txt_st4_cal_val_gt2_3.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav4", txt_st4_cal_val_gt2_4.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav5", txt_st4_cal_val_gt2_5.Text)
-                                      WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav6", txt_st4_cal_val_gt2_6.Text)
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_1, txt_st4_cal_val_gt2_1.Text)
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_2, txt_st4_cal_val_gt2_2.Text)
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_3, txt_st4_cal_val_gt2_3.Text)
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_4, txt_st4_cal_val_gt2_4.Text)
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_5, txt_st4_cal_val_gt2_5.Text)
-                                      Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_6, txt_st4_cal_val_gt2_6.Text)
+                                      Dim CurrentCavity As Integer = Modbus.ReadData(REGISTER_TYPE, 40090)
+                                      Select Case CurrentCavity
+                                          Case 1
+                                              txt_st4_cal_val_gt2_1.Text = Val(txt_st4_analog_data.Text) + Val(txt_offset_gt.Text)
+                                              WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav1", txt_st4_cal_val_gt2_1.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_1, txt_st4_cal_val_gt2_1.Text)
+                                          Case 2
+                                              txt_st4_cal_val_gt2_2.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
+                                              WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav2", txt_st4_cal_val_gt2_2.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_2, txt_st4_cal_val_gt2_2.Text)
+                                          Case 3
+                                              txt_st4_cal_val_gt2_3.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
+                                              WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav3", txt_st4_cal_val_gt2_3.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_3, txt_st4_cal_val_gt2_3.Text)
+                                          Case 4
+                                              txt_st4_cal_val_gt2_4.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
+                                              WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav4", txt_st4_cal_val_gt2_4.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_4, txt_st4_cal_val_gt2_4.Text)
+                                          Case 5
+                                              txt_st4_cal_val_gt2_5.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
+                                              WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav5", txt_st4_cal_val_gt2_5.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_5, txt_st4_cal_val_gt2_5.Text)
+                                          Case 6
+                                              txt_st4_cal_val_gt2_6.Text = txt_st4_analog_data.Text + Val(txt_offset_gt.Text)
+                                              WriteINI(iniPath, "CALIBRATION", "Gt2st4Cav6", txt_st4_cal_val_gt2_6.Text)
+                                              Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_6, txt_st4_cal_val_gt2_6.Text)
+                                      End Select
                                   End If
                                   If txt_st4_act_pos.Text <> "" Then
                                       txt_st4_cal_val_p0_1.Text = txt_st4_act_pos.Text
@@ -6470,5 +6522,51 @@ Retry:
 
     Private Sub btn_empty_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_empty.MouseUp
         Modbus.WriteData(REGISTER_TYPE, ADDR_EMPTY_PROCCESS, 0)
+    End Sub
+
+    Private Sub btn_st2_auto_caib_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st2_auto_caib.MouseDown
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 12 Then
+                    temp(i) = 1
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, integerValue_)
+        End If
+    End Sub
+
+    Private Sub btn_st2_auto_caib_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_st2_auto_caib.MouseUp
+        If Status.Enabled = True Then
+            Dim temp(16) As Integer
+            Dim temp_str As String
+            Dim binaryString As String = Convert.ToString(ST_COMM2, 2).PadLeft(16, "0"c)
+            For i As Integer = 0 To binaryString.Length - 1
+                If i = 12 Then
+                    temp(i) = 0
+                Else
+                    If binaryString(i) = "1" Then
+                        temp(i) = 1
+                    Else
+                        temp(i) = 0
+                    End If
+                End If
+                temp_str = temp_str + temp(i).ToString
+            Next
+
+            Dim integerValue_ As Integer = Convert.ToInt32(temp_str.ToString, 2)
+            Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, integerValue_)
+        End If
     End Sub
 End Class

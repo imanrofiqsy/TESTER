@@ -6472,6 +6472,8 @@ Retry:
 
     Private Sub btn_st4_auto_calibration_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_st4_auto_calibration.MouseDown
         If Status.Enabled = True Then
+            txt_st4_actu_pos.Text = "0"
+            txt_st4_diff_str.Text = "0"
             Dim temp(16) As Integer
             Dim temp_str As String
             Dim binaryString As String = Convert.ToString(ST_COMM4, 2).PadLeft(16, "0"c)

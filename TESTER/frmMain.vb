@@ -3435,7 +3435,14 @@ Public Class frmMain
                             lbl_op_ins.Text = lbl_op_ins.Text + "Machine in emergency mode"
                         Else
                             lbl_op_ins.Text = lbl_op_ins.Text + "Machine in initialize mode"
+                            Action_ST2 = 1
+                            Action_ST3 = 1
+                            Action_ST4 = 1
+                            Action_ST5 = 1
+                            ClearProductionData()
                         End If
+                    ElseIf RUNNING_STATE = 4 Then
+                        lbl_op_ins.Text = lbl_op_ins.Text + "Machine in emptying process"
                     End If
                 End If
             End If
@@ -3556,6 +3563,67 @@ Public Class frmMain
         txt_ope_id.Text = ""
         txt_po_num.Text = ""
     End Sub
+    Public Sub ClearProductionData()
+        lbl_st2_meas.Text = ""
+        lbl_st4NC_res.Text = ""
+        lbl_st4NO_res.Text = ""
+        lbl_st4_actu_pos.Text = ""
+        lbl_st4_p2.Text = ""
+        lbl_st4_p3.Text = ""
+        lbl_diff_result.Text = ""
+        lbl_status.Text = ""
+        lbl_unscrew_status.Text = ""
+
+        lbl_st2_meas_1.Text = ""
+        lbl_st4NC_res_1.Text = ""
+        lbl_st4NO_res_1.Text = ""
+        lbl_st4_actu_pos_1.Text = ""
+        lbl_st4_p2_1.Text = ""
+        lbl_st4_p3_1.Text = ""
+        lbl_diff_result_1.Text = ""
+        lbl_status_1.Text = ""
+        lbl_unscrew_status_1.Text = ""
+
+        lbl_st2_meas_2.Text = ""
+        lbl_st4NC_res_2.Text = ""
+        lbl_st4NO_res_2.Text = ""
+        lbl_st4_actu_pos_2.Text = ""
+        lbl_st4_p2_2.Text = ""
+        lbl_st4_p3_2.Text = ""
+        lbl_diff_result_2.Text = ""
+        lbl_status_2.Text = ""
+        lbl_unscrew_status_2.Text = ""
+
+        lbl_st2_meas_3.Text = ""
+        lbl_st4NC_res_3.Text = ""
+        lbl_st4NO_res_3.Text = ""
+        lbl_st4_actu_pos_3.Text = ""
+        lbl_st4_p2_3.Text = ""
+        lbl_st4_p3_3.Text = ""
+        lbl_diff_result_3.Text = ""
+        lbl_status_3.Text = ""
+        lbl_unscrew_status_3.Text = ""
+
+        lbl_st2_meas_4.Text = ""
+        lbl_st4NC_res_4.Text = ""
+        lbl_st4NO_res_4.Text = ""
+        lbl_st4_actu_pos_4.Text = ""
+        lbl_st4_p2_4.Text = ""
+        lbl_st4_p3_4.Text = ""
+        lbl_diff_result_4.Text = ""
+        lbl_status_4.Text = ""
+        lbl_unscrew_status_4.Text = ""
+
+        lbl_st2_meas_5.Text = ""
+        lbl_st4NC_res_5.Text = ""
+        lbl_st4NO_res_5.Text = ""
+        lbl_st4_actu_pos_5.Text = ""
+        lbl_st4_p2_5.Text = ""
+        lbl_st4_p3_5.Text = ""
+        lbl_diff_result_5.Text = ""
+        lbl_status_5.Text = ""
+        lbl_unscrew_status_5.Text = ""
+    End Sub
     Dim Action_ST2 As Integer = 1
     Dim Finish6Product As Boolean = False
     Private Sub ST2_Thread()
@@ -3565,6 +3633,7 @@ Public Class frmMain
                 If binaryString(13) = "1" Then
                     Me.Invoke(Sub()
                                   Dim CurrentCavity As Integer = Modbus.ReadData(REGISTER_TYPE, 48236)
+                                  txt_curr_cav_st2.Text = CurrentCavity
                                   Select Case CurrentCavity
                                       Case 1
                                           If txt_st2_act_mea.Text <> "" Then
@@ -3890,6 +3959,7 @@ Public Class frmMain
                     Me.Invoke(Sub()
                                   If txt_st4_analog_data.Text <> "" Then
                                       Dim CurrentCavity As Integer = Modbus.ReadData(REGISTER_TYPE, 48224)
+                                      txt_curr_cav_st4.Text = CurrentCavity
                                       Select Case CurrentCavity
                                           Case 1
                                               txt_st4_cal_val_gt2_1.Text = Val(txt_st4_analog_data.Text) + Val(txt_offset_gt.Text)
@@ -6351,7 +6421,7 @@ Retry:
         End If
     End Sub
 
-    Private Sub txt_st4_cal_val_p0_1_Click(sender As Object, e As EventArgs) Handles txt_st4_cal_val_p0_1.Click
+    Private Sub txt_st4_cal_val_p0_1_Click(sender As Object, e As EventArgs) Handles txt_st4_cal_val_p0_1.Click, txt_curr_cav_st4.Click
         txt_st4_cal_val_p0_1.Text = txt_st4_act_pos.Text
         If txt_st4_cal_val_p0_1.Text <> "" Then
             WriteINI(iniPath, "CALIBRATION", "P0st4Cav1", txt_st4_cal_val_p0_1.Text)
@@ -6438,7 +6508,7 @@ Retry:
             Modbus.WriteData(REGISTER_TYPE, ADDR_CALIB_VALUE_GT2_ST4_6, txt_st4_cal_val_gt2_6.Text)
         End If
     End Sub
-    Private Sub txt_st2_cal_val_1_Click(sender As Object, e As EventArgs) Handles txt_st2_cal_val_1.Click
+    Private Sub txt_st2_cal_val_1_Click(sender As Object, e As EventArgs) Handles txt_st2_cal_val_1.Click, txt_curr_cav_st2.Click
         txt_st2_cal_val_1.Text = txt_st2_act_mea.Text
         If txt_st2_cal_val_1.Text <> "" Then
             Modbus.WriteDataDword(REGISTER_TYPE, ADDR_CAL_VAL_ST2_1, txt_st2_cal_val_1.Text)
@@ -6582,6 +6652,4 @@ Retry:
             Modbus.WriteData(REGISTER_TYPE, ADDR_ST_COMM2, integerValue_)
         End If
     End Sub
-
-
 End Class

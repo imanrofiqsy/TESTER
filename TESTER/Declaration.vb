@@ -63,12 +63,12 @@
     Public ADDR_ACT_POS_ST3 As Integer = 40068
 
     Public ADDR_HEIDENHAIN As Integer = 40032
-    Public ADDR_CAL_VAL_ST2_1 As Integer = 40074
-    Public ADDR_CAL_VAL_ST2_2 As Integer = 40074
-    Public ADDR_CAL_VAL_ST2_3 As Integer = 40074
-    Public ADDR_CAL_VAL_ST2_4 As Integer = 40074
-    Public ADDR_CAL_VAL_ST2_5 As Integer = 40074
-    Public ADDR_CAL_VAL_ST2_6 As Integer = 40074
+    Public ADDR_CAL_VAL_ST2_1 As Integer = 48236
+    Public ADDR_CAL_VAL_ST2_2 As Integer = 48238
+    Public ADDR_CAL_VAL_ST2_3 As Integer = 48240
+    Public ADDR_CAL_VAL_ST2_4 As Integer = 48242
+    Public ADDR_CAL_VAL_ST2_5 As Integer = 48244
+    Public ADDR_CAL_VAL_ST2_6 As Integer = 48246
     Public ADDR_ACT_MEA_ST2 As Integer = 40076
     Public ADDR_PUNCH_COUNTER_ST2 As Integer = 40078
     Public ADDR_PUNCH_CYCLE_ST2 As Integer = 40079
